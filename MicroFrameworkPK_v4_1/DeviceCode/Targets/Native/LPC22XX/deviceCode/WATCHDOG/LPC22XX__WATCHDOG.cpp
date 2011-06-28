@@ -116,6 +116,7 @@ void LPC22XX_WATCHDOG_Driver::ResetCpu()
 {
     LPC22XX_WATCHDOG& WTDG = LPC22XX::WTDG();
 
+    debug_printf("waiting reset...");
     // disable interrupts
     GLOBAL_LOCK(irq);
     // set the smallest value

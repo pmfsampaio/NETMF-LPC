@@ -28,18 +28,18 @@ struct LPC24XX_EMAC
     // EMAC pins
     static const UINT32 c_ENET_TXD0   = LPC24XX_GPIO::c_P1_00;
     static const UINT32 c_ENET_TXD1   = LPC24XX_GPIO::c_P1_01;
-    static const UINT32 c_ENET_TXD2   = LPC24XX_GPIO::c_P1_02;
-    static const UINT32 c_ENET_TXD3   = LPC24XX_GPIO::c_P1_03;
+    static const UINT32 c_ENET_TXD2   = LPC24XX_GPIO::c_P1_02; //-
+    static const UINT32 c_ENET_TXD3   = LPC24XX_GPIO::c_P1_03; //-
     static const UINT32 c_ENET_TX_EN  = LPC24XX_GPIO::c_P1_04;
-    static const UINT32 c_ENET_TX_ER  = LPC24XX_GPIO::c_P1_05;
-    static const UINT32 c_ENET_TX_CLK = LPC24XX_GPIO::c_P1_06;
-    static const UINT32 c_ENET_COL    = LPC24XX_GPIO::c_P1_07;
+    static const UINT32 c_ENET_TX_ER  = LPC24XX_GPIO::c_P1_05; //-
+    static const UINT32 c_ENET_TX_CLK = LPC24XX_GPIO::c_P1_06; //-
+    static const UINT32 c_ENET_COL    = LPC24XX_GPIO::c_P1_07; //-
     static const UINT32 c_ENET_CRS_DV = LPC24XX_GPIO::c_P1_08;
     static const UINT32 c_ENET_RXD0   = LPC24XX_GPIO::c_P1_09;
     static const UINT32 c_ENET_RXD1   = LPC24XX_GPIO::c_P1_10;
-    static const UINT32 c_ENET_RXD2   = LPC24XX_GPIO::c_P1_11;
-    static const UINT32 c_ENET_RXD3   = LPC24XX_GPIO::c_P1_12;
-    static const UINT32 c_ENET_RX_DV  = LPC24XX_GPIO::c_P1_13;
+    static const UINT32 c_ENET_RXD2   = LPC24XX_GPIO::c_P1_11; //-
+    static const UINT32 c_ENET_RXD3   = LPC24XX_GPIO::c_P1_12; //-
+    static const UINT32 c_ENET_RX_DV  = LPC24XX_GPIO::c_P1_13; //-
     static const UINT32 c_ENET_RX_ER  = LPC24XX_GPIO::c_P1_14;
     static const UINT32 c_ENET_REF_CLK= LPC24XX_GPIO::c_P1_15;          
     static const UINT32 c_ENET_MDC    = LPC24XX_GPIO::c_P1_16;

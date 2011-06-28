@@ -344,6 +344,7 @@ void HAL_Initialize()
 
     I2C_Initialize();
 
+
     Buttons_Initialize();
 
     // Initialize the backlight to a default off state

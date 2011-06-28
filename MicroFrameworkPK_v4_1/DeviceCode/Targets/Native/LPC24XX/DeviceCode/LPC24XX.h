@@ -671,7 +671,8 @@ struct LPC24XX_USART
     static const UINT32 UART_LSR_RFDR                   = 0x00000001;     //RX FIFO data ready.
     
     /****/ volatile UINT32 UART_MSR;                                   //Modem status register.
-        
+    /****/ volatile UINT32 dummy1[3];
+    /****/ volatile UINT32 UART_FDR;
     //functions.
     static UINT32 inline getIntNo(int ComPortNum)
     {
@@ -771,6 +772,8 @@ struct LPC24XX_SYSCON
     /****/ volatile UINT32 PCONP;         // Power Control for Peripherals
     static const UINT32 ENABLE_ENET = 0x40000000;
     static const UINT32 ENABLE_LCD  = 0x00100000;
+    static const UINT32 ENABLE_AD  = (1 << 12);
+
     /****/ volatile UINT32 dummy3[15];    // Filler to align next register address
 
     // Clock Control
@@ -1077,6 +1080,30 @@ struct LPC24XX_DAC
 // DAC
 //////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////
+// ADC
+//
+struct LPC24XX_ADC
+{
+	/****/ volatile UINT32 AD0CR;
+	/****/ volatile UINT32 AD0GDR;
+	/****/ volatile UINT32 dummy[2];
+	/****/ volatile UINT32 AD0ADR0;
+	/****/ volatile UINT32 AD0ADR1;
+	/****/ volatile UINT32 AD0ADR2;
+	/****/ volatile UINT32 AD0ADR3;
+	/****/ volatile UINT32 AD0ADR4;
+	/****/ volatile UINT32 AD0ADR5;
+
+    static const UINT32 c_ADC_Base		= 0xE0034000;
+	static const UINT32 c_ADC_IN5		= LPC24XX_GPIO::c_P1_31;
+
+};
+
+//
+// ADC
+//////////////////////////////////////////////////////////////////////////////
+
 /**********************************************************************************************************************/
 /**********************************************************************************************************************/
 /**********************************************************************************************************************/
@@ -1095,6 +1122,7 @@ struct LPC24XX
     static LPC24XX_I2C    & I2C    (         ) { return *(LPC24XX_I2C    *)(size_t)(      LPC24XX_I2C   ::c_I2C_Base                                  ); }
     static LPC24XX_WATCHDOG & WTDG	 (		   ) { return *(LPC24XX_WATCHDOG *)(size_t)( LPC24XX_WATCHDOG ::c_WATCHDOG_Base                             ); }
 	static LPC24XX_DAC    & DAC    (         ) { return *(LPC24XX_DAC    *)(size_t)(      LPC24XX_DAC   ::c_DAC_Base                                  ); }
+	static LPC24XX_ADC    & ADC    (         ) { return *(LPC24XX_ADC    *)(size_t)(      LPC24XX_ADC   ::c_ADC_Base                                  ); }
 
    
     static LPC24XX_TIMER  & TIMER( int sel )
@@ -1709,6 +1737,70 @@ extern LPC24XX_DAC_Driver g_LPC24XX_DAC_Driver;
 //
 // DAC driver
 //////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+// ADC driver
+//
+
+#define ADC_BUFFER_SIZE_SAMPLES 	20
+
+struct LPC24XX_ADC_Driver
+{
+	static void Initialize  ( UINT32 SampleFrequencyHz );
+
+    static void Uninitialize();
+
+	//enable timer interrupts for input
+    static BOOL On();
+
+	//disable timer interrupts
+	static BOOL Off();
+
+	//give info on whether the ADC is or is not converting samples
+	static BOOL IsEnabled();
+
+	static UINT32 GetSample();
+
+#if 0
+	//Samples left in the buffer
+	static UINT32 GetBufferLevel();
+
+	//Max SampleBuffer Capacity (in 16bit samples)
+	static UINT32 GetBufferCapacity();
+
+	//FRAMES left in the buffer
+	static UINT32 GetFramesLeft();
+
+	//Max SampleBuffer Capacity (in FRAMES)
+	static UINT32 GetBufferFrameCapacity();
+
+	//return false if there was not enough space left
+	static BOOL AddFrame(short const * const Samples, UINT32 const SamplesNum);
+
+
+
+	UINT8 SamplesBuffer[DAC_FRAME_BUFFERS_NUM*DAC_FRAME_BUFFER_SIZE_SAMPLES];
+	UINT16 SamplesInFrame[DAC_FRAME_BUFFERS_NUM];
+	UINT32 nextFrameWrite;
+	UINT32 nextFrameRead;
+	UINT32 nextSampleRead;
+	UINT32 SampleCount;
+	UINT32 FrameCount;
+	UINT32 SampleTimeInCycles;
+
+	//output next sample
+    static void ISR( void* Param );
+#endif
+    static bool initialized;
+};
+
+extern LPC24XX_ADC_Driver g_LPC24XX_ADC_Driver;
+
+
+//
+// ADC driver
+//////////////////////////////////////////////////////////////////////////////
+
 
 //////////////////////////////////////////////////////////////////////////////
 // SOCKET driver

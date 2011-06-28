@@ -75,7 +75,7 @@ void CPU_Reset()
 
 BOOL CPU_IsSoftRebootSupported ()
 {
-    return TRUE;
+    return PLATFORM_SUPPORTS_SOFT_REBOOT;
 }
 
 
@@ -114,6 +114,8 @@ void LPC22XX_Driver::Halt()
 
 void LPC22XX_Driver::Reset()
 {
+    debug_printf("go reset...");
+
     LPC22XX_WATCHDOG_Driver::ResetCpu();
 }
 

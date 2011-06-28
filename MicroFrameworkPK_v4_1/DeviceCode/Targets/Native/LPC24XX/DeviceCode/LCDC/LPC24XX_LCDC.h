@@ -160,6 +160,7 @@
 
 /* PINSEL11 selction for TFT 16 5:6:5 */
 #define TFT_16_565 0xB
+#define TFT_24_888 0xF
 
 //////////////////////////////////////////////////////////////////////////////
 // LCD Controller
@@ -176,25 +177,33 @@ struct LPC24XX_LCDC
     static const UINT32 c_LCD_ENAB = LPC24XX_GPIO::c_P2_04;
     static const UINT32 c_LCD_LP   = LPC24XX_GPIO::c_P2_05;
 
-    // Assignment for TFT 16 5:6:5 mode
-    static const UINT32 c_LCD_VD_7  = LPC24XX_GPIO::c_P2_09; // Red 4
-    static const UINT32 c_LCD_VD_6  = LPC24XX_GPIO::c_P2_08; // Red 3
-    static const UINT32 c_LCD_VD_5  = LPC24XX_GPIO::c_P2_07; // Red 2
-    static const UINT32 c_LCD_VD_4  = LPC24XX_GPIO::c_P2_06; // Red 1
-    static const UINT32 c_LCD_VD_3  = LPC24XX_GPIO::c_P2_12; // Red 0
+    // Assignment for TFT 24 8:8:8 mode
+    static const UINT32 c_LCD_VD_7  = LPC24XX_GPIO::c_P2_09; // Red 7
+    static const UINT32 c_LCD_VD_6  = LPC24XX_GPIO::c_P2_08; // Red 6
+    static const UINT32 c_LCD_VD_5  = LPC24XX_GPIO::c_P2_07; // Red 5
+    static const UINT32 c_LCD_VD_4  = LPC24XX_GPIO::c_P2_06; // Red 4
+    static const UINT32 c_LCD_VD_3  = LPC24XX_GPIO::c_P4_29; // Red 3
+    static const UINT32 c_LCD_VD_2  = LPC24XX_GPIO::c_P4_28; // Red 2
+    static const UINT32 c_LCD_VD_1  = LPC24XX_GPIO::c_P0_05; // Red 1
+    static const UINT32 c_LCD_VD_0  = LPC24XX_GPIO::c_P0_04; // Red 0
 
-    static const UINT32 c_LCD_VD_15 = LPC24XX_GPIO::c_P1_25; // Green 5
-    static const UINT32 c_LCD_VD_14 = LPC24XX_GPIO::c_P1_24; // Green 4
-    static const UINT32 c_LCD_VD_13 = LPC24XX_GPIO::c_P1_23; // Green 3
-    static const UINT32 c_LCD_VD_12 = LPC24XX_GPIO::c_P1_22; // Green 2
-    static const UINT32 c_LCD_VD_11 = LPC24XX_GPIO::c_P1_21; // Green 1       
-    static const UINT32 c_LCD_VD_10 = LPC24XX_GPIO::c_P1_20; // Green 0
+    static const UINT32 c_LCD_VD_15 = LPC24XX_GPIO::c_P1_25; // Green 7
+    static const UINT32 c_LCD_VD_14 = LPC24XX_GPIO::c_P1_24; // Green 6
+    static const UINT32 c_LCD_VD_13 = LPC24XX_GPIO::c_P1_23; // Green 5
+    static const UINT32 c_LCD_VD_12 = LPC24XX_GPIO::c_P1_22; // Green 4
+    static const UINT32 c_LCD_VD_11 = LPC24XX_GPIO::c_P1_21; // Green 3
+    static const UINT32 c_LCD_VD_10 = LPC24XX_GPIO::c_P1_20; // Green 2
+    static const UINT32 c_LCD_VD_9 = LPC24XX_GPIO::c_P0_07; // Green 1
+    static const UINT32 c_LCD_VD_8 = LPC24XX_GPIO::c_P0_06; // Green 0
 
-    static const UINT32 c_LCD_VD_23 = LPC24XX_GPIO::c_P1_29; // Blue 4
-    static const UINT32 c_LCD_VD_22 = LPC24XX_GPIO::c_P1_28; // Blue 3
-    static const UINT32 c_LCD_VD_21 = LPC24XX_GPIO::c_P1_27; // Blue 2
-    static const UINT32 c_LCD_VD_20 = LPC24XX_GPIO::c_P1_26; // Blue 1
-    static const UINT32 c_LCD_VD_19 = LPC24XX_GPIO::c_P2_13; // Blue 0       
+    static const UINT32 c_LCD_VD_23 = LPC24XX_GPIO::c_P1_29; // Blue 7
+    static const UINT32 c_LCD_VD_22 = LPC24XX_GPIO::c_P1_28; // Blue 6
+    static const UINT32 c_LCD_VD_21 = LPC24XX_GPIO::c_P1_27; // Blue 5
+    static const UINT32 c_LCD_VD_20 = LPC24XX_GPIO::c_P1_26; // Blue 4
+    static const UINT32 c_LCD_VD_19 = LPC24XX_GPIO::c_P2_13; // Blue 3
+    static const UINT32 c_LCD_VD_18 = LPC24XX_GPIO::c_P2_12; // Blue 2
+    static const UINT32 c_LCD_VD_17 = LPC24XX_GPIO::c_P0_09; // Blue 1
+    static const UINT32 c_LCD_VD_16 = LPC24XX_GPIO::c_P0_08; // Blue 0
 
     /****/ volatile UINT32 LCD_TIMH;      /* LCD horizontal axis plane control register */
     /****/ volatile UINT32 LCD_TIMV;      /* LCD vertical axis plane control register */

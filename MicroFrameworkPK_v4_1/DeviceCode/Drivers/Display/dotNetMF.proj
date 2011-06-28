@@ -8,6 +8,7 @@
 
   <ItemGroup  >
     <SubDirectories Include="A025DL02"/>
+    <SubDirectories Include="ILI9328"/>
     <SubDirectories Include="LQ035Q7DB02"/>
     <SubDirectories Include="TD022SHEB2"/>
     <SubDirectories Include="TD035STEB1"/>

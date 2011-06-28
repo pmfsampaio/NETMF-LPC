@@ -317,6 +317,7 @@
     <Exec Command="$(FROMELF) -S -j ER_$(TARGETLOCATION) -j ER_IRAM_TC -j ER_$(TARGETLOCATION)_CONT -j ER_RAM_RO -j ER_RAM_RW  -O binary @(EXEOutput) $(EXEName).bin\ER_$(TARGETLOCATION)" Condition="'$(MultipleOutputSections)'=='true'" />
     <Exec Command="$(FROMELF) -S -j ER_DAT											-O binary @(EXEOutput) $(EXEName).bin\ER_DAT"    Condition="'$(MultipleOutputSections)'=='true' and ('$(FLAVOR)'!='RTM' OR '$(Platform)'=='SAM9261_EK')" />
     <Exec Command="$(FROMELF) -S -j ER_CONFIG										-O binary @(EXEOutput) $(EXEName).bin\ER_CONFIG" Condition="'$(MultipleOutputSections)'=='true'" />
+    <Exec Command="$(FROMELF) -S -j ER_IFLASH										-O binary @(EXEOutput) $(EXEName).bin\ER_IFLASH"                                           Condition="'$(MultipleOutputSections)'=='true'" />
 
     <Exec Command="$(FROMELF) -S -j ER_$(TARGETLOCATION) -j ER_IRAM_TC -j ER_$(TARGETLOCATION)_CONT -j ER_RAM_RO -j ER_RAM_RW  -j ER_IRAM -O srec --gap-fill 0 --srec-forceS3  @(EXEOutput) $(EXEName).hex"                      Condition="'$(MultipleOutputSections)'!='true'" />
     <Exec Command="$(FROMELF) -S -j ER_$(TARGETLOCATION) -j ER_IRAM_TC -j ER_$(TARGETLOCATION)_CONT -j ER_RAM_RO -j ER_RAM_RW  -j ER_IRAM -O ihex --gap-fill 0                 @(EXEOutput) $(EXEName).ihex"                     Condition="'$(MultipleOutputSections)'!='true' and '$(IntelHexFormat)'=='true'" />

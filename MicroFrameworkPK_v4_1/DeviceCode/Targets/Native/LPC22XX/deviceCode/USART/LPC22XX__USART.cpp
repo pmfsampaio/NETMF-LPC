@@ -106,7 +106,7 @@ UINT32 CPU_USART_PortsCount()
 
 void CPU_USART_GetPins( int ComPortNum,  GPIO_PIN& rxPin, GPIO_PIN& txPin,GPIO_PIN& ctsPin, GPIO_PIN& rtsPin )
 {   
-    return LPC22XX_USART_Driver::GetPins(ComPortNum, rxPin, txPin, ctsPin, rtsPin );
+    LPC22XX_USART_Driver::GetPins(ComPortNum, rxPin, txPin, ctsPin, rtsPin );
 }
 
 BOOL CPU_USART_SupportNonStandardBaudRate (int ComPortNum)
@@ -116,7 +116,7 @@ BOOL CPU_USART_SupportNonStandardBaudRate (int ComPortNum)
 
 void CPU_USART_GetBaudrateBoundary(int ComPortNum, UINT32& maxBaudrateHz, UINT32& minBaudrateHz)
 {
-    return LPC22XX_USART_Driver::BaudrateBoundary(ComPortNum, maxBaudrateHz, minBaudrateHz);
+    LPC22XX_USART_Driver::BaudrateBoundary(ComPortNum, maxBaudrateHz, minBaudrateHz);
 }
 
 BOOL CPU_USART_IsBaudrateSupported(int ComPortNum, UINT32& BaudrateHz)
@@ -145,16 +145,52 @@ void LPC22XX_USART_Driver::UART_IntHandler (void *param)
    ASSERT(LPC22XX_USART_Driver::IsValidPortNum((UINT32)param));    
 
    char c; 
-   UINT32 ComNum = (UINT32)param;
-   UINT32 i,rxcnt;  
-   LPC22XX_USART& USARTC = LPC22XX::UART(ComNum);
-   volatile UINT32 IIR_Value;
-   volatile UINT32 LSR_Value;
+   register UINT32 ComNum = (UINT32)param;
+   //register UINT32 i,rxcnt;
+   register LPC22XX_USART& USARTC = LPC22XX::UART(ComNum);
+   register volatile UINT32 IIR_Value;
+   register volatile UINT32 LSR_Value;
 
+   while(!((IIR_Value = USARTC.SEL3.IIR.UART_IIR) & 0x01)) {
+	   switch (IIR_Value & 0x0F) {
+	   case 0x4:
+	   case 0xc:	// rx
+		   do {
+			   USART_AddCharToRxBuffer(ComNum, (UINT8 )USARTC.SEL1.RBR.UART_RBR);
+		   } while (USARTC.UART_LSR & LPC22XX_USART::UART_LSR_RFDR);
+          Events_Set( SYSTEM_EVENT_FLAG_COM_IN );
+          break;
+	   case 0x2: // tx
+	   	   if (USART_RemoveCharFromTxBuffer( ComNum, c )) {
+	   		   WriteCharToTxBuffer( ComNum, c );
+	   		   Events_Set( SYSTEM_EVENT_FLAG_COM_OUT );
+	   	   }
+	   	   else
+	   	   {
+           // Disable further TxBufferEmptyInterrupt. It will be
+		       // enabled by the PAL uart driver when a character to the
+		       // TxBuffer is added
+	   		   TxBufferEmptyInterruptEnable( ComNum, FALSE );
+	   	   }
+	   	   break;
+	   default:
+		    LSR_Value = USARTC.UART_LSR;
+		   break;
+	   }
+   }
+#if 0
     // Read data from Rx FIFO
 
     LSR_Value = USARTC.UART_LSR;
 
+/*
+    if (LSR_Value & (LPC22XX_USART::UART_LSR_OEI | LPC22XX_USART::UART_LSR_ERR_RX |
+    		LPC22XX_USART::UART_LSR_FEI| LPC22XX_USART::UART_LSR_PEI |
+    		LPC22XX_USART::UART_LSR_BII)) {
+    	(*((volatile unsigned long *) 0xE0028018)) = (1 << 17);
+    	(*((volatile unsigned long *) 0xE002801C)) = (1 << 17);	// ON
+    }
+*/
     while (LSR_Value & LPC22XX_USART::UART_LSR_RFDR)
     {
       UINT8 rxdata = (UINT8 )USARTC.SEL1.RBR.UART_RBR;
@@ -196,7 +232,7 @@ void LPC22XX_USART_Driver::UART_IntHandler (void *param)
 
    // Check if IIR read is required to clear the uart Rx interrupt
    IIR_Value = USARTC.SEL3.IIR.UART_IIR; 
-
+#endif
 }
 
 //--//
@@ -285,7 +321,7 @@ BOOL LPC22XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     }
     
     // CWS: Set the RX FIFO trigger level (to 8 bytes), reset RX, TX FIFO 
-    USARTC.SEL3.FCR.UART_FCR =  (LPC22XX_USART::UART_FCR_RFITL_01>> LPC22XX_USART::UART_FCR_RFITL_shift )  |
+    USARTC.SEL3.FCR.UART_FCR =  (LPC22XX_USART::UART_FCR_RFITL_08<< LPC22XX_USART::UART_FCR_RFITL_shift )  |
                                 LPC22XX_USART::UART_FCR_TFR      | 
                                 LPC22XX_USART::UART_FCR_RFR      |
                                 LPC22XX_USART::UART_FCR_FME;
@@ -295,7 +331,7 @@ BOOL LPC22XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     CPU_INTC_ActivateInterrupt( LPC22XX_USART::getIntNo(ComPortNum),
                                 UART_IntHandler,
                                 (void *)ComPortNum);    
-    
+
     return fRet;
 }
 
@@ -416,11 +452,11 @@ void LPC22XX_USART_Driver::RxBufferFullInterruptEnable ( int ComPortNum, BOOL En
 
     if (Enable)
     {
-       USARTC.SEL2.IER.UART_IER |=  (LPC22XX_USART::UART_IER_RDAIE );      
+       USARTC.SEL2.IER.UART_IER |=  (LPC22XX_USART::UART_IER_RDAIE | LPC22XX_USART::UART_IER_RLSIE);
     }
     else
     {
-       USARTC.SEL2.IER.UART_IER &= ~(LPC22XX_USART::UART_IER_RDAIE);               
+       USARTC.SEL2.IER.UART_IER &= ~(LPC22XX_USART::UART_IER_RDAIE | LPC22XX_USART::UART_IER_RLSIE);
     }
 }
 

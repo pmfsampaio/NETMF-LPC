@@ -45,6 +45,22 @@ BOOL LPC24XX_TIMER_Driver::Initialize( UINT32 Timer, HAL_CALLBACK_FPN ISR, void*
 
     LPC24XX_TIMER& TIMER = LPC24XX::TIMER( Timer );
 
+    TIMER.CCR = 0;
+    TIMER.MR0 = 0;
+    TIMER.MR1 = 0;
+    TIMER.MR2 = 0;
+    TIMER.MR3 = 0;
+    TIMER.CR0 = 0;
+    TIMER.CR1 = 0;
+    TIMER.CR2 = 0;
+    TIMER.CR3 = 0;
+    TIMER.EMR = 0;
+    TIMER.IR = 0;
+    TIMER.MCR = 0;
+
+    TIMER.PC = 0;
+    TIMER.PR = 0;
+
     TIMER.TCR = LPC24XX_TIMER::TCR_TEN;
 
     //--//

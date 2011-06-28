@@ -53,6 +53,31 @@ const UINT8 __section(rodata) LPC22XX_GPIO_Driver::c_Gpio_Attributes[LPC22XX_GPI
     GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 28
     GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 29
     GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 30
+    GPIO_ATTRIBUTE_NONE,                          // 31 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 32 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 33 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 34 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 35 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 36 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 37 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 38 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 39 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 40 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 41 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 42 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 43 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 44 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 45 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 46 Reserved
+    GPIO_ATTRIBUTE_NONE,                          // 47 Reserved
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 48
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 49
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 50
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 51
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 52
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 53
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 54
+    GPIO_ATTRIBUTE_INPUT | GPIO_ATTRIBUTE_OUTPUT, // 55
 };
 
 #if defined(ADS_LINKER_BUG__NOT_ALL_UNUSED_VARIABLES_ARE_REMOVED)

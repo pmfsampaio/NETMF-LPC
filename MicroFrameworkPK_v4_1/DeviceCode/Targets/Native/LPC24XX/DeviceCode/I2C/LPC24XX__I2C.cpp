@@ -59,7 +59,7 @@ void  I2C_Internal_GetClockRate( UINT32 rateKhz, UINT8& clockRate, UINT8& clockR
 
 void I2C_Internal_GetPins(GPIO_PIN& scl, GPIO_PIN& sda)
 {
-    return LPC24XX_I2C_Driver::GetPins( scl, sda);
+    LPC24XX_I2C_Driver::GetPins( scl, sda);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -154,7 +154,7 @@ void LPC24XX_I2C_Driver::WriteToSubordinate( I2C_HAL_XACTION_UNIT* unit )
     LPC24XX_I2C& I2C = LPC24XX::I2C();
 
     queueData = unit->m_dataQueue.Pop();
-    
+
     I2C.I2DAT = *queueData;
 
     ++unit->m_bytesTransferred;
@@ -172,7 +172,7 @@ void LPC24XX_I2C_Driver::ReadFromSubordinate( I2C_HAL_XACTION_UNIT* unit )
     ASSERT(queueData);
 
     UINT8 data = I2C.I2DAT;
-    
+
     *queueData = data;
 
     ++unit->m_bytesTransferred;

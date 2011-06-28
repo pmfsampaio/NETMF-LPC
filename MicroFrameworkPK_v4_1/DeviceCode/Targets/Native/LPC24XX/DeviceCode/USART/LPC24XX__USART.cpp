@@ -106,7 +106,7 @@ UINT32 CPU_USART_PortsCount()
 
 void CPU_USART_GetPins( int ComPortNum,  GPIO_PIN& rxPin, GPIO_PIN& txPin,GPIO_PIN& ctsPin, GPIO_PIN& rtsPin )
 {   
-    return LPC24XX_USART_Driver::GetPins(ComPortNum, rxPin, txPin, ctsPin, rtsPin );
+    LPC24XX_USART_Driver::GetPins(ComPortNum, rxPin, txPin, ctsPin, rtsPin );
 }
 
 BOOL CPU_USART_SupportNonStandardBaudRate (int ComPortNum)
@@ -116,7 +116,7 @@ BOOL CPU_USART_SupportNonStandardBaudRate (int ComPortNum)
 
 void CPU_USART_GetBaudrateBoundary(int ComPortNum, UINT32& maxBaudrateHz, UINT32& minBaudrateHz)
 {
-    return LPC24XX_USART_Driver::BaudrateBoundary(ComPortNum, maxBaudrateHz, minBaudrateHz);
+    LPC24XX_USART_Driver::BaudrateBoundary(ComPortNum, maxBaudrateHz, minBaudrateHz);
 }
 
 BOOL CPU_USART_IsBaudrateSupported(int ComPortNum, UINT32& BaudrateHz)
@@ -216,6 +216,7 @@ BOOL LPC24XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     
     // CWS: Disable interrupts
     USARTC.UART_LCR = 0; // prepare to Init UART
+    USARTC.UART_FDR = 0x10;
     USARTC.SEL2.IER.UART_IER &= ~(LPC24XX_USART::UART_IER_INTR_ALL_SET);          // Disable all UART interrupts
     /* CWS: Set baud rate to baudRate bps */
     USARTC.UART_LCR|= LPC24XX_USART::UART_LCR_DLAB;                                          // prepare to access Divisor
@@ -281,17 +282,17 @@ BOOL LPC24XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     }
     
     // CWS: Set the RX FIFO trigger level (to 8 bytes), reset RX, TX FIFO 
-    USARTC.SEL3.FCR.UART_FCR =  (LPC24XX_USART::UART_FCR_RFITL_01>> LPC24XX_USART::UART_FCR_RFITL_shift )  |
+    USARTC.SEL3.FCR.UART_FCR =  (LPC24XX_USART::UART_FCR_RFITL_08<< LPC24XX_USART::UART_FCR_RFITL_shift )  |
                                 LPC24XX_USART::UART_FCR_TFR      | 
                                 LPC24XX_USART::UART_FCR_RFR      |
                                 LPC24XX_USART::UART_FCR_FME;
 
     ProtectPins( ComPortNum, FALSE );
 
+
     CPU_INTC_ActivateInterrupt( LPC24XX_USART::getIntNo(ComPortNum),
                                 UART_IntHandler,
-                                (void *)ComPortNum);    
-    
+                                (void *)ComPortNum);
     return fRet;
 }
 
