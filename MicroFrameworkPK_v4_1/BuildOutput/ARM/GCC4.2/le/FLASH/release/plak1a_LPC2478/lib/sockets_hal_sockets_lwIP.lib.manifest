@@ -1,0 +1,94 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>sockets_hal_sockets_lwIP</Name>
+    <ProjectFile>dotnetmf_sockets.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>plak1a_LPC2478</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>LPC24XX</Processor>
+    <TargetPlatform>plak1a_LPC2478</TargetPlatform>
+    <Codebase>LPC24XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>sockets_hal_sockets_lwIP</AssemblyName>
+    <ProjectGuid>{4bd35de1-8bcb-47a4-8c7a-90cc1976be76}</ProjectGuid>
+    <Description>Network async abstraction layer</Description>
+    <Level>PAL</Level>
+    <LibraryFile>sockets_hal_sockets_lwIP.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\pal\lwip\lwip_1_3_2\src\dotnetmf_sockets.proj</ProjectPath>
+    <ManifestFile>sockets_hal_sockets_lwIP.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Network</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="NetworkStack_PAL" Guid="{53634488-41DF-4696-8186-5EA5F846BA14}" ProjectPath="" Conditional="" xmlns=""><ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType></MFComponent></LibraryCategory>
+    <PlatformIndependent>False</PlatformIndependent>
+    <CustomFilter>LWIP</CustomFilter>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>DeviceCode\pal\lwip\lwip_1_3_2\src</Directory>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+    <OutputType>Library</OutputType>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\api_lib.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\api_msg.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\err.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\netbuf.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\netdb.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\netifapi.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\sockets.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\dns.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\init.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\mem.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\memp.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\netif.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\pbuf.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\raw.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\stats.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\sys.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\asn1_dec.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\asn1_enc.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\mib2.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\mib_structs.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\msg_in.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\msg_out.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\etharp.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\ethernetif.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\loopif.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\slipif.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\auth.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\chap.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\chpms.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\fsm.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\ipcp.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\lcp.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\magic.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\md5.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\pap.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\ppp.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\ppp_oe.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\randm.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\DeviceCode\pal\lwip\lwip_1_3_2\src\vj.obj" />
+</ItemGroup>
+
+<Import Project="$(SPOCLIENT)\Framework\Features\Network_Config_HAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\EthernetDriver_HAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\EthernetLoopback_HAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\Sockets_async_PAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\Sockets_dhcp_PAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\Sockets_tcp_PAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\Sockets_udp_PAL.libcatproj"/>
+<Import Project="$(SPOCLIENT)\Framework\Features\SocketDriver_LWIP_PAL.libcatproj"/>
+</Project>

@@ -1,0 +1,166 @@
+Assembly: System.Net.Security (4.1.2821.0)
+
+Size: AssemblyRef         48 byte(s)      4 item(s) [Runtime:     16]
+Size: TypeRef            224 byte(s)     28 item(s) [Runtime:    112]
+Size: FieldRef            32 byte(s)      4 item(s) [Runtime:     16]
+Size: MethodRef          352 byte(s)     44 item(s) [Runtime:    176]
+Size: TypeDef            168 byte(s)      7 item(s) [Runtime:     56]
+Size: FieldDef            96 byte(s)     12 item(s) [Runtime:     24]
+Size: MethodDef          672 byte(s)     42 item(s) [Runtime:     84]
+Size: Attributes           0 byte(s)      0 item(s)
+Size: TypeSpec             4 byte(s)      1 item(s)
+Size: Resources Files      0 byte(s)      0 item(s)
+Size: Resources            0 byte(s)      0 item(s)
+Size: ResourcesData        0 byte(s)
+Size: Strings            935 byte(s)
+Size: Signatures         347 byte(s)
+Size: ByteCode          1538 byte(s)
+
+
+AssemblyRef: 0000[0000007c] mscorlib (4.1.2821.0)
+AssemblyRef: 0001[00000088] System (4.1.2821.0)
+AssemblyRef: 0002[00000094] Microsoft.SPOT.Native (4.1.2821.0)
+AssemblyRef: 0003[000000a0] Microsoft.SPOT.Net.Security (4.1.2821.0)
+
+TypeRef 0000[000000ac] [Scope: 0000] System Object
+TypeRef 0001[000000b4] [Scope: 0000] System Enum
+TypeRef 0002[000000bc] [Scope: 0000] System MulticastDelegate
+TypeRef 0003[000000c4] [Scope: 0001] System.Net.Sockets NetworkStream
+TypeRef 0004[000000cc] [Scope: 0002] Microsoft.SPOT ExtendedWeakReference
+TypeRef 0005[000000d4] [Scope: 0003] Microsoft.SPOT.Net.Security X509Certificate
+TypeRef 0006[000000dc] [Scope: 0000] System.Collections ArrayList
+TypeRef 0007[000000e4] [Scope: 0000] System IAsyncResult
+TypeRef 0008[000000ec] [Scope: 0000] System AsyncCallback
+TypeRef 0009[000000f4] [Scope: 0001] System.Net.Sockets Socket
+TypeRef 000a[000000fc] [Scope: 0003] Microsoft.SPOT.Net.Security SslProtocols
+TypeRef 000b[00000104] [Scope: 0003] Microsoft.SPOT.Net.Security SslVerification
+TypeRef 000c[0000010c] [Scope: 0000] System Delegate
+TypeRef 000d[00000114] [Scope: 0000] System Type
+TypeRef 000e[0000011c] [Scope: 0000] System RuntimeTypeHandle
+TypeRef 000f[00000124] [Scope: 0000] System WeakReference
+TypeRef 0010[0000012c] [Scope: 0000] System ArgumentException
+TypeRef 0011[00000134] [Scope: 0000] System Array
+TypeRef 0012[0000013c] [Scope: 0000] System UInt32
+TypeRef 0013[00000144] [Scope: 0000] System String
+TypeRef 0014[0000014c] [Scope: 0000] System NotSupportedException
+TypeRef 0015[00000154] [Scope: 0000] System InvalidOperationException
+TypeRef 0016[0000015c] [Scope: 0003] Microsoft.SPOT.Net.Security SslNative
+TypeRef 0017[00000164] [Scope: 0000] System ObjectDisposedException
+TypeRef 0018[0000016c] [Scope: 0000] System.IO IOException
+TypeRef 0019[00000174] [Scope: 0000] System.IO Stream
+TypeRef 001a[0000017c] [Scope: 0000] System ArgumentNullException
+TypeRef 001b[00000184] [Scope: 0000] System ArgumentOutOfRangeException
+
+FieldRef 0000[0000018c] [Type: 0003] _socketType [FIELD I4]
+FieldRef 0001[00000194] [Type: 0003] _socket [FIELD CLASS [01000009]]
+FieldRef 0002[0000019c] [Type: 0003] _disposed [FIELD BOOLEAN]
+FieldRef 0003[000001a4] [Type: 0009] m_Handle [FIELD I4]
+
+MethodRef 0000[000001ac] [Type: 000c] Combine [METHOD CLASS [0100000c]( CLASS [0100000c], CLASS [0100000c] )]
+MethodRef 0001[000001b4] [Type: 000c] Remove [METHOD CLASS [0100000c]( CLASS [0100000c], CLASS [0100000c] )]
+MethodRef 0002[000001bc] [Type: 000d] GetTypeFromHandle [METHOD CLASS [0100000d]( VALUETYPE [0100000e] )]
+MethodRef 0003[000001c4] [Type: 0004] RecoverOrCreate [METHOD CLASS [01000004]( CLASS [0100000d], U4, U4 )]
+MethodRef 0004[000001cc] [Type: 000f] get_Target [METHOD OBJECT()]
+MethodRef 0005[000001d4] [Type: 0004] set_Priority [METHOD VOID( I4 )]
+MethodRef 0006[000001dc] [Type: 000f] set_Target [METHOD VOID( OBJECT )]
+MethodRef 0007[000001e4] [Type: 0010] .ctor [METHOD VOID()]
+MethodRef 0008[000001ec] [Type: 0004] PushBackIntoRecoverList [METHOD VOID()]
+MethodRef 0009[000001f4] [Type: 0006] IndexOf [METHOD I4( OBJECT )]
+MethodRef 000a[000001fc] [Type: 0006] Add [METHOD I4( OBJECT )]
+MethodRef 000b[00000204] [Type: 0006] get_Item [METHOD OBJECT( I4 )]
+MethodRef 000c[0000020c] [Type: 0006] set_Item [METHOD VOID( I4, OBJECT )]
+MethodRef 000d[00000214] [Type: 0006] RemoveAt [METHOD VOID( I4 )]
+MethodRef 000e[0000021c] [Type: 0006] ToArray [METHOD CLASS [01000011]( CLASS [0100000d] )]
+MethodRef 000f[00000224] [Type: 0000] .ctor [METHOD VOID()]
+MethodRef 0010[0000022c] [Type: 0006] .ctor [METHOD VOID()]
+MethodRef 0011[00000234] [Type: 0004] Recover [METHOD CLASS [01000004]( CLASS [0100000d], U4 )]
+MethodRef 0012[0000023c] [Type: 0005] get_Issuer [METHOD STRING()]
+MethodRef 0013[00000244] [Type: 0013] get_Length [METHOD I4()]
+MethodRef 0014[0000024c] [Type: 0005] Initialize [METHOD VOID()]
+MethodRef 0015[00000254] [Type: 0006] get_Count [METHOD I4()]
+MethodRef 0016[0000025c] [Type: 0004] .ctor [METHOD VOID( OBJECT, CLASS [0100000d], U4, U4 )]
+MethodRef 0017[00000264] [Type: 0003] .ctor [METHOD VOID( CLASS [01000009], BOOLEAN )]
+MethodRef 0018[0000026c] [Type: 0014] .ctor [METHOD VOID()]
+MethodRef 0019[00000274] [Type: 0015] .ctor [METHOD VOID()]
+MethodRef 001a[0000027c] [Type: 0016] UpdateCertificates [METHOD VOID( I4, CLASS [01000005], SZARRAY CLASS [01000005] )]
+MethodRef 001b[00000284] [Type: 0016] SecureServerInit [METHOD I4( I4, I4, CLASS [01000005], SZARRAY CLASS [01000005] )]
+MethodRef 001c[0000028c] [Type: 0016] SecureAccept [METHOD VOID( I4, OBJECT )]
+MethodRef 001d[00000294] [Type: 0016] SecureClientInit [METHOD I4( I4, I4, CLASS [01000005], SZARRAY CLASS [01000005] )]
+MethodRef 001e[0000029c] [Type: 0016] SecureConnect [METHOD VOID( I4, STRING, OBJECT )]
+MethodRef 001f[000002a4] [Type: 0016] ExitSecureContext [METHOD I4( I4 )]
+MethodRef 0020[000002ac] [Type: 0017] .ctor [METHOD VOID()]
+MethodRef 0021[000002b4] [Type: 0018] .ctor [METHOD VOID()]
+MethodRef 0022[000002bc] [Type: 0016] DataAvailable [METHOD I4( OBJECT )]
+MethodRef 0023[000002c4] [Type: 0019] Dispose [METHOD VOID( BOOLEAN )]
+MethodRef 0024[000002cc] [Type: 0019] Finalize [METHOD VOID()]
+MethodRef 0025[000002d4] [Type: 0016] SecureCloseSocket [METHOD I4( OBJECT )]
+MethodRef 0026[000002dc] [Type: 001a] .ctor [METHOD VOID()]
+MethodRef 0027[000002e4] [Type: 001b] .ctor [METHOD VOID()]
+MethodRef 0028[000002ec] [Type: 0009] get_ReceiveTimeout [METHOD I4()]
+MethodRef 0029[000002f4] [Type: 0016] SecureRead [METHOD I4( OBJECT, SZARRAY U1, I4, I4, I4 )]
+MethodRef 002a[000002fc] [Type: 0009] get_SendTimeout [METHOD I4()]
+MethodRef 002b[00000304] [Type: 0016] SecureWrite [METHOD I4( OBJECT, SZARRAY U1, I4, I4, I4 )]
+
+TypeDef 0000[0000030c] [Extends: 8000] [Enclosed: ffff] [Flags: 000000c1] Microsoft.SPOT.Net.Security CertificateStore
+TypeDef 0001[00000324] [Extends: 8002] [Enclosed: 0000] [Flags: 00000482]  CertificateNotificationMessage
+TypeDef 0002[0000033c] [Extends: 8001] [Enclosed: 0000] [Flags: 000000ba]  CertificateNotificationType
+TypeDef 0003[00000354] [Extends: 8003] [Enclosed: ffff] [Flags: 00005001] Microsoft.SPOT.Net.Security SslStream
+TypeDef 0004[0000036c] [Extends: 8000] [Enclosed: 0000] [Flags: 0000100d]  _CALookup_
+TypeDef 0005[00000384] [Extends: 8000] [Enclosed: 0000] [Flags: 0000100d]  _CertLookup_
+TypeDef 0006[0000039c] [Extends: 8000] [Enclosed: 0000] [Flags: 00001005]  _CertStore_
+
+FieldDef 0000[000003b4] [Flags: 00000013] Microsoft.SPOT.Net.Security.CertificateStore::s_ewrCertLookup [FIELD CLASS [01000004]]
+FieldDef 0001[000003bc] [Flags: 00000013] Microsoft.SPOT.Net.Security.CertificateStore::s_ewrCALookup [FIELD CLASS [01000004]]
+FieldDef 0002[000003c4] [Flags: 00000013] Microsoft.SPOT.Net.Security.CertificateStore::s_personalCertData [FIELD CLASS [04000005]]
+FieldDef 0003[000003cc] [Flags: 00000013] Microsoft.SPOT.Net.Security.CertificateStore::s_CACertData [FIELD CLASS [04000004]]
+FieldDef 0004[000003d4] [Flags: 00000011] Microsoft.SPOT.Net.Security.CertificateStore::OnCACertificateChange [FIELD CLASS [04000001]]
+FieldDef 0005[000003dc] [Flags: 00000106] Microsoft.SPOT.Net.Security.CertificateStore.CertificateNotificationType::value__ [FIELD I4]
+FieldDef 0006[000003e4] [Flags: 00000001] Microsoft.SPOT.Net.Security.SslStream::_sslContext [FIELD I4]
+FieldDef 0007[000003ec] [Flags: 00000001] Microsoft.SPOT.Net.Security.SslStream::_isServer [FIELD BOOLEAN]
+FieldDef 0008[000003f4] [Flags: 00000003] Microsoft.SPOT.Net.Security.CertificateStore._CALookup_::Names [FIELD CLASS [01000006]]
+FieldDef 0009[000003fc] [Flags: 00000003] Microsoft.SPOT.Net.Security.CertificateStore._CALookup_::Values [FIELD CLASS [01000006]]
+FieldDef 000a[00000404] [Flags: 00000001] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::m_names [FIELD CLASS [01000006]]
+FieldDef 000b[0000040c] [Flags: 00000001] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::m_values [FIELD CLASS [01000006]]
+
+MethodDef 0000[00000414] [Flags: 01000496] [RVA: 0000] Microsoft.SPOT.Net.Security.CertificateStore::add_OnCACertificateChange [METHOD VOID( CLASS [04000001] )]
+MethodDef 0001[00000424] [Flags: 01000496] [RVA: 000e] Microsoft.SPOT.Net.Security.CertificateStore::remove_OnCACertificateChange [METHOD VOID( CLASS [04000001] )]
+MethodDef 0002[00000434] [Flags: 00002491] [RVA: 001c] Microsoft.SPOT.Net.Security.CertificateStore::.cctor [METHOD VOID()]
+MethodDef 0003[00000444] [Flags: 01000096] [RVA: 009c] Microsoft.SPOT.Net.Security.CertificateStore::ClearPersonalCertificates [METHOD VOID()]
+MethodDef 0004[00000454] [Flags: 01000096] [RVA: 00ac] Microsoft.SPOT.Net.Security.CertificateStore::ClearCACertificates [METHOD VOID()]
+MethodDef 0005[00000464] [Flags: 00000096] [RVA: 00bc] Microsoft.SPOT.Net.Security.CertificateStore::ClearAllCertificates [METHOD VOID()]
+MethodDef 0006[00000474] [Flags: 01000096] [RVA: 00c3] Microsoft.SPOT.Net.Security.CertificateStore::AddPersonalCertificate [METHOD BOOLEAN( STRING, CLASS [01000005] )]
+MethodDef 0007[00000484] [Flags: 01000096] [RVA: 00ec] Microsoft.SPOT.Net.Security.CertificateStore::AddCACertificate [METHOD BOOLEAN( STRING, CLASS [01000005] )]
+MethodDef 0008[00000494] [Flags: 01000096] [RVA: 013b] Microsoft.SPOT.Net.Security.CertificateStore::GetPersonalCertificate [METHOD CLASS [01000005]( STRING )]
+MethodDef 0009[000004a4] [Flags: 01000096] [RVA: 0143] Microsoft.SPOT.Net.Security.CertificateStore::GetCACertificate [METHOD CLASS [01000005]( STRING )]
+MethodDef 000a[000004b4] [Flags: 01000096] [RVA: 0162] Microsoft.SPOT.Net.Security.CertificateStore::UpdatePersonalCertificate [METHOD BOOLEAN( STRING, CLASS [01000005] )]
+MethodDef 000b[000004c4] [Flags: 01000096] [RVA: 016b] Microsoft.SPOT.Net.Security.CertificateStore::UpdateCACertificate [METHOD BOOLEAN( STRING, CLASS [01000005] )]
+MethodDef 000c[000004d4] [Flags: 01000096] [RVA: 01a5] Microsoft.SPOT.Net.Security.CertificateStore::RemovePersonalCertificate [METHOD BOOLEAN( STRING )]
+MethodDef 000d[000004e4] [Flags: 01000096] [RVA: 01be] Microsoft.SPOT.Net.Security.CertificateStore::RemoveCACertificate [METHOD BOOLEAN( STRING )]
+MethodDef 000e[000004f4] [Flags: 01000496] [RVA: 0201] Microsoft.SPOT.Net.Security.CertificateStore::get_CACertificates [METHOD SZARRAY CLASS [01000005]()]
+MethodDef 000f[00000504] [Flags: 000201c6] [RVA: ffff] Microsoft.SPOT.Net.Security.CertificateStore.CertificateNotificationMessage::Invoke [METHOD VOID( VALUETYPE [04000002], STRING )]
+MethodDef 0010[00000514] [Flags: 000401c6] [RVA: ffff] Microsoft.SPOT.Net.Security.CertificateStore.CertificateNotificationMessage::BeginInvoke [METHOD CLASS [01000007]( VALUETYPE [04000002], STRING, CLASS [01000008], OBJECT )]
+MethodDef 0011[00000524] [Flags: 000801c6] [RVA: ffff] Microsoft.SPOT.Net.Security.CertificateStore.CertificateNotificationMessage::EndInvoke [METHOD VOID( CLASS [01000007] )]
+MethodDef 0012[00000534] [Flags: 00011486] [RVA: ffff] Microsoft.SPOT.Net.Security.CertificateStore.CertificateNotificationMessage::.ctor [METHOD VOID( OBJECT, I4 )]
+MethodDef 0013[00000544] [Flags: 000004c6] [RVA: 0216] Microsoft.SPOT.Net.Security.SslStream::get_Length [METHOD I8()]
+MethodDef 0014[00000554] [Flags: 000004c6] [RVA: 0233] Microsoft.SPOT.Net.Security.SslStream::get_DataAvailable [METHOD BOOLEAN()]
+MethodDef 0015[00000564] [Flags: 400040c4] [RVA: 0252] Microsoft.SPOT.Net.Security.SslStream::Finalize [METHOD VOID()]
+MethodDef 0016[00000574] [Flags: 010000c4] [RVA: 026c] Microsoft.SPOT.Net.Security.SslStream::Dispose [METHOD VOID( BOOLEAN )]
+MethodDef 0017[00000584] [Flags: 000000c6] [RVA: 02a6] Microsoft.SPOT.Net.Security.SslStream::Read [METHOD I4( SZARRAY U1, I4, I4 )]
+MethodDef 0018[00000594] [Flags: 000000c6] [RVA: 02e7] Microsoft.SPOT.Net.Security.SslStream::Write [METHOD VOID( SZARRAY U1, I4, I4 )]
+MethodDef 0019[000005a4] [Flags: 00001486] [RVA: 0329] Microsoft.SPOT.Net.Security.SslStream::.ctor [METHOD VOID( CLASS [01000009] )]
+MethodDef 001a[000005b4] [Flags: 00000086] [RVA: 0345] Microsoft.SPOT.Net.Security.SslStream::AuthenticateAsClient [METHOD VOID( STRING, SZARRAY VALUETYPE [0100000a] )]
+MethodDef 001b[000005c4] [Flags: 00000086] [RVA: 034f] Microsoft.SPOT.Net.Security.SslStream::AuthenticateAsClient [METHOD VOID( STRING, CLASS [01000005], VALUETYPE [0100000b], SZARRAY VALUETYPE [0100000a] )]
+MethodDef 001c[000005d4] [Flags: 00000086] [RVA: 035c] Microsoft.SPOT.Net.Security.SslStream::AuthenticateAsClient [METHOD VOID( STRING, CLASS [01000005], SZARRAY CLASS [01000005], VALUETYPE [0100000b], SZARRAY VALUETYPE [0100000a] )]
+MethodDef 001d[000005e4] [Flags: 00000086] [RVA: 0369] Microsoft.SPOT.Net.Security.SslStream::AuthenticateAsServer [METHOD VOID( CLASS [01000005], VALUETYPE [0100000b], SZARRAY VALUETYPE [0100000a] )]
+MethodDef 001e[000005f4] [Flags: 00000086] [RVA: 0374] Microsoft.SPOT.Net.Security.SslStream::AuthenticateAsServer [METHOD VOID( CLASS [01000005], SZARRAY CLASS [01000005], VALUETYPE [0100000b], SZARRAY VALUETYPE [0100000a] )]
+MethodDef 001f[00000604] [Flags: 00000086] [RVA: 0382] Microsoft.SPOT.Net.Security.SslStream::UpdateCertificates [METHOD VOID( CLASS [01000005], SZARRAY CLASS [01000005] )]
+MethodDef 0020[00000614] [Flags: 40000083] [RVA: 0397] Microsoft.SPOT.Net.Security.SslStream::Authenticate [METHOD VOID( BOOLEAN, STRING, CLASS [01000005], SZARRAY CLASS [01000005], VALUETYPE [0100000b], SZARRAY VALUETYPE [0100000a] )]
+MethodDef 0021[00000624] [Flags: 00000486] [RVA: 041e] Microsoft.SPOT.Net.Security.SslStream::get_IsServer [METHOD BOOLEAN()]
+MethodDef 0022[00000634] [Flags: 00001486] [RVA: 0423] Microsoft.SPOT.Net.Security.CertificateStore._CALookup_::.ctor [METHOD VOID()]
+MethodDef 0023[00000644] [Flags: 00000083] [RVA: 0436] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::Add [METHOD BOOLEAN( STRING, CLASS [01000005] )]
+MethodDef 0024[00000654] [Flags: 00000083] [RVA: 047f] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::Get [METHOD CLASS [01000005]( STRING )]
+MethodDef 0025[00000664] [Flags: 00000083] [RVA: 04cb] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::Update [METHOD BOOLEAN( STRING, CLASS [01000005] )]
+MethodDef 0026[00000674] [Flags: 00000083] [RVA: 0501] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::Remove [METHOD BOOLEAN( STRING )]
+MethodDef 0027[00000684] [Flags: 00000081] [RVA: 0541] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::GetNextFreeIndex [METHOD U4()]
+MethodDef 0028[00000694] [Flags: 00001486] [RVA: 05ea] Microsoft.SPOT.Net.Security.CertificateStore._CertLookup_::.ctor [METHOD VOID()]
+MethodDef 0029[000006a4] [Flags: 00001486] [RVA: 05fd] Microsoft.SPOT.Net.Security.CertificateStore._CertStore_::.ctor [METHOD VOID()]

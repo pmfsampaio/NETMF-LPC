@@ -1,0 +1,51 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>System_Xml</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>plak1a_LPC2478</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>LPC24XX</Processor>
+    <TargetPlatform>plak1a_LPC2478</TargetPlatform>
+    <Codebase>LPC24XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <ProjectPath>$(SPOCLIENT)\CLR\Libraries\System_Xml\dotNetMF.proj</ProjectPath>
+    <AssemblyName>System_Xml</AssemblyName>
+    <ProjectGuid>5AEC806B-E010-45fe-9180-3C52B6C1BEB1</ProjectGuid>
+    <Description>Xml interop library</Description>
+    <Level>CLR</Level>
+    <LibraryFile>System_Xml.$(LIB_EXT)</LibraryFile>
+    <ManifestFile>System_Xml.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Xml</Groups>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="XML_CLR" Guid="{B1B1D016-0C84-4260-91A8-12BDCBB93955}" ProjectPath="$(SPOCLIENT)\Framework\Features\XML_CLR.libcatproj" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2010-06-02</Date><Author /></VersionDependency><ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType></MFComponent></LibraryCategory>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <HasLibraryCategory>True</HasLibraryCategory>
+    <Directory>CLR\Libraries\System_Xml</Directory>
+    <OutputType>Library</OutputType>
+    <VCProjName>Lib_System_Xml</VCProjName>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\ANY_MEDIA\release\obj\CLR\Libraries\System_Xml\system_xml_fastcompile.obj" />
+</ItemGroup>
+
+</Project>

@@ -1,0 +1,47 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>graphics_pal_stubs</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>graphics_pal_stubs</AssemblyName>
+    <ProjectGuid>{cd38d61d-033e-4147-ad72-1540554f8bca}</ProjectGuid>
+    <Description>Graphics stub library</Description>
+    <Level>PAL</Level>
+    <LibraryFile>graphics_pal_stubs.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\PAL\Graphics\stubs\dotNetMF.proj</ProjectPath>
+    <ManifestFile>graphics_pal_stubs.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Graphics</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Graphics_PAL" Guid="{9E379C2B-74CD-4003-A557-389AA48CD6F0}" ProjectPath="" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency></MFComponent></LibraryCategory>
+    <PlatformIndependent>False</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>True</IsStub>
+    <Directory>DeviceCode\pal\graphics\stubs</Directory>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\release\Windows2\obj\DeviceCode\pal\graphics\stubs\graphics_stubs.obj" />
+</ItemGroup>
+
+</Project>

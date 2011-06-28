@@ -1,0 +1,12 @@
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.Time.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.Time.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.Time\__COMMON\Microsoft.SPOT.Time.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.Time\__COMMON\Microsoft.SPOT.Time.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.Time.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.Time.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.Time.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Time.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Time.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Time.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\txt\Microsoft.SPOT.Time_exports2.txt
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dumps\Microsoft.SPOT.Time.dump

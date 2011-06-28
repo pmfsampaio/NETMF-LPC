@@ -1,0 +1,182 @@
+Assembly: Microsoft.SPOT.Net (4.1.2821.0)
+
+Size: AssemblyRef         36 byte(s)      3 item(s) [Runtime:     12]
+Size: TypeRef            192 byte(s)     24 item(s) [Runtime:     96]
+Size: FieldRef             0 byte(s)      0 item(s) [Runtime:      0]
+Size: MethodRef          152 byte(s)     19 item(s) [Runtime:     76]
+Size: TypeDef            360 byte(s)     15 item(s) [Runtime:    120]
+Size: FieldDef           232 byte(s)     29 item(s) [Runtime:     58]
+Size: MethodDef         1088 byte(s)     68 item(s) [Runtime:    136]
+Size: Attributes           0 byte(s)      0 item(s)
+Size: TypeSpec             4 byte(s)      1 item(s)
+Size: Resources Files      0 byte(s)      0 item(s)
+Size: Resources            0 byte(s)      0 item(s)
+Size: ResourcesData        0 byte(s)
+Size: Strings           1280 byte(s)
+Size: Signatures         388 byte(s)
+Size: ByteCode          1204 byte(s)
+
+
+AssemblyRef: 0000[0000007c] Microsoft.SPOT.Native (4.1.2821.0)
+AssemblyRef: 0001[00000088] mscorlib (4.1.2821.0)
+AssemblyRef: 0002[00000094] Microsoft.SPOT.Hardware (4.1.2821.0)
+
+TypeRef 0000[000000a0] [Scope: 0000] Microsoft.SPOT EventArgs
+TypeRef 0001[000000a8] [Scope: 0001] System MulticastDelegate
+TypeRef 0002[000000b0] [Scope: 0001] System Object
+TypeRef 0003[000000b8] [Scope: 0001] System Enum
+TypeRef 0004[000000c0] [Scope: 0000] Microsoft.SPOT BaseEvent
+TypeRef 0005[000000c8] [Scope: 0000] Microsoft.SPOT IEventListener
+TypeRef 0006[000000d0] [Scope: 0000] Microsoft.SPOT IEventProcessor
+TypeRef 0007[000000d8] [Scope: 0001] System IAsyncResult
+TypeRef 0008[000000e0] [Scope: 0001] System AsyncCallback
+TypeRef 0009[000000e8] [Scope: 0001] System DateTime
+TypeRef 000a[000000f0] [Scope: 0001] System Delegate
+TypeRef 000b[000000f8] [Scope: 0002] Microsoft.SPOT EventSink
+TypeRef 000c[00000100] [Scope: 0000] Microsoft.SPOT EventCategory
+TypeRef 000d[00000108] [Scope: 0000] Microsoft.SPOT.Hardware SystemInfo
+TypeRef 000e[00000110] [Scope: 0001] System String
+TypeRef 000f[00000118] [Scope: 0001] System UInt32
+TypeRef 0010[00000120] [Scope: 0001] System ArgumentException
+TypeRef 0011[00000128] [Scope: 0001] System.Collections ArrayList
+TypeRef 0012[00000130] [Scope: 0001] System Type
+TypeRef 0013[00000138] [Scope: 0001] System RuntimeTypeHandle
+TypeRef 0014[00000140] [Scope: 0001] System Array
+TypeRef 0015[00000148] [Scope: 0001] System.Threading Thread
+TypeRef 0016[00000150] [Scope: 0001] System ArgumentOutOfRangeException
+TypeRef 0017[00000158] [Scope: 0001] System ArgumentNullException
+
+MethodRef 0000[00000160] [Type: 0000] .ctor [METHOD VOID()]
+MethodRef 0001[00000168] [Type: 000a] Combine [METHOD CLASS [0100000a]( CLASS [0100000a], CLASS [0100000a] )]
+MethodRef 0002[00000170] [Type: 000a] Remove [METHOD CLASS [0100000a]( CLASS [0100000a], CLASS [0100000a] )]
+MethodRef 0003[00000178] [Type: 000b] AddEventProcessor [METHOD VOID( VALUETYPE [0100000c], CLASS [01000006] )]
+MethodRef 0004[00000180] [Type: 000b] AddEventListener [METHOD VOID( VALUETYPE [0100000c], CLASS [01000005] )]
+MethodRef 0005[00000188] [Type: 0004] .ctor [METHOD VOID()]
+MethodRef 0006[00000190] [Type: 0002] .ctor [METHOD VOID()]
+MethodRef 0007[00000198] [Type: 000d] get_IsBigEndian [METHOD BOOLEAN()]
+MethodRef 0008[000001a0] [Type: 000f] ToString [METHOD STRING()]
+MethodRef 0009[000001a8] [Type: 000e] Concat [METHOD STRING( SZARRAY STRING )]
+MethodRef 000a[000001b0] [Type: 0010] .ctor [METHOD VOID()]
+MethodRef 000b[000001b8] [Type: 0011] .ctor [METHOD VOID()]
+MethodRef 000c[000001c0] [Type: 0011] Add [METHOD I4( OBJECT )]
+MethodRef 000d[000001c8] [Type: 0012] GetTypeFromHandle [METHOD CLASS [01000012]( VALUETYPE [01000013] )]
+MethodRef 000e[000001d0] [Type: 0011] ToArray [METHOD CLASS [01000014]( CLASS [01000012] )]
+MethodRef 000f[000001d8] [Type: 0015] Sleep [METHOD VOID( I4 )]
+MethodRef 0010[000001e0] [Type: 0016] .ctor [METHOD VOID()]
+MethodRef 0011[000001e8] [Type: 0017] .ctor [METHOD VOID()]
+MethodRef 0012[000001f0] [Type: 000e] get_Length [METHOD I4()]
+
+TypeDef 0000[000001f8] [Extends: 8002] [Enclosed: ffff] [Flags: 00001001] Microsoft.SPOT.Net.NetworkInformation NetworkInterface
+TypeDef 0001[00000210] [Extends: 0000] [Enclosed: ffff] [Flags: 00001001] Microsoft.SPOT.Net.NetworkInformation Wireless80211
+TypeDef 0002[00000228] [Extends: 8003] [Enclosed: 0001] [Flags: 000000ba]  AuthenticationType
+TypeDef 0003[00000240] [Extends: 8003] [Enclosed: 0001] [Flags: 000000ba]  EncryptionType
+TypeDef 0004[00000258] [Extends: 8001] [Enclosed: ffff] [Flags: 00000481] Microsoft.SPOT.Net.NetworkInformation NetworkAddressChangedEventHandler
+TypeDef 0005[00000270] [Extends: 8001] [Enclosed: ffff] [Flags: 00000481] Microsoft.SPOT.Net.NetworkInformation NetworkAvailabilityChangedEventHandler
+TypeDef 0006[00000288] [Extends: 8000] [Enclosed: ffff] [Flags: 00001001] Microsoft.SPOT.Net.NetworkInformation NetworkAvailabilityEventArgs
+TypeDef 0007[000002a0] [Extends: 8002] [Enclosed: ffff] [Flags: 000000c1] Microsoft.SPOT.Net.NetworkInformation NetworkChange
+TypeDef 0008[000002b8] [Extends: 8003] [Enclosed: ffff] [Flags: 000000b9] Microsoft.SPOT.Net.NetworkInformation NetworkInterfaceType
+TypeDef 0009[000002d0] [Extends: 8002] [Enclosed: ffff] [Flags: 000010c0] Microsoft.SPOT.Net SocketNative
+TypeDef 000a[000002e8] [Extends: 8002] [Enclosed: 0007] [Flags: 00001005]  NetworkChangeListener
+TypeDef 000b[00000300] [Extends: 8004] [Enclosed: 0007] [Flags: 00001005]  NetworkEvent
+TypeDef 000c[00000318] [Extends: 8003] [Enclosed: 0007] [Flags: 000000bd]  NetworkEventFlags
+TypeDef 000d[00000330] [Extends: 8003] [Enclosed: 0007] [Flags: 000000bd]  NetworkEventType
+TypeDef 000e[00000348] [Extends: 8003] [Enclosed: 0001] [Flags: 000000ba]  RadioType
+
+FieldDef 0000[00000360] [Flags: 00000821] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_interfaceIndex [FIELD I4]
+FieldDef 0001[00000368] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_flags [FIELD U4]
+FieldDef 0002[00000370] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_ipAddress [FIELD U4]
+FieldDef 0003[00000378] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_gatewayAddress [FIELD U4]
+FieldDef 0004[00000380] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_subnetMask [FIELD U4]
+FieldDef 0005[00000388] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_dnsAddress1 [FIELD U4]
+FieldDef 0006[00000390] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_dnsAddress2 [FIELD U4]
+FieldDef 0007[00000398] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_networkInterfaceType [FIELD VALUETYPE [04000008]]
+FieldDef 0008[000003a0] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::_macAddress [FIELD SZARRAY U1]
+FieldDef 0009[000003a8] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::Authentication [FIELD VALUETYPE [04000002]]
+FieldDef 000a[000003b0] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::Encryption [FIELD VALUETYPE [04000003]]
+FieldDef 000b[000003b8] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::Radio [FIELD VALUETYPE [0400000e]]
+FieldDef 000c[000003c0] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::PassPhrase [FIELD STRING]
+FieldDef 000d[000003c8] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::NetworkKey [FIELD SZARRAY U1]
+FieldDef 000e[000003d0] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::ReKeyInternal [FIELD SZARRAY U1]
+FieldDef 000f[000003d8] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::Ssid [FIELD STRING]
+FieldDef 0010[000003e0] [Flags: 00000026] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::Id [FIELD U4]
+FieldDef 0011[000003e8] [Flags: 00000106] Microsoft.SPOT.Net.NetworkInformation.Wireless80211.AuthenticationType::value__ [FIELD I4]
+FieldDef 0012[000003f0] [Flags: 00000106] Microsoft.SPOT.Net.NetworkInformation.Wireless80211.EncryptionType::value__ [FIELD I4]
+FieldDef 0013[000003f8] [Flags: 00000001] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityEventArgs::_isAvailable [FIELD BOOLEAN]
+FieldDef 0014[00000400] [Flags: 00000011] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::NetworkAddressChanged [FIELD CLASS [04000004]]
+FieldDef 0015[00000408] [Flags: 00000011] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::NetworkAvailabilityChanged [FIELD CLASS [04000005]]
+FieldDef 0016[00000410] [Flags: 00000106] Microsoft.SPOT.Net.NetworkInformation.NetworkInterfaceType::value__ [FIELD I4]
+FieldDef 0017[00000418] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkEvent::EventType [FIELD VALUETYPE [0400000d]]
+FieldDef 0018[00000420] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkEvent::Flags [FIELD U1]
+FieldDef 0019[00000428] [Flags: 00000006] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkEvent::Time [FIELD VALUETYPE [01000009]]
+FieldDef 001a[00000430] [Flags: 00000106] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkEventFlags::value__ [FIELD U1]
+FieldDef 001b[00000438] [Flags: 00000106] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkEventType::value__ [FIELD U1]
+FieldDef 001c[00000440] [Flags: 00000106] Microsoft.SPOT.Net.NetworkInformation.Wireless80211.RadioType::value__ [FIELD I4]
+
+MethodDef 0000[00000448] [Flags: 00001484] [RVA: 0000] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::.ctor [METHOD VOID( I4 )]
+MethodDef 0001[00000458] [Flags: 00000081] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::InitializeNetworkInterfaceSettings [METHOD VOID()]
+MethodDef 0002[00000468] [Flags: 00000081] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::UpdateConfiguration [METHOD VOID( I4 )]
+MethodDef 0003[00000478] [Flags: 00000081] [RVA: 000f] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::IPAddressToString [METHOD STRING( U4 )]
+MethodDef 0004[00000488] [Flags: 40000086] [RVA: 00ea] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::EnableStaticIP [METHOD VOID( STRING, STRING, STRING )]
+MethodDef 0005[00000498] [Flags: 40000086] [RVA: 0127] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::EnableDhcp [METHOD VOID()]
+MethodDef 0006[000004a8] [Flags: 40000086] [RVA: 014b] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::EnableStaticDns [METHOD VOID( SZARRAY STRING )]
+MethodDef 0007[000004b8] [Flags: 40000086] [RVA: 01b7] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::EnableDynamicDns [METHOD VOID()]
+MethodDef 0008[000004c8] [Flags: 00000486] [RVA: 01db] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_IPAddress [METHOD STRING()]
+MethodDef 0009[000004d8] [Flags: 00000486] [RVA: 01e4] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_GatewayAddress [METHOD STRING()]
+MethodDef 000a[000004e8] [Flags: 00000486] [RVA: 01ed] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_SubnetMask [METHOD STRING()]
+MethodDef 000b[000004f8] [Flags: 00000486] [RVA: 01f6] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_IsDhcpEnabled [METHOD BOOLEAN()]
+MethodDef 000c[00000508] [Flags: 00000486] [RVA: 0203] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_IsDynamicDnsEnabled [METHOD BOOLEAN()]
+MethodDef 000d[00000518] [Flags: 00000486] [RVA: 0210] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_DnsAddresses [METHOD SZARRAY STRING()]
+MethodDef 000e[00000528] [Flags: 00000081] [RVA: 024a] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::ReloadSettings [METHOD VOID()]
+MethodDef 000f[00000538] [Flags: 40000086] [RVA: 0254] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::ReleaseDhcpLease [METHOD VOID()]
+MethodDef 0010[00000548] [Flags: 40000086] [RVA: 026e] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::RenewDhcpLease [METHOD VOID()]
+MethodDef 0011[00000558] [Flags: 00000486] [RVA: 0289] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_PhysicalAddress [METHOD SZARRAY U1()]
+MethodDef 0012[00000568] [Flags: 40000486] [RVA: 028e] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::set_PhysicalAddress [METHOD VOID( SZARRAY U1 )]
+MethodDef 0013[00000578] [Flags: 00000486] [RVA: 02ae] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::get_NetworkInterfaceType [METHOD VALUETYPE [04000008]()]
+MethodDef 0014[00000588] [Flags: 00000096] [RVA: 02b3] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::GetAllNetworkInterfaces [METHOD SZARRAY CLASS [04000000]()]
+MethodDef 0015[00000598] [Flags: 00000091] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::GetNetworkInterfaceCount [METHOD I4()]
+MethodDef 0016[000005a8] [Flags: 00000091] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::GetNetworkInterface [METHOD CLASS [04000000]( U4 )]
+MethodDef 0017[000005b8] [Flags: 00000091] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkInterface::IPAddressFromString [METHOD U4( STRING )]
+MethodDef 0018[000005c8] [Flags: 00001481] [RVA: 02d4] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::.ctor [METHOD VOID( I4 )]
+MethodDef 0019[000005d8] [Flags: 00000096] [RVA: 02e9] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::SaveConfiguration [METHOD VOID( SZARRAY CLASS [04000001], BOOLEAN )]
+MethodDef 001a[000005e8] [Flags: 00000096] [RVA: 0316] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::ValidateConfiguration [METHOD VOID( CLASS [04000001] )]
+MethodDef 001b[000005f8] [Flags: 00000091] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::UpdateConfiguration [METHOD VOID( CLASS [04000001], BOOLEAN )]
+MethodDef 001c[00000608] [Flags: 00000091] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.Wireless80211::SaveAllConfigurations [METHOD VOID()]
+MethodDef 001d[00000618] [Flags: 000201c6] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAddressChangedEventHandler::Invoke [METHOD VOID( OBJECT, CLASS [01000000] )]
+MethodDef 001e[00000628] [Flags: 000401c6] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAddressChangedEventHandler::BeginInvoke [METHOD CLASS [01000007]( OBJECT, CLASS [01000000], CLASS [01000008], OBJECT )]
+MethodDef 001f[00000638] [Flags: 000801c6] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAddressChangedEventHandler::EndInvoke [METHOD VOID( CLASS [01000007] )]
+MethodDef 0020[00000648] [Flags: 00011486] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAddressChangedEventHandler::.ctor [METHOD VOID( OBJECT, I4 )]
+MethodDef 0021[00000658] [Flags: 000201c6] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler::Invoke [METHOD VOID( OBJECT, CLASS [04000006] )]
+MethodDef 0022[00000668] [Flags: 000401c6] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler::BeginInvoke [METHOD CLASS [01000007]( OBJECT, CLASS [04000006], CLASS [01000008], OBJECT )]
+MethodDef 0023[00000678] [Flags: 000801c6] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler::EndInvoke [METHOD VOID( CLASS [01000007] )]
+MethodDef 0024[00000688] [Flags: 00011486] [RVA: ffff] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler::.ctor [METHOD VOID( OBJECT, I4 )]
+MethodDef 0025[00000698] [Flags: 00001483] [RVA: 03dd] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityEventArgs::.ctor [METHOD VOID( BOOLEAN )]
+MethodDef 0026[000006a8] [Flags: 00000486] [RVA: 03e7] Microsoft.SPOT.Net.NetworkInformation.NetworkAvailabilityEventArgs::get_IsAvailable [METHOD BOOLEAN()]
+MethodDef 0027[000006b8] [Flags: 01000496] [RVA: 03ec] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::add_NetworkAddressChanged [METHOD VOID( CLASS [04000004] )]
+MethodDef 0028[000006c8] [Flags: 01000496] [RVA: 03fa] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::remove_NetworkAddressChanged [METHOD VOID( CLASS [04000004] )]
+MethodDef 0029[000006d8] [Flags: 01000496] [RVA: 0408] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::add_NetworkAvailabilityChanged [METHOD VOID( CLASS [04000005] )]
+MethodDef 002a[000006e8] [Flags: 01000496] [RVA: 0416] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::remove_NetworkAvailabilityChanged [METHOD VOID( CLASS [04000005] )]
+MethodDef 002b[000006f8] [Flags: 00002491] [RVA: 0424] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::.cctor [METHOD VOID()]
+MethodDef 002c[00000708] [Flags: 00000093] [RVA: 0433] Microsoft.SPOT.Net.NetworkInformation.NetworkChange::OnNetworkChangeCallback [METHOD VOID( CLASS [0400000b] )]
+MethodDef 002d[00000718] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::socket [METHOD I4( I4, I4, I4 )]
+MethodDef 002e[00000728] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::bind [METHOD VOID( OBJECT, SZARRAY U1 )]
+MethodDef 002f[00000738] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::connect [METHOD VOID( OBJECT, SZARRAY U1, BOOLEAN )]
+MethodDef 0030[00000748] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::send [METHOD I4( OBJECT, SZARRAY U1, I4, I4, I4, I4 )]
+MethodDef 0031[00000758] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::recv [METHOD I4( OBJECT, SZARRAY U1, I4, I4, I4, I4 )]
+MethodDef 0032[00000768] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::close [METHOD I4( OBJECT )]
+MethodDef 0033[00000778] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::listen [METHOD VOID( OBJECT, I4 )]
+MethodDef 0034[00000788] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::accept [METHOD I4( OBJECT )]
+MethodDef 0035[00000798] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::getaddrinfo [METHOD VOID( STRING, BYREF STRING, BYREF SZARRAY SZARRAY U1 )]
+MethodDef 0036[000007a8] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::shutdown [METHOD VOID( OBJECT, I4, BYREF I4 )]
+MethodDef 0037[000007b8] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::sendto [METHOD I4( OBJECT, SZARRAY U1, I4, I4, I4, I4, SZARRAY U1 )]
+MethodDef 0038[000007c8] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::recvfrom [METHOD I4( OBJECT, SZARRAY U1, I4, I4, I4, I4, BYREF SZARRAY U1 )]
+MethodDef 0039[000007d8] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::getpeername [METHOD VOID( OBJECT, BYREF SZARRAY U1 )]
+MethodDef 003a[000007e8] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::getsockname [METHOD VOID( OBJECT, BYREF SZARRAY U1 )]
+MethodDef 003b[000007f8] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::getsockopt [METHOD VOID( OBJECT, I4, I4, SZARRAY U1 )]
+MethodDef 003c[00000808] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::setsockopt [METHOD VOID( OBJECT, I4, I4, SZARRAY U1 )]
+MethodDef 003d[00000818] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::poll [METHOD BOOLEAN( OBJECT, I4, I4 )]
+MethodDef 003e[00000828] [Flags: 00000096] [RVA: ffff] Microsoft.SPOT.Net.SocketNative::ioctl [METHOD VOID( OBJECT, U4, BYREF U4 )]
+MethodDef 003f[00000838] [Flags: 000001e6] [RVA: 0474] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkChangeListener::InitializeForEventSource [METHOD VOID()]
+MethodDef 0040[00000848] [Flags: 000001e6] [RVA: 0475] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkChangeListener::ProcessEvent [METHOD CLASS [01000004]( U4, U4, VALUETYPE [01000009] )]
+MethodDef 0041[00000858] [Flags: 000001e6] [RVA: 049b] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkChangeListener::OnEvent [METHOD BOOLEAN( CLASS [01000004] )]
+MethodDef 0042[00000868] [Flags: 00001486] [RVA: 04aa] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkChangeListener::.ctor [METHOD VOID()]
+MethodDef 0043[00000878] [Flags: 00001486] [RVA: 04af] Microsoft.SPOT.Net.NetworkInformation.NetworkChange.NetworkEvent::.ctor [METHOD VOID()]

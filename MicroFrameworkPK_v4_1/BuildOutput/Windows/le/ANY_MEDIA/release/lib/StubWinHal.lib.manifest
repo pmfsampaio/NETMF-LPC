@@ -1,0 +1,57 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>StubWinHal</Name>
+    <ProjectFile>dotnetmf.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>StubWinHal</AssemblyName>
+    <ProjectGuid>e3130481-e48f-4725-8467-c162df8631ae</ProjectGuid>
+    <Description>Collection of stubs and minimum implemenations to satisfy the CLR enough for Tools</Description>
+    <Level>HAL</Level>
+    <LibraryFile>StubWinHal.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\CLR\Tools\StubWinHal\dotNetMF.proj</ProjectPath>
+    <ManifestFile>StubWinHal.$(LIB_EXT).manifest</ManifestFile>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>CLR\Tools\StubWinHal</Directory>
+    <OutputType>Library</OutputType>
+    <PCHFile>none</PCHFile>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+    <MFSettingsFile>$(SPOCLIENT)\Solutions\Windows2\Windows2.settings</MFSettingsFile>
+    <TinyCLR_Platform>Server</TinyCLR_Platform>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\StubWinHal.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\corlib_native.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\mintime.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\minheap.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\Info_Win32.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\ManagedElementTypes_Win32.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\BinaryFormatter.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\release\obj\CLR\Tools\StubWinHal\CLR_RT_RuntimeMemory.obj" />
+</ItemGroup>
+
+</Project>

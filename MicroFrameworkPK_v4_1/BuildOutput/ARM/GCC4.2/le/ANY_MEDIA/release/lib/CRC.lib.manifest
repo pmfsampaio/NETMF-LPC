@@ -1,0 +1,49 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>CRC</Name>
+    <ProjectFile>dotnetmf.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>plak1a_LPC2478</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>LPC24XX</Processor>
+    <TargetPlatform>plak1a_LPC2478</TargetPlatform>
+    <Codebase>LPC24XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>CRC</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectGuid>ECFD7742-DDCC-49DF-95DF-6294EFD3AE02</ProjectGuid>
+    <Description>CRC library</Description>
+    <Level>Support</Level>
+    <LibraryFile>CRC.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\Support\CRC\dotNetMF.proj</ProjectPath>
+    <ManifestFile>CRC.$(LIB_EXT).manifest</ManifestFile>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="CRC_Support" Guid="{AC264A78-6B0B-4d51-AB92-A3283460055E}" ProjectPath="" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency><ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType></MFComponent></LibraryCategory>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>Support\CRC</Directory>
+    <VCProjName>Support_CRC</VCProjName>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+    <ExtraFlags>/wd4996</ExtraFlags>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\ANY_MEDIA\release\obj\Support\CRC\CRC.obj" />
+</ItemGroup>
+
+</Project>

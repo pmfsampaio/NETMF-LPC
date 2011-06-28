@@ -1,0 +1,315 @@
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 1
+
+
+   1              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   2              	@ Copyright (c) Microsoft Corporation.  All rights reserved.
+   3              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   4              	
+   5              	
+   6              	    .section    .text, "ax", %progbits	
+   7              	
+   8              	    .global  EntryPoint
+   9              	
+  10              	    .global  ARM_Vectors
+  11              	    .global  IRQ_SubHandler_Trampoline
+  12              	
+  13              	    .extern  BootEntry
+  14              	
+  15              	    .extern  UNDEF_SubHandler
+  16              	    .extern  ABORTP_SubHandler
+  17              	    .extern  ABORTD_SubHandler
+  18              	
+  19              	
+  20              	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  21              	
+  22              	    @ these define the region to zero initialize
+  23              	    .extern  Image$$ER_RAM_RW$$ZI$$Base
+  24              	    .extern  Image$$ER_RAM_RW$$ZI$$Length
+  25              	
+  26              	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  27              	
+  28              	PSR_MODE_USER       =     0xD0
+  29              	PSR_MODE_FIQ        =     0xD1
+  30              	PSR_MODE_IRQ        =     0xD2
+  31              	PSR_MODE_SUPERVISOR =     0xD3
+  32              	PSR_MODE_ABORT      =     0xD7
+  33              	PSR_MODE_UNDEF      =     0xDB
+  34              	PSR_MODE_SYSTEM     =     0xDF
+  35              	
+  36              	STACK_MODE_ABORT    =     16
+  37              	STACK_MODE_UNDEF    =     16 
+  38              	STACK_MODE_IRQ      =     2048
+  39              	
+  40              	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  41              	
+  42              	    .section SectionForStackBottom,     "a", %progbits
+  43 0000 00000000 	StackBottom: .word 0
+  44              	    .section SectionForStackTop,        "a", %progbits
+  45 0000 00000000 	StackTop:    .word 0
+  46              	    .section SectionForHeapBegin,       "a", %progbits
+  47 0000 00000000 	HeapBegin:   .word 0
+  48              	    .section SectionForHeapEnd,         "a", %progbits
+  49 0000 00000000 	HeapEnd:     .word 0
+  50              	    .section SectionForCustomHeapBegin, "a", %progbits
+  51 0000 00000000 	CustomHeapBegin:   .word 0
+  52              	    .section SectionForCustomHeapEnd,   "a", %progbits
+  53 0000 00000000 	CustomHeapEnd:     .word 0
+  54              	
+  55              	    .global StackBottom
+  56              	    .global StackTop
+  57              	    .global HeapBegin
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 2
+
+
+  58              	    .global HeapEnd
+  59              	    .global CustomHeapBegin
+  60              	    .global CustomHeapEnd
+  61              	
+  62              	
+  63              	    .section i.EntryPoint, "ax", %progbits
+  64              	
+  65              		.arm
+  66              	
+  67              	EntryPoint:
+  68              	
+  69              	ARM_Vectors:
+  70              	    @ RESET
+  71 0000 0A0000EA 	    b       VectorAreaSkip
+  72              	    @ UNDEF INSTR
+  73 0004 14F09FE5 	    ldr     pc, UNDEF_SubHandler_Trampoline
+  74              	    @ SWI    
+  75              	    .ifdef PLATFORM_ARM_AT91SAM9261
+  76              	swi_vect:
+  77              	    b   swi_vect
+  78              	
+  79              	    .else 
+  80              	
+  81              	     .ifdef PLATFORM_ARM_AT91SAM9RL64
+  82              	swi_vect:
+  83              	    b   swi_vect
+  84              	
+  85              	    .else
+  86 0008 0DF0ADBA 	    .word   0xbaadf00d
+  87              	    .endif   
+  88              	    .endif
+  89              	    
+  90              	    @ PREFETCH ABORT
+  91 000c 10F09FE5 	    ldr     pc, ABORTP_SubHandler_Trampoline
+  92              	    @ DATA ABORT
+  93 0010 10F09FE5 	    ldr     pc, ABORTD_SubHandler_Trampoline
+  94              	    @ unused
+  95 0014 0DF0ADBA 	    .word   0xbaadf00d
+  96              	    @ IRQ
+  97 0018 0CF09FE5 	    ldr     pc, IRQ_SubHandler_Trampoline
+  98              	    @ FIQ
+  99              	    .ifdef PLATFORM_ARM_AT91SAM9261
+ 100              	fiq_vect:
+ 101              	    b   fiq_vect
+ 102              	    .else
+ 103              	
+ 104              	    .ifdef PLATFORM_ARM_AT91SAM9RL64
+ 105              	fiq_vect:
+ 106              	    b   fiq_vect
+ 107              	    .else
+ 108 001c 0DF0ADBA 	    .word   0xbaadf00d
+ 109              	    .endif  
+ 110              	    .endif
+ 111              	UNDEF_SubHandler_Trampoline:
+ 112 0020 00000000 	    .word   UNDEF_SubHandler
+ 113              	    
+ 114              	ABORTP_SubHandler_Trampoline:
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 3
+
+
+ 115 0024 00000000 	    .word   ABORTP_SubHandler
+ 116              	
+ 117              	ABORTD_SubHandler_Trampoline:
+ 118 0028 00000000 	    .word   ABORTD_SubHandler
+ 119              	
+ 120              	IRQ_SubHandler_Trampoline:
+ 121 002c 00000000 	    .word	IRQ_Handler
+ 122              	
+ 123              	VectorAreaSkip:
+ 124 0030 6C009FE5 	    ldr     r0, =StackTop               @ new svc stack pointer for a full decrementing stack
+ 125 0034 D7F021E3 	    msr     cpsr_c, #PSR_MODE_ABORT     @ go into ABORT mode, interrupts off
+ 126 0038 00D0A0E1 	    mov     sp, r0                      @ stack top
+ 127 003c 100040E2 	    sub     r0, r0, #STACK_MODE_ABORT   @ ( take the size of abort stack off )
+ 128              	    
+ 129 0040 DBF021E3 	    msr     cpsr_c, #PSR_MODE_UNDEF     @ go into UNDEF mode, interrupts off
+ 130 0044 00D0A0E1 	    mov     sp, r0                      @ stack top - abort stack 
+ 131 0048 100040E2 	    sub     r0, r0, #STACK_MODE_UNDEF   @ 
+ 132              	    
+ 133 004c D2F021E3 	    msr     cpsr_c, #PSR_MODE_IRQ       @ go into IRQ mode, interrupts off
+ 134 0050 00D0A0E1 	    mov     sp, r0                      @ stack top - abort stack - undef stack 
+ 135 0054 020B40E2 	    sub     r0, r0, #STACK_MODE_IRQ
+ 136              	   
+ 137 0058 DFF021E3 	    msr     cpsr_c, #PSR_MODE_SYSTEM    @ go into System mode, interrupts off
+ 138 005c 00D0A0E1 	    mov     sp,r0                       @ stack top - abort stack - undef stack - IRQ stack
+ 139              	
+ 140              	
+ 141              	
+ 142              		@@ move the IRQ vector to offset 0x24 in SRAM
+ 143              		.ifdef PLATFORM_ARM_AT91SAM9261
+ 144              		
+ 145              	    mov	r0, #0x24
+ 146              	    ldr	r1, =IRQ_Handler
+ 147              	    str	r1, [r0, #0]
+ 148              		.endif @@@@[IF TargetPlatformProcessor = "PLATFORM_ARM_AT91SAM9261"]
+ 149              	
+ 150              		@@ move the IRQ vector to offset 0x24 in SRAM
+ 151              		.ifdef PLATFORM_ARM_AT91SAM9RL64
+ 152              		
+ 153              	    mov	r0, #0x24
+ 154              	    ldr	r1, =IRQ_Handler
+ 155              	    str	r1, [r0, #0]
+ 156              		.endif @@@@[IF TargetPlatformProcessor = "PLATFORM_ARM_AT91SAM9261"]
+ 157              	
+ 158              	
+ 159              	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 160              	    @ clear the Zero Initialized RAM, .bss 
+ 161              	    @ do this last just in case there is overlap on the load area
+ 162              	    @ and the execution ZI area
+ 163              	    @ this is not a failsafe, but helps some situations
+ 164              	    @ it would be nice to trap non-workable scatter files somehow - more thought required here @tod
+ 165              	    
+ 166 0060 40009FE5 	    ldr     r0, =Image$$ER_RAM_RW$$ZI$$Length
+ 167 0064 000050E3 	    cmp     r0, #0
+ 168 0068 0400000A 	    beq     NoClearZI_ER_RAM
+ 169 006c 38109FE5 	    ldr     r1, =Image$$ER_RAM_RW$$ZI$$Base
+ 170 0070 0020A0E3 	    mov     r2, #0
+ 171              	
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 4
+
+
+ 172              	ClearZI_ER_RAM:
+ 173              	
+ 174 0074 0400A1E8 	    stmia   r1!, { r2 }
+ 175 0078 040050E2 	    subs    r0, r0, #4                  @ 4 bytes filled per loop 
+ 176 007c FCFFFF1A 	    bne     ClearZI_ER_RAM
+ 177              	
+ 178              	NoClearZI_ER_RAM:
+ 179              	
+ 180              	
+ 181              	    .ifdef PLATFORM_ARM_LPC22XX     
+ 182              	
+ 183              	    @ Manually copy Vector Table to Internal RAM
+ 184              	    mov r0,#0x40
+ 185              	
+ 186              	    ldr r1, =0x81000000
+ 187              	    ldr r2, =Image$$ER_IRAM$$Base
+ 188              	loop:
+ 189              	    ldr  r3,[r1],#4
+ 190              	    subs r0,r0,#4
+ 191              	    str  r3,[r2],#4
+ 192              	    bne  loop
+ 193              	
+ 194              	    .else 
+ 195              	    .ifdef PLATFORM_ARM_LPC24XX
+ 196              	    
+ 197              	   @ Manually copy Vector Table to Internal RAM
+ 198 0080 4000A0E3 	    mov r0,#0x40
+ 199              	
+ 200 0084 0A12A0E3 	    ldr r1, = 0xA0000000
+ 201              	
+ 202 0088 20209FE5 	    ldr r2, =Image$$ER_IRAM$$Base
+ 203              	loop:
+ 204 008c 043091E4 	    ldr  r3,[r1],#4
+ 205 0090 040050E2 	    subs r0,r0,#4
+ 206 0094 043082E4 	    str  r3,[r2],#4
+ 207 0098 FBFFFF1A 	    bne  loop
+ 208              	    .endif @[IF TargetPlatformProcessor = "PLATFORM_ARM_LPC24XX"]
+ 209              	
+ 210              	    .endif  @[IF TargetPlatformProcessor = "PLATFORM_ARM_LPC22XX"]
+ 211              	
+ 212              	
+ 213              	
+ 214              	    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 215              	    @ done moving and clearing RAM, so continue on in C 
+ 216              	
+ 217              	
+ 218              	  .ifdef COMPILE_THUMB
+ 219              	        ldr     r0,BootEntryPointer
+ 220              	        bx      r0
+ 221              	   .else        
+ 222 009c 04F01FE5 	        ldr     pc,BootEntryPointer
+ 223              	   .endif        
+ 224              	
+ 225              	    
+ 226              	BootEntryPointer:
+ 227 00a0 00000000 	    .word   BootEntry
+ 228              	
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 5
+
+
+ 229              	    .ifdef COMPILE_THUMB
+ 230              		  .thumb
+ 231              	    .endif
+ 232              	
+ 233 00a4 00000000 	    .end
+ 233      00000000 
+ 233      00000000 
+ 233      00000000 
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 BUILD_RTM
+                            *ABS*:00000001 TARGETLOCATION_RAM
+                            *ABS*:00000001 HAL_REDUCESIZE
+                            *ABS*:00000001 PLATFORM_ARM_plak1a_LPC2478
+                            *ABS*:00000001 PLATFORM_ARM_LPC24XX
+                            *ABS*:00000001 COMPILE_ARM
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:67     i.EntryPoint:00000000 EntryPoint
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:69     i.EntryPoint:00000000 ARM_Vectors
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:120    i.EntryPoint:0000002c IRQ_SubHandler_Trampoline
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:28     *ABS*:000000d0 PSR_MODE_USER
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:29     *ABS*:000000d1 PSR_MODE_FIQ
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:30     *ABS*:000000d2 PSR_MODE_IRQ
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:31     *ABS*:000000d3 PSR_MODE_SUPERVISOR
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:32     *ABS*:000000d7 PSR_MODE_ABORT
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:33     *ABS*:000000db PSR_MODE_UNDEF
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:34     *ABS*:000000df PSR_MODE_SYSTEM
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:36     *ABS*:00000010 STACK_MODE_ABORT
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:37     *ABS*:00000010 STACK_MODE_UNDEF
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:38     *ABS*:00000800 STACK_MODE_IRQ
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:43     SectionForStackBottom:00000000 StackBottom
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:43     SectionForStackBottom:00000000 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:45     SectionForStackTop:00000000 StackTop
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:45     SectionForStackTop:00000000 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:47     SectionForHeapBegin:00000000 HeapBegin
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:47     SectionForHeapBegin:00000000 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:49     SectionForHeapEnd:00000000 HeapEnd
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:49     SectionForHeapEnd:00000000 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:51     SectionForCustomHeapBegin:00000000 CustomHeapBegin
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:51     SectionForCustomHeapBegin:00000000 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:53     SectionForCustomHeapEnd:00000000 CustomHeapEnd
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:53     SectionForCustomHeapEnd:00000000 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:65     i.EntryPoint:00000000 $a
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:123    i.EntryPoint:00000030 VectorAreaSkip
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:111    i.EntryPoint:00000020 UNDEF_SubHandler_Trampoline
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:86     i.EntryPoint:00000008 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:91     i.EntryPoint:0000000c $a
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:114    i.EntryPoint:00000024 ABORTP_SubHandler_Trampoline
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:117    i.EntryPoint:00000028 ABORTD_SubHandler_Trampoline
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:95     i.EntryPoint:00000014 $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:97     i.EntryPoint:00000018 $a
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:108    i.EntryPoint:0000001c $d
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:124    i.EntryPoint:00000030 $a
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:178    i.EntryPoint:00000080 NoClearZI_ER_RAM
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:172    i.EntryPoint:00000074 ClearZI_ER_RAM
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:203    i.EntryPoint:0000008c loop
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:226    i.EntryPoint:000000a0 BootEntryPointer
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s:227    i.EntryPoint:000000a0 $d
+
+UNDEFINED SYMBOLS
+UNDEF_SubHandler
+ABORTP_SubHandler
+ABORTD_SubHandler
+IRQ_Handler
+Image$$ER_RAM_RW$$ZI$$Length
+Image$$ER_RAM_RW$$ZI$$Base
+Image$$ER_IRAM$$Base
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\Application\common\assemblycode\arm\GNU_S\FirstEntryMinimal.s 			page 7
+
+
+BootEntry

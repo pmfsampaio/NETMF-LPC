@@ -1,0 +1,12 @@
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.IO.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.IO.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.IO\__COMMON\Microsoft.SPOT.IO.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.IO\__COMMON\Microsoft.SPOT.IO.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.IO.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.IO.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.IO.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.IO.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.IO.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.IO.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\txt\Microsoft.SPOT.IO_exports2.txt
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dumps\Microsoft.SPOT.IO.dump

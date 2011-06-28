@@ -1,0 +1,98 @@
+Assembly: Microsoft.SPOT.Graphics (4.1.2821.0)
+
+Size: AssemblyRef         24 byte(s)      2 item(s) [Runtime:      8]
+Size: TypeRef             48 byte(s)      6 item(s) [Runtime:     24]
+Size: FieldRef             0 byte(s)      0 item(s) [Runtime:      0]
+Size: MethodRef           40 byte(s)      5 item(s) [Runtime:     20]
+Size: TypeDef            120 byte(s)      5 item(s) [Runtime:     40]
+Size: FieldDef            64 byte(s)      8 item(s) [Runtime:     16]
+Size: MethodDef          768 byte(s)     48 item(s) [Runtime:     96]
+Size: Attributes           0 byte(s)      0 item(s)
+Size: TypeSpec             0 byte(s)      0 item(s)
+Size: Resources Files      0 byte(s)      0 item(s)
+Size: Resources            0 byte(s)      0 item(s)
+Size: ResourcesData        0 byte(s)
+Size: Strings            537 byte(s)
+Size: Signatures         293 byte(s)
+Size: ByteCode           242 byte(s)
+
+
+AssemblyRef: 0000[0000007c] mscorlib (4.1.2821.0)
+AssemblyRef: 0001[00000088] Microsoft.SPOT.Hardware (4.1.2821.0)
+
+TypeRef 0000[00000094] [Scope: 0000] System MarshalByRefObject
+TypeRef 0001[0000009c] [Scope: 0000] System IDisposable
+TypeRef 0002[000000a4] [Scope: 0000] System Enum
+TypeRef 0003[000000ac] [Scope: 0000] System Object
+TypeRef 0004[000000b4] [Scope: 0001] Microsoft.SPOT.Hardware HardwareProvider
+TypeRef 0005[000000bc] [Scope: 0000] System GC
+
+MethodRef 0000[000000c4] [Type: 0004] get_HwProvider [METHOD CLASS [01000004]()]
+MethodRef 0001[000000cc] [Type: 0004] GetLCDMetrics [METHOD VOID( BYREF I4, BYREF I4, BYREF I4, BYREF I4 )]
+MethodRef 0002[000000d4] [Type: 0005] SuppressFinalize [METHOD VOID( OBJECT )]
+MethodRef 0003[000000dc] [Type: 0003] Finalize [METHOD VOID()]
+MethodRef 0004[000000e4] [Type: 0000] .ctor [METHOD VOID()]
+
+TypeDef 0000[000000ec] [Extends: 8000] [Enclosed: ffff] [Flags: 00004081] Microsoft.SPOT Bitmap
+TypeDef 0001[00000104] [Extends: 8002] [Enclosed: 0000] [Flags: 000000ba]  BitmapImageType
+TypeDef 0002[0000011c] [Extends: 8000] [Enclosed: ffff] [Flags: 00001081] Microsoft.SPOT Font
+TypeDef 0003[00000134] [Extends: 8002] [Enclosed: ffff] [Flags: 000000b9] Microsoft.SPOT.Presentation.Media Color
+TypeDef 0004[0000014c] [Extends: 8003] [Enclosed: ffff] [Flags: 000010c1] Microsoft.SPOT.Presentation.Media ColorUtility
+
+FieldDef 0000[00000164] [Flags: 00000036] Microsoft.SPOT.Bitmap::MaxWidth [FIELD I4]
+FieldDef 0001[0000016c] [Flags: 00000036] Microsoft.SPOT.Bitmap::MaxHeight [FIELD I4]
+FieldDef 0002[00000174] [Flags: 00000036] Microsoft.SPOT.Bitmap::CenterX [FIELD I4]
+FieldDef 0003[0000017c] [Flags: 00000036] Microsoft.SPOT.Bitmap::CenterY [FIELD I4]
+FieldDef 0004[00000184] [Flags: 00000001] Microsoft.SPOT.Bitmap::m_bitmap [FIELD OBJECT]
+FieldDef 0005[0000018c] [Flags: 00000106] Microsoft.SPOT.Bitmap.BitmapImageType::value__ [FIELD U1]
+FieldDef 0006[00000194] [Flags: 00000001] Microsoft.SPOT.Font::m_font [FIELD OBJECT]
+FieldDef 0007[0000019c] [Flags: 00000106] Microsoft.SPOT.Presentation.Media.Color::value__ [FIELD U4]
+
+MethodDef 0000[000001a4] [Flags: 000001e6] [RVA: 0000] Microsoft.SPOT.Bitmap::Dispose [METHOD VOID()]
+MethodDef 0001[000001b4] [Flags: 400040c4] [RVA: 000a] Microsoft.SPOT.Bitmap::Finalize [METHOD VOID()]
+MethodDef 0002[000001c4] [Flags: 00001486] [RVA: ffff] Microsoft.SPOT.Bitmap::.ctor [METHOD VOID( I4, I4 )]
+MethodDef 0003[000001d4] [Flags: 00001486] [RVA: ffff] Microsoft.SPOT.Bitmap::.ctor [METHOD VOID( SZARRAY U1, VALUETYPE [04000001] )]
+MethodDef 0004[000001e4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::Flush [METHOD VOID()]
+MethodDef 0005[000001f4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::Flush [METHOD VOID( I4, I4, I4, I4 )]
+MethodDef 0006[00000204] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::Clear [METHOD VOID()]
+MethodDef 0007[00000214] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::DrawTextInRect [METHOD BOOLEAN( BYREF STRING, BYREF I4, BYREF I4, I4, I4, I4, I4, U4, VALUETYPE [04000003], CLASS [04000002] )]
+MethodDef 0008[00000224] [Flags: 00000086] [RVA: 0024] Microsoft.SPOT.Bitmap::DrawTextInRect [METHOD VOID( STRING, I4, I4, I4, I4, U4, VALUETYPE [04000003], CLASS [04000002] )]
+MethodDef 0009[00000234] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::SetClippingRectangle [METHOD VOID( I4, I4, I4, I4 )]
+MethodDef 000a[00000244] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Bitmap::get_Width [METHOD I4()]
+MethodDef 000b[00000254] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Bitmap::get_Height [METHOD I4()]
+MethodDef 000c[00000264] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::DrawEllipse [METHOD VOID( VALUETYPE [04000003], I4, I4, I4, I4, I4, VALUETYPE [04000003], I4, I4, VALUETYPE [04000003], I4, I4, U2 )]
+MethodDef 000d[00000274] [Flags: 00000086] [RVA: 0040] Microsoft.SPOT.Bitmap::DrawEllipse [METHOD VOID( VALUETYPE [04000003], I4, I4, I4, I4 )]
+MethodDef 000e[00000284] [Flags: 00000086] [RVA: 0058] Microsoft.SPOT.Bitmap::DrawImage [METHOD VOID( I4, I4, CLASS [04000000], I4, I4, I4, I4 )]
+MethodDef 000f[00000294] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::DrawImage [METHOD VOID( I4, I4, CLASS [04000000], I4, I4, I4, I4, U2 )]
+MethodDef 0010[000002a4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::RotateImage [METHOD VOID( I4, I4, I4, CLASS [04000000], I4, I4, I4, I4, U2 )]
+MethodDef 0011[000002b4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::MakeTransparent [METHOD VOID( VALUETYPE [04000003] )]
+MethodDef 0012[000002c4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::StretchImage [METHOD VOID( I4, I4, CLASS [04000000], I4, I4, U2 )]
+MethodDef 0013[000002d4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::DrawLine [METHOD VOID( VALUETYPE [04000003], I4, I4, I4, I4, I4 )]
+MethodDef 0014[000002e4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::DrawRectangle [METHOD VOID( VALUETYPE [04000003], I4, I4, I4, I4, I4, I4, I4, VALUETYPE [04000003], I4, I4, VALUETYPE [04000003], I4, I4, U2 )]
+MethodDef 0015[000002f4] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::DrawText [METHOD VOID( STRING, CLASS [04000002], VALUETYPE [04000003], I4, I4 )]
+MethodDef 0016[00000304] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::SetPixel [METHOD VOID( I4, I4, VALUETYPE [04000003] )]
+MethodDef 0017[00000314] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::GetPixel [METHOD VALUETYPE [04000003]( I4, I4 )]
+MethodDef 0018[00000324] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::GetBitmap [METHOD SZARRAY U1()]
+MethodDef 0019[00000334] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::StretchImage [METHOD VOID( I4, I4, I4, I4, CLASS [04000000], I4, I4, I4, I4, U2 )]
+MethodDef 001a[00000344] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::TileImage [METHOD VOID( I4, I4, CLASS [04000000], I4, I4, U2 )]
+MethodDef 001b[00000354] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Bitmap::Scale9Image [METHOD VOID( I4, I4, I4, I4, CLASS [04000000], I4, I4, I4, I4, U2 )]
+MethodDef 001c[00000364] [Flags: 00000081] [RVA: ffff] Microsoft.SPOT.Bitmap::Dispose [METHOD VOID( BOOLEAN )]
+MethodDef 001d[00000374] [Flags: 00002491] [RVA: 006d] Microsoft.SPOT.Bitmap::.cctor [METHOD VOID()]
+MethodDef 001e[00000384] [Flags: 00001481] [RVA: 0094] Microsoft.SPOT.Font::.ctor [METHOD VOID()]
+MethodDef 001f[00000394] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Font::CharWidth [METHOD I4( CHAR )]
+MethodDef 0020[000003a4] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_Height [METHOD I4()]
+MethodDef 0021[000003b4] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_AverageWidth [METHOD I4()]
+MethodDef 0022[000003c4] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_MaxWidth [METHOD I4()]
+MethodDef 0023[000003d4] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_Ascent [METHOD I4()]
+MethodDef 0024[000003e4] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_Descent [METHOD I4()]
+MethodDef 0025[000003f4] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_InternalLeading [METHOD I4()]
+MethodDef 0026[00000404] [Flags: 00000486] [RVA: ffff] Microsoft.SPOT.Font::get_ExternalLeading [METHOD I4()]
+MethodDef 0027[00000414] [Flags: 00000086] [RVA: 0099] Microsoft.SPOT.Font::ComputeExtent [METHOD VOID( STRING, BYREF I4, BYREF I4 )]
+MethodDef 0028[00000424] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Font::ComputeExtent [METHOD VOID( STRING, BYREF I4, BYREF I4, I4 )]
+MethodDef 0029[00000434] [Flags: 00000086] [RVA: 00a6] Microsoft.SPOT.Font::ComputeTextInRect [METHOD VOID( STRING, BYREF I4, BYREF I4 )]
+MethodDef 002a[00000444] [Flags: 00000086] [RVA: 00b8] Microsoft.SPOT.Font::ComputeTextInRect [METHOD VOID( STRING, BYREF I4, BYREF I4, I4 )]
+MethodDef 002b[00000454] [Flags: 00000086] [RVA: ffff] Microsoft.SPOT.Font::ComputeTextInRect [METHOD VOID( STRING, BYREF I4, BYREF I4, I4, I4, I4, I4, U4 )]
+MethodDef 002c[00000464] [Flags: 00000096] [RVA: 00c7] Microsoft.SPOT.Presentation.Media.ColorUtility::ColorFromRGB [METHOD VALUETYPE [04000003]( U1, U1, U1 )]
+MethodDef 002d[00000474] [Flags: 00000096] [RVA: 00d2] Microsoft.SPOT.Presentation.Media.ColorUtility::GetRValue [METHOD U1( VALUETYPE [04000003] )]
+MethodDef 002e[00000484] [Flags: 00000096] [RVA: 00db] Microsoft.SPOT.Presentation.Media.ColorUtility::GetGValue [METHOD U1( VALUETYPE [04000003] )]
+MethodDef 002f[00000494] [Flags: 00000096] [RVA: 00e6] Microsoft.SPOT.Presentation.Media.ColorUtility::GetBValue [METHOD U1( VALUETYPE [04000003] )]

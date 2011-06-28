@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Author>Pedro Sampaio</Author>
+    <Description>YAAB based on LPC2294 running .NET Micro Framework</Description>
+    <Documentation />
+    <PlatformGuid>{35ff42e7-1dee-4e73-991e-093acaa2c2d7}</PlatformGuid>
+    <TARGETPLATFORM>YAAB_DOTNET</TARGETPLATFORM>
+    <PLATFORM>YAAB_DOTNET</PLATFORM>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <ENDIANNESS>le</ENDIANNESS>
+  </PropertyGroup>
+  <ItemGroup>
+    <IncludePaths Include="Solutions\YAAB_DOTNET" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\devicecode\Targets\Native\LPC22XX\LPC22XX.settings" />
+</Project>

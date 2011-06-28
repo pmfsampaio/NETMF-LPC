@@ -1,0 +1,47 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>VirtualKey_HAL_plak1a_LPC2478</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>plak1a_LPC2478</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>LPC24XX</Processor>
+    <TargetPlatform>plak1a_LPC2478</TargetPlatform>
+    <Codebase>LPC24XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>VirtualKey_HAL_plak1a_LPC2478</AssemblyName>
+    <ProjectGuid>{D6D52B3D-F7B1-4C24-8B04-F7B41E370AF4}</ProjectGuid>
+    <Description>Virtual key stub library</Description>
+    <Level>HAL</Level>
+    <LibraryFile>VirtualKey_HAL_plak1a_LPC2478.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\Solutions\plak1a_LPC2478\DeviceCode\virtualkey\dotNetMF.proj</ProjectPath>
+    <ManifestFile>VirtualKey_HAL_plak1a_LPC2478.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>VirtualKey</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="VirtualKey_HAL" Guid="{38306596-D3F6-49D2-95AD-C9D0C47C92D5}" ProjectPath="" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2008-08-04</Date></VersionDependency><ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType></MFComponent></LibraryCategory>
+    <PlatformIndependent>False</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>Solutions\plak1a_LPC2478\DeviceCode\virtualkey</Directory>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>3.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\FLASH\release\plak1a_LPC2478\obj\Solutions\plak1a_LPC2478\DeviceCode\virtualkey\virtualkey_plak1a_LPC2478.obj" />
+</ItemGroup>
+
+</Project>

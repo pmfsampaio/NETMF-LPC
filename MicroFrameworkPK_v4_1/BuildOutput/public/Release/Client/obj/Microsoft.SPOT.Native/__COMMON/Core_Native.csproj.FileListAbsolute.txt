@@ -1,0 +1,17 @@
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\dll\Microsoft.SPOT.Native.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\dll\Microsoft.SPOT.Native.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\Microsoft.SPOT.Native_Resources.resources
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\GenerateResource.read.0.tlog
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\GenerateResource.write.0.tlog
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\Microsoft.SPOT.Native_Resources.tinyresources
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\Core_Native.csproj.TinyGenerateResource.Cache
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\Microsoft.SPOT.Native.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Native\__COMMON\Microsoft.SPOT.Native.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Native.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Native.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Native.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Native.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Native.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Native.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\txt\Microsoft.SPOT.Native_exports2.txt
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\dumps\Microsoft.SPOT.Native.dump

@@ -1,0 +1,39 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>Include</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <Directory>CLR\Tools\Include</Directory>
+    <TinyCLR_Platform>Server</TinyCLR_Platform>
+    <MFSettingsFile>$(SPOCLIENT)\Solutions\Windows2\Windows2.settings</MFSettingsFile>
+    <AssemblyName>Include</AssemblyName>
+    <OutputType>Library</OutputType>
+    <VCProjName>Tools_Include</VCProjName>
+    <ProjectGuid>169A2643-0A0E-4181-80DC-661C2F4B9103</ProjectGuid>
+    <CharSet>1</CharSet>
+    <PCHFile>none</PCHFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Include\Include.obj" />
+</ItemGroup>
+
+</Project>

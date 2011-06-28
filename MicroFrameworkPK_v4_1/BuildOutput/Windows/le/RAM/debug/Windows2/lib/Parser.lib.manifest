@@ -1,0 +1,46 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>Parser</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <Directory>CLR\Tools\Parser</Directory>
+    <MFSettingsFile>$(SPOCLIENT)\Solutions\Windows2\Windows2.settings</MFSettingsFile>
+    <TinyCLR_Platform>Server</TinyCLR_Platform>
+    <AssemblyName>Parser</AssemblyName>
+    <OutputType>Library</OutputType>
+    <VCProjName>Parser</VCProjName>
+    <ProjectGuid>82024823-CBF2-4566-8E70-984123F72C47</ProjectGuid>
+    <Subsystem>CONSOLE</Subsystem>
+    <LibDirs>Crypto\lib\x86</LibDirs>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\AssemblyParser.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\AssemblyParserDump.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\ByteCodeParser.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\ByteCodeParser_Load.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\ByteCodeParser_Save.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\Linker.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\stdafx.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\Parser\Support.obj" />
+</ItemGroup>
+
+</Project>

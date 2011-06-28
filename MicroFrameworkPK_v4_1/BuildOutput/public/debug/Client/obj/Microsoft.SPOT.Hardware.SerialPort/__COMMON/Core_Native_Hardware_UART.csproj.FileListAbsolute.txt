@@ -1,0 +1,12 @@
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.Hardware.SerialPort.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.Hardware.SerialPort.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.Hardware.SerialPort\__COMMON\Microsoft.SPOT.Hardware.SerialPort.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.Hardware.SerialPort\__COMMON\Microsoft.SPOT.Hardware.SerialPort.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.Hardware.SerialPort.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.Hardware.SerialPort.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\le\Microsoft.SPOT.Hardware.SerialPort.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Hardware.SerialPort.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Hardware.SerialPort.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Hardware.SerialPort.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\txt\Microsoft.SPOT.Hardware.SerialPort_exports2.txt
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Client\dumps\Microsoft.SPOT.Hardware.SerialPort.dump

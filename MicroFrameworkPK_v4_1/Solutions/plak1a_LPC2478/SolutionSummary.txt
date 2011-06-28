@@ -1,0 +1,491 @@
+The .NET Micro Framework Solution Wizard will create the 'plak1a_LPC2478' solution in the directory:
+
+	Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\\Solutions\plak1a_LPC2478
+
+The following is a description of the components of this solution.  Each solution consists of a set of projects which in turn have a set of features and libraries.
+
+    Solution:                          	 plak1a_LPC2478
+    Author:                            	 Pedro Sampaio
+    Description:                       	 +PLAK1a LPC2478 board port, 4.0
+    Processor:                         	 LPC24XX
+    Debugger Port:                     	 COM1
+
+
+Project PortBooter
+    Description:                       	 
+    Path:                              	 Solutions\plak1a_LPC2478\PortBooter
+
+Libraries:
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    CRC:                               	 CRC library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    WireProtocol:                      	 Device communication protocol
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    Buttons_pal:                       	 Buttons library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    cpu_cache_stubs:                   	 Cache stub library
+    COM_pal:                           	 Communication port director
+    config_pal_loader:                 	 System configuration boot loader library
+    Crypto:                            	 Cryptography library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    LPC24XX_GPIO:                      	 LPC24XX GPIO driver
+    heap_pal:                          	 Managed heap size and location configuration
+    i2c_pal:                           	 I2C drivers
+    LPC24XX_VIC:                       	 LPC24XX interrupt controller driver
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    LPC24XX_Power:                     	 LPC24XX power driver
+    LPC24XX_PreStackInit:              	 LPC24XX processor pre-stack initialization
+    LPC24XX_SPI:                       	 LPC24XX SPI driver
+    LPC24XX_TIME:                      	 LPC24XX time driver
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC24XX_USART:                     	 LPC24XX USART driver
+    usart_pal:                         	 USART driver
+    DP83848_plak1a_LPC2478:            	 
+    LPC24XX_Bootstrap:                 	 LPC24XX bootstrap driver
+    LPC24XX_LCDC:                      	 LPC24XX LCD Controller driver
+    LPC24XX_Bootstrap_HAL_plak1a_LPC2478:	 Bootstrap library for plak1a_LPC2478 solution
+    blockstorage_pal:                  	 Block storage library
+    BlockStorage_AddDevices_plak1a_LPC2478:	 Block storage add device driver for plak1a_LPC2478
+    sockets_pal_stubs:                 	 Network socket stub driver
+    LPC24XX_WATCHDOG:                  	 LPC24XX watchdog driver
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    cpu_i2c_stubs:                     	 I2C stub library
+    AT49BV_16_BL:                      	 Block storage library for AT49BV 16-bit flash chip
+    AT49BV642DT_16_BS_Config_plak1a_LPC2478:	 AT49BV642DT 32-bit flash block storage configuration library for plak1a_LPC2478
+    diagnostics_pal:                   	 Diagnostics library
+    diagnostics_pal_stubs:             	 Diagnostics stub library
+    lcd_hal_stubs:                     	 Stub display driver
+
+
+Project PortBooterLoader
+    Description:                       	 
+    Path:                              	 Solutions\plak1a_LPC2478\PortBooter
+
+Libraries:
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    cpu_cache_stubs:                   	 Cache stub library
+    COM_pal:                           	 Communication port director
+    config_pal_loader:                 	 System configuration boot loader library
+    Crypto:                            	 Cryptography library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    LPC24XX_GPIO:                      	 LPC24XX GPIO driver
+    heap_pal:                          	 Managed heap size and location configuration
+    i2c_pal_stubs:                     	 I2C stub library
+    LPC24XX_VIC:                       	 LPC24XX interrupt controller driver
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    LPC24XX_Power:                     	 LPC24XX power driver
+    LPC24XX_PreStackInit:              	 LPC24XX processor pre-stack initialization
+    LPC24XX_SPI:                       	 LPC24XX SPI driver
+    LPC24XX_TIME:                      	 LPC24XX time driver
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC24XX_USART:                     	 LPC24XX USART driver
+    usart_pal:                         	 USART driver
+    LPC24XX_Bootstrap:                 	 LPC24XX bootstrap driver
+    LPC24XX_LCDC:                      	 LPC24XX LCD Controller driver
+    LPC24XX_Bootstrap_HAL_plak1a_LPC2478:	 Bootstrap library for plak1a_LPC2478 solution
+    BlockStorage_AddDevices_plak1a_LPC2478:	 Block storage add device driver for plak1a_LPC2478
+    blockstorage_pal:                  	 Block storage library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    LPC24XX_WATCHDOG:                  	 LPC24XX watchdog driver
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    AT49BV_16_BL:                      	 Block storage library for AT49BV 16-bit flash chip
+    AT49BV642DT_16_BS_Config_plak1a_LPC2478:	 AT49BV642DT 32-bit flash block storage configuration library for plak1a_LPC2478
+    diagnostics_pal:                   	 Diagnostics library
+    diagnostics_pal_stubs:             	 Diagnostics stub library
+    lcd_hal_stubs:                     	 Stub display driver
+
+
+Project tinyclr
+    Description:                       	 
+    Path:                              	 Solutions\plak1a_LPC2478\TinyCLR
+
+Features:
+    Core:                              	 Core functionality (required)
+    Hardware:                          	 Core hardware component
+    NativeEventDispatcher:             	 Native event dispatching for interop
+    Stream:                            	 Stream component
+    FileSystem:                        	 File system
+    Serialization:                     	 Data serialization support
+    BlockStorage:                      	 Block storage support
+    Crypto:                            	 Cryptographic functionality
+    Serial:                            	 Serial transport
+    TimeService:                       	 Time Service support
+    SOCKET:                            	 Socket transport
+    DataStorage:                       	 Data storage (extended weak reference storage)
+    Debugger:                          	 Visual Studio debugger support
+    XML:                               	 Xml utilities component
+    InterruptHandler:                  	 Support for interrupt handling
+    Diagnostics:                       	 Diagnostic utilities
+    SerialPort:                        	 Serial port component
+    Network (RTIP):                    	 Network core functionality for RTIP
+    Network (LWIP):                    	 Network core functionality for lwIP stack
+    RPC:                               	 Remote procedure call support
+    SSL (RTIP):                        	 SSL support for networking
+    SPI:                               	 SPI support
+    Graphics:                          	 Core graphics functionality
+    TinyCore:                          	 TinyCore graphics subsystem
+    TouchPanel:                        	 Touch panel support
+
+Libraries:
+    CLRStartup:                        	 Common CLR initialization library
+    Core:                              	 CLR core library
+    CorLib:                            	 Subset of mscorlib
+    Hardware:                          	 Core hardware functionality
+    SPOT:                              	 Common interop library
+    SPOT_Crypto:                       	 Crypto interop library
+    SPOT_Hardware_SerialPort:          	 SerialPort interop library
+    HeapPersistence:                   	 Extended weak references data storage 
+    Debugger:                          	 Visual Studio debugging support
+    Messaging:                         	 Core communication component
+    InterruptHandler:                  	 Interrupt handler library
+    Xml:                               	 Native Xml functionality
+    SPOT_Net:                          	 Network interop library
+    SPOT_Net_Security:                 	 SSL interop library
+    SPOT_Serialization:                	 Serialization interop library
+    SPOT_IO:                           	 Stream interop library
+    CRC:                               	 CRC library
+    Stream:                            	 Generic stream functionality
+    Serialization:                     	 Binary serialization (proprietary format)
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    LargeBuffer_hal_stubs:             	 LargeBuffer stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    system_initialization_hal:         	 System initialization library
+    Debugger_full:                     	 Full Visual Studio debugging support
+    IOPort:                            	 Native event dispatcher (formerly IOPort)
+    SPOT_Hardware:                     	 Hardware interop library
+    TinyHal:                           	 Core HAL library
+    WireProtocol:                      	 Device communication protocol
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    Buttons_pal:                       	 Buttons library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    cpu_cache_stubs:                   	 Cache stub library
+    COM_pal:                           	 Communication port director
+    config_pal:                        	 System configuration
+    Crypto:                            	 Cryptography library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    LPC24XX_GPIO:                      	 LPC24XX GPIO driver
+    heap_pal:                          	 Managed heap size and location configuration
+    LPC24XX_WATCHDOG:                  	 LPC24XX watchdog driver
+    LPC24XX_VIC:                       	 LPC24XX interrupt controller driver
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    LPC24XX_Power:                     	 LPC24XX power driver
+    LPC24XX_PreStackInit:              	 LPC24XX processor pre-stack initialization
+    LPC24xx_Security:                  	 LPC24xx security driver
+    LPC24XX_TIME:                      	 LPC24XX time driver
+    tinycrt_pal:                       	 CRT functionality
+    LPC24XX_USART:                     	 LPC24XX USART driver
+    usart_pal:                         	 USART driver
+    LPC24XX_Bootstrap:                 	 LPC24XX bootstrap driver
+    AT49BV_16_BL:                      	 Block storage library for AT49BV 16-bit flash chip
+    AT49BV642DT_16_BS_Config_plak1a_LPC2478:	 AT49BV642DT 32-bit flash block storage configuration library for plak1a_LPC2478
+    blockstorage_pal:                  	 Block storage library
+    BlockStorage_AddDevices_plak1a_LPC2478:	 Block storage add device driver for plak1a_LPC2478
+    VirtualKey_HAL_plak1a_LPC2478:     	 Virtual key stub library
+    SimpleHeap:                        	 SimpleHeap unmanaged heap
+    SimpleHeap_config:                 	 Simple unmanaged heap
+    Watchdog_pal:                      	 Watchdog set of methods used by Watchdog feature
+    palevent_pal:                      	 palevent set of methods used by Gesture, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    TimeService_pal:                   	 Time set of methods used by Time, Time
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    FS_FAT:                            	 FAT file system 
+    FS_Config_plak1a_LPC2478:          	 FS config driver for iMXS solution
+    fs_pal:                            	 File system PAL Driver
+    diagnostics_pal:                   	 Diagnostics library
+    Diagnostics_stub:                  	 Diagnostics stub library
+    Diagnostics:                       	 Diagnostic functionality
+    diagnostics_pal_stubs:             	 Diagnostics stub library
+    cpu_performancecounter_stubs:      	 Performance counter stub library
+    SPOT_TimeService:                  	 TimeService interop library
+    System_Xml:                        	 Xml interop library
+    Network_Config_HAL_plak1a_LPC2478: 	 Network configuration stub library
+    timeservice_hal_rtip:              	 Time Service hal library
+    Ethernet_loopback:                 	 Loopback Ethernet Driver
+    sockets_pal:                       	 Network sockets driver
+    Ssl_pal:                           	 SSL PAL layer
+    sockets_hal:                       	 Network stack driver
+    sockets_dhcp:                      	 DHCP network library
+    sockets_hal_udp:                   	 UDP network Library
+    sockets_rtip_pal:                  	 RTIP network driver
+    sockets_hal_async:                 	 Network async abstraction layer
+    sockets_ssl:                       	 SSL driver 
+    sockets_sntp:                      	 sntp driver 
+    sockets_hal_tcp:                   	 TCP network library
+    LPC24XX_EMAC:                      	 LPC24XX EMAC Ethernet Driver
+    DP83848_plak1a_LPC2478:            	 
+    timeservice_hal_stubs:             	 Time Service stub library
+    sockets_pal_lwip:                  	 Network sockets driver for lwIP stack
+    sockets_lwIP_pal:                  	 lwIP network driver
+    sockets_hal_async_LWIP:            	 Network async abstraction layer
+    sockets_hal_sockets_lwIP:          	 Network async abstraction layer
+    sockets_hal_dhcp_lwIP:             	 LWIP DHCP Driver
+    sockets_hal_TCP_LWIP:              	 LWIP TCP layer
+    sockets_hal_udp_lwIP:              	 LWIP UDP netowrk layer
+    ssl_pal_stubs:                     	 SSL PAL layer stub library
+    Ethernet_loopback_lwip:            	 Loopback Ethernet Driver
+    LPC24XX_EMAC_lwip:                 	 LPC24XX EMAC lwIP Ethernet Driver
+    DP83848_plak1a_LPC2478_LWIP:       	 
+    SPOT_Messaging:                    	 Messaging interop library
+    RPC:                               	 Remote procedure call support
+    LPC24XX_SPI:                       	 LPC24XX SPI driver
+    LPC24XX_Bootstrap_HAL_plak1a_LPC2478:	 Bootstrap library for plak1a_LPC2478 solution
+    Graphics:                          	 Graphics subsystem library
+    SPOT_Graphics:                     	 Graphics interop library
+    Graphics_Bmp:                      	 Bitmap support for graphics subsystem
+    Graphics_Jpeg:                     	 JPEG library for graphics subsystem
+    graphics_pal:                      	 Graphics library
+    Graphics_Gif:                      	 GIF library for graphics subsystem
+    LPC24XX_LCDC:                      	 LPC24XX LCD Controller driver
+    LCD_HAL_plak1a_LPC2478:            	 Stub display driver
+    LPC24XX_ADC:                       	 
+    DAC:                               	 
+    i2c_pal_stubs:                     	 I2C stub library
+    I2C_stub:                          	 I2C stub library
+    cpu_i2c_stubs:                     	 I2C stub library
+    SPOT_Touch:                        	 Touch panel interop library
+    TouchPanel_pal:                    	 Touch panel driver
+    TouchScreen_Config_HAL_plak1a_LPC2478:	 TouchPanel touch panel stub configuration driver
+    TouchPanel_HAL_plak1a_LPC2478:     	 Generates template code in your solution's DeviceCode directory for the given Library Category.The project will be generated in Solutions\plak1a_LPC2478\DeviceCode\TouchPanel_HAL
+
+
+Project Tinybooter
+    Description:                       	 
+    Path:                              	 Solutions\plak1a_LPC2478\TinyBooter
+
+Libraries:
+    TinybooterLib:                     	 TinyBooter core library
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    CRC:                               	 CRC library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    WireProtocol:                      	 Device communication protocol
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    Buttons_pal:                       	 Buttons library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    cpu_cache_stubs:                   	 Cache stub library
+    COM_pal:                           	 Communication port director
+    config_pal_loader:                 	 System configuration boot loader library
+    Crypto:                            	 Cryptography library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    LPC24XX_GPIO:                      	 LPC24XX GPIO driver
+    heap_pal:                          	 Managed heap size and location configuration
+    LPC24XX_WATCHDOG:                  	 LPC24XX watchdog driver
+    i2c_pal_stubs:                     	 I2C stub library
+    LPC24XX_VIC:                       	 LPC24XX interrupt controller driver
+    LPC24XX_LCDC:                      	 LPC24XX LCD Controller driver
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    LPC24XX_Power:                     	 LPC24XX power driver
+    LPC24XX_PreStackInit:              	 LPC24XX processor pre-stack initialization
+    LPC24XX_SPI:                       	 LPC24XX SPI driver
+    LPC24XX_TIME:                      	 LPC24XX time driver
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC24XX_USART:                     	 LPC24XX USART driver
+    usart_pal:                         	 USART driver
+    LPC24XX_Bootstrap:                 	 LPC24XX bootstrap driver
+    LPC24XX_Bootstrap_HAL_plak1a_LPC2478:	 Bootstrap library for plak1a_LPC2478 solution
+    blockstorage_pal:                  	 Block storage library
+    BlockStorage_AddDevices_plak1a_LPC2478:	 Block storage add device driver for plak1a_LPC2478
+    sockets_pal_stubs:                 	 Network socket stub driver
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    SimpleHeap:                        	 SimpleHeap unmanaged heap
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    AT49BV_16_BL:                      	 Block storage library for AT49BV 16-bit flash chip
+    AT49BV642DT_16_BS_Config_plak1a_LPC2478:	 AT49BV642DT 32-bit flash block storage configuration library for plak1a_LPC2478
+    diagnostics_pal:                   	 Diagnostics library
+    lcd_hal_stubs:                     	 Stub display driver
+
+
+Project TinyBooterDecompressor
+    Description:                       	 
+    Path:                              	 Solutions\plak1a_LPC2478\TinyBooter
+
+Libraries:
+    TinyBooterDecompressorLib:         	 TinyBooter decompressor library
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    CRC:                               	 CRC library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    WireProtocol:                      	 Device communication protocol
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    cpu_cache_stubs:                   	 Cache stub library
+    COM_pal:                           	 Communication port director
+    config_pal_loader:                 	 System configuration boot loader library
+    Crypto:                            	 Cryptography library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    LPC24XX_GPIO:                      	 LPC24XX GPIO driver
+    heap_pal:                          	 Managed heap size and location configuration
+    LPC24XX_WATCHDOG:                  	 LPC24XX watchdog driver
+    i2c_pal_stubs:                     	 I2C stub library
+    LPC24XX_VIC:                       	 LPC24XX interrupt controller driver
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    LPC24XX_Power:                     	 LPC24XX power driver
+    LPC24XX_PreStackInit:              	 LPC24XX processor pre-stack initialization
+    LPC24XX_SPI:                       	 LPC24XX SPI driver
+    LPC24XX_TIME:                      	 LPC24XX time driver
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    usart_pal_stubs:                   	 USART stub driver
+    cpu_usart_stubs:                   	 USART stub library
+    LPC24XX_Bootstrap:                 	 LPC24XX bootstrap driver
+    LPC24XX_LCDC:                      	 LPC24XX LCD Controller driver
+    lcd_hal_stubs:                     	 Stub display driver
+    LPC24XX_Bootstrap_HAL_plak1a_LPC2478:	 Bootstrap library for plak1a_LPC2478 solution
+    blockstorage_pal:                  	 Block storage library
+    BlockStorage_AddDevices_plak1a_LPC2478:	 Block storage add device driver for plak1a_LPC2478
+    sockets_pal_stubs:                 	 Network socket stub driver
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    AT49BV_16_BL:                      	 Block storage library for AT49BV 16-bit flash chip
+    AT49BV642DT_16_BS_Config_plak1a_LPC2478:	 AT49BV642DT 32-bit flash block storage configuration library for plak1a_LPC2478
+    diagnostics_pal:                   	 Diagnostics library
+    diagnostics_pal_stubs:             	 Diagnostics stub library
+
+
+Project NativeSample
+    Description:                       	 
+    Path:                              	 Solutions\plak1a_LPC2478\NativeSample
+
+Libraries:
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    fs_pal_stubs:                      	 File System stub library
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    CRC:                               	 CRC library
+    FS_Config_stubs:                   	 File system config stub
+    system_initialization_hal:         	 System initialization library
+    TinyHal:                           	 Core HAL library
+    WireProtocol:                      	 Device communication protocol
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    Buttons_pal:                       	 Buttons library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    cpu_cache_stubs:                   	 Cache stub library
+    COM_pal:                           	 Communication port director
+    config_pal:                        	 System configuration
+    Crypto:                            	 Cryptography library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    LPC24XX_GPIO:                      	 LPC24XX GPIO driver
+    LPC24XX_ADC:                       	 
+    heap_pal:                          	 Managed heap size and location configuration
+    LPC24XX_I2C:                       	 LPC24XX I2C driver
+    i2c_pal:                           	 I2C drivers
+    LPC24XX_VIC:                       	 LPC24XX interrupt controller driver
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    LPC24XX_Power:                     	 LPC24XX power driver
+    LPC24XX_PreStackInit:              	 LPC24XX processor pre-stack initialization
+    LPC24XX_SPI:                       	 LPC24XX SPI driver
+    LPC24XX_TIME:                      	 LPC24XX time driver
+    tinycrt_pal:                       	 CRT functionality
+    LPC24XX_USART:                     	 LPC24XX USART driver
+    usart_pal:                         	 USART driver
+    DP83848_plak1a_LPC2478:            	 
+    LPC24XX_Bootstrap:                 	 LPC24XX bootstrap driver
+    LPC24XX_Bootstrap_HAL_plak1a_LPC2478:	 Bootstrap library for plak1a_LPC2478 solution
+    AT49BV_16_BL:                      	 Block storage library for AT49BV 16-bit flash chip
+    AT49BV642DT_16_BS_Config_plak1a_LPC2478:	 AT49BV642DT 32-bit flash block storage configuration library for plak1a_LPC2478
+    blockstorage_pal:                  	 Block storage library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    sockets_pal_lwip:                  	 Network sockets driver for lwIP stack
+    sockets_lwIP_pal:                  	 lwIP network driver
+    sockets_hal_async_LWIP:            	 Network async abstraction layer
+    sockets_hal_sockets_lwIP:          	 Network async abstraction layer
+    sockets_hal_dhcp_lwIP:             	 LWIP DHCP Driver
+    sockets_hal_TCP_LWIP:              	 LWIP TCP layer
+    sockets_hal_udp_lwIP:              	 LWIP UDP netowrk layer
+    ssl_pal_stubs:                     	 SSL PAL layer stub library
+    Network_Config_HAL_plak1a_LPC2478: 	 Network configuration stub library
+    LPC24XX_EMAC_lwip:                 	 LPC24XX EMAC lwIP Ethernet Driver
+    Ethernet_loopback_lwip:            	 Loopback Ethernet Driver
+    DP83848_plak1a_LPC2478_LWIP:       	 
+    BlockStorage_AddDevices_plak1a_LPC2478:	 Block storage add device driver for plak1a_LPC2478
+    LPC24XX_WATCHDOG:                  	 LPC24XX watchdog driver
+    LPC24XX_LCDC:                      	 LPC24XX LCD Controller driver
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    diagnostics_pal:                   	 Diagnostics library
+    LCD_HAL_plak1a_LPC2478:            	 Stub display driver

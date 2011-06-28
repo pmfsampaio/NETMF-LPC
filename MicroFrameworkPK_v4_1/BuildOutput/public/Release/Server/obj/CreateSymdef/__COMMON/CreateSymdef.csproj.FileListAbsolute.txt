@@ -1,0 +1,5 @@
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\dll\CreateSymdef.exe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\dll\CreateSymdef.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\obj\CreateSymdef\__COMMON\ResolveAssemblyReference.cache
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\obj\CreateSymdef\__COMMON\CreateSymdef.exe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\obj\CreateSymdef\__COMMON\CreateSymdef.pdb

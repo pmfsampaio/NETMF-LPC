@@ -1,0 +1,134 @@
+Assembly: Microsoft.SPOT.Hardware.SerialPort (4.1.2821.0)
+
+Size: AssemblyRef         24 byte(s)      2 item(s) [Runtime:      8]
+Size: TypeRef            192 byte(s)     24 item(s) [Runtime:     96]
+Size: FieldRef             0 byte(s)      0 item(s) [Runtime:      0]
+Size: MethodRef          160 byte(s)     20 item(s) [Runtime:     80]
+Size: TypeDef             48 byte(s)      2 item(s) [Runtime:     16]
+Size: FieldDef           128 byte(s)     16 item(s) [Runtime:     32]
+Size: MethodDef          736 byte(s)     46 item(s) [Runtime:     92]
+Size: Attributes           0 byte(s)      0 item(s)
+Size: TypeSpec             0 byte(s)      0 item(s)
+Size: Resources Files      0 byte(s)      0 item(s)
+Size: Resources            0 byte(s)      0 item(s)
+Size: ResourcesData        0 byte(s)
+Size: Strings            667 byte(s)
+Size: Signatures         239 byte(s)
+Size: ByteCode          1118 byte(s)
+
+
+AssemblyRef: 0000[0000007c] mscorlib (4.1.2821.0)
+AssemblyRef: 0001[00000088] Microsoft.SPOT.Hardware (4.1.2821.0)
+
+TypeRef 0000[00000094] [Scope: 0000] System Object
+TypeRef 0001[0000009c] [Scope: 0000] System IDisposable
+TypeRef 0002[000000a4] [Scope: 0001] Microsoft.SPOT.Hardware NativeEventDispatcher
+TypeRef 0003[000000ac] [Scope: 0001] System.IO.Ports SerialErrorReceivedEventHandler
+TypeRef 0004[000000b4] [Scope: 0001] System.IO.Ports SerialDataReceivedEventHandler
+TypeRef 0005[000000bc] [Scope: 0001] System.IO.Ports Parity
+TypeRef 0006[000000c4] [Scope: 0001] System.IO.Ports StopBits
+TypeRef 0007[000000cc] [Scope: 0001] System.IO.Ports Handshake
+TypeRef 0008[000000d4] [Scope: 0000] System DateTime
+TypeRef 0009[000000dc] [Scope: 0001] Microsoft.SPOT.Hardware HardwareProvider
+TypeRef 000a[000000e4] [Scope: 0001] Microsoft.SPOT.Hardware Cpu
+TypeRef 000b[000000ec] [Scope: 800a]  Pin
+TypeRef 000c[000000f4] [Scope: 0001] Microsoft.SPOT.Hardware Port
+TypeRef 000d[000000fc] [Scope: 0000] System Exception
+TypeRef 000e[00000104] [Scope: 0000] System InvalidOperationException
+TypeRef 000f[0000010c] [Scope: 0000] System ObjectDisposedException
+TypeRef 0010[00000114] [Scope: 0001] Microsoft.SPOT.Hardware NativeEventHandler
+TypeRef 0011[0000011c] [Scope: 0000] System GC
+TypeRef 0012[00000124] [Scope: 0001] System.IO.Ports SerialErrorReceivedEventArgs
+TypeRef 0013[0000012c] [Scope: 0001] System.IO.Ports SerialError
+TypeRef 0014[00000134] [Scope: 0001] System.IO.Ports SerialDataReceivedEventArgs
+TypeRef 0015[0000013c] [Scope: 0001] System.IO.Ports SerialData
+TypeRef 0016[00000144] [Scope: 0000] System Delegate
+TypeRef 0017[0000014c] [Scope: 0001] System.IO.Ports SerialPortName
+
+MethodRef 0000[00000154] [Type: 0000] .ctor [METHOD VOID()]
+MethodRef 0001[0000015c] [Type: 0002] .ctor [METHOD VOID( STRING, U8 )]
+MethodRef 0002[00000164] [Type: 0009] get_HwProvider [METHOD CLASS [01000009]()]
+MethodRef 0003[0000016c] [Type: 0009] GetSerialPins [METHOD VOID( STRING, BYREF VALUETYPE [0100000b], BYREF VALUETYPE [0100000b], BYREF VALUETYPE [0100000b], BYREF VALUETYPE [0100000b] )]
+MethodRef 0004[00000174] [Type: 000c] ReservePin [METHOD BOOLEAN( VALUETYPE [0100000b], BOOLEAN )]
+MethodRef 0005[0000017c] [Type: 000e] .ctor [METHOD VOID()]
+MethodRef 0006[00000184] [Type: 000f] .ctor [METHOD VOID()]
+MethodRef 0007[0000018c] [Type: 0000] Finalize [METHOD VOID()]
+MethodRef 0008[00000194] [Type: 0010] .ctor [METHOD VOID( OBJECT, I4 )]
+MethodRef 0009[0000019c] [Type: 0002] remove_OnInterrupt [METHOD VOID( CLASS [01000010] )]
+MethodRef 000a[000001a4] [Type: 0002] Dispose [METHOD VOID()]
+MethodRef 000b[000001ac] [Type: 0011] SuppressFinalize [METHOD VOID( OBJECT )]
+MethodRef 000c[000001b4] [Type: 0012] .ctor [METHOD VOID( VALUETYPE [01000013] )]
+MethodRef 000d[000001bc] [Type: 0003] Invoke [METHOD VOID( OBJECT, CLASS [01000012] )]
+MethodRef 000e[000001c4] [Type: 0014] .ctor [METHOD VOID( VALUETYPE [01000015] )]
+MethodRef 000f[000001cc] [Type: 0004] Invoke [METHOD VOID( OBJECT, CLASS [01000014] )]
+MethodRef 0010[000001d4] [Type: 0016] Combine [METHOD CLASS [01000016]( CLASS [01000016], CLASS [01000016] )]
+MethodRef 0011[000001dc] [Type: 0002] add_OnInterrupt [METHOD VOID( CLASS [01000010] )]
+MethodRef 0012[000001e4] [Type: 0016] Remove [METHOD CLASS [01000016]( CLASS [01000016], CLASS [01000016] )]
+MethodRef 0013[000001ec] [Type: 0017] ConvertNameToIndex [METHOD I4( STRING )]
+
+TypeDef 0000[000001f4] [Extends: 8000] [Enclosed: ffff] [Flags: 00005001] System.IO.Ports SerialPort
+TypeDef 0001[0000020c] [Extends: 8000] [Enclosed: 0000] [Flags: 00001005]  Configuration
+
+FieldDef 0000[00000224] [Flags: 00000001] System.IO.Ports.SerialPort::m_config [FIELD CLASS [04000001]]
+FieldDef 0001[0000022c] [Flags: 00000001] System.IO.Ports.SerialPort::m_fDisposed [FIELD BOOLEAN]
+FieldDef 0002[00000234] [Flags: 00000001] System.IO.Ports.SerialPort::m_fOpened [FIELD BOOLEAN]
+FieldDef 0003[0000023c] [Flags: 00000001] System.IO.Ports.SerialPort::m_portName [FIELD STRING]
+FieldDef 0004[00000244] [Flags: 00000001] System.IO.Ports.SerialPort::m_evtErrorEvent [FIELD CLASS [01000002]]
+FieldDef 0005[0000024c] [Flags: 00000001] System.IO.Ports.SerialPort::m_evtDataEvent [FIELD CLASS [01000002]]
+FieldDef 0006[00000254] [Flags: 00000001] System.IO.Ports.SerialPort::m_callbacksErrorEvent [FIELD CLASS [01000003]]
+FieldDef 0007[0000025c] [Flags: 00000001] System.IO.Ports.SerialPort::m_callbacksDataEvent [FIELD CLASS [01000004]]
+FieldDef 0008[00000264] [Flags: 00000023] System.IO.Ports.SerialPort.Configuration::PortIndex [FIELD I4]
+FieldDef 0009[0000026c] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::Speed [FIELD I4]
+FieldDef 000a[00000274] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::Parity [FIELD VALUETYPE [01000005]]
+FieldDef 000b[0000027c] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::DataBits [FIELD I4]
+FieldDef 000c[00000284] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::StopBits [FIELD VALUETYPE [01000006]]
+FieldDef 000d[0000028c] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::Handshake [FIELD VALUETYPE [01000007]]
+FieldDef 000e[00000294] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::ReadTimeout [FIELD I4]
+FieldDef 000f[0000029c] [Flags: 00000003] System.IO.Ports.SerialPort.Configuration::WriteTimeout [FIELD I4]
+
+MethodDef 0000[000002a4] [Flags: 400040c4] [RVA: 0000] System.IO.Ports.SerialPort::Finalize [METHOD VOID()]
+MethodDef 0001[000002b4] [Flags: 000001e6] [RVA: 001a] System.IO.Ports.SerialPort::Dispose [METHOD VOID()]
+MethodDef 0002[000002c4] [Flags: 00001486] [RVA: 0024] System.IO.Ports.SerialPort::.ctor [METHOD VOID( STRING )]
+MethodDef 0003[000002d4] [Flags: 00001486] [RVA: 0032] System.IO.Ports.SerialPort::.ctor [METHOD VOID( STRING, I4 )]
+MethodDef 0004[000002e4] [Flags: 00001486] [RVA: 003c] System.IO.Ports.SerialPort::.ctor [METHOD VOID( STRING, I4, VALUETYPE [01000005] )]
+MethodDef 0005[000002f4] [Flags: 00001486] [RVA: 0046] System.IO.Ports.SerialPort::.ctor [METHOD VOID( STRING, I4, VALUETYPE [01000005], I4 )]
+MethodDef 0006[00000304] [Flags: 00001486] [RVA: 0051] System.IO.Ports.SerialPort::.ctor [METHOD VOID( STRING, I4, VALUETYPE [01000005], I4, VALUETYPE [01000006] )]
+MethodDef 0007[00000314] [Flags: 40000081] [RVA: 0097] System.IO.Ports.SerialPort::HandlePinReservations [METHOD VOID( BOOLEAN )]
+MethodDef 0008[00000324] [Flags: 01000086] [RVA: 013c] System.IO.Ports.SerialPort::Open [METHOD VOID()]
+MethodDef 0009[00000334] [Flags: 41000086] [RVA: 015f] System.IO.Ports.SerialPort::Close [METHOD VOID()]
+MethodDef 000a[00000344] [Flags: 41000081] [RVA: 0188] System.IO.Ports.SerialPort::Dispose [METHOD VOID( BOOLEAN )]
+MethodDef 000b[00000354] [Flags: 00000086] [RVA: 01f9] System.IO.Ports.SerialPort::DiscardInBuffer [METHOD VOID()]
+MethodDef 000c[00000364] [Flags: 00000086] [RVA: 01ff] System.IO.Ports.SerialPort::DiscardOutBuffer [METHOD VOID()]
+MethodDef 000d[00000374] [Flags: 00000486] [RVA: 0205] System.IO.Ports.SerialPort::get_PortName [METHOD STRING()]
+MethodDef 000e[00000384] [Flags: 00000486] [RVA: 020a] System.IO.Ports.SerialPort::get_IsOpen [METHOD BOOLEAN()]
+MethodDef 000f[00000394] [Flags: 00000486] [RVA: 020f] System.IO.Ports.SerialPort::get_BytesToRead [METHOD I4()]
+MethodDef 0010[000003a4] [Flags: 00000486] [RVA: 0215] System.IO.Ports.SerialPort::get_BytesToWrite [METHOD I4()]
+MethodDef 0011[000003b4] [Flags: 00000486] [RVA: 021b] System.IO.Ports.SerialPort::get_DataBits [METHOD I4()]
+MethodDef 0012[000003c4] [Flags: 00000486] [RVA: 0223] System.IO.Ports.SerialPort::set_DataBits [METHOD VOID( I4 )]
+MethodDef 0013[000003d4] [Flags: 00000486] [RVA: 0236] System.IO.Ports.SerialPort::get_BaudRate [METHOD I4()]
+MethodDef 0014[000003e4] [Flags: 00000486] [RVA: 023e] System.IO.Ports.SerialPort::set_BaudRate [METHOD VOID( I4 )]
+MethodDef 0015[000003f4] [Flags: 00000486] [RVA: 0251] System.IO.Ports.SerialPort::get_Handshake [METHOD VALUETYPE [01000007]()]
+MethodDef 0016[00000404] [Flags: 00000486] [RVA: 0259] System.IO.Ports.SerialPort::set_Handshake [METHOD VOID( VALUETYPE [01000007] )]
+MethodDef 0017[00000414] [Flags: 00000486] [RVA: 026c] System.IO.Ports.SerialPort::get_Parity [METHOD VALUETYPE [01000005]()]
+MethodDef 0018[00000424] [Flags: 00000486] [RVA: 0274] System.IO.Ports.SerialPort::set_Parity [METHOD VOID( VALUETYPE [01000005] )]
+MethodDef 0019[00000434] [Flags: 00000486] [RVA: 0287] System.IO.Ports.SerialPort::get_StopBits [METHOD VALUETYPE [01000006]()]
+MethodDef 001a[00000444] [Flags: 00000486] [RVA: 028f] System.IO.Ports.SerialPort::set_StopBits [METHOD VOID( VALUETYPE [01000006] )]
+MethodDef 001b[00000454] [Flags: 00000486] [RVA: 02a2] System.IO.Ports.SerialPort::get_ReadTimeout [METHOD I4()]
+MethodDef 001c[00000464] [Flags: 00000486] [RVA: 02aa] System.IO.Ports.SerialPort::set_ReadTimeout [METHOD VOID( I4 )]
+MethodDef 001d[00000474] [Flags: 00000486] [RVA: 02bd] System.IO.Ports.SerialPort::get_WriteTimeout [METHOD I4()]
+MethodDef 001e[00000484] [Flags: 00000486] [RVA: 02c5] System.IO.Ports.SerialPort::set_WriteTimeout [METHOD VOID( I4 )]
+MethodDef 001f[00000494] [Flags: 00000081] [RVA: 02d8] System.IO.Ports.SerialPort::ErrorEventHandler [METHOD VOID( U4, U4, VALUETYPE [01000008] )]
+MethodDef 0020[000004a4] [Flags: 00000081] [RVA: 02eb] System.IO.Ports.SerialPort::DataEventHandler [METHOD VOID( U4, U4, VALUETYPE [01000008] )]
+MethodDef 0021[000004b4] [Flags: 41000486] [RVA: 02fe] System.IO.Ports.SerialPort::add_ErrorReceived [METHOD VOID( CLASS [01000003] )]
+MethodDef 0022[000004c4] [Flags: 41000486] [RVA: 034b] System.IO.Ports.SerialPort::remove_ErrorReceived [METHOD VOID( CLASS [01000003] )]
+MethodDef 0023[000004d4] [Flags: 41000486] [RVA: 0395] System.IO.Ports.SerialPort::add_DataReceived [METHOD VOID( CLASS [01000004] )]
+MethodDef 0024[000004e4] [Flags: 41000486] [RVA: 03e2] System.IO.Ports.SerialPort::remove_DataReceived [METHOD VOID( CLASS [01000004] )]
+MethodDef 0025[000004f4] [Flags: 00000081] [RVA: ffff] System.IO.Ports.SerialPort::InternalOpen [METHOD VOID()]
+MethodDef 0026[00000504] [Flags: 00000081] [RVA: ffff] System.IO.Ports.SerialPort::InternalClose [METHOD VOID()]
+MethodDef 0027[00000514] [Flags: 00000086] [RVA: ffff] System.IO.Ports.SerialPort::Read [METHOD I4( SZARRAY U1, I4, I4 )]
+MethodDef 0028[00000524] [Flags: 00000086] [RVA: ffff] System.IO.Ports.SerialPort::Write [METHOD I4( SZARRAY U1, I4, I4 )]
+MethodDef 0029[00000534] [Flags: 00000081] [RVA: ffff] System.IO.Ports.SerialPort::InternalDispose [METHOD VOID()]
+MethodDef 002a[00000544] [Flags: 00000086] [RVA: ffff] System.IO.Ports.SerialPort::Flush [METHOD VOID()]
+MethodDef 002b[00000554] [Flags: 00000081] [RVA: ffff] System.IO.Ports.SerialPort::BytesInBuffer [METHOD I4( BOOLEAN )]
+MethodDef 002c[00000564] [Flags: 00000081] [RVA: ffff] System.IO.Ports.SerialPort::DiscardBuffer [METHOD VOID( BOOLEAN )]
+MethodDef 002d[00000574] [Flags: 00001483] [RVA: 042c] System.IO.Ports.SerialPort.Configuration::.ctor [METHOD VOID( STRING, I4, VALUETYPE [01000005], I4, VALUETYPE [01000006] )]

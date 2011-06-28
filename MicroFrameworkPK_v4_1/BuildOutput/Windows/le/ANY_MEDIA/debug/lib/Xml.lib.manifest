@@ -1,0 +1,66 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>Xml</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <ProjectPath>$(SPOCLIENT)\CLR\Core\Xml\dotNetMF.proj</ProjectPath>
+    <AssemblyName>Xml</AssemblyName>
+    <ProjectGuid>45AC9135-01D9-451b-B115-6786AE1A9CBA</ProjectGuid>
+    <Description>Native Xml functionality</Description>
+    <Level>CLR</Level>
+    <LibraryFile>Xml.$(LIB_EXT)</LibraryFile>
+    <ManifestFile>Xml.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Xml</Groups>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="XML_core_CLR" Guid="{206AD820-45A4-4EAD-8B31-03599CDD4C6F}" ProjectPath="$(SPOCLIENT)\Framework\Features\XML_core_CLR.libcatproj" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2010-06-02</Date><Author /></VersionDependency><ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType></MFComponent></LibraryCategory>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <HasLibraryCategory>True</HasLibraryCategory>
+    <Directory>CLR\Core\Xml</Directory>
+    <OutputType>Library</OutputType>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlCharRef.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlCharType.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlNameTable.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlReader.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_BetweenElements.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InAttribute.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InAttributeValue.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InEndElement.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InName.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InProcessingInstruction.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InStartElement.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InValue.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_InXmlDeclaration.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_NewTag.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Xml\XmlState_Start.obj" />
+</ItemGroup>
+
+</Project>

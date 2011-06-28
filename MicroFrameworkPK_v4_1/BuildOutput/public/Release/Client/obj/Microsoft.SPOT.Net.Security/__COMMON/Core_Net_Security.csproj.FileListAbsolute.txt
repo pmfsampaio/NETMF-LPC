@@ -1,0 +1,12 @@
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\dll\Microsoft.SPOT.Net.Security.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\dll\Microsoft.SPOT.Net.Security.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Net.Security\__COMMON\Microsoft.SPOT.Net.Security.dll
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Net.Security\__COMMON\Microsoft.SPOT.Net.Security.pdb
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Net.Security.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Net.Security.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Net.Security.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Net.Security.strings
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Net.Security.pe
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Net.Security.pdbx
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\txt\Microsoft.SPOT.Net.Security_exports2.txt
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Client\dumps\Microsoft.SPOT.Net.Security.dump

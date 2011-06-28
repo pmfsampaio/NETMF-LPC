@@ -1,0 +1,50 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>TinybooterLib</Name>
+    <ProjectFile>TinyBooterLib.proj</ProjectFile>
+    <Version>4.1.2821.0</Version>
+    <Platform>plak1a_LPC2478</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.2</CompilerVersion>
+    <TargetLocation>FLASH</TargetLocation>
+    <MemoryFlavor>flash</MemoryFlavor>
+    <Processor>LPC24XX</Processor>
+    <TargetPlatform>plak1a_LPC2478</TargetPlatform>
+    <Codebase>LPC24XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.1.2821.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>TinybooterLib</AssemblyName>
+    <ProjectGuid>{32f64954-ee33-4a24-9ed9-545efbf747f7}</ProjectGuid>
+    <Description>TinyBooter core library</Description>
+    <Level>HAL</Level>
+    <LibraryFile>TinybooterLib.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\Application\TinyBooter\TinyBooterLib.proj</ProjectPath>
+    <ManifestFile>TinybooterLib.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Tinybooter</Groups>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>Application\TinyBooter</Directory>
+    <reducesize>true</reducesize>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\ANY_MEDIA\release\obj\Application\TinyBooter\Commands.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\ANY_MEDIA\release\obj\Application\TinyBooter\ConfigurationManager.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\ANY_MEDIA\release\obj\Application\TinyBooter\CryptoInterface.obj" />
+    <ObjectFile Include="Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\ARM\GCC4.2\le\ANY_MEDIA\release\obj\Application\TinyBooter\Tinybooter.obj" />
+</ItemGroup>
+
+</Project>

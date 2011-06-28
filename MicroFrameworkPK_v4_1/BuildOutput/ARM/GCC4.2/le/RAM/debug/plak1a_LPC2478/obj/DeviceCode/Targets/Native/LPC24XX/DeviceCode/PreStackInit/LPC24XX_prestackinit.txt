@@ -1,0 +1,71 @@
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\Targets\Native\LPC24XX\DeviceCode\PreStackInit\GNU_S\LPC24XX_prestackinit.s 			page 1
+
+
+   1              	@-----------------------------------------------------------------------------
+   2              	@ Software that is described herein is for illustrative purposes only  
+   3              	@ which provides customers with programming information regarding the  
+   4              	@ products. This software is supplied "AS IS" without any warranties.  
+   5              	@ NXP Semiconductors assumes no responsibility or liability for the 
+   6              	@ use of the software, conveys no license or title under any patent, 
+   7              	@ copyright, or mask work right to the product. NXP Semiconductors 
+   8              	@ reserves the right to make changes in the software without 
+   9              	@ notification. NXP Semiconductors also make no representation or 
+  10              	@ warranty that such application will be suitable for the specified 
+  11              	@ use without further testing or modification. 
+  12              	@-----------------------------------------------------------------------------
+  13              	
+  14              	    .global  PreStackInit
+  15              	
+  16              	    .extern  PreStackInit_Exit_Pointer
+  17              	    .extern  platform_prestackinit
+  18              	
+  19              	    .section SectionForBootstrapOperations, "xa", %progbits
+  20              	
+  21              		.arm
+  22              	
+  23              	PreStackInit:
+  24              	
+  25              	
+  26              	    @*************************************************************************
+  27              	    @@
+  28              	    @@     Change SP back to Internal RAM. EMC is not yet initialized
+  29 0000 04D09FE5 	    ldr     sp,=0x40008000
+  30 0004 FEFFFFEB 	    bl      platform_prestackinit
+  31              	
+  32              	    @*************************************************************************
+  33              	    @ DO NOT CHANGE THE FOLLOWING CODE! we can not use pop to return because we 
+  34              	    @ loaded the PC register to get here (since the stack has not been initialized).  
+  35              	    @ Make sure the PreStackInit_Exit_Pointer is within range and 
+  36              	    @ in the SectionForBootstrapOperations
+  37              	    @ go back to the firstentry(_loader) code 
+  38              	    @
+  39              	
+  40              	PreStackEnd:
+  41 0008 FEFFFFEA 	    B    PreStackInit_Exit_Pointer
+  42              	
+  43              	    @
+  44              	    @**************************************************************************
+  45              	
+  46              	
+  47              		.ifdef COMPILE_THUMB
+  48              		.thumb
+  49              		.endif
+  50              	
+  51 000c 00800040 	    .end
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\Targets\Native\LPC24XX\DeviceCode\PreStackInit\GNU_S\LPC24XX_prestackinit.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 BUILD_RTM
+                            *ABS*:00000001 TARGETLOCATION_RAM
+                            *ABS*:00000001 PLATFORM_ARM_plak1a_LPC2478
+                            *ABS*:00000001 PLATFORM_ARM_LPC24XX
+                            *ABS*:00000001 COMPILE_ARM
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\Targets\Native\LPC24XX\DeviceCode\PreStackInit\GNU_S\LPC24XX_prestackinit.s:23     SectionForBootstrapOperations:00000000 PreStackInit
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\Targets\Native\LPC24XX\DeviceCode\PreStackInit\GNU_S\LPC24XX_prestackinit.s:21     SectionForBootstrapOperations:00000000 $a
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\Targets\Native\LPC24XX\DeviceCode\PreStackInit\GNU_S\LPC24XX_prestackinit.s:40     SectionForBootstrapOperations:00000008 PreStackEnd
+Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\Targets\Native\LPC24XX\DeviceCode\PreStackInit\GNU_S\LPC24XX_prestackinit.s:51     SectionForBootstrapOperations:0000000c $d
+
+UNDEFINED SYMBOLS
+platform_prestackinit
+PreStackInit_Exit_Pointer

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Author>Pedro Sampaio</Author>
+    <Description />
+    <Documentation />
+    <PlatformGuid>{663669d7-94bb-4520-ac0e-287141c3eb2d}</PlatformGuid>
+    <TARGETPLATFORM>plak1a</TARGETPLATFORM>
+    <PLATFORM>plak1a</PLATFORM>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <ENDIANNESS>le</ENDIANNESS>
+  </PropertyGroup>
+  <ItemGroup>
+    <IncludePaths Include="Solutions\plak1a" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\devicecode\Targets\Native\LPC22XX\LPC22XX.settings" />
+</Project>

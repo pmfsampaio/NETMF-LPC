@@ -1,0 +1,64 @@
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\Sampling_Profiler_RAM.s 			page 1
+
+
+   1              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   2              	@ Copyright (c) Microsoft Corporation.  All rights reserved.
+   3              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   4              	
+   5              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   6              	    .ifdef PLATFORM_ARM_MC9328
+   7              	
+   8              	    .ifdef FIQ_SAMPLING_PROFILER
+   9              	
+  10              	    .global Profiler_FIQ_Initialize
+  11              	
+  12              	    .extern  EntryPoint
+  13              	    .extern  HeapBegin
+  14              	    .extern  ProfilerBufferBegin
+  15              	    .extern  ProfilerBufferEnd
+  16              	
+  17              	
+  18              	MC9328MXL_ARM_TIMER_2_STATUS_REG   =     0x00203014
+  19              	MC9328MXL_INTC_FIQ_ENABLE_CLEAR    =     0x00223018
+  20              	
+  21              	    .section    i.Profiler_FIQ_Initialize, "ax", %progbits
+  22              	
+  23              		  .arm
+  24              	
+  25              	Profiler_FIQ_Initialize:
+  26              	
+  27              	    stmfd   r13!, {r14}                                 @ save r14 (lr), since we will use it when 
+  28              	
+  29              	    msr     cpsr_c, #0xD1                               @ go into FIQ mode, but keep IRQs & FIQs of
+  30              	    ldr     r8,       =ProfilerBufferBegin              @ load RAM address
+  31              	    ldr     r9,       =ProfilerBufferEnd                @ load max profile word count  
+  32              	    ldr     r10,       =ProfilerBufferBegin
+  33              	    sub     r9,r9,r10
+  34              	    lsr     r9,r9,#2
+  35              	    ldr     r10,      =EntryPoint                       @ load the entry point
+  36              	    str     r10,[r8],#4
+  37              	    sub     r9,r9,#1
+  38              	    ldr     r11,      =MC9328MXL_ARM_TIMER_2_STATUS_REG @ ARM Timer 2 Clear location 
+  39              	    msr     cpsr_c, #0xDF                               @ go into SYSTEM mode, giving us a usable s
+  40              	
+  41              	    ldmfd   r13!, {pc}                                  @ return to caller, restore link register i
+  42              	
+  43              	    .endif
+  44              	    .endif
+  45              	    
+  46              	    .ifdef COMPILE_THUMB
+  47              		  .thumb
+  48              	    .endif
+  49              	
+ARM GAS  Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\Sampling_Profiler_RAM.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 BUILD_RTM
+                            *ABS*:00000001 TARGETLOCATION_RAM
+                            *ABS*:00000001 HAL_REDUCESIZE
+                            *ABS*:00000001 PLATFORM_ARM_plak1a_LPC2478
+                            *ABS*:00000001 PLATFORM_ARM_LPC24XX
+                            *ABS*:00000001 COMPILE_ARM
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,7 @@
+flash write_image erase C:/MicroFrameworkPK_v4_1/BuildOutput/ARM/GCC4.2/le/FLASH/release/plak1a_LPC2478/bin/portbooterloader.bin
+
+1. boot TinyBooter
+
+flash write_image erase Z:/home/Develop/software/NETMF-LPC/MicroFrameworkPK_v4_1/BuildOutput/ARM/GCC4.2/le/FLASH/release/plak1a_LPC2478/bin/tinyclr.bin/ER_IFLASH 0x28000
+
+
