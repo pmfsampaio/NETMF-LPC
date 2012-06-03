@@ -115,16 +115,16 @@ static void __section(SectionForBootstrapOperations) Prepare_Copy( UINT32* src, 
             len -= 4;
         }
 
-		// thumb2 code can be multiples of 2...
+        // thumb2 code can be multiples of 2...
 
-		UINT8 *dst8 = (UINT8*) dst, *src8 = (UINT8*) src;
+        UINT8 *dst8 = (UINT8*) dst, *src8 = (UINT8*) src;
 
-		while (len > 0)
-		{
-			*dst8++ = *src8++;
+        while (len > 0)
+        {
+            *dst8++ = *src8++;
 
-			len--;
-		}
+            len--;
+        }
     }
 }
 
@@ -137,16 +137,16 @@ static void __section(SectionForBootstrapOperations) Prepare_Zero( UINT32* dst, 
         len -= 4;
     }
 
-	// thumb2 code can be multiples of 2...
+    // thumb2 code can be multiples of 2...
 
-	UINT8 *dst8 = (UINT8*) dst;
+    UINT8 *dst8 = (UINT8*) dst;
 
-	while (len > 0)
-	{
-		*dst8++ = 0;
+    while (len > 0)
+    {
+        *dst8++ = 0;
 
-		len--;
-	}
+        len--;
+    }
 }
 
 void __section(SectionForBootstrapOperations) PrepareImageRegions()
@@ -190,7 +190,7 @@ void __section(SectionForBootstrapOperations) PrepareImageRegions()
 
 static void InitCRuntime()
 {
-#if (defined(HAL_REDUCESIZE) || defined(COMPILE_THUMB2) || defined(PLATFORM_EMULATED_FLOATINGPOINT))
+#if (defined(HAL_REDUCESIZE) || defined(PLATFORM_EMULATED_FLOATINGPOINT))
 
     // Don't initialize floating-point on small builds.
 
@@ -207,6 +207,26 @@ static void InitCRuntime()
 #if !defined(BUILD_RTM)
 static UINT32 g_Boot_RAMConstants_CRC = 0;
 #endif
+
+static ON_SOFT_REBOOT_HANDLER s_rebootHandlers[16] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+
+void HAL_AddSoftRebootHandler(ON_SOFT_REBOOT_HANDLER handler)
+{
+    for(int i=0; i<ARRAYSIZE(s_rebootHandlers); i++)
+    {
+        if(s_rebootHandlers[i] == NULL)
+        {
+            s_rebootHandlers[i] = handler;
+            return;
+        }
+        else if(s_rebootHandlers[i] == handler)
+        {
+            return;
+        }
+    }
+
+    ASSERT(FALSE);
+}
 
 
 void HAL_EnterBooterMode()
@@ -397,9 +417,20 @@ void HAL_UnReserveAllGpios()
 
 void HAL_Uninitialize()
 {
+    int i;
+    
 #if defined(ENABLE_NATIVE_PROFILER)
     Native_Profiler_Stop();
 #endif
+ 
+    for(i=0; i<ARRAYSIZE(s_rebootHandlers); i++)
+    {
+        if(s_rebootHandlers[i] != NULL)
+        {
+            s_rebootHandlers[i]();
+        }
+    }    
+
     LCD_Uninitialize();
 
     I2C_Uninitialize();
@@ -448,17 +479,6 @@ void HAL_Uninitialize()
 
 extern "C"
 {
-
-int LED26(int i)
-{
-	volatile int *p;
-
-	p = (int *)0x20098080;
-	*p |= (1 << 26);
-	p = (i) ? (int *)0x2009809c : (int *)0x20098098;
-	*p = (1 << 26);
-
-}
 
 void BootEntry()
 {
@@ -560,16 +580,7 @@ void BootEntry()
     Watchdog_GetSetBehavior( WATCHDOG_BEHAVIOR, TRUE );
     Watchdog_GetSetEnabled ( WATCHDOG_ENABLE, TRUE );
 
-#if 0 // PS
-    for(;;) {
-    	LED26(1);
-    	//HAL_Time_Sleep_MicroSeconds_InterruptEnabled(1000);
-    	HAL_Time_Sleep_MicroSeconds(1000);
-    	LED26(0);
-    	//HAL_Time_Sleep_MicroSeconds_InterruptEnabled(1000);
-    	HAL_Time_Sleep_MicroSeconds(1000);
-    }
-#endif
+ 
     // HAL initialization completed.  Interrupts are enabled.  Jump to the Application routine
     ApplicationEntryPoint();
 

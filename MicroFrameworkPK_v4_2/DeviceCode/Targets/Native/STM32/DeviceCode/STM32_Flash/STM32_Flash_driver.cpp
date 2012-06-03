@@ -13,7 +13,7 @@
 
 #include <tinyhal.h>
 #include "STM32_Flash.h"
-#include "../LPC177x_8x.h"
+#include "..\stm32f10x.h"
 
 
     static const int STM32_FLASH_KEY1 = 0x45670123;
@@ -128,7 +128,7 @@ BOOL __section(SectionForFlashOperations)STM32_Flash_Driver::Write(void* context
 
     // Read-modify-write is used for FAT filesystems only
     if (ReadModifyWrite) return FALSE;
-#if 0
+    
     // turn on HSI clock
     RCC->CR |= RCC_CR_HSION;
     while(!(RCC->CR & RCC_CR_HSIRDY));
@@ -166,7 +166,7 @@ BOOL __section(SectionForFlashOperations)STM32_Flash_Driver::Write(void* context
 
     // stop HSI clock
     RCC->CR &= ~RCC_CR_HSION;
-#endif
+
     return TRUE;
 }
 
@@ -242,7 +242,7 @@ BOOL __section(SectionForFlashOperations)STM32_Flash_Driver::IsBlockErased( void
 BOOL __section(SectionForFlashOperations)STM32_Flash_Driver::EraseBlock( void* context, ByteAddress Sector )
 {
     NATIVE_PROFILE_HAL_DRIVERS_FLASH();
-#if 0
+
     // turn on HSI clock
     RCC->CR |= RCC_CR_HSION;
     while(!(RCC->CR & RCC_CR_HSIRDY));
@@ -268,7 +268,7 @@ BOOL __section(SectionForFlashOperations)STM32_Flash_Driver::EraseBlock( void* c
 
     // stop HSI clock
     RCC->CR &= ~RCC_CR_HSION;
-#endif
+
     return TRUE;
 }
 

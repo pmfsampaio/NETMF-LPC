@@ -28,36 +28,21 @@ CLR_RT_HeapBlock_BinaryBlob* CLR_RT_HeapBlock_BinaryBlob::Allocate( CLR_UINT32 l
 
     CLR_RT_HeapBlock_BinaryBlob* obj;
 
-    for(;;)
+    if(flags & CLR_RT_HeapBlock::HB_Event)
     {
-        if(flags & CLR_RT_HeapBlock::HB_Event)
-        {
-            obj = EVENTCACHE_EXTRACT_NODE_AS_BYTES(g_CLR_RT_EventCache,CLR_RT_HeapBlock_BinaryBlob,DATATYPE_BINARY_BLOB_HEAD,flags,totLength);
-        }
-        else
-        {
-            obj = (CLR_RT_HeapBlock_BinaryBlob*)g_CLR_RT_ExecutionEngine.ExtractHeapBytesForObjects( DATATYPE_BINARY_BLOB_HEAD, flags, totLength );
-        }
-
-        if(obj)
-        {
-            obj->SetBinaryBlobHandlers( NULL, NULL );
-            return obj;
-        }
-        
-        if(flags & CLR_RT_HeapBlock::HB_CompactOnFailure)
-        {
-            flags &= ~CLR_RT_HeapBlock::HB_CompactOnFailure;
-            
-            g_CLR_RT_ExecutionEngine.PerformHeapCompaction();
-        }
-        else
-        {
-            break;
-        }
+        obj = EVENTCACHE_EXTRACT_NODE_AS_BYTES(g_CLR_RT_EventCache,CLR_RT_HeapBlock_BinaryBlob,DATATYPE_BINARY_BLOB_HEAD,flags,totLength);
+    }
+    else
+    {
+        obj = (CLR_RT_HeapBlock_BinaryBlob*)g_CLR_RT_ExecutionEngine.ExtractHeapBytesForObjects( DATATYPE_BINARY_BLOB_HEAD, flags, totLength );
     }
 
-    return NULL;
+    if(obj)
+    {
+        obj->SetBinaryBlobHandlers( NULL, NULL );
+    }
+
+    return obj;
 }
 
 void CLR_RT_HeapBlock_BinaryBlob::Release( bool fEvent )

@@ -40,17 +40,20 @@ HRESULT Library_spot_hardware_pwm_native_Microsoft_SPOT_Hardware_PWM::Commit___V
     
     CLR_RT_HeapBlock* pThis = stack.This();
 
-    CLR_UINT32 period   = pThis[FIELD__m_period  ].NumericByRef().u4;
-    CLR_UINT32 duration = pThis[FIELD__m_duration].NumericByRef().u4;
+    const CLR_UINT32 period   = pThis[FIELD__m_period  ].NumericByRef().u4;
+    const CLR_UINT32 duration = pThis[FIELD__m_duration].NumericByRef().u4;
+    const CLR_UINT32 scale    = pThis[FIELD__m_scale   ].NumericByRef().u4;
 
-    CLR_UINT32 period_requested   = period;
-    CLR_UINT32 duration_requested = duration;
+    CLR_UINT32       period_requested   = period;
+    CLR_UINT32       duration_requested = duration;
+    PWM_SCALE_FACTOR scale_requested    = (PWM_SCALE_FACTOR)scale;
 
 
     bool fRes = ::PWM_ApplyConfiguration( (PWM_CHANNEL)pThis[FIELD__m_channel ].NumericByRef().s4, 
                                            pThis[FIELD__m_pin     ].NumericByRef().s4, 
                                            period_requested,
                                            duration_requested,
+                                           scale_requested,
                                            pThis[FIELD__m_invert  ].NumericByRef().s1 != 0 ) != 0;
 
     if(!fRes) 
@@ -65,6 +68,10 @@ HRESULT Library_spot_hardware_pwm_native_Microsoft_SPOT_Hardware_PWM::Commit___V
     if(duration != duration_requested) 
     {
         pThis[FIELD__m_duration].SetInteger(duration_requested);
+    }
+    if(scale != scale_requested) 
+    {
+        pThis[FIELD__m_scale].SetInteger(scale_requested);
     }
 
     TINYCLR_NOCLEANUP();

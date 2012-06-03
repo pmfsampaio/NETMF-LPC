@@ -12,9 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <cores\arm\include\cpu.h>
-#include "..\LPC1788_Devices.h"
-
-
+#include "..\stm32f10x.h"
 
 // pins
 #define SPI1_SCLK_Pin (0 + 5)   // PA5
@@ -43,27 +41,25 @@ struct SPI_CONFIGURATION
 };
 */
 
-//static SPI_TypeDef* g_STM32_Spi[] = {SPI1, SPI2, SPI3}; // IO addresses
+
+static SPI_TypeDef* g_STM32_Spi[] = {SPI1, SPI2, SPI3}; // IO addresses
+
 
 BOOL CPU_SPI_Initialize()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_SPI();
-#if 0
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN; // enable SPI clocks
     RCC->APB1ENR |= RCC_APB1ENR_SPI2EN;
     RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;
-#endif
     return TRUE;
 }
 
 void CPU_SPI_Uninitialize()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_SPI();
-#if 0
     RCC->APB2ENR &= ~RCC_APB2ENR_SPI1EN; // disable SPI clocks
     RCC->APB1ENR &= ~RCC_APB1ENR_SPI2EN;
     RCC->APB1ENR &= ~RCC_APB1ENR_SPI3EN;
-#endif
 }
 
 BOOL CPU_SPI_nWrite16_nRead16( const SPI_CONFIGURATION& Configuration, UINT16* Write16, INT32 WriteCount, UINT16* Read16, INT32 ReadCount, INT32 ReadStartOffset )
@@ -100,7 +96,7 @@ BOOL CPU_SPI_Xaction_Start( const SPI_CONFIGURATION& Configuration )
 {
     NATIVE_PROFILE_HAL_PROCESSOR_SPI();
     if (Configuration.SPI_mod >= 3) return FALSE;
-#if 0
+    
     SPI_TypeDef* spi = g_STM32_Spi[Configuration.SPI_mod];
     
     // set mode bits
@@ -110,8 +106,8 @@ BOOL CPU_SPI_Xaction_Start( const SPI_CONFIGURATION& Configuration )
     if (!Configuration.MSK_SampleEdge) cr1 ^= SPI_CR1_CPHA; // toggle phase
     
     // set clock prescaler
-    UINT32 clock = SYSTEM_APB2_CLOCK_HZ / 1000; // SPI1 on APB2
-    if (Configuration.SPI_mod > 0) clock = SYSTEM_APB1_CLOCK_HZ / 1000; // SPI2/3 on APB1
+    UINT32 clock = SYSTEM_APB2_CLOCK_HZ / 2000; // SPI1 on APB2
+    if (Configuration.SPI_mod > 0) clock = SYSTEM_APB1_CLOCK_HZ / 2000; // SPI2/3 on APB1
     
     if (clock > Configuration.Clock_RateKHz << 3) {
         clock >>= 4;
@@ -139,14 +135,14 @@ BOOL CPU_SPI_Xaction_Start( const SPI_CONFIGURATION& Configuration )
     {
         HAL_Time_Sleep_MicroSeconds_InterruptEnabled( Configuration.CS_Setup_uSecs );
     }
-#endif
+    
     return TRUE;
 }
 
 BOOL CPU_SPI_Xaction_Stop( const SPI_CONFIGURATION& Configuration )
 {
     NATIVE_PROFILE_HAL_PROCESSOR_SPI();
-#if 0
+    
     SPI_TypeDef* spi = g_STM32_Spi[Configuration.SPI_mod];
     while (spi->SR & SPI_SR_BSY); // wait for completion
     spi->CR1 = 0; // disable SPI
@@ -163,14 +159,14 @@ BOOL CPU_SPI_Xaction_Stop( const SPI_CONFIGURATION& Configuration )
     CPU_GPIO_EnableInputPin( msk,  FALSE, NULL, GPIO_INT_NONE, res );
     CPU_GPIO_EnableInputPin( miso, FALSE, NULL, GPIO_INT_NONE, RESISTOR_PULLDOWN );
     CPU_GPIO_EnableInputPin( mosi, FALSE, NULL, GPIO_INT_NONE, RESISTOR_PULLDOWN );
-#endif
+    
     return TRUE;
 }
 
 BOOL CPU_SPI_Xaction_nWrite16_nRead16( SPI_XACTION_16& Transaction )
 {
     NATIVE_PROFILE_HAL_PROCESSOR_SPI();
-#if 0
+    
     SPI_TypeDef* spi = g_STM32_Spi[Transaction.SPI_mod];
     
     UINT16* outBuf = Transaction.Write16;
@@ -200,14 +196,14 @@ BOOL CPU_SPI_Xaction_nWrite16_nRead16( SPI_XACTION_16& Transaction )
     while (!(spi->SR & SPI_SR_RXNE)); // wait for Rx buffer full
     in = spi->DR; // read last input
     if (ii >= 0) inBuf[ii] = in; // save last input
-#endif
+
     return TRUE;
 }
 
 BOOL CPU_SPI_Xaction_nWrite8_nRead8( SPI_XACTION_8& Transaction )
 {
     NATIVE_PROFILE_HAL_PROCESSOR_SPI();
-#if 0
+    
     SPI_TypeDef* spi = g_STM32_Spi[Transaction.SPI_mod];
     
     UINT8* outBuf = Transaction.Write8;
@@ -237,7 +233,7 @@ BOOL CPU_SPI_Xaction_nWrite8_nRead8( SPI_XACTION_8& Transaction )
     while (!(spi->SR & SPI_SR_RXNE)); // wait for Rx buffer full
     in = spi->DR; // read last input
     if (ii >= 0) inBuf[ii] = (UINT8)in; // save last input
-#endif
+
     return TRUE;
 }
 

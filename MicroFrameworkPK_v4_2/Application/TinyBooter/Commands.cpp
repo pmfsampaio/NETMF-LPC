@@ -207,7 +207,7 @@ struct BitFieldManager
             ConfigurationSector* configSector;
             BYTE*                data;
             
-            const BlockDeviceInfo* deviceInfo = device->GetDeviceInfo();            
+            const BlockDeviceInfo* deviceInfo = stream.Device->GetDeviceInfo();            
 
             m_cfgPhysicalAddress = stream.BaseAddress;
 
@@ -228,7 +228,7 @@ struct BitFieldManager
                 
                 memset( &m_skipCfgSectorCheck, 0xff, sizeof(m_skipCfgSectorCheck) );
                 data         = (BYTE*)private_malloc(length);
-                device->Read( m_cfgPhysicalAddress, length, (BYTE *)data );
+                stream.Device->Read( m_cfgPhysicalAddress, length, (BYTE *)data );
                 configSector = (ConfigurationSector*)data;
                 m_signatureCheck = NULL;
                 
@@ -498,6 +498,8 @@ static bool AccessMemory( UINT32 location, UINT32 lengthInBytes, BYTE* buf, int 
                     break;
                     
                     case AccessMemory_Write:
+                        if(!CheckFlashSectorPermission(device, accessPhyAddress)) return false;
+                            
                         if(!pRegion->BlockRanges[ iRange ].IsConfig())
                         {    
                             UINT32 startBlock = pRegion->BlockAddress( blockIndex );
@@ -558,6 +560,8 @@ static bool AccessMemory( UINT32 location, UINT32 lengthInBytes, BYTE* buf, int 
                         break;
                         
                     case AccessMemory_Erase:
+                        if(!CheckFlashSectorPermission(device, accessPhyAddress)) return false;
+                        
                         // don't erase of config sector (we will only do that after checking the signature in RAM)
                         if(!pRegion->BlockRanges[ iRange ].IsConfig())
                         {
@@ -673,6 +677,13 @@ bool Loader_Engine::SignedDataState::VerifyContiguousData( UINT32 address, UINT3
         if(device->FindRegionFromAddress( sectAddr, regionIndex, rangeIndex))
         {
             BlockType = deviceInfo->Regions[ regionIndex ].BlockRanges[ rangeIndex ].RangeType;
+
+            // The only blocks that should be distinguished by TinyBooter are CONFIG, 
+            // Bootstrap and reserved blocks (DirtyBit is another version of CONFIG).
+            if(BlockRange::IsBlockTinyBooterAgnostic(BlockType))
+            {
+                BlockType = BlockRange::BLOCKTYPE_CODE;
+            }
         }
         else
         {
@@ -1086,18 +1097,7 @@ void Loader_Engine::Launch( ApplicationStartAddress startAddress )
         }
     }
 
-#if defined(COMPILE_THUMB2)
-    // get entry point address
-    UINT32 startAddressInt = *((UINT32*)((UINT8*)startAddress + 4));
-
-    // cast to address
-    ApplicationStartAddress adjustedAddress = (ApplicationStartAddress) startAddressInt;
-
-    // jump to the vector
-    (*adjustedAddress)();
-#else
-   (*startAddress)();
-#endif
+    (*startAddress)();
 }
 
 //--//
@@ -1339,6 +1339,12 @@ bool Loader_Engine::Monitor_Execute( WP_Message* msg )
     const UINT32 c_EnumerateAndLaunchAddress = 0x0;
     CLR_DBG_Commands::Monitor_Execute* cmd   = (CLR_DBG_Commands::Monitor_Execute*)msg->m_payload;
 
+#if defined(COMPILE_THUMB2)
+    UINT32 signatureAddress = cmd->m_address & 0xFFFFFFFC; // align & clear Thumb bit
+#else
+    UINT32 signatureAddress = cmd->m_address;
+#endif
+
     BlockStorageDevice *device;
     ByteAddress      sectAddress;
 
@@ -1358,12 +1364,12 @@ bool Loader_Engine::Monitor_Execute( WP_Message* msg )
     if (BlockStorageList::FindDeviceForPhysicalAddress( &device, cmd->m_address, sectAddress)) 
     {
         UINT32 data;
-        device->Read((UINT32)cmd->m_address, 4, (BYTE*)&data);
+        device->Read(signatureAddress, 4, (BYTE*)&data);
         fAddressOK = (data == Tinybooter_ProgramWordCheck());        
     }
     else //ram
     {
-        fAddressOK = (*(UINT32*)cmd->m_address == Tinybooter_ProgramWordCheck());
+        fAddressOK = (*(UINT32*)signatureAddress == Tinybooter_ProgramWordCheck());
     }
     
     if(fAddressOK || fEnumAndLaunch)
@@ -1501,8 +1507,6 @@ bool Loader_Engine::Monitor_FlashSectorMap( WP_Message* msg )
             return false;
         }
 
-        const BlockDeviceInfo* deviceInfo = device->GetDeviceInfo();
-
         if(cnt == 1)
         {
             pData = (struct Flash_Sector*)private_malloc(rangeCount * sizeof(struct Flash_Sector));
@@ -1516,6 +1520,8 @@ bool Loader_Engine::Monitor_FlashSectorMap( WP_Message* msg )
         
         do
         {
+            const BlockDeviceInfo* deviceInfo = device->GetDeviceInfo();
+
             for(int i = 0; i < deviceInfo->NumRegions;  i++)
             {
                 const BlockRegionInfo* pRegion = &deviceInfo->Regions[ i ];
@@ -1655,7 +1661,7 @@ void Loader_Engine::SwapEndian( WP_Message* msg, void* ptr, int size, bool fRepl
     case CLR_DBG_Commands::c_Monitor_CheckSignature     :
         // Monitor_Signature struct
         SwapEndianPattern( payload, sizeof(UINT32), fReply?0:2 );
-
+        break;
     case CLR_DBG_Commands::c_Monitor_FlashSectorMap     :
         SwapEndianPattern( payload, sizeof(UINT32), fReply?payloadSize/sizeof(UINT32):0 );
         break;

@@ -23,11 +23,18 @@ enum PWM_CHANNEL
     PWM_CHANNEL_7    =  7,
 };
 
+enum PWM_SCALE_FACTOR
+{
+    PWM_MILLISECONDS = 1000,
+    PWM_MICROSECONDS = 1000000,
+    PWM_NANOSECONDS  = 1000000000,
+};
+
 //--//
 
 BOOL     PWM_Initialize        ( PWM_CHANNEL channel );
 BOOL     PWM_Uninitialize      ( PWM_CHANNEL channel );
-BOOL     PWM_ApplyConfiguration( PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, BOOL invert );
+BOOL     PWM_ApplyConfiguration( PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, PWM_SCALE_FACTOR &scale, BOOL invert );
 BOOL     PWM_Start             ( PWM_CHANNEL channel, GPIO_PIN pin );
 void     PWM_Stop              ( PWM_CHANNEL channel, GPIO_PIN pin );
 BOOL     PWM_Start             ( PWM_CHANNEL* channel, GPIO_PIN* pin, UINT32 count );

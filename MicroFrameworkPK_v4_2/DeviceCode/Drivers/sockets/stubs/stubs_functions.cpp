@@ -10,7 +10,7 @@
 
 BOOL HAL_SOCK_Initialize() 
 { 
-    return TRUE; 
+    return FALSE; 
 }
 
 BOOL HAL_SOCK_Uninitialize() 

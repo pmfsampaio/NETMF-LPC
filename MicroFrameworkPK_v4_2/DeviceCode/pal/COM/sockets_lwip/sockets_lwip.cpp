@@ -629,11 +629,7 @@ BOOL Sockets_LWIP_Driver::InitializeDbgListener( int ComPortNum )
 
     g_Sockets_LWIP_Driver.m_stateDebugSocket = DbgSock_Listening;
 
-    if(!InitializeMulticastDiscovery())
-    {
-        debug_printf("MULTICAST discovery failed\r\n");
-    }
-
+    InitializeMulticastDiscovery();
 
     SOCKET_CLEANUP();
 
@@ -736,6 +732,8 @@ BOOL Sockets_LWIP_Driver::InitializeMulticastDiscovery()
     SOCK_sockaddr_in sockAddr;
     INT32 nonblocking = 1;
 
+    if(g_Sockets_LWIP_Driver.s_discoveryInitialized) return TRUE;
+
     MulticastResponseContinuation.InitializeCallback(MulticastDiscoveryRespond, NULL);
 
     // set up discovery socket to list to defined discovery port for any ip address
@@ -758,6 +756,9 @@ BOOL Sockets_LWIP_Driver::InitializeMulticastDiscovery()
     SOCKET_CHECK_RESULT( SOCK_setsockopt( g_Sockets_LWIP_Driver.m_multicastSocket, SOCK_IPPROTO_IP, SOCK_IPO_ADD_MEMBERSHIP, (const char*)&multicast, sizeof(multicast) ) );
 
     SOCKET_CHECK_RESULT( SOCK_bind( g_Sockets_LWIP_Driver.m_multicastSocket, (SOCK_sockaddr*)&sockAddr, sizeof(sockAddr) ) );
+
+    g_Sockets_LWIP_Driver.s_discoveryInitialized = TRUE;
+
 
     SOCKET_CLEANUP()
 
@@ -866,12 +867,7 @@ BOOL Sockets_LWIP_Driver::Initialize()
         
         SOCKET_CHECK_BOOL( HAL_SOCK_Initialize() );
 
-        //HAL_SOCK_EventsSet(SOCKET_EVENT_FLAG_SOCKETS_READY);
-
-        if(!SSL_Initialize())
-        {
-            debug_printf("SSL initialize failed!\r\n");
-        }
+        SSL_Initialize();
 
         s_initialized = TRUE;
     }
@@ -907,7 +903,9 @@ BOOL Sockets_LWIP_Driver::Uninitialize( )
 
         if(!fWasEnabled) SmartPtr_IRQ::ForceDisabled(NULL);
 
-        s_initialized = FALSE;
+        s_initialized          = FALSE;
+        s_wirelessInitialized  = FALSE;
+        s_discoveryInitialized = FALSE;
     }
    
     
@@ -1203,6 +1201,7 @@ void Sockets_LWIP_Driver::UnregisterSocket( SOCK_SOCKET sock )
 
 BOOL Sockets_LWIP_Driver::s_initialized=FALSE;
 BOOL Sockets_LWIP_Driver::s_wirelessInitialized=FALSE;
+BOOL Sockets_LWIP_Driver::s_discoveryInitialized=FALSE;
 
 #if defined(ADS_LINKER_BUG__NOT_ALL_UNUSED_VARIABLES_ARE_REMOVED)
 #pragma arm section zidata

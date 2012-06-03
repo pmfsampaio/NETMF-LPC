@@ -71,8 +71,8 @@ namespace Microsoft.SPOT.Emulator.Update
             bool fValid = false;
             MFUpdate_Header header = new MFUpdate_Header();
 
-            GCHandle h = GCHandle.Alloc(header);
-            IntPtr ptr = GCHandle.ToIntPtr(h);
+            GCHandle h = GCHandle.Alloc(header, GCHandleType.Pinned);
+            IntPtr ptr = h.AddrOfPinnedObject();
             Hal.UpdateStorage.Read(update.StorageHandle, 0, ptr, Marshal.SizeOf(header));
             header = (MFUpdate_Header)Marshal.PtrToStructure(ptr, typeof(MFUpdate_Header));
             h.Free();
@@ -86,8 +86,8 @@ namespace Microsoft.SPOT.Emulator.Update
                     {
                         byte[] asmBytes = new byte[header.UpdateSize];
 
-                        GCHandle hb = GCHandle.Alloc(asmBytes);
-                        IntPtr gcBytes = GCHandle.ToIntPtr(hb);
+                        GCHandle hb = GCHandle.Alloc(asmBytes, GCHandleType.Pinned);
+                        IntPtr gcBytes = h.AddrOfPinnedObject();
 
                         if (0 < Hal.UpdateStorage.Read(update.StorageHandle, Marshal.SizeOf(header), gcBytes, (int)header.UpdateSize))
                         {

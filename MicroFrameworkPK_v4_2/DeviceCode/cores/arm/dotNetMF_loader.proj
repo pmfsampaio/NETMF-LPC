@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <AssemblyName>TinyHal_loader</AssemblyName>
     <ProjectGuid>{3746d6a7-c602-482d-8a72-2326f2ee5e66}</ProjectGuid>
@@ -41,38 +42,39 @@
     <OutputType Condition="'$(PLATFORM_FAMILY)'=='arm'">Library</OutputType>
     <AssemblyName>TinyHal_loader</AssemblyName>
   </PropertyGroup>
-
   <ItemGroup>
-    <HFiles Include="..\..\Initialization\MasterConfig.h"/>
-    <Compile Include="Diagnostics\Aborts.cpp"/>
-    <Compile Include="Diagnostics\FIQ_Profiler.cpp"/>
-    <Compile Include="Diagnostics\RamTest.cpp"/>
-    <Compile Include="Diagnostics\RamTest.h"/>
+    <Compile Include="Diagnostics\Aborts.cpp" />
+    <Compile Include="Diagnostics\FIQ_Profiler.cpp" />
+    <Compile Include="Diagnostics\RamTest.cpp" />
+    <Compile Include="Diagnostics\RamTest.h" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(OS_PLATFORM)'!='true' and ( '$(INSTRUCTION_SET)'=='arm' or '$(INSTRUCTION_SET)'=='thumb')">
-    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\VectorsHandlers.s"/>
-    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\IDelayLoop.s"/>
-    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\Sampling_Profiler_RAM.s"/>
-    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\VectorsTrampolines.s"/>
-    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\FirstEntry.s"/>
-    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\cpwait.s"/>
-    <Compile Include="Diagnostics\FIQAssembly\$(AS_SUBDIR)\FiqSubhandler_MC9328.s"/>
+    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\VectorsHandlers.s" />
+    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\IDelayLoop.s" />
+    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\Sampling_Profiler_RAM.s" />
+    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\VectorsTrampolines.s" />
+    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\FirstEntry.s" />
+    <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\cpwait.s" />
+    <Compile Include="Diagnostics\FIQAssembly\$(AS_SUBDIR)\FiqSubhandler_MC9328.s" />
   </ItemGroup>
-
-
-  <ItemGroup Condition="'$(INSTRUCTION_SET)'=='thumb2'">
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\FirstEntry.s" />
-	 <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\IDelayLoop.s" />
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\BootVectors.s" />
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsTrampolines.s" />	 
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\ProtectionArea.s" />
+  <ItemGroup Condition="'$(OS_PLATFORM)'!='true' and '$(INSTRUCTION_SET)'=='thumb2'">
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsHandlers.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\IDelayLoop.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\Sampling_Profiler_RAM.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsTrampolines.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\FirstEntry.s" />
   </ItemGroup>
-  
-
   <ItemGroup Condition="'$(OS_PLATFORM)'!='true'">
-    <LIB_FIRSTENTRY_OBJ Include="$(OBJ_DIR)\FirstEntry.$(OBJ_EXT)"/>
+    <LIB_FIRSTENTRY_OBJ Include="$(OBJ_DIR)\FirstEntry.$(OBJ_EXT)" />
   </ItemGroup>
-
+  <ItemGroup>
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\diagnostics\ramtest.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\arm_util.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\cpu.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\cpu_definitions.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\smartptr_fiq_arm.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\com\usb\usb.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\targets\native\mc9328\devicecode\mc9328mxl.h" />
+  </ItemGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

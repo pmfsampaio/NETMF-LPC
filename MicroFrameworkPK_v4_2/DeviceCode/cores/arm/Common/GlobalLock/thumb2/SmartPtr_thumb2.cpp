@@ -1,20 +1,49 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include <tinyhal.h>
 
 //--//
 
-#define DISABLED_MASK 0x1
+#define NVIC_ICER       0xE000E180
+#define NVIC_ISER       0xE000E100
+#define NVIC_ABR        0xE000E300
+
+//--//
+#define DISABLED_MASK 0x3
 
 //--//
 
-SmartPtr_IRQ::SmartPtr_IRQ(void* context)
+///////////////////////////////////////////////////////////////////
+// For Thumb2 code, we need to declare some functions as extern 
+// and implement them in assembly, as the RVDS3.1 compiler does
+// not support inline assembly
+// 
+extern "C"
 {
-    m_context = context;
-    Disable();
+void   IRQ_LOCK_Probe_asm();
+UINT32 IRQ_LOCK_Release_asm();
+UINT32 IRQ_LOCK_GetState_asm();
+UINT32 IRQ_LOCK_ForceDisabled_asm();
+UINT32 IRQ_LOCK_ForceEnabled_asm();
+UINT32 IRQ_LOCK_Disable_asm();
+void   IRQ_LOCK_Restore_asm();
+}
+//
+//
+///////////////////////////////////////////////////////////////////
+
+
+SmartPtr_IRQ::SmartPtr_IRQ(void* context)
+{ 
+    m_context = context; 
+    Disable(); 
 }
 
-SmartPtr_IRQ::~SmartPtr_IRQ()
-{
-    Restore();
+SmartPtr_IRQ::~SmartPtr_IRQ() 
+{ 
+    Restore(); 
 }
 
 BOOL SmartPtr_IRQ::WasDisabled()
@@ -26,7 +55,7 @@ void SmartPtr_IRQ::Acquire()
 {
     UINT32 Cp = m_state;
 
-    if ((Cp & DISABLED_MASK) == DISABLED_MASK)
+    if((Cp & DISABLED_MASK) == DISABLED_MASK)
     {
         Disable();
     }
@@ -36,13 +65,9 @@ void SmartPtr_IRQ::Release()
 {
     UINT32 Cp = m_state;
 
-    if ((Cp & DISABLED_MASK) == 0)
+    if((Cp & DISABLED_MASK) == 0)
     {
-        register UINT32 Cs __asm("primask");
-
-        m_state = Cs;
-
-        __enable_irq();
+        m_state = IRQ_LOCK_Release_asm();
     }
 }
 
@@ -50,56 +75,34 @@ void SmartPtr_IRQ::Probe()
 {
     UINT32 Cp = m_state;
 
-    if ((Cp & DISABLED_MASK) == 0)
+    if((Cp & DISABLED_MASK) == 0)
     {
-        register UINT32 Cs __asm("primask");
-
-        UINT32 s = Cs;
-
-        __enable_irq();
-
-        // just to allow an interupt to an occur
-        __NOP();
-
-        // restore irq state
-        Cs = s;
+        IRQ_LOCK_Probe_asm(); 
     }
 }
 
 BOOL SmartPtr_IRQ::GetState(void* context)
 {
-    register UINT32 Cp __asm("primask");
-    return (0 == (Cp & DISABLED_MASK));
+    return IRQ_LOCK_GetState_asm();
 }
 
 BOOL SmartPtr_IRQ::ForceDisabled(void* context)
 {
-    __disable_irq();
-    return true;
+    return IRQ_LOCK_ForceDisabled_asm();
 }
 
 BOOL SmartPtr_IRQ::ForceEnabled(void* context)
 {
-    __enable_irq();
-    return true;
+    return IRQ_LOCK_ForceEnabled_asm();
 }
 
 void SmartPtr_IRQ::Disable()
 {
-    register UINT32 Cp __asm("primask");
-
-    m_state = Cp;
-
-    __disable_irq();
+    m_state = IRQ_LOCK_Disable_asm();
 }
 
 void SmartPtr_IRQ::Restore()
 {
-    UINT32 Cp = m_state;
-
-    if ((Cp & DISABLED_MASK) == 0)
-    {
-        __enable_irq();
-    }
+    IRQ_LOCK_Restore_asm();
 }
 

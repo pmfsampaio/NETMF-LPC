@@ -140,6 +140,18 @@ void BootstrapCode_MMU()
         FALSE,                                                  // Buffered
         FALSE);                                                 // Extended
 
+        // DM9000 DM9000 ETHERNET
+    	ARM9_MMU::GenerateL1_Sections( 
+        c_Bootstrap_BaseOfTTBs,                                 // base of TTBs
+        0x30000000,                                             // mapped address
+        0x30000000,                                             // physical address
+        ARM9_MMU::c_MMU_L1_size,                                // length to be mapped
+        ARM9_MMU::c_AP__Manager,                                // AP
+        0,                                                      // Domain
+        FALSE,                                                  // Cacheable
+        FALSE,                                                  // Buffered
+        FALSE);                                                 // Extended
+
 #ifdef PLATFORM_ARM_SAM9RL64_ANY
 
 		// Direct map for the USBHS buffer registers(0x00600000~0x006FFFFF)

@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 
 #define STM32_PWM_CHANNELS 4 // number of channels
@@ -31,7 +31,7 @@
 BOOL PWM_Initialize(PWM_CHANNEL channel)
 {
     if (channel >= STM32_PWM_CHANNELS) return FALSE;
-#if 0
+
     if (!(RCC->APB1ENR & RCC_APB1ENR_TIM5EN)) { // not yet initialized
         RCC->APB1ENR |= RCC_APB1ENR_TIM5EN; // enable timer clock
         TIM5->CR1 = TIM_CR1_URS | TIM_CR1_ARPE; // double buffered update
@@ -47,13 +47,12 @@ BOOL PWM_Initialize(PWM_CHANNEL channel)
     __IO uint16_t* reg = &TIM5->CCMR1;
     if (channel & 2) reg = &TIM5->CCMR2; // 2 or 3
     *reg |= mode;
-#endif
+
     return TRUE;
 }
 
 BOOL PWM_Uninitialize(PWM_CHANNEL channel)
 {
-#if 0
     UINT32 mask = 0xFF; // disable PWM channel
     if (channel & 1) mask = 0xFF00; // 1 or 3
     __IO uint16_t* reg = &TIM5->CCMR1;
@@ -63,13 +62,13 @@ BOOL PWM_Uninitialize(PWM_CHANNEL channel)
     if ((TIM5->CCMR1 | TIM5->CCMR2) == 0) { // no channel active
         RCC->APB1ENR &= ~RCC_APB1ENR_TIM5EN; // disable timer clock
     }
-#endif
+    
     return TRUE;
 }
 
-BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, BOOL invert)
+BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, PWM_SCALE_FACTOR& scale, BOOL invert)
 {
-#if 0
+    if (scale != PWM_MICROSECONDS) return FALSE; // Only support microseconds
     if (period > 0x10000) return FALSE; // 16 bit timer
     if (duration >= 0x10000) duration = 0xFFFF;
     TIM5->ARR = period - 1;
@@ -80,13 +79,11 @@ BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, U
     } else {
         TIM5->CCER &= ~invBit;
     }
-#endif
     return TRUE;
 }
 
 BOOL PWM_Start(PWM_CHANNEL channel, GPIO_PIN pin)
 {
-#if 0
     CPU_GPIO_DisablePin( pin, RESISTOR_DISABLED, 1, GPIO_ALT_MODE_1 );
     UINT16 enBit = TIM_CCER_CC1E << (4 * channel);
     TIM5->CCER |= enBit; // enable output
@@ -95,13 +92,11 @@ BOOL PWM_Start(PWM_CHANNEL channel, GPIO_PIN pin)
         TIM5->EGR = TIM_EGR_UG; // enforce register update
         TIM5->CR1 = cr1 | TIM_CR1_CEN; // start timer
     }
-#endif
     return TRUE;
 }
 
 void PWM_Stop(PWM_CHANNEL channel, GPIO_PIN pin)
 {
-#if 0
     UINT16 ccer = TIM5->CCER;
     ccer &= ~(TIM_CCER_CC1E << (4 * channel));
     TIM5->CCER = ccer; // disable output
@@ -109,12 +104,10 @@ void PWM_Stop(PWM_CHANNEL channel, GPIO_PIN pin)
     if ((ccer & (TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E)) == 0) { // idle
         TIM5->CR1 &= ~TIM_CR1_CEN; // stop timer
     }
-#endif
 }
 
 BOOL PWM_Start(PWM_CHANNEL* channel, GPIO_PIN* pin, UINT32 count)
 {
-#if 0
     UINT16 enBits = 0;
     for (int i = 0; i < count; i++) {
         CPU_GPIO_DisablePin( pin[i], RESISTOR_DISABLED, 1, GPIO_ALT_MODE_1 );
@@ -126,13 +119,11 @@ BOOL PWM_Start(PWM_CHANNEL* channel, GPIO_PIN* pin, UINT32 count)
         TIM5->EGR = TIM_EGR_UG; // enforce register update
         TIM5->CR1 = cr1 | TIM_CR1_CEN; // start timer
     }
-#endif
     return TRUE;
 }
 
 void PWM_Stop(PWM_CHANNEL* channel, GPIO_PIN* pin, UINT32 count)
 {
-#if 0
     UINT16 ccer = TIM5->CCER;
     for (int i = 0; i < count; i++) {
         ccer &= ~(TIM_CCER_CC1E << (4 * channel[i]));
@@ -144,7 +135,6 @@ void PWM_Stop(PWM_CHANNEL* channel, GPIO_PIN* pin, UINT32 count)
     if ((ccer & (TIM_CCER_CC1E | TIM_CCER_CC2E | TIM_CCER_CC3E | TIM_CCER_CC4E)) == 0) { // idle
         TIM5->CR1 &= ~TIM_CR1_CEN; // stop timer
     }
-#endif
 }
 
 UINT32 PWM_PWMChannels() 

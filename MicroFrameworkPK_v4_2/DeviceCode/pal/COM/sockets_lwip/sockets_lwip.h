@@ -138,6 +138,7 @@ struct Sockets_LWIP_Driver
 
 
     static void ClearStatusBitsForSocket(SOCK_SOCKET sock, BOOL fWrite);
+    static BOOL InitializeMulticastDiscovery();
 
 private:
 
@@ -165,7 +166,6 @@ private:
 
     BOOL m_usingSSL;
     
-    static BOOL InitializeMulticastDiscovery();
     static void MulticastDiscoveryRespond(void* arg);
 
     static void CloseDebuggerSocket();
@@ -193,6 +193,7 @@ private:
     static BOOL           s_initialized;
     static const INT32    c_WellKnownDebugPort = DEBUG_SOCKET_PORT;
     static BOOL           s_wirelessInitialized;
+    static BOOL           s_discoveryInitialized;
 };
 
 extern Sockets_LWIP_Driver g_Sockets_LWIP_Driver;

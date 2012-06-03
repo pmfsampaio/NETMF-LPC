@@ -65,9 +65,11 @@ extern "C" {
 #define PACK_STRUCT_FIELD(x) x
 #endif /* PACK_STRUCT_FIELD */
 
+
 #ifndef LWIP_UNUSED_ARG
 #define LWIP_UNUSED_ARG(x) (void)x
 #endif /* LWIP_UNUSED_ARG */ 
+
 
 #ifdef LWIP_PROVIDE_ERRNO
 
@@ -198,6 +200,7 @@ extern "C" {
 
 #define  ENOMEDIUM  123  /* No medium found */
 #define  EMEDIUMTYPE  124  /* Wrong medium type */
+
 
 #define ENSROK    0 /* DNS server returned answer with no data */
 #define ENSRNODATA  160 /* DNS server returned answer with no data */

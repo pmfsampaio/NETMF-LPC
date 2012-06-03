@@ -59,6 +59,10 @@
 
 // manually filled in
 // 12 MHz Crystal, cclk = 67.2 MHz, usb_clk = 48 MHz
+// pll_out         = (12MHz * (2 * PLL_MVAL) / PLL_NVAL)
+// cclk            = pll_out / CCLK_DIVIDER
+// usb_clk         = pll_out / USB_DIVIDER 
+// SYSTEM_CLOCK_HZ = cclk / 4 (default divider for perhipherals - timer)
 #define PLL_MVAL                        14
 #define PLL_NVAL                        1
 #define CCLK_DIVIDER                    5
@@ -69,6 +73,7 @@
 #define LPC24XX_UART_PCLK               SYSTEM_CLOCK_HZ
 #define LPC24XX_SPI_PCLK_KHZ            SYSTEM_CLOCK_HZ/1000
 #define LPC24XX_I2C_PCLK_KHZ            SYSTEM_CLOCK_HZ/1000
+#define LPC24XX_DAC_PCLK                SYSTEM_CYCLE_CLOCK_HZ
 
 //external SDRAM, 32MB
 #define SRAM1_MEMORY_Base   0xA0000000

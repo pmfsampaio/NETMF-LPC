@@ -1,8 +1,0 @@
-  <ItemGroup>
-    <DriverLibs Include="LPC178X_CMSIS.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\LPC178X\DeviceCode\CMSIS\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="io_pal.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\IO\dotNetMF.proj" />
-  </ItemGroup>

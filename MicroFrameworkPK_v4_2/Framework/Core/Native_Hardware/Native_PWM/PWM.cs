@@ -10,7 +10,12 @@ namespace Microsoft.SPOT.Hardware
     /// </summary>
     public class PWM : IDisposable
     {
-        static private readonly int c_ToMicroSeconds = 1000000;
+        public enum ScaleFactor : uint
+        {
+            Milliseconds = 1000,
+            Microseconds = 1000000,
+            Nanoseconds  = 1000000000,
+        }
 
         //--//
         
@@ -19,21 +24,25 @@ namespace Microsoft.SPOT.Hardware
         /// </summary>
         private readonly Cpu.Pin m_pin;
         /// <summary>
-        /// The pin used for this PWM port, can be set only when the port is constructed
+        /// The channel used for this PWM port, can be set only when the port is constructed
         /// </summary>
         private readonly Cpu.PWMChannel m_channel;
         /// <summary>
-        /// The frequency of the PWM wave in Hz
+        /// The period of the PWM in microseconds
         /// </summary>
         private uint m_period;
         /// <summary>
-        /// The Duty Cycle of the PWM wave a a percentage [0-100]
+        /// The Duty Cycle of the PWM wave in microseconds
         /// </summary>
         private uint m_duration;
         /// <summary>
         /// Polarity of the wave, it determines the idle state of the port
         /// </summary>
         private bool m_invert;
+        /// <summary>
+        /// Scale of the period/duration (mS, uS, nS)
+        /// </summary>
+        private ScaleFactor m_scale;
 
         //--//
 
@@ -53,7 +62,7 @@ namespace Microsoft.SPOT.Hardware
             m_pin = hwProvider.GetPwmPinForChannel(channel);
             m_channel = channel;
             //--//
-            m_period = PeriodFromFrequency(frequency_Hz);
+            m_period = PeriodFromFrequency(frequency_Hz, out m_scale);
             m_duration = DurationFromDutyCycleAndPeriod(dutyCycle, m_period);
             m_invert = invert;
             //--//
@@ -75,21 +84,23 @@ namespace Microsoft.SPOT.Hardware
         /// Build an instance of the PWM type
         /// </summary>
         /// <param name="channel">The channel</param>
-        /// <param name="period_us">The period of the pulse in micro seconds</param>
-        /// <param name="duration_us">The duration of the pulse in micro seconds.  The value should be a fraction of the period</param>
+        /// <param name="period">The period of the pulse</param>
+        /// <param name="duration">The duration of the pulse.  The value should be a fraction of the period</param>
+        /// <param name="scale">The scale factor for the period/duration (nS, uS, mS)</param>
         /// <param name="invert">Whether the output should be inverted or not</param>
-        public PWM(Cpu.PWMChannel channel, uint period_us, uint duration_us, bool invert)
+        public PWM(Cpu.PWMChannel channel, uint period, uint duration, ScaleFactor scale, bool invert)
         {
             HardwareProvider hwProvider = HardwareProvider.HwProvider;
 
             if (hwProvider == null) throw new InvalidOperationException();
 
-            m_pin = hwProvider.GetPwmPinForChannel(channel);
-            m_channel = channel;
+            m_pin      = hwProvider.GetPwmPinForChannel(channel);
+            m_channel  = channel;
             //--//
-            m_period = period_us;
-            m_duration = duration_us;
-            m_invert = invert;
+            m_period   = period;
+            m_duration = duration;
+            m_scale    = scale;
+            m_invert   = invert;
             //--//
             try
             {
@@ -147,17 +158,17 @@ namespace Microsoft.SPOT.Hardware
         }
 
         /// <summary>
-        /// Gets and sets the frequency of the pulse
+        /// Gets and sets the frequency (in Hz) of the pulse
         /// </summary>
         public double Frequency
         {
             get
             {
-                return FrequencyFromPeriod(m_period);
+                return FrequencyFromPeriod(m_period, m_scale);
             }
             set
             {
-                m_period = PeriodFromFrequency(value);
+                m_period = PeriodFromFrequency(value, out m_scale);
                 Commit();
                 //--//
             }
@@ -217,6 +228,25 @@ namespace Microsoft.SPOT.Hardware
             }
         }
 
+        /// <summary>
+        /// Gets or sets the scale factor for the Duration and Period.  Setting the Scale does not cause 
+        /// an immediate update to the PWM.   The update occurs when Duration or Period are set.
+        /// </summary>
+        public ScaleFactor Scale
+        {
+            get
+            {
+                return m_scale;
+            }
+            set
+            {
+                m_scale = value;
+                Commit();
+                //--//
+            }
+        }
+        
+
         //--//
 
         /// <summary>
@@ -273,9 +303,23 @@ namespace Microsoft.SPOT.Hardware
 
         //--//
 
-        private static uint PeriodFromFrequency(double f)
+        private static uint PeriodFromFrequency(double f, out ScaleFactor scale)
         {
-            return (uint)((1 / f) * c_ToMicroSeconds);
+            if(f >= 1000.0)
+            {
+                scale = ScaleFactor.Nanoseconds;
+                return (uint)(((uint)ScaleFactor.Nanoseconds / f) + 0.5);
+            }
+            else if(f >= 1.0)
+            {
+                scale = ScaleFactor.Microseconds;
+                return (uint)(((uint)ScaleFactor.Microseconds / f) + 0.5);
+            }
+            else
+            {
+                scale = ScaleFactor.Milliseconds;
+                return (uint)(((uint)ScaleFactor.Milliseconds / f) + 0.5);
+            }
         }
 
         private static uint DurationFromDutyCycleAndPeriod(double dutyCycle, double period)
@@ -292,23 +336,23 @@ namespace Microsoft.SPOT.Hardware
             return (uint)(dutyCycle * period);            
         }
 
-        private static double FrequencyFromPeriod(double period)
+        private static double FrequencyFromPeriod(double period, ScaleFactor scale)
         {
-            return (1 / period) * c_ToMicroSeconds;
+            return ((uint)scale / period);
         }
 
-        private static double DutyCycleFromDurationAndPeriod(double period_us, double duration_us)
+        private static double DutyCycleFromDurationAndPeriod(double period, double duration)
         {
-            if (period_us <= 0)
+            if (period <= 0)
                 throw new ArgumentException();
 
-            if (duration_us < 0)
+            if (duration < 0)
                 return 0;
 
-            if (duration_us > period_us)
+            if (duration > period)
                 return 1;
 
-            return (duration_us / period_us);
+            return (duration / period);
         }
     }
 }

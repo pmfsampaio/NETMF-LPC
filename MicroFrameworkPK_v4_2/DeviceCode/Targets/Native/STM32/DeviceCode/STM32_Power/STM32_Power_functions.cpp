@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 
 
@@ -42,27 +42,30 @@ void CPU_ChangePowerLevel(POWER_LEVEL level)
 void CPU_Sleep( SLEEP_LEVEL level, UINT64 wakeEvents )
 {
     NATIVE_PROFILE_HAL_PROCESSOR_POWER();
-#if 0
-    PWR->CR &= ~(PWR_CR_LPDS | PWR_CR_PDDS); // reset deepsleep bits
     
-    switch(level)
-    {
+    switch(level) {
         
-        case SLEEP_LEVEL__DEEP_SLEEP: // stop
-            SCB->SCR |= SCB_SCR_SLEEPDEEP;
-            PWR->CR |= PWR_CR_CWUF | PWR_CR_LPDS; // low power deepsleep
-            break;
-        case SLEEP_LEVEL__OFF: // standby
-            SCB->SCR |= SCB_SCR_SLEEPDEEP;
-            PWR->CR |= PWR_CR_CWUF | PWR_CR_PDDS; // power down deepsleep
-            break;            
-        default: // sleep
-            SCB->SCR &= ~SCB_SCR_SLEEPDEEP;       // no deepsleep
-            PWR->CR |= PWR_CR_CWUF;
-            break;
+    case SLEEP_LEVEL__DEEP_SLEEP: // stop
+        SCB->SCR |= SCB_SCR_SLEEPDEEP;
+        PWR->CR |= PWR_CR_CWUF | PWR_CR_LPDS;   // low power deepsleep
+        __WFI(); // stop clocks and wait for external interrupt
+        RCC->CR |= RCC_CR_PLLON | RCC_CR_HSEON; // HSE & PLL on
+        SCB->SCR &= ~SCB_SCR_SLEEPDEEP;         // reset deepsleep
+        while(!(RCC->CR & RCC_CR_PLLRDY));
+        RCC->CFGR |= RCC_CFGR_SW_PLL;           // sysclk = pll out
+        RCC->CR &= ~RCC_CR_HSION;               // HSI off
+        return;
+    case SLEEP_LEVEL__OFF: // standby
+        SCB->SCR |= SCB_SCR_SLEEPDEEP;
+        PWR->CR |= PWR_CR_CWUF | PWR_CR_PDDS; // power down deepsleep
+        __WFI(); // soft power off, never returns
+        return;            
+    default: // sleep
+        PWR->CR |= PWR_CR_CWUF;
+        __WFI(); // sleep and wait for interrupt
+        return;
     }
-#endif
-    __WFI(); // sleep and wait for interrupt
+
 }
 
 void CPU_Halt()  // unrecoverable error
@@ -74,18 +77,9 @@ void CPU_Halt()  // unrecoverable error
 void CPU_Reset()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_POWER();
-#if 0
     SCB->AIRCR = (0x5FA << SCB_AIRCR_VECTKEY_Pos)  // unlock key
                | (1 << SCB_AIRCR_SYSRESETREQ_Pos); // reset request
-#endif
-
-//    	unsigned long *paircr = (unsigned long *) CM3_AIRCR;
-//    	asm volatile ("dsb");
-//    	SCB->AIRCR = (SCB->AIRCR & (7 << 8)) | 1 << 2 | 0x5FA << 16
-    	//*paircr = (*paircr & (7 << 8)) | 1 << 2 | 0x5FA << 16;
-//    	asm volatile ("dsb");
-    asm volatile("b EntryPoint");
-    while(1); // wait for reset
+     while(1); // wait for reset
 }
 
 BOOL CPU_IsSoftRebootSupported ()
@@ -94,18 +88,11 @@ BOOL CPU_IsSoftRebootSupported ()
     return TRUE;
 }
 
-// PS
-#if 0
 __asm void HAL_AssertEx()
 {
     BKPT     #0
 L1  B        L1
     BX       lr
-}
-#endif
-void HAL_AssertEx()
-{
-	while(1);
 }
 
 //--//

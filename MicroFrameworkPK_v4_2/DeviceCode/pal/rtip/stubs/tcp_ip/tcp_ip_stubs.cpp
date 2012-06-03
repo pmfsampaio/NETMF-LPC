@@ -144,7 +144,7 @@ RTP_BOOL SOCKAPI_ tc_interface_mcast(int iface_no, RTP_PFUINT8 mclist,
 
 RTP_BOOL SOCKAPI_ xn_interface_statistics(int iface_no, PIFACE_STATS stats) { return 0; }
 
-int         SOCKAPI_ xn_rtip_init(void) { return 0; }
+int         SOCKAPI_ xn_rtip_init(void) { return -1; }
 int         SOCKAPI_ xn_device_table_add(int device_id,
                         int minor_number,
                         int iface_type,

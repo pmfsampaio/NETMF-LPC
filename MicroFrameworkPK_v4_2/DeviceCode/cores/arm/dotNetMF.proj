@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <AssemblyName>TinyHal</AssemblyName>
     <ProjectGuid>{8b626ac4-c8ce-48d9-a7db-0d59f0874983}</ProjectGuid>
@@ -40,7 +41,6 @@
   <PropertyGroup>
     <OutputType Condition="'$(PLATFORM_FAMILY)'=='arm'">Library</OutputType>
   </PropertyGroup>
-
   <ItemGroup Condition="'$(INSTRUCTION_SET)'=='arm' or '$(INSTRUCTION_SET)'=='thumb' ">
     <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\cpwait.s" />
     <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\FirstEntry.s" />
@@ -48,24 +48,33 @@
     <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\Sampling_Profiler_RAM.s" />
     <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\VectorsHandlers.s" />
     <Compile Include="AssemblyCode\arm\$(AS_SUBDIR)\VectorsTrampolines.s" />
-    <Compile Include="Diagnostics\FIQAssembly\$(AS_SUBDIR)\FiqSubhandler_MC9328.s"/>
+    <Compile Include="Diagnostics\FIQAssembly\$(AS_SUBDIR)\FiqSubhandler_MC9328.s" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(INSTRUCTION_SET)'=='thumb2'">
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\FirstEntry.s" />
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\IDelayLoop.s" />
-     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsTrampolines.s" />
-	 <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\BootVectors.s" />	 
-	 <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\ProtectionArea.s" />	 
-    </ItemGroup>
-
-   <ItemGroup>
-      <Compile Include="Diagnostics\Aborts.cpp" />
-     <LIB_FIRSTENTRY_OBJ Include="$(OBJ_DIR)\FirstEntry.$(OBJ_EXT)" />
-   </ItemGroup>
-   
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\FirstEntry.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\IDelayLoop.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\Sampling_Profiler_RAM.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsHandlers.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsTrampolines.s" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Diagnostics\Aborts.cpp" />
+    <Compile Include="Diagnostics\FIQ_Profiler.cpp" />
+    <Compile Include="Diagnostics\RamTest.cpp" />
+    <Compile Include="Diagnostics\RamTest.h" />
+    <LIB_FIRSTENTRY_OBJ Include="$(OBJ_DIR)\FirstEntry.$(OBJ_EXT)" />
+  </ItemGroup>
   <ItemGroup>
     <ExtraProjects Include="dotNetMF_loader.proj" Condition="'$(PLATFORM_FAMILY)'=='arm'" />
+  </ItemGroup>
+  <ItemGroup>
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\diagnostics\ramtest.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\arm_util.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\cpu.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\cpu_definitions.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\cores\arm\include\smartptr_fiq_arm.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\pal\com\usb\usb.h" />
+    <HFiles Include="$(SPOCLIENT)\devicecode\targets\native\mc9328\devicecode\mc9328mxl.h" />
   </ItemGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

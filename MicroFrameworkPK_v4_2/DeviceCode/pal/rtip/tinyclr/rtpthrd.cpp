@@ -199,6 +199,11 @@ int rtp_threads_init (void)
     {
         return (-1);
     }
+    if ( ((int)IPTaskContinuation== NULL) || ((int)InterruptTaskContinuation== NULL) || 
+         ((int)IPTaskInitialized== NULL) || ((int)InterruptTaskContInitialized== NULL) )
+    {
+        return (-1);
+    }
 #endif
 
     for (i = 0; i < CFG_NIFACES; i++)
