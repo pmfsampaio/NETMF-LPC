@@ -130,6 +130,7 @@ struct Sockets_Driver
     static void ApplyWirelessConfig();
 
     static void ClearStatusBitsForSocket(SOCK_SOCKET sock, BOOL fWrite);
+    static BOOL InitializeMulticastDiscovery();
 
 private:
     static void CloseDebuggerSocket();
@@ -143,7 +144,6 @@ private:
     static void ApplyConfig();    
     static void SaveWirelessConfig(INT32 index, SOCK_NetworkConfiguration *cfg);
 
-    static BOOL InitializeMulticastDiscovery();
     static void MulticastDiscoveryRespond();
 
     static void OnDebuggerTimeout(void* arg);
@@ -197,6 +197,7 @@ private:
     static BOOL           s_initialized;
     static const INT32    c_WellKnownDebugPort = DEBUG_SOCKET_PORT;
     static BOOL           s_wirelessInitialized;
+    static BOOL           s_discoveryInitialized;
 };
 
 extern Sockets_Driver g_Sockets_Driver;

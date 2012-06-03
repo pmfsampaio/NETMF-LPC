@@ -76,9 +76,9 @@ void AT91_EMAC_LWIP_interrupt(struct netif *pNetIf)
     emac_tsr = emac.EMAC_TSR;
     
     /* Frame(s) received */
-    if((emac_isr & AT91_EMAC::EMAC_RCOMP) || (emac_rsr & AT91_EMAC::EMAC_REC))
+    if((emac_isr & AT91_EMAC::EMAC_RCOMP) || (emac_rsr & (AT91_EMAC::EMAC_REC | AT91_EMAC::EMAC_BNA)))
     {
-        emac.EMAC_RSR |= emac_rsr;
+        emac.EMAC_RSR = AT91_EMAC::EMAC_REC | AT91_EMAC::EMAC_BNA;
         lwip_interrupt_continuation();
     }
 
@@ -87,15 +87,16 @@ void AT91_EMAC_LWIP_interrupt(struct netif *pNetIf)
     {
         volatile EmacTDescriptor *pTxTd;
 
-        emac.EMAC_TSR |= emac_tsr;
+        // clear TSR
+        emac.EMAC_TSR = AT91_EMAC::EMAC_COMP;
 
         // Check the buffers
         while (CIRC_CNT(txTd.head, txTd.tail, TX_BUFFERS))
         {
-            pTxTd = txTd.td + txTd.tail;         
+            pTxTd = &txTd.td[txTd.tail];         
 
             // Exit if buffer has not been sent yet
-            if (!(pTxTd->status & EMAC_TX_USED_BIT))            
+            if (0 == (pTxTd->status & EMAC_TX_USED_BIT))            
                 break;
             
             CIRC_INC( txTd.tail, TX_BUFFERS );
@@ -115,7 +116,7 @@ void AT91_EMAC_LWIP_recv(struct netif *pNetIf)
 
     GLOBAL_LOCK(encIrq);
 
-    volatile EmacTDescriptor *pRxTd = rxTd.td + rxTd.idx;
+    volatile EmacTDescriptor *pRxTd = &rxTd.td[rxTd.idx];
 
     while ((pRxTd->addr & EMAC_RX_OWNERSHIP_BIT) == EMAC_RX_OWNERSHIP_BIT)
     {
@@ -125,7 +126,7 @@ void AT91_EMAC_LWIP_recv(struct netif *pNetIf)
             // Skip previous fragment
             while (tmpIdx != rxTd.idx)
             {
-                pRxTd = rxTd.td + rxTd.idx;
+                pRxTd = &rxTd.td[rxTd.idx];
                 pRxTd->addr &= ~(EMAC_RX_OWNERSHIP_BIT);
                 CIRC_INC(rxTd.idx, RX_BUFFERS);
             }
@@ -139,12 +140,12 @@ void AT91_EMAC_LWIP_recv(struct netif *pNetIf)
 
         if(isFrame)
         {
-            if (tmpIdx == rxTd.idx) 
+            if (tmpIdx == rxTd.idx && 0 == (pRxTd->status & EMAC_RX_EOF_BIT))
             {
                 debug_printf("Receive buffer is too small for the current frame!\r\n");
                 do
                 {
-                    pRxTd = rxTd.td + rxTd.idx;
+                    pRxTd = &rxTd.td[rxTd.idx];
                     pRxTd->addr &= ~(EMAC_RX_OWNERSHIP_BIT);
                     CIRC_INC(rxTd.idx, RX_BUFFERS);
                 } while(tmpIdx != rxTd.idx);
@@ -163,9 +164,9 @@ void AT91_EMAC_LWIP_recv(struct netif *pNetIf)
  
                     bufferLength = EMAC_RX_UNITSIZE;
                     // Get all the data
-                    while (rxTd.idx != tmpIdx)
+                    do
                     {                   
-                        pRxTd = rxTd.td + rxTd.idx;
+                        pRxTd = &rxTd.td[rxTd.idx];
                         if(bufferLength >= frameLength)
                         {
                             memcpy(dataRX, (void*)(pRxTd->addr & EMAC_ADDRESS_MASK), frameLength);
@@ -179,11 +180,15 @@ void AT91_EMAC_LWIP_recv(struct netif *pNetIf)
                     
                         pRxTd->addr &= ~(EMAC_RX_OWNERSHIP_BIT);
                         CIRC_INC(rxTd.idx, RX_BUFFERS);
-                    }
-                
+                    }while (rxTd.idx != tmpIdx);
+
+
+                    encIrq.Release();
                     // signal IP layer that a packet is on its exchange
                     pNetIf->input(pPBuf, pNetIf);
-                }
+                    encIrq.Acquire();
+                }                
+
                 // Prepare for the next Frame
                 isFrame = FALSE;
             }
@@ -195,7 +200,7 @@ void AT91_EMAC_LWIP_recv(struct netif *pNetIf)
         }
         
         // Process the next buffer
-        pRxTd = rxTd.td + tmpIdx;
+        pRxTd = &rxTd.td[tmpIdx];
     }
 }
 
@@ -203,6 +208,7 @@ err_t AT91_EMAC_LWIP_xmit(struct netif *pNetIf, struct pbuf *pPBuf)
 {
     UINT16  length = 0;
     UINT8 *pDst;
+    INT32 len;
 
     volatile EmacTDescriptor *pTxTd;
 
@@ -212,53 +218,72 @@ err_t AT91_EMAC_LWIP_xmit(struct netif *pNetIf, struct pbuf *pPBuf)
     {
         return ERR_ARG;
     }
-     
+
     length = pPBuf->tot_len;
-/*    
-    if (length < ETHER_MIN_LEN)
-    {
-        length = ETHER_MIN_LEN;
-    }
-*/    
-    if (length > AT91_EMAC_MAX_FRAME_SIZE)
-    {
-        debug_printf("xmit - length is too large, truncated\r\n");
-        length = AT91_EMAC_MAX_FRAME_SIZE;         /* what a terriable hack! */
-    }
+
+    if(length == 0) return ERR_OK;
+
     
     /* First see if there is enough space in the remainder of the transmit buffer */
-    if (CIRC_SPACE(txTd.head, txTd.tail, TX_BUFFERS) == 0)
+    if (CIRC_SPACE(txTd.head, txTd.tail, TX_BUFFERS) * EMAC_TX_UNITSIZE < length)
     {
         debug_printf("AT91_EMAC_LWIP_xmit: no space\r\n");
+        AT91_EMAC &emac = AT91_EMAC::EMAC();
+        // Now start to transmit if it is not already done
+        emac.EMAC_NCR |= AT91_EMAC::EMAC_TSTART;
         return ERR_IF;
     }
 
-    // Pointers to the current TxTd
-    pTxTd = txTd.td + txTd.head;
-    pDst = (UINT8*)pTxTd->addr;
-
+    len = length;
     // Copy data to transmition buffer
-    if (length != 0)
+    while (len > 0 && pPBuf != NULL)
     {
-        while (pPBuf)
+        int max = EMAC_TX_UNITSIZE;
+        int offset = 0;
+
+        // Pointers to the current TxTd
+        pTxTd = &txTd.td[txTd.head];
+        pDst = (UINT8*)pTxTd->addr;
+
+        do
         {
-            memcpy(pDst, pPBuf->payload, pPBuf->len);
-            pDst += pPBuf->len;
-            pPBuf = pPBuf->next;
+            int bufLen = pPBuf->len - offset;
+            BYTE *pTmp = (BYTE*)pPBuf->payload;
+
+            if(bufLen > max) bufLen = max;
+
+            memcpy(pDst, &pTmp[offset], bufLen);
+
+            pDst += bufLen;
+            max  -= bufLen;
+            len  -= bufLen;
+            
+            if(bufLen + offset >= pPBuf->len)
+            {
+                pPBuf  = pPBuf->next;       
+                offset = 0;
+            }
+            else
+            {
+                offset += bufLen;
+            }
+
+        } while( max > 0 && len > 0 && pPBuf != NULL);
+
+        if (txTd.head == TX_BUFFERS-1)
+        {
+            pTxTd->status = (length & 0x7FF) | EMAC_TX_WRAP_BIT;
         }
+        else
+        {
+            pTxTd->status = (length & 0x7FF);
+        }
+    
+        // Driver manage the ring buffer
+        CIRC_INC(txTd.head, TX_BUFFERS)
     }
 
-    if (txTd.head == TX_BUFFERS-1)
-    {
-        pTxTd->status = (length & EMAC_LENGTH_FRAME) | EMAC_TX_LAST_BUFFER_BIT | EMAC_TX_WRAP_BIT;
-    }
-    else
-    {
-        pTxTd->status = (length & EMAC_LENGTH_FRAME) | EMAC_TX_LAST_BUFFER_BIT;
-    }
-    
-    // Driver manage the ring buffer
-    CIRC_INC(txTd.head, TX_BUFFERS)
+    pTxTd->status |= EMAC_TX_LAST_BUFFER_BIT;
 
     AT91_EMAC &emac = AT91_EMAC::EMAC();
 
@@ -299,6 +324,34 @@ BOOL AT91_EMAC_LWIP_SetupDevice(struct netif *pNetIf)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+
+void AT91_EMAC_AddMulticastAddr(UINT32 mcast)
+{
+    UINT32 hash = 0;
+    UINT64 addr = mcast;
+    AT91_EMAC &emac = AT91_EMAC::EMAC();
+ 
+    addr = htonl(addr);
+    addr &= 0x7FFFFF;
+                    
+    addr |=  0x01005E000000;
+
+    hash |= (1 & ((addr >> 5) ^ (addr >> 11) ^ (addr >> 17) ^ (addr >> 23) ^ (addr >> 29) ^ (addr >> 35) ^ (addr >> 41) ^ (addr >> 47))) << 5;
+    hash |= (1 & ((addr >> 4) ^ (addr >> 10) ^ (addr >> 16) ^ (addr >> 22) ^ (addr >> 28) ^ (addr >> 34) ^ (addr >> 40) ^ (addr >> 46))) << 4;
+    hash |= (1 & ((addr >> 3) ^ (addr >>  9) ^ (addr >> 15) ^ (addr >> 21) ^ (addr >> 27) ^ (addr >> 33) ^ (addr >> 39) ^ (addr >> 45))) << 3;
+    hash |= (1 & ((addr >> 2) ^ (addr >>  8) ^ (addr >> 14) ^ (addr >> 20) ^ (addr >> 26) ^ (addr >> 32) ^ (addr >> 38) ^ (addr >> 44))) << 2;
+    hash |= (1 & ((addr >> 1) ^ (addr >>  7) ^ (addr >> 13) ^ (addr >> 19) ^ (addr >> 25) ^ (addr >> 31) ^ (addr >> 37) ^ (addr >> 43))) << 1;
+    hash |= (1 & ((addr >> 0) ^ (addr >>  6) ^ (addr >> 12) ^ (addr >> 18) ^ (addr >> 24) ^ (addr >> 30) ^ (addr >> 36) ^ (addr >> 42))) << 0;
+
+    if(hash < 32)
+    {
+        emac.EMAC_HRB |= 1u << hash;
+    }
+    else
+    {
+        emac.EMAC_HRT |= 1u << (hash - 32); 
+    }
+}
 
 void AT91_EMAC_LWIP_Init(struct netif *pNetIf)
 {
@@ -348,7 +401,11 @@ void AT91_EMAC_LWIP_Init(struct netif *pNetIf)
 
     emac.EMAC_SA1H = ( ((UINT32)pNetIf->hwaddr[5] << 8 )
                      |          pNetIf->hwaddr[4] );
-   
+
+    // Initialize multicast - valid addresses will be set up when ADD_MEMBERSHIP sockopt is used.
+    emac.EMAC_HRB = 0x00000000;
+    emac.EMAC_HRT = 0x00000000; 
+
     // Now setup the descriptors
     // Receive Buffer Queue Pointer Register
     emac.EMAC_RBQP = (UINT32) (rxTd.td);
@@ -369,10 +426,10 @@ void AT91_EMAC_LWIP_Init(struct netif *pNetIf)
     Status = emac.EMAC_ISR;  
 
     // Don't copy FCS
-    emac.EMAC_NCFGR |= (AT91_EMAC::EMAC_CAF | AT91_EMAC::EMAC_DRFCS | AT91_EMAC::EMAC_PAE);
+    emac.EMAC_NCFGR |= (AT91_EMAC::EMAC_DRFCS | AT91_EMAC::EMAC_PAE | AT91_EMAC::EMAC_MTI);
 
     // Enable Rx and Tx, plus the stats register.
-    emac.EMAC_NCR |= (AT91_EMAC::EMAC_TE | AT91_EMAC::EMAC_RE | AT91_EMAC::EMAC_WESTAT);
+    emac.EMAC_NCR |= (AT91_EMAC::EMAC_TE | AT91_EMAC::EMAC_RE); // | AT91_EMAC::EMAC_WESTAT);
 
     // Setup the interrupts for TX (and errors)
     emac.EMAC_IER = AT91_EMAC::EMAC_RXUBR

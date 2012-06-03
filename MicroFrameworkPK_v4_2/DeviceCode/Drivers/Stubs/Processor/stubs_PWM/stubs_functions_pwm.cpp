@@ -16,7 +16,7 @@ BOOL PWM_Uninitialize(PWM_CHANNEL channel)
     return TRUE;
 }
 
-BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, BOOL invert)
+BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, PWM_SCALE_FACTOR& scale, BOOL invert)
 {
     return TRUE;
 }

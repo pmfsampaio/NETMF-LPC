@@ -12,12 +12,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-#include "..\LPC1788_Devices.h"
-#include "..\..\CMSIS\include\system_LPC177x_8x.h"
+#include "..\stm32f10x.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 
-#if 0
+
 /* STM32 clock configuration */
 
 #if SYSTEM_CLOCK_HZ % SYSTEM_CRYSTAL_CLOCK_HZ != 0
@@ -101,7 +100,7 @@
 #define RCC_CFGR_USBPRE_BIT 0                      // USB clk = sysclk * 2/3
 #endif
 
-#endif
+
 #pragma arm section code = "SectionForBootstrapOperations"
 
 
@@ -115,8 +114,7 @@ void __section(SectionForBootstrapOperations) STM32_BootstrapCode()
 {
     // assure interupts off
     __disable_irq();
-    SystemCoreClockUpdate();
-#if 0
+    
     // configure jtag debug support
     DBGMCU->CR = DBGMCU_CR_DBG_TIM2_STOP | DBGMCU_CR_DBG_SLEEP;
                 
@@ -163,7 +161,6 @@ void __section(SectionForBootstrapOperations) STM32_BootstrapCode()
     
     // stop HSI clock
     RCC->CR &= ~RCC_CR_HSION;
-#endif
 }
 
 
@@ -171,7 +168,7 @@ void __section(SectionForBootstrapOperations) BootstrapCode()
 {
     STM32_BootstrapCode();
     
-//    BootstrapCode_GPIO();
+    BootstrapCode_GPIO();
 
     PrepareImageRegions();
 }
@@ -180,7 +177,8 @@ void __section(SectionForBootstrapOperations) BootstrapCodeMinimal()
 {
     STM32_BootstrapCode();
     
-//    BootstrapCode_GPIO();
+    BootstrapCode_GPIO();
 }
 
 }
+

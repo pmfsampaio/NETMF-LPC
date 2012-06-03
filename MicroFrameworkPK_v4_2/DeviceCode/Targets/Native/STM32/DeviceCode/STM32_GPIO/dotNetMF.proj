@@ -54,8 +54,8 @@
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <PropertyGroup />
   <ItemGroup>
-    <HFiles Include="..\LPC1778_Devices.h" />
-    <Compile Include="LPC178X__GPIO.cpp" />
+    <HFiles Include="..\stm32f10x.h" />
+    <Compile Include="STM32_GPIO_functions.cpp" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />

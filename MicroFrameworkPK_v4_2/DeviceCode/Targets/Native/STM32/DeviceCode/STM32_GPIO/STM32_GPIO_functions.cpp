@@ -13,7 +13,7 @@
 
 #include <tinyhal.h>
 #include <cores\arm\include\cpu.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 //--//
 
@@ -41,7 +41,6 @@ static void* g_ISR_Param[STM32_Gpio_MaxInt]; // interrupt handler parameters
 
 void STM32_GPIO_ISR (int num)  // 0 <= num <= 15
 {
-#if 0
     INTERRUPT_START
     
     GPIO_INTERRUPT_SERVICE_ROUTINE isr = g_ISR[num];
@@ -51,52 +50,40 @@ void STM32_GPIO_ISR (int num)  // 0 <= num <= 15
     }
     
     INTERRUPT_END
-#endif
 }
 
 void STM32_GPIO_Interrupt0 (void* param) // EXTI0
 {
-#if 0
     EXTI->PR = 1 << 0;   // reset pending bit
     STM32_GPIO_ISR(0);
-#endif
 }
 
 void STM32_GPIO_Interrupt1 (void* param) // EXTI1
 {
-#if 0
     EXTI->PR = 1 << 1;   // reset pending bit
     STM32_GPIO_ISR(1);
-#endif
 }
 
 void STM32_GPIO_Interrupt2 (void* param) // EXTI2
 {
-#if 0
     EXTI->PR = 1 << 2;   // reset pending bit
     STM32_GPIO_ISR(2);
-#endif
 }
 
 void STM32_GPIO_Interrupt3 (void* param) // EXTI3
 {
-#if 0
     EXTI->PR = 1 << 3;   // reset pending bit
     STM32_GPIO_ISR(3);
-#endif
 }
 
 void STM32_GPIO_Interrupt4 (void* param) // EXTI4
 {
-#if 0
     EXTI->PR = 1 << 4;   // reset pending bit
     STM32_GPIO_ISR(4);
-#endif
 }
 
 void STM32_GPIO_Interrupt5 (void* param) // EXTI5 - EXTI9
 {
-#if 0
     UINT32 pending = EXTI->PR & 0x03E0; // pending bits 5..9
     EXTI->PR = pending;    // reset pending bits 5..9
     pending &= EXTI->IMR;  // remove masked bits
@@ -105,12 +92,10 @@ void STM32_GPIO_Interrupt5 (void* param) // EXTI5 - EXTI9
         if (pending & 1) STM32_GPIO_ISR(num);
         num++; pending >>= 1;
     } while (pending);
-#endif
 }
 
 void STM32_GPIO_Interrupt10 (void* param) // EXTI10 - EXTI15
 {
-#if 0
     UINT32 pending = EXTI->PR & 0xFC00; // pending bits 10..15
     EXTI->PR = pending;    // reset pending bits 10..15
     pending &= EXTI->IMR;  // remove masked bits
@@ -119,12 +104,10 @@ void STM32_GPIO_Interrupt10 (void* param) // EXTI10 - EXTI15
         if (pending & 1) STM32_GPIO_ISR(num);
         num++; pending >>= 1;
     } while (pending);
-#endif
 }
 
 BOOL STM32_GPIO_Set_Interrupt( UINT32 pin, GPIO_INTERRUPT_SERVICE_ROUTINE ISR, void* ISR_Param, GPIO_INT_EDGE mode)
 {
-#if 0
     UINT32 num = pin & 0x0F;
     UINT32 bit = 1 << num;
     UINT32 shift = (num & 0x3) << 2; // 4 bit fields
@@ -157,14 +140,12 @@ BOOL STM32_GPIO_Set_Interrupt( UINT32 pin, GPIO_INTERRUPT_SERVICE_ROUTINE ISR, v
         EXTI->IMR &= ~bit; // disable interrupt
         g_ISR[num] = NULL;
     }
-#endif
     return TRUE;
 }
 
 
 void STM32_GPIO_Pin_Config( GPIO_PIN pin, UINT32 config )
 {
-#if 0
     GPIO_TypeDef* port = Port(pin >> 4); // pointer to the actual port registers 
     UINT32 shift = (pin & 7) << 2; // 4 bits / pin
     config <<= shift;
@@ -177,7 +158,7 @@ void STM32_GPIO_Pin_Config( GPIO_PIN pin, UINT32 config )
     } else { // bit 0-7
         port->CRL = port->CRL & ~mask | config;
     }
-#endif
+    
 }
 
 
@@ -190,7 +171,7 @@ BOOL CPU_GPIO_Initialize()
     for (int i = 0; i < STM32_Gpio_MaxPorts; i++) {
         g_pinReserved[i] = 0;
     }
-#if 0
+    
     EXTI->IMR = 0; // disable all external interrups;
     CPU_INTC_ActivateInterrupt(EXTI0_IRQn, STM32_GPIO_Interrupt0, 0);
     CPU_INTC_ActivateInterrupt(EXTI1_IRQn, STM32_GPIO_Interrupt1, 0);
@@ -199,14 +180,14 @@ BOOL CPU_GPIO_Initialize()
     CPU_INTC_ActivateInterrupt(EXTI4_IRQn, STM32_GPIO_Interrupt4, 0);
     CPU_INTC_ActivateInterrupt(EXTI9_5_IRQn, STM32_GPIO_Interrupt5, 0);
     CPU_INTC_ActivateInterrupt(EXTI15_10_IRQn, STM32_GPIO_Interrupt10, 0);
-#endif
+
     return TRUE;
 }
 
 BOOL CPU_GPIO_Uninitialize()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_GPIO();
-#if 0
+
     EXTI->IMR = 0; // disable all external interrups;
     CPU_INTC_DeactivateInterrupt(EXTI0_IRQn);
     CPU_INTC_DeactivateInterrupt(EXTI1_IRQn);
@@ -215,7 +196,7 @@ BOOL CPU_GPIO_Uninitialize()
     CPU_INTC_DeactivateInterrupt(EXTI4_IRQn);
     CPU_INTC_DeactivateInterrupt(EXTI9_5_IRQn);
     CPU_INTC_DeactivateInterrupt(EXTI15_10_IRQn);
-#endif
+    
     return TRUE;
 }
 
@@ -289,24 +270,18 @@ BOOL CPU_GPIO_GetPinState( GPIO_PIN pin )
     NATIVE_PROFILE_HAL_PROCESSOR_GPIO();
     if (pin >= STM32_Gpio_MaxPins) return FALSE;
     
-#if 0
     GPIO_TypeDef* port = Port(pin >> 4); // pointer to the actual port registers 
-
     return (port->IDR >> (pin & 0xF)) & 1;
-#endif
-    }
+}
 
 void CPU_GPIO_SetPinState( GPIO_PIN pin, BOOL pinState )
 {
     NATIVE_PROFILE_HAL_PROCESSOR_GPIO();
     if (pin < STM32_Gpio_MaxPins) {
-#if 0
-    	GPIO_TypeDef* port = Port(pin >> 4); // pointer to the actual port registers
-
-    	UINT32 bit = 1 << (pin & 0x0F);
+        GPIO_TypeDef* port = Port(pin >> 4); // pointer to the actual port registers 
+        UINT32 bit = 1 << (pin & 0x0F);
         if (!pinState) bit <<= 16; // reset bits
         port->BSRR = bit;
-#endif
     }
 }
 

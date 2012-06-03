@@ -13,7 +13,7 @@
 
 #include <tinyhal.h>
 #include <pal\com\usb\USB.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 
 /////////////////// Definitions Missing From stm32f10x.h ///////////////////
@@ -144,10 +144,8 @@ void STM32_USB_Driver_EP0_TX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State);
  */
 void STM32_USB_SetRxStatus (int ep, int status)
 {
-#if 0
     USB->EPiR[ep] = ((USB->EPiR[ep] & (USB_EP_NT | USB_EP0R_STAT_RX)) ^ status)
                     | (USB_EP0R_CTR_RX | USB_EP0R_CTR_TX);
-#endif
 }
 
 /*
@@ -155,10 +153,8 @@ void STM32_USB_SetRxStatus (int ep, int status)
  */
 void STM32_USB_SetTxStatus (int ep, int status)
 {
-#if 0
-	USB->EPiR[ep] = ((USB->EPiR[ep] & (USB_EP_NT | USB_EP0R_STAT_TX)) ^ status)
+    USB->EPiR[ep] = ((USB->EPiR[ep] & (USB_EP_NT | USB_EP0R_STAT_TX)) ^ status)
                     | (USB_EP0R_CTR_RX | USB_EP0R_CTR_TX);
-#endif
 }
 
 /*
@@ -171,14 +167,13 @@ void STM32_USB_Driver_SuspendEvent (USB_CONTROLLER_STATE* State)
     // suspending. Therefore, the REMOTE wake up is not necessary at the device side
     
     USB_Debug("S");
-#if 0
+    
     USB->CNTR |= USB_CNTR_FSUSP; // force suspend
     //USB->CNTR |= USB_CNTR_LP_MODE; // set to low power
     
     STM32_USB_PreviousDeviceState = State->DeviceState;
     State->DeviceState = USB_DEVICE_STATE_SUSPENDED;
     USB_StateCallback( State );
-#endif
 }
 
 /*
@@ -187,12 +182,11 @@ void STM32_USB_Driver_SuspendEvent (USB_CONTROLLER_STATE* State)
 void STM32_USB_Driver_ResumeEvent (USB_CONTROLLER_STATE* State)
 {
     USB_Debug("R");
-#if 0
+    
     USB->CNTR &= ~USB_CNTR_FSUSP; // wake up
     
     State->DeviceState = STM32_USB_PreviousDeviceState;
     USB_StateCallback( State );
-#endif
 }
 
 /*
@@ -202,7 +196,6 @@ void STM32_USB_Driver_ResetEvent (USB_CONTROLLER_STATE* State)
 {
     USB_Debug("!");
     
-#if 0
     USB->ISTR = 0; // clear pending bits
     USB->CNTR = USB_CNTR_CTRM | USB_CNTR_RESETM | USB_CNTR_SUSPM | USB_CNTR_WKUPM;
     
@@ -243,7 +236,6 @@ void STM32_USB_Driver_ResetEvent (USB_CONTROLLER_STATE* State)
     State->DeviceState = USB_DEVICE_STATE_DEFAULT;
     State->Address = 0;
     USB_StateCallback( State );
-#endif
 }
 
 
@@ -253,7 +245,7 @@ void STM32_USB_Driver_ResetEvent (USB_CONTROLLER_STATE* State)
 void STM32_USB_Driver_EP0_RX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
 {
     ASSERT_IRQ_MUST_BE_OFF();
-#if 0
+
     _ASSERT((epreg & USB_EP0R_STAT_RX) == USB_EP_RX_NAK);
     
     int count = USB_PMA->EP_BUF_DESC[0].COUNT_RX & 0x03FF; // received count
@@ -266,7 +258,7 @@ void STM32_USB_Driver_EP0_RX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
         USB_Debug("0");
     
     // copy buffer
-    UINT32* ps = (UINT32*)&(USB_PMA->EP_BUF[0][16]); // second half of buffer 0
+    UINT32* ps = &(USB_PMA->EP_BUF[0][16]); // second half of buffer 0
     UINT16* pd = (UINT16*)STM32_USB_EP0Buffer;
     for (int n = count; n > 0; n -= 2) {
         *pd++ = *ps++;
@@ -330,7 +322,7 @@ void STM32_USB_Driver_EP0_RX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
         if( State->Queues[ep] && State->IsTxQueue[ep] )
             STM32_USB_Driver_EP_In_Int(USB->EPiR[ep], State, ep);
     }
-#endif
+
 }
 
 /*
@@ -339,7 +331,7 @@ void STM32_USB_Driver_EP0_RX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
 void STM32_USB_Driver_EP0_TX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
 {
     ASSERT_IRQ_MUST_BE_OFF();
-#if 0
+
     if (State->DataCallback && (epreg & USB_EP0R_STAT_TX) != USB_EP_TX_VALID) { // ready to reply
         _ASSERT((epreg & USB_EP0R_STAT_TX) == USB_EP_TX_NAK);
         
@@ -350,7 +342,7 @@ void STM32_USB_Driver_EP0_TX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
             USB_Debug("X");
             // load buffer
             UINT16* ps = (UINT16*)State->Data;
-            UINT32* pd = (UINT32*)&(USB_PMA->EP_BUF[0][0]); // first half of buffer 0
+            UINT32* pd = &(USB_PMA->EP_BUF[0][0]); // first half of buffer 0
             for (int n = count; n > 0; n -= 2) {
                 *pd++ = *ps++;
             }
@@ -367,7 +359,6 @@ void STM32_USB_Driver_EP0_TX_Int (UINT32 epreg, USB_CONTROLLER_STATE* State)
         USB->DADDR = State->Address | USB_DADDR_EF;
         USB_Debug("a");
     }
-#endif
 }
 
 
@@ -378,7 +369,6 @@ void STM32_USB_Driver_EP_Out_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int
 {
     ASSERT_IRQ_MUST_BE_OFF();
 
-#if 0
     _ASSERT((epreg & USB_EP0R_STAT_RX) == USB_EP_RX_NAK);
     
     BOOL full;
@@ -390,7 +380,7 @@ void STM32_USB_Driver_EP_Out_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int
         
         // copy buffer
         int count = USB_PMA->EP_BUF_DESC[endpoint].COUNT_RX & 0x03FF; // received count
-        UINT32* ps = (UINT32*)USB_PMA->EP_BUF[endpoint];
+        UINT32* ps = USB_PMA->EP_BUF[endpoint];
         UINT16* pd = (UINT16*)Packet64->Buffer;
         for (int n = count; n > 0; n -= 2) {
             *pd++ = *ps++;
@@ -406,7 +396,7 @@ void STM32_USB_Driver_EP_Out_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int
         USB_Debug("?");
         _ASSERT(0);
     }
-#endif
+
 }
 
 /*
@@ -415,7 +405,7 @@ void STM32_USB_Driver_EP_Out_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int
 void STM32_USB_Driver_EP_In_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int endpoint)
 {
     ASSERT_IRQ_MUST_BE_OFF();
-#if 0
+
     // If this is not a legal transmit endpoint, there is nothing more to do
     if (State->Queues[endpoint] != NULL && State->IsTxQueue[endpoint]) {
 
@@ -429,7 +419,7 @@ void STM32_USB_Driver_EP_In_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int 
                 // copy buffer
                 int count = Packet64->Size;
                 UINT16* ps = (UINT16*)Packet64->Buffer;
-                UINT32* pd = (UINT32*)USB_PMA->EP_BUF[endpoint];
+                UINT32* pd = USB_PMA->EP_BUF[endpoint];
                 for (int n = count; n > 0; n -= 2) {
                     *pd++ = *ps++;
                 }
@@ -440,7 +430,6 @@ void STM32_USB_Driver_EP_In_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int 
             }
         }
     }
-#endif
 }
 
 /*
@@ -448,9 +437,8 @@ void STM32_USB_Driver_EP_In_Int (UINT32 epreg, USB_CONTROLLER_STATE* State, int 
  */
 void STM32_USB_Driver_Interrupt (void* param)
 {
-#if 0
-	INTERRUPT_START;
-
+    INTERRUPT_START;
+    
     USB_CONTROLLER_STATE *State = &STM32_USB_ControllerState;
 
     UINT32 intPend = USB->ISTR; // get pending bits
@@ -491,25 +479,21 @@ void STM32_USB_Driver_Interrupt (void* param)
         STM32_USB_Driver_ResumeEvent(State);
         USB->ISTR = ~USB_ISTR_WKUP; // reset interrupt
     }
-
+    
     INTERRUPT_END;
-#endif
-    }
+}
 
 
 USB_CONTROLLER_STATE * CPU_USB_GetState( int Controller )
 {
-#if 0
     if (Controller != 0) return NULL;
     return &STM32_USB_ControllerState;
-#endif
-    return 0;
 }
 
 HRESULT CPU_USB_Initialize( int Controller )
 {
     if (Controller != 0) return S_FALSE;
-#if 0
+    
     // initialize attach pin and detach usb port
     STM32_USB_Init_Pin;
     
@@ -597,7 +581,7 @@ HRESULT CPU_USB_Initialize( int Controller )
     USB->CNTR = USB_CNTR_RESETM; // enable reset only
     
     // rest of initializations done in reset interrupt handler
-#endif
+    
     USB_Debug("*");
     
     return S_OK;
@@ -605,7 +589,6 @@ HRESULT CPU_USB_Initialize( int Controller )
 
 HRESULT CPU_USB_Uninitialize( int Controller )
 {
-#if 0
     CPU_INTC_DeactivateInterrupt(USB_HP_CAN1_TX_IRQn);
     CPU_INTC_DeactivateInterrupt(USB_LP_CAN1_RX0_IRQn);
     CPU_INTC_DeactivateInterrupt(USBWakeUp_IRQn);
@@ -614,14 +597,14 @@ HRESULT CPU_USB_Uninitialize( int Controller )
     STM32_USB_EP_Type = 0; // reset endpoint types
     
     RCC->APB1ENR &= ~RCC_APB1ENR_USBEN; // disable USB clock
-#endif
+    
     return S_OK;
 }
 
 BOOL CPU_USB_StartOutput( USB_CONTROLLER_STATE* State, int endpoint )
 {
     USB_Debug("t");
-#if 0
+    
     if (State == NULL || endpoint >= USB_MAX_EP) return FALSE;
 
     GLOBAL_LOCK(irq);
@@ -641,7 +624,7 @@ BOOL CPU_USB_StartOutput( USB_CONTROLLER_STATE* State, int endpoint )
     }
     // write first packet if not done yet
     STM32_USB_Driver_EP_In_Int(USB->EPiR[endpoint], State, endpoint); 
-#endif
+
     return TRUE;
 }
 
@@ -649,7 +632,6 @@ BOOL CPU_USB_RxEnable( USB_CONTROLLER_STATE* State, int endpoint )
 {
     USB_Debug("e");
     
-#if 0
     // If this is not a legal Rx queue
     if( State == NULL || State->Queues[endpoint] == NULL || State->IsTxQueue[endpoint] )
         return FALSE;
@@ -659,22 +641,18 @@ BOOL CPU_USB_RxEnable( USB_CONTROLLER_STATE* State, int endpoint )
         // Nak & no int pending // !!!
         STM32_USB_SetRxStatus(endpoint, USB_EP_RX_VALID);
     }
-#endif
     return TRUE;
 }
 
 BOOL CPU_USB_GetInterruptState()
 {
-#if 0
     return USB->ISTR & USB->CNTR & 0xFF00; // return any unmasked pending interrupt
-#endif
-    return 0;
 }
 
 BOOL CPU_USB_ProtectPins( int Controller, BOOL On )
 {
     if (STM32_USB_EP_Type == 0) return FALSE;  // not yet initialized
-#if 0
+
     USB_CONTROLLER_STATE *State = &STM32_USB_ControllerState;
 
     GLOBAL_LOCK(irq);
@@ -714,7 +692,7 @@ BOOL CPU_USB_ProtectPins( int Controller, BOOL On )
             USB_StateCallback( State );
         }
     }
-#endif
+
     return TRUE;
 }
 

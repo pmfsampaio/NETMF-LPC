@@ -4,8 +4,7 @@
     <MFSettingsFile>$(SPOCLIENT)\Solutions\STM32Stamp\STM32Stamp.settings</MFSettingsFile>
   </PropertyGroup>
   <ItemGroup>
-    <RequiredProjects Include="TinyCLR\TinyCLR.proj" />  
-    <RequiredProjects Include="NativeSample\NativeSample.proj" />  
+    <RequiredProjects Include="TinyCLR\TinyCLR.proj" />
   </ItemGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />

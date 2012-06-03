@@ -14,17 +14,6 @@
 #ifndef _STM32_PROCESSOR_SELECTOR_H_
 #define _STM32_PROCESSOR_SELECTOR_H_ 1
 
-#if !defined(PLATFORM_ARM_STM32)
-ERROR - WE SHOULD NOT INCLUDE THIS HEADER IF NOT BUILDING A STM32 PLATFORM
-#endif
-
-#define PLATFORM_ARM_DEFINED
-
-#include <tinypal.h>
-#include <drivers.h>
-#include "DeviceCode/LPC1788_Devices.h"
-
-#if 0
     #define PLATFORM_ARM_DEFINED
 
 #if !defined(PLATFORM_ARM_STM32)
@@ -94,6 +83,6 @@ ERROR - WE SHOULD NOT INCLUDE THIS HEADER IF NOT BUILDING A STM32 PLATFORM
 //
 // communicaiton facilities
 /////////////////////////////////////////////////////////
-#endif
+
 
 #endif

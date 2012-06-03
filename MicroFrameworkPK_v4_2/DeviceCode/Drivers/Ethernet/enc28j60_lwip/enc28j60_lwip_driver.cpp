@@ -41,7 +41,7 @@ void enc28j60_status_callback(struct netif *netif)
         LwipLastIpAddress = netif->ip_addr.addr;
     }
 
-#if defined(_DEBUG)
+#if !defined(BUILD_RTM)
     lcd_printf("\f\n\n\n\n\n\nLink Update: %s\n", (netif_is_up(netif) ? "UP  " : "DOWN") );
     lcd_printf("         IP: %d.%d.%d.%d\n", (netif->ip_addr.addr >>  0) & 0xFF, 
                                              (netif->ip_addr.addr >>  8) & 0xFF,
@@ -194,10 +194,19 @@ int ENC28J60_LWIP_Driver::Open( ENC28J60_LWIP_DRIVER_CONFIG* config, int index )
     int len;
     const SOCK_NetworkConfiguration *iface;
 
-    /* Set network address variables - this will be set by either DHCP or when the configuration is applied */
-    IP4_ADDR(&gw, 0,0,0,0);
-    IP4_ADDR(&ipaddr, 0,0,0,0);
-    IP4_ADDR(&netmask, 255,255,255,0);
+    if(0 == (iface->flags & SOCK_NETWORKCONFIGURATION_FLAGS_DHCP))
+    {
+        ipaddr.addr  = iface->ipaddr;
+        gw.addr      = iface->gateway;
+        netmask.addr = iface->subnetmask;
+    }
+    else
+    {
+        /* Set network address variables - this will be set by either DHCP or when the configuration is applied */
+        IP4_ADDR(&gw     ,   0,   0,   0, 0);
+        IP4_ADDR(&ipaddr ,   0,   0,   0, 0);
+        IP4_ADDR(&netmask, 255, 255, 255, 0);
+    }
 
     if(config == NULL) return -1;
 
@@ -231,6 +240,7 @@ int ENC28J60_LWIP_Driver::Open( ENC28J60_LWIP_DRIVER_CONFIG* config, int index )
 
     netif_set_default( pNetIF );
     LwipNetworkStatus = 1;
+    netif_set_link_up( pNetIF );
     netif_set_up( pNetIF );
     
     /* Enable the CHIP SELECT pin */

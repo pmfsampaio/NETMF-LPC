@@ -16,6 +16,7 @@
   <ItemGroup>
     <TinyCLR_Defines Include="PLATFORM_EMULATED_FLOATINGPOINT=1" />
     <TinyCLR_Defines Include="PLATFORM_NO_CLR_TRACE=1" />
+    <TinyCLR_Defines Include="TINYCLR_NO_APPDOMAINS=1" />
     <TinyCLR_Defines Include="TINYCLR_NO_IL_INLINE=1" />
   </ItemGroup>   
   <ItemGroup>

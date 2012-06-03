@@ -23,6 +23,7 @@ struct Library_spot_hardware_pwm_native_Microsoft_SPOT_Hardware_PWM
     static const int FIELD__m_period = 3;
     static const int FIELD__m_duration = 4;
     static const int FIELD__m_invert = 5;
+    static const int FIELD__m_scale = 6;
 
     TINYCLR_NATIVE_DECLARE(Start___VOID);
     TINYCLR_NATIVE_DECLARE(Stop___VOID);

@@ -145,7 +145,6 @@ void LPC24XX_USART_Driver::UART_IntHandler (void *param)
    char c; 
    UINT32 ComNum = (UINT32)param;
    UINT32 i;
-   UINT32 rxcnt=0;  
    LPC24XX_USART& USARTC = LPC24XX::UART(ComNum);
    volatile UINT32 IIR_Value;
    volatile UINT32 LSR_Value;
@@ -216,10 +215,9 @@ BOOL LPC24XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     
     // CWS: Disable interrupts
     USARTC.UART_LCR = 0; // prepare to Init UART
-    USARTC.UART_FDR = 0x10;
     USARTC.SEL2.IER.UART_IER &= ~(LPC24XX_USART::UART_IER_INTR_ALL_SET);          // Disable all UART interrupts
     /* CWS: Set baud rate to baudRate bps */
-    USARTC.UART_LCR|= LPC24XX_USART::UART_LCR_DLAB;                                          // prepare to access Divisor
+    USARTC.UART_LCR |= LPC24XX_USART::UART_LCR_DLAB;                              // prepare to access Divisor
     USARTC.SEL1.DLL.UART_DLL = divisor & 0xFF;      //GET_LSB(divisor);                                                      // Set baudrate.
     USARTC.SEL2.DLM.UART_DLM = (divisor>>8) & 0xFF; // GET_MSB(divisor);
     USARTC.UART_LCR&= ~LPC24XX_USART::UART_LCR_DLAB;                                              // prepare to access RBR, THR, IER
@@ -282,7 +280,7 @@ BOOL LPC24XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     }
     
     // CWS: Set the RX FIFO trigger level (to 8 bytes), reset RX, TX FIFO 
-    USARTC.SEL3.FCR.UART_FCR =  (LPC24XX_USART::UART_FCR_RFITL_08<< LPC24XX_USART::UART_FCR_RFITL_shift )  |
+    USARTC.SEL3.FCR.UART_FCR =  (LPC24XX_USART::UART_FCR_RFITL_01>> LPC24XX_USART::UART_FCR_RFITL_shift )  |
                                 LPC24XX_USART::UART_FCR_TFR      | 
                                 LPC24XX_USART::UART_FCR_RFR      |
                                 LPC24XX_USART::UART_FCR_FME;
@@ -292,6 +290,7 @@ BOOL LPC24XX_USART_Driver::Initialize( int ComPortNum, int BaudRate, int Parity,
     CPU_INTC_ActivateInterrupt( LPC24XX_USART::getIntNo(ComPortNum),
                                 UART_IntHandler,
                                 (void *)ComPortNum);    
+    USARTC.UART_TER = LPC24XX_USART::UART_TER_TXEN;
     
     return fRet;
 }

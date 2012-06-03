@@ -12,8 +12,7 @@ err_t AT91_EMAC_LWIP_xmit(struct netif *pNetIf, struct pbuf *pPBuf);
 void  AT91_EMAC_LWIP_recv (struct netif *pNetIf);
 BOOL  AT91_EMAC_LWIP_statistics(struct netif *pNetIf);
 void  AT91_EMAC_LWIP_interrupt(struct netif *pNetIf);
-
-#define AT91_EMAC_MAX_FRAME_SIZE 2048
+void AT91_EMAC_AddMulticastAddr(UINT32 addr);
 
 //////////////////////////////////////////////////////////////////////////////
 // AT91_EMAC
@@ -223,12 +222,12 @@ typedef void (*EMAC_WakeupCallback)(void);
 // Data Structures for Transfer Buffers
 //----------------------------------------------------------------------------
 // Number of buffer for RX, be carreful: MUST be 2^n
-#define RX_BUFFERS  16
+#define RX_BUFFERS  32
 // Number of buffer for TX, be carreful: MUST be 2^n
 #define TX_BUFFERS   8
 
 // Buffer Size
-#define EMAC_RX_UNITSIZE            128     /// Fixed size for RX buffer
+#define EMAC_RX_UNITSIZE             128    /// Fixed size for RX buffer
 #define EMAC_TX_UNITSIZE            1518    /// Size for ETH frame length
 
 // Definitions used by EMAC Descriptors
@@ -273,12 +272,13 @@ typedef struct {
 // Circular buffer management
 //-----------------------------------------------------------------------------
 // Return count in buffer
-#define CIRC_CNT(head,tail,size) (((head) - (tail)) & ((size)-1))
+#define CIRC_CNT(head,tail,size) \
+  ((head) >= (tail) ? ((head) - (tail)) : ((size) - (tail) + (head)))
 
 // Return space available, 0..size-1
 // We always leave one free char as a completely full buffer 
 // has head == tail, which is the same as empty
-#define CIRC_SPACE(head,tail,size) CIRC_CNT((tail),((head)+1),(size))
+#define CIRC_SPACE(head,tail,size) ((size) - CIRC_CNT((head),(tail),(size)))
 
 // Return count up to the end of the buffer.  
 // Carefully avoid accessing head and tail more than once,

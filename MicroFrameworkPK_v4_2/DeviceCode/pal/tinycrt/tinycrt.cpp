@@ -174,6 +174,8 @@ int hal_snprintf_float( char* buffer, size_t len, const char* format, float f )
     }
     else if(f != 0.0 && (INT64)f == 0)
     {
+        char zeros[32];
+
         while(f < 1.0 && f > -1.0)
         {
             f = f * 10.0;
@@ -182,9 +184,22 @@ int hal_snprintf_float( char* buffer, size_t len, const char* format, float f )
 
         float dec = f - (float)(INT64)f;
         if(dec < 0.0) dec = -dec;
+
+        //count the number of leading zeros
+        double dec2 = dec;
+        int num_zeros = 0;
+        while(dec2 < 0.1 && dec2 > -0.1 && dec2 != 0 && num_zeros < ARRAYSIZE(zeros)-1)
+        {
+            dec2 *= 10;
+            zeros[num_zeros++] = '0';
+        }
+
+        //create a string containing the leading zeros
+        zeros[num_zeros] = '\0';
+        
         dec *= 1000000000ull;
         
-        return hal_snprintf( buffer, len, "%d.%llue%d", (int)f, (UINT64)dec, pow);
+        return hal_snprintf( buffer, len, "%d.%s%llue%d", (int)f, zeros, (UINT64)dec, pow);
     }
     else
     {
@@ -227,6 +242,8 @@ int hal_snprintf_double( char* buffer, size_t len, const char* format, double d 
     }
     else if(d != 0.0 && (INT64)d == 0)
     {
+        char zeros[32];
+        
         while(d < 1.0 && d > -1.0)
         {
             d = d * 10.0;
@@ -235,9 +252,22 @@ int hal_snprintf_double( char* buffer, size_t len, const char* format, double d 
 
         double dec = d - (double)(INT64)d;
         if(dec < 0.0) dec = -dec;
+
+        //count the number of leading zeros
+        double dec2 = dec;
+        int num_zeros = 0;
+        while(dec2 < 0.1 && dec2 > -0.1 && dec2 != 0 && num_zeros < ARRAYSIZE(zeros)-1)
+        {
+            dec2 *= 10;
+            zeros[num_zeros++] = '0';
+        }
+
+        //create a string containing the leading zeros
+        zeros[num_zeros] = '\0';
+
         dec *= 100000000000000000ull;
         
-        return hal_snprintf( buffer, len, "%d.%llue%d", (int)d, (UINT64)dec, pow);
+        return hal_snprintf( buffer, len, "%d.%s%llue%d", (int)d, zeros, (UINT64)dec, pow);
     }
     else
     {
@@ -298,16 +328,19 @@ int hal_snprintf_double( char* buffer, size_t len, const char* format, INT64& d 
     NATIVE_PROFILE_PAL_CRT();
 
     UINT64   i;
-    UINT64  dec;
+    UINT32  dec; // 32 bit is enough for decimal part
 
     if ( d < 0 ) 
     {
         // negative number
         i = (UINT64)-d;
+        
+        i += ((1 << (HAL_DOUBLE_SHIFT-1)) / HAL_DOUBLE_PRECISION); // add broad part of rounding increment before split
+
         dec = i & (( 1<<HAL_DOUBLE_SHIFT) -1 );
         i = i >> HAL_DOUBLE_SHIFT ;
 
-        if (dec !=0)  dec = (dec * (UINT64)HAL_DOUBLE_PRECISION + (1<< (HAL_DOUBLE_SHIFT-1))) >> HAL_DOUBLE_SHIFT;
+        if (dec !=0)  dec = (dec * HAL_DOUBLE_PRECISION + ((1 << (HAL_DOUBLE_SHIFT-1)) % HAL_DOUBLE_PRECISION)) >> HAL_DOUBLE_SHIFT;
 
         return hal_snprintf( buffer, len, "-%lld.%04u", (INT64)i, (UINT32)dec);
 
@@ -318,11 +351,12 @@ int hal_snprintf_double( char* buffer, size_t len, const char* format, INT64& d 
         // positive number
         i = (UINT64)d;
 
-        dec = i & (( 1<<HAL_DOUBLE_SHIFT) -1 );
+        i += ((1 << (HAL_DOUBLE_SHIFT-1)) / HAL_DOUBLE_PRECISION); // add broad part of rounding increment before split
 
+        dec = i & (( 1<<HAL_DOUBLE_SHIFT) -1 );
         i = i >> HAL_DOUBLE_SHIFT;
         
-        if (dec !=0)  dec = (dec * (UINT64)HAL_DOUBLE_PRECISION + (1<< (HAL_DOUBLE_SHIFT-1))) >> HAL_DOUBLE_SHIFT;  // magnifide 1000000 only, otherwise it will overflow in 32 bit)
+        if (dec !=0)  dec = (dec * HAL_DOUBLE_PRECISION + ((1 << (HAL_DOUBLE_SHIFT-1)) % HAL_DOUBLE_PRECISION)) >> HAL_DOUBLE_SHIFT;
 
         return hal_snprintf( buffer, len, "%lld.%04u", (INT64)i, (UINT32)dec);
     }
@@ -349,7 +383,7 @@ int hal_snprintf( char* buffer, size_t len, const char* format, ... )
     return chars;
 }
 
-#if defined(__GNUC__) && !defined(GCC_V4_5)
+#if defined(__GNUC__)
 
 // RealView and GCC signatures for hal_vsnprintf() are different.
 // This routine matches the RealView call, which defines va_list as int**

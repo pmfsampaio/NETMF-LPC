@@ -173,9 +173,7 @@ void HAL_Time_SetCompare( UINT64 CompareValue )
 
 BOOL HAL_Time_Initialize()
 {
-// PS
-//	g_nextEvent = 0xFFFFFFFFFFFF; // never
-    g_nextEvent = -1; // never
+    g_nextEvent = 0xFFFFFFFFFFFF; // never
     
     // enable timer 2-4 clocks
     RCC->APB1ENR |= RCC_APB1ENR_TIM2EN | RCC_APB1ENR_TIM3EN | RCC_APB1ENR_TIM4EN;

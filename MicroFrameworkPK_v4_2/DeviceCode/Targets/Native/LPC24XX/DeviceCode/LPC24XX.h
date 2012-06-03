@@ -642,7 +642,7 @@ struct LPC24XX_USART
         } FCR;
     } SEL3;
     
-    /****/ volatile UINT32 UART_LCR;                                       // line control register.
+    /****/ volatile UINT32 UART_LCR;                                   // line control register.
     //--//  
     static const UINT32 UART_LCR_DLAB                   = 0x00000080;     // Dividor Latch Access bit.     
     static const UINT32 UART_LCR_BCB                    = 0x00000040;     // Break control bit.
@@ -658,9 +658,9 @@ struct LPC24XX_USART
     static const UINT32 UART_LCR_WLS_7_BITS             = 0x00000002; 
     static const UINT32 UART_LCR_WLS_8_BITS             = 0x00000003;             
 
-    /****/ volatile UINT32 UART_MCR;                                       // modem control register. 
+    /****/ volatile UINT32 UART_MCR_UART1_ONLY;                        // modem control register. 
         
-    /****/ volatile UINT32 UART_LSR;                                       //line status register.
+    /****/ volatile UINT32 UART_LSR;                                   //line status register.
     static const UINT32 UART_LSR_ERR_RX                 = 0x00000080;     //Rx FIFO error 
     static const UINT32 UART_LSR_TE                     = 0x00000040;     //Transmitter Empty.
     static const UINT32 UART_LSR_THRE                   = 0x00000020;     //Transmitter Holding register Empty. 
@@ -670,10 +670,30 @@ struct LPC24XX_USART
     static const UINT32 UART_LSR_OEI                    = 0x00000002;     //Overrun Error indicator.
     static const UINT32 UART_LSR_RFDR                   = 0x00000001;     //RX FIFO data ready.
     
-    /****/ volatile UINT32 UART_MSR;                                   //Modem status register.
-    /****/ volatile UINT32 dummy1[3];
-    /****/ volatile UINT32 UART_FDR;
-        
+    /****/ volatile UINT32 UART_MSR_UART1_ONLY;                        //Modem status register.
+
+    /****/ volatile UINT32 UART_SCR;                                   //Scratch pad register.
+
+    /****/ volatile UINT32 UART_ACR;                                   //Autobaud control register.
+    static const UINT32 UART_ACR_START                   = 0x00000001;     // Start bit
+    static const UINT32 UART_ACR_MODE1                   = 0x00000002;     // Mode 1
+    static const UINT32 UART_ACR_AUTO_RESTART            = 0x00000004;     // Auto Restart
+    static const UINT32 UART_ACR_AUTOBAUD_INT_CLR        = 0x00000100;     // Autobaud interrupt clear
+    static const UINT32 UART_ACR_TIMEOUT_INT_CLR         = 0x00000200;     // Autobaud timeout interrupt clear
+
+    /****/ volatile UINT32 UART_ICR;                                   //IrDA control register.
+
+    /****/ volatile UINT32 UART_FDR;                                   //Fractional divider register.
+    static const UINT32 UART_FDR_DIVADDVAL_mask          = 0x0000000F;    
+    static const UINT32 UART_FDR_DIVADDVAL_shift         = 0x00000000;    
+    static const UINT32 UART_FDR_MULVAL_mask             = 0x000000F0;    
+    static const UINT32 UART_FDR_MULVAL_shift            = 0x00000004;    
+
+    /****/ volatile UINT32 PADDING_3;                                    
+
+    /****/ volatile UINT32 UART_TER;                                   //Transmit Enable register.
+    static const UINT32 UART_TER_TXEN                    = 0x00000080;  //TX Enable bit
+          
     //functions.
     static UINT32 inline getIntNo(int ComPortNum)
     {
@@ -777,7 +797,6 @@ struct LPC24XX_SYSCON
     static const UINT32 ENABLE_LCD   = 0x00100000;
     static const UINT32 ENABLE_PWM0  = 0x00000020;
     static const UINT32 ENABLE_PWM1  = 0x00000040;
-    static const UINT32 ENABLE_AD    = (1 << 12);
     /****/ volatile UINT32 dummy3[15];    // Filler to align next register address
 
     // Clock Control
@@ -814,19 +833,38 @@ struct LPC24XX_SYSCON
     /****/ volatile UINT32 IRCTRIM;       // IRC Trim Register
     // Peripheral clock control
     /****/ volatile UINT32 PCLKSEL0;      // Peripheral Clock Selection register 0
+    static const UINT32 PCLK_CLK_DIV_1       = 0x01;
+    static const UINT32 PCLK_CLK_DIV_2       = 0x02;
+    static const UINT32 PCLK_CLK_DIV_4       = 0x00;
+    static const UINT32 PCLK_CLK_DIV_8       = 0x03;
+
+    static const UINT32 PCLK_UART0_SHIFT     = 6;    
+    static const UINT32 PCLK_UART0_MASK      = (0x03ul << PCLK_UART0_SHIFT);
+    static const UINT32 PCLK_UART1_SHIFT     = 8;    
+    static const UINT32 PCLK_UART1_MASK      = (0x03ul << PCLK_UART0_SHIFT);
+
+
     /****/ volatile UINT32 PCLKSEL1;      // Peripheral Clock Selection register 1    
     static const UINT32 PCLK_PWM0_SHIFT     = 10;    
-    static const UINT32 PCLK_PWM0_MASK      = (0x11 << PCLK_PWM0_SHIFT);
+    static const UINT32 PCLK_PWM0_MASK      = (0x03 << PCLK_PWM0_SHIFT);
     static const UINT32 PCLK_PWM0_CLK_DIV_1 = (0x01 << PCLK_PWM0_SHIFT);
-    static const UINT32 PCLK_PWM0_CLK_DIV_2 = (0x10 << PCLK_PWM0_SHIFT);
+    static const UINT32 PCLK_PWM0_CLK_DIV_2 = (0x02 << PCLK_PWM0_SHIFT);
     static const UINT32 PCLK_PWM0_CLK_DIV_4 = (0x00 << PCLK_PWM0_SHIFT);
-    static const UINT32 PCLK_PWM0_CLK_DIV_8 = (0x11 << PCLK_PWM0_SHIFT);
+    static const UINT32 PCLK_PWM0_CLK_DIV_8 = (0x03 << PCLK_PWM0_SHIFT);
+
     static const UINT32 PCLK_PWM1_SHIFT     = 12;    
-    static const UINT32 PCLK_PWM1_MASK      = (0x11 << PCLK_PWM1_SHIFT);
+    static const UINT32 PCLK_PWM1_MASK      = (0x03 << PCLK_PWM1_SHIFT);
     static const UINT32 PCLK_PWM1_CLK_DIV_1 = (0x01 << PCLK_PWM1_SHIFT);
-    static const UINT32 PCLK_PWM1_CLK_DIV_2 = (0x10 << PCLK_PWM1_SHIFT);
+    static const UINT32 PCLK_PWM1_CLK_DIV_2 = (0x02 << PCLK_PWM1_SHIFT);
     static const UINT32 PCLK_PWM1_CLK_DIV_4 = (0x00 << PCLK_PWM1_SHIFT);
-    static const UINT32 PCLK_PWM1_CLK_DIV_8 = (0x11 << PCLK_PWM1_SHIFT);
+    static const UINT32 PCLK_PWM1_CLK_DIV_8 = (0x03 << PCLK_PWM1_SHIFT);
+
+    static const UINT32 PCLK_UART2_SHIFT     = 16;    
+    static const UINT32 PCLK_UART2_MASK      = (0x03ul << PCLK_UART0_SHIFT);
+    static const UINT32 PCLK_UART3_SHIFT     = 18;    
+    static const UINT32 PCLK_UART3_MASK      = (0x03ul << PCLK_UART0_SHIFT);
+
+
 
     /****/ volatile UINT32 dummy7[2];     // Filler to align next register address   
     //LCD clock Divider
@@ -910,7 +948,6 @@ struct LPC24XX_EMC
     /****/ volatile UINT32 SWAITWR1;      // Selects the delay from chip select 1 to a write access. - 0x1F R/W
     /****/ volatile UINT32 SWAITTURN1;    // Selects the number of bus turnaround cycles for chip select 1. - 0xF R/W
 
-    // PS changed dummy9 to dummy8
     /****/ volatile UINT32 dummy9;        // Filler to align next register address
     /****/ volatile UINT32 SCONFIG2;      // Selects the memory configuration for Static chip select 2. - 0x0 R/W
     /****/ volatile UINT32 SWAITWEN2;     // Selects the delay from chip select 2 to write enable. - 0x0 R/W
@@ -1164,31 +1201,6 @@ struct LPC24XX_PWM
 // PWM
 //////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////////
-// ADC
-//
-struct LPC24XX_ADC
-{
-	/****/ volatile UINT32 AD0CR;
-	/****/ volatile UINT32 AD0GDR;
-	/****/ volatile UINT32 dummy[2];
-	/****/ volatile UINT32 AD0ADR0;
-	/****/ volatile UINT32 AD0ADR1;
-	/****/ volatile UINT32 AD0ADR2;
-	/****/ volatile UINT32 AD0ADR3;
-	/****/ volatile UINT32 AD0ADR4;
-	/****/ volatile UINT32 AD0ADR5;
-
-    static const UINT32 c_ADC_Base		= 0xE0034000;
-	static const UINT32 c_ADC_IN5		= LPC24XX_GPIO::c_P1_31;
-
-};
-
-//
-// ADC
-//////////////////////////////////////////////////////////////////////////////
-
-
 /**********************************************************************************************************************/
 /**********************************************************************************************************************/
 /**********************************************************************************************************************/
@@ -1208,7 +1220,6 @@ struct LPC24XX
     static LPC24XX_WATCHDOG & WTDG (         ) { return *(LPC24XX_WATCHDOG*)(size_t)( LPC24XX_WATCHDOG::c_WATCHDOG_Base ); }
     static LPC24XX_DAC      & DAC  (         ) { return *(LPC24XX_DAC*     )(size_t)( LPC24XX_DAC     ::c_DAC_Base      ); }
     static LPC24XX_PWM      & PWM  ( int sel ) { return *(LPC24XX_PWM*     )(size_t)( sel == PWM_CHANNEL_0 ? LPC24XX_PWM::c_PWM_Base_0 : LPC24XX_PWM::c_PWM_Base_1); }
-	static LPC24XX_ADC    & ADC    (         ) { return *(LPC24XX_ADC     *)(size_t)(      LPC24XX_ADC   ::c_ADC_Base                                  ); }
     
    
     static LPC24XX_TIMER  & TIMER( int sel )
@@ -1924,7 +1935,7 @@ struct LPC24XX_PWM_Driver
     
     BOOL     Initialize        ( PWM_CHANNEL channel );
     BOOL     Uninitialize      ( PWM_CHANNEL channel );
-    BOOL     ApplyConfiguration( PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, BOOL invert );
+    BOOL     ApplyConfiguration( PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, PWM_SCALE_FACTOR& scale, BOOL invert );
     BOOL     Start             ( PWM_CHANNEL channel, GPIO_PIN pin );
     void     Stop              ( PWM_CHANNEL channel, GPIO_PIN pin );
     BOOL     Start             ( PWM_CHANNEL* channel, GPIO_PIN* pin, UINT32 count );
@@ -1947,69 +1958,6 @@ struct LPC24XX_PWM_Driver
 //
 // PWM driver
 /////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-// ADC driver
-//
-
-#define ADC_BUFFER_SIZE_SAMPLES 	20
-
-struct LPC24XX_ADC_Driver
-{
-	static void Initialize  ( UINT32 SampleFrequencyHz );
-
-    static void Uninitialize();
-
-	//enable timer interrupts for input
-    static BOOL On();
-
-	//disable timer interrupts
-	static BOOL Off();
-
-	//give info on whether the ADC is or is not converting samples
-	static BOOL IsEnabled();
-
-	static UINT32 GetSample();
-
-#if 0
-	//Samples left in the buffer
-	static UINT32 GetBufferLevel();
-
-	//Max SampleBuffer Capacity (in 16bit samples)
-	static UINT32 GetBufferCapacity();
-
-	//FRAMES left in the buffer
-	static UINT32 GetFramesLeft();
-
-	//Max SampleBuffer Capacity (in FRAMES)
-	static UINT32 GetBufferFrameCapacity();
-
-	//return false if there was not enough space left
-	static BOOL AddFrame(short const * const Samples, UINT32 const SamplesNum);
-
-
-
-	UINT8 SamplesBuffer[DAC_FRAME_BUFFERS_NUM*DAC_FRAME_BUFFER_SIZE_SAMPLES];
-	UINT16 SamplesInFrame[DAC_FRAME_BUFFERS_NUM];
-	UINT32 nextFrameWrite;
-	UINT32 nextFrameRead;
-	UINT32 nextSampleRead;
-	UINT32 SampleCount;
-	UINT32 FrameCount;
-	UINT32 SampleTimeInCycles;
-
-	//output next sample
-    static void ISR( void* Param );
-#endif
-    static bool initialized;
-};
-
-extern LPC24XX_ADC_Driver g_LPC24XX_ADC_Driver;
-
-
-//
-// ADC driver
-//////////////////////////////////////////////////////////////////////////////
 
 
 #endif // _LPC24XX_H_ 1

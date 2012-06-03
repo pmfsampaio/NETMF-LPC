@@ -38,9 +38,9 @@ BOOL PWM_Uninitialize(PWM_CHANNEL channel)
     return g_LPC24XX_PWM_Driver.Uninitialize(channel);
 }
 
-BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, BOOL invert)
+BOOL PWM_ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin, UINT32& period, UINT32& duration, PWM_SCALE_FACTOR& scale, BOOL invert)
 {
-    return g_LPC24XX_PWM_Driver.ApplyConfiguration(channel, pin, period, duration, invert);
+    return g_LPC24XX_PWM_Driver.ApplyConfiguration(channel, pin, period, duration, scale, invert);
 }
 
 BOOL PWM_Start(PWM_CHANNEL channel, GPIO_PIN pin)
@@ -108,12 +108,20 @@ BOOL LPC24XX_PWM_Driver::Uninitialize(PWM_CHANNEL channel)
     return TRUE;
 }
 
-BOOL LPC24XX_PWM_Driver::ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin,UINT32 & period,UINT32 & duration,BOOL invert)
+#define ONE_HZ  1000
+#define ONE_GHZ 1000000000ul
+
+#define TIME_TO_PWM_TICKS(x,s) \
+    (s) <= CLOCK_COMMON_FACTOR ? (x) * (SYSTEM_CYCLE_CLOCK_HZ / (s)) : \
+    (((x) * (SYSTEM_CYCLE_CLOCK_HZ / CLOCK_COMMON_FACTOR  )) / \
+    (       (s)                    / CLOCK_COMMON_FACTOR))
+
+BOOL LPC24XX_PWM_Driver::ApplyConfiguration(PWM_CHANNEL channel, GPIO_PIN pin,UINT32 & period,UINT32 & duration, PWM_SCALE_FACTOR & scale, BOOL invert)
 {
     LPC24XX_PWM& pwm = LPC24XX::PWM( channel );
 
-    UINT32 period_ticks   = (UINT32)CPU_MicrosecondsToSystemClocks(period); 
-    UINT32 duration_ticks = (UINT32)CPU_MicrosecondsToSystemClocks(duration);
+    UINT32 period_ticks   = (UINT32)TIME_TO_PWM_TICKS(period  , scale);  
+    UINT32 duration_ticks = (UINT32)TIME_TO_PWM_TICKS(duration, scale);
 
     BOOL isChannel0 = channel == PWM_CHANNEL_0;
     

@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <cores\arm\include\cpu.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 
 #ifdef STM32_USE_I2C2
@@ -39,26 +39,23 @@ static I2C_HAL_XACTION_UNIT* currentI2CUnit;
 
 void STM32_I2C_ER_Interrupt (void* param) // Error Interrupt Handler
 {
-#if 0
-	INTERRUPT_START
+    INTERRUPT_START
     
     I2C_HAL_XACTION* xAction = currentI2CXAction;
-
+    
     I2Cx->SR1 = 0; // reset errors
     xAction->Signal(I2C_HAL_XACTION::c_Status_Aborted); // calls XActionStop()
-
+    
     INTERRUPT_END
-#endif
-    }
+}
     
 void STM32_I2C_EV_Interrupt (void* param) // Event Interrupt Handler
 {
-#if 0
-	INTERRUPT_START
+    INTERRUPT_START
     
     I2C_HAL_XACTION* xAction = currentI2CXAction;
     I2C_HAL_XACTION_UNIT* unit = currentI2CUnit;
-
+    
     int todo = unit->m_bytesToTransfer;
     int sr1 = I2Cx->SR1;  // read status register
     int sr2 = I2Cx->SR2;  // clear ADDR bit
@@ -129,16 +126,15 @@ void STM32_I2C_EV_Interrupt (void* param) // Event Interrupt Handler
             xAction->Signal(I2C_HAL_XACTION::c_Status_Completed); // calls XActionStop()
         }
     }
-
+    
     INTERRUPT_END
-#endif
- }
+}
 
 
 BOOL I2C_Internal_Initialize()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_I2C();
-#if 0
+    
     if (!(RCC->APB1ENR & RCC_APB1ENR_I2CxEN)) { // only once
         currentI2CXAction = NULL;
         currentI2CUnit = NULL;
@@ -160,19 +156,19 @@ BOOL I2C_Internal_Initialize()
         CPU_INTC_ActivateInterrupt(I2Cx_EV_IRQn, STM32_I2C_EV_Interrupt, 0);
         CPU_INTC_ActivateInterrupt(I2Cx_ER_IRQn, STM32_I2C_ER_Interrupt, 0);
     }
-#endif
+    
     return TRUE;
 }
 
 BOOL I2C_Internal_Uninitialize()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_I2C();
-#if 0
+    
     CPU_INTC_DeactivateInterrupt(I2Cx_EV_IRQn);
     CPU_INTC_DeactivateInterrupt(I2Cx_ER_IRQn);
     I2Cx->CR1 = 0; // disable peripheral
     RCC->APB1ENR &= ~RCC_APB1ENR_I2CxEN; // disable I2C clock
-#endif
+    
     return TRUE;
 }
 
@@ -182,7 +178,7 @@ void I2C_Internal_XActionStart( I2C_HAL_XACTION* xAction, bool repeatedStart )
 
     currentI2CXAction = xAction;
     currentI2CUnit = xAction->m_xActionUnits[ xAction->m_current++ ];
-#if 0
+    
     UINT32 ccr = xAction->m_clockRate + (xAction->m_clockRate2 << 8);
     if (I2Cx->CCR != ccr) { // set clock rate and rise time
         UINT32 trise;
@@ -200,25 +196,21 @@ void I2C_Internal_XActionStart( I2C_HAL_XACTION* xAction, bool repeatedStart )
     I2Cx->SR1 = 0; // reset error flags
     I2Cx->CR2 |= I2C_CR2_ITEVTEN | I2C_CR2_ITERREN; // enable interrupts
     I2Cx->CR1 = I2C_CR1_PE | I2C_CR1_START | I2C_CR1_ACK; // send start
-#endif
 }
 
 void I2C_Internal_XActionStop()
 {
     NATIVE_PROFILE_HAL_PROCESSOR_I2C();
-#if 0
     if (I2Cx->SR2 & I2C_SR2_BUSY && !(I2Cx->CR1 & I2C_CR1_STOP)) {
         I2Cx->CR1 |= I2C_CR1_STOP; // send stop
     }
     I2Cx->CR2 &= ~(I2C_CR2_ITBUFEN | I2C_CR2_ITEVTEN | I2C_CR2_ITERREN); // disable interrupts
     currentI2CXAction = NULL;
     currentI2CUnit = NULL;
-#endif
 }
 
 void I2C_Internal_GetClockRate( UINT32 rateKhz, UINT8& clockRate, UINT8& clockRate2)
 {
-#if 0
     NATIVE_PROFILE_HAL_PROCESSOR_I2C();
     if (rateKhz > 400) rateKhz = 400; // upper limit
     UINT32 ccr;
@@ -231,7 +223,6 @@ void I2C_Internal_GetClockRate( UINT32 rateKhz, UINT8& clockRate, UINT8& clockRa
     }
     clockRate = (UINT8)ccr; // low byte
     clockRate2 = (UINT8)(ccr >> 8); // high byte
-#endif
 }
 
 void I2C_Internal_GetPins(GPIO_PIN& scl, GPIO_PIN& sda)

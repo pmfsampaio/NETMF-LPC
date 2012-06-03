@@ -32,8 +32,7 @@ extern NETWORK_CONFIG           g_NetworkConfig;
 #define DEBUG_HANDLE_SOCKET_ERROR(t,a) \
     int iErr = xn_getlasterror();                               \
     const char* textErr = xn_geterror_string(iErr);             \
-    debug_printf( "%s failed! %d: %s\r\n", t, iErr, textErr );  \
-    ASSERT(!(a))
+    debug_printf( "%s failed! %d: %s\r\n", t, iErr, textErr )
 #else
 #define DEBUG_HANDLE_SOCKET_ERROR(t,a) 
 #endif

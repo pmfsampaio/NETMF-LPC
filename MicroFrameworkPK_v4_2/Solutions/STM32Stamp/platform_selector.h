@@ -14,7 +14,6 @@
 #ifndef _PLATFORM_STM32Stamp_SELECTOR_H_
 #define _PLATFORM_STM32Stamp_SELECTOR_H_ 1
 
-
 /////////////////////////////////////////////////////////
 //
 // processor and features
@@ -23,6 +22,8 @@
 #if defined(PLATFORM_ARM_STM32Stamp)
 #define HAL_SYSTEM_NAME                     "STM32Stamp"
 
+#define STM32F10X_HD  // STM32F103RET cpu
+#define PLATFORM_ARM_STM32
 
 //#define USB_ALLOW_CONFIGURATION_OVERRIDE  1
 
@@ -38,23 +39,22 @@
 // constants
 //
 
-#define SYSTEM_CLOCK_HZ                 48000000
-#define SLOW_CLOCKS_PER_SECOND          48000000
+#define SYSTEM_CLOCK_HZ                 72000000  // 72MHz
+#define SYSTEM_CYCLE_CLOCK_HZ           72000000  // 72MHz
+#define SYSTEM_APB1_CLOCK_HZ            36000000  // 36MHz
+#define SYSTEM_APB2_CLOCK_HZ            72000000  // 72MHz
+#define SYSTEM_CRYSTAL_CLOCK_HZ         8000000   // 8MHz external clock
 
-#define CLOCK_COMMON_FACTOR             200000 // old value:  1000000
-#define SLOW_CLOCKS_TEN_MHZ_GCD         400000 // old value: 10000000
+#define CLOCK_COMMON_FACTOR             1000000   // GCD(SYSTEM_CLOCK_HZ, 1M)
 
-//#define CLOCK_COMMON_FACTOR             1000000
-//#define SLOW_CLOCKS_TEN_MHZ_GCD         10000000
-#define SLOW_CLOCKS_MILLISECOND_GCD     1000
+#define SLOW_CLOCKS_PER_SECOND          1000000   // 1MHz
+#define SLOW_CLOCKS_TEN_MHZ_GCD         1000000   // GCD(SLOW_CLOCKS_PER_SECOND, 10M)
+#define SLOW_CLOCKS_MILLISECOND_GCD     1000      // GCD(SLOW_CLOCKS_PER_SECOND, 1k)
 
-#define SYSTEM_CYCLE_CLOCK_HZ           SYSTEM_CLOCK_HZ * 2
-
-
-#define FLASH_MEMORY_Base               0x80000000
-#define FLASH_MEMORY_Size               0x00400000
-#define SRAM1_MEMORY_Base               0xA0000000
-#define SRAM1_MEMORY_Size               0x04000000
+#define FLASH_MEMORY_Base               0x08000000
+#define FLASH_MEMORY_Size               0x00080000
+#define SRAM1_MEMORY_Base               0x20000000
+#define SRAM1_MEMORY_Size               0x00010000
 
 #define TXPROTECTRESISTOR               RESISTOR_DISABLED
 #define RXPROTECTRESISTOR               RESISTOR_DISABLED
@@ -64,13 +64,13 @@
 #define INSTRUMENTATION_H_GPIO_PIN      GPIO_PIN_NONE
 
 #define TOTAL_USART_PORT                3
-#define USART_DEFAULT_PORT              COM3
+#define USART_DEFAULT_PORT              COM1
 #define USART_DEFAULT_BAUDRATE          115200
 
-#define DEBUG_TEXT_PORT                 COM3
-#define STDIO                           COM3
-#define DEBUGGER_PORT                   COM3
-#define MESSAGING_PORT                  COM3
+#define DEBUG_TEXT_PORT                 COM1
+#define STDIO                           COM1
+#define DEBUGGER_PORT                   COM1
+#define MESSAGING_PORT                  COM1
 
 //#define STM32_USB_Attach_Pin_Direct     (16 + 5) // B5
 
@@ -89,31 +89,6 @@
 
 /////////////////////////////////////////////////////////
 //
-// macros
-//
-
-#define GLOBAL_LOCK(x)             SmartPtr_IRQ x
-#define DISABLE_INTERRUPTS()       SmartPtr_IRQ::ForceDisabled()
-#define ENABLE_INTERRUPTS()        SmartPtr_IRQ::ForceEnabled()
-#define INTERRUPTS_ENABLED_STATE() SmartPtr_IRQ::GetState()
-#define GLOBAL_LOCK_SOCKETS(x)     SmartPtr_IRQ x
-
-#if defined(_DEBUG)
-#define ASSERT_IRQ_MUST_BE_OFF()   ASSERT(!SmartPtr_IRQ::GetState())
-#define ASSERT_IRQ_MUST_BE_ON()    ASSERT( SmartPtr_IRQ::GetState())
-#else
-#define ASSERT_IRQ_MUST_BE_OFF()
-#define ASSERT_IRQ_MUST_BE_ON()
-#endif
-
-
-//
-// macros
-//
-/////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-//
 // global functions
 //
 
@@ -121,40 +96,6 @@
 // global functions
 //
 /////////////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////
-// communicaiton facilities
-//
-
-// Port definitions
-#define COM1                   ConvertCOM_ComHandle(0)
-#define COM2                   ConvertCOM_ComHandle(1)
-#define COM3                   ConvertCOM_ComHandle(2)
-
-#define TOTAL_USB_CONTROLLER   1
-#define USB1                   ConvertCOM_UsbHandle(0)
-
-#define USB_MAX_QUEUES         7  // 7 endpoints (EP0 + 6)
-
-#define TOTAL_SOCK_PORT        0
-
-#define TOTAL_DEBUG_PORT       1
-#define COM_DEBUG              ConvertCOM_DebugHandle(0)
-
-#define COM_MESSAGING          ConvertCOM_MessagingHandle(0)
-
-#define USB_IRQ_INDEX          20  // NVIC USB low priority index
-
-#define USART_TX_IRQ_INDEX(x)           ( LPC178X_USART::getIntNo(x) )
-
-#define PLATFORM_DEPENDENT_TX_USART_BUFFER_SIZE    2048  // there is one TX for each usart port
-#define PLATFORM_DEPENDENT_RX_USART_BUFFER_SIZE    2048  // there is one RX for each usart port
-#define PLATFORM_DEPENDENT_USB_QUEUE_PACKET_COUNT  8    // there is one queue for each pipe of each endpoint and the size of a single packet is sizeof(USB_PACKET64) == 68 bytes
-
-//
-// communicaiton facilities
-/////////////////////////////////////////////////////////
-
 
 #include <processor_selector.h>
 

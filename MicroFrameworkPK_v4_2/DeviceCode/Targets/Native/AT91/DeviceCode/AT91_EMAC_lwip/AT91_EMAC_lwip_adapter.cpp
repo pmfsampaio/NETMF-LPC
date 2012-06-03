@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#include <tinyhal.h>
 
 #include <tinyhal.h>
+#include <PAL\COM\Sockets_LWIP\sockets_lwip.h>
 #include "net_decl_lwip.h"
 #include "lwip\netif.h"
 #include "lwip\tcp.h"
@@ -23,8 +24,16 @@ static struct netif          g_AT91_EMAC_NetIF;
 
 HAL_CONTINUATION    InterruptTaskContinuation;
 HAL_COMPLETION      LwipUpTimeCompletion;
-static BOOL         LwipNetworkStatus = 0;
+static UINT32       LwipNetworkStatus = 0;
 static UINT32       LwipLastIpAddress = 0;
+
+#define LWIP_STATUS_LinkUp         0x01
+#define LWIP_STATUS_MultiCastInit  0x02
+
+#define LWIP_STATUS_setorclear(x, b) LwipNetworkStatus  =  (b) ? (LwipNetworkStatus |= (x)) : (LwipNetworkStatus & ~(x))
+#define LWIP_STATUS_set(x)           LwipNetworkStatus |=  (x);
+#define LWIP_STATUS_clear(x)         LwipNetworkStatus &= ~(x);
+#define LWIP_STATUS_isset(x)       ((LwipNetworkStatus &   (x)) != 0)
 
 #if defined(ADS_LINKER_BUG__NOT_ALL_UNUSED_VARIABLES_ARE_REMOVED)
 #pragma arm section zidata
@@ -41,9 +50,15 @@ void AT91_EMAC__status_callback(struct netif *netif)
     {
         Network_PostEvent( NETWORK_EVENT_TYPE_ADDRESS_CHANGED, 0 );
         LwipLastIpAddress = netif->ip_addr.addr;
-    }
 
-#if defined(_DEBUG)
+        if(!LWIP_STATUS_isset(LWIP_STATUS_MultiCastInit))
+        {
+            LWIP_STATUS_set(LWIP_STATUS_MultiCastInit);
+            Sockets_LWIP_Driver::InitializeMulticastDiscovery();
+        }
+   }
+
+#if !defined(BUILD_RTM)
     lcd_printf("\f\n\n\n\n\n\nLink Update: \n");
     lcd_printf("         IP: %d.%d.%d.%d\n", (netif->ip_addr.addr >>  0) & 0xFF, 
                                              (netif->ip_addr.addr >>  8) & 0xFF,
@@ -66,9 +81,18 @@ void AT91_EMAC__status_callback(struct netif *netif)
 }
 
 
+err_t AT91_igmp_mac_filter( struct netif *netif, struct ip_addr *group, u8_t action)
+{
+   if(action == IGMP_ADD_MAC_FILTER)
+   {
+       AT91_EMAC_AddMulticastAddr(group->addr);
+   }
+   return ERR_OK;
+}
+
 err_t AT91_EMAC_ethhw_init(struct netif *myNetIf) 
 { 
-    myNetIf->mtu = AT91_EMAC_MAX_FRAME_SIZE;
+    myNetIf->mtu = EMAC_TX_UNITSIZE;
 
     /* ethhw_init() is user-defined */
     /* use ip_input instead of ethernet_input for non-ethernet hardware */
@@ -79,6 +103,8 @@ err_t AT91_EMAC_ethhw_init(struct netif *myNetIf)
     myNetIf->output = etharp_output;
     myNetIf->linkoutput = AT91_EMAC_LWIP_xmit;
     myNetIf->status_callback = AT91_EMAC__status_callback;
+
+    myNetIf->igmp_mac_filter = AT91_igmp_mac_filter;
 
     AT91_EMAC_LWIP_open( myNetIf );
 
@@ -100,9 +126,14 @@ void lwip_network_uptime_completion(void *arg)
 {
     NATIVE_PROFILE_PAL_NETWORK();
 
-    BOOL status = dm9161_lwip_GetLinkStatus( );
+    BOOL status = dm9161_lwip_GetLinkStatus( ) != 0;
 
-    if(status != LwipNetworkStatus)
+    if(!status)
+    {
+        status = dm9161_lwip_GetLinkStatus( ) != 0;
+    }
+
+    if(status != LWIP_STATUS_isset(LWIP_STATUS_LinkUp) )
     {
         struct netif* pNetIf = (struct netif*)arg;
 
@@ -124,7 +155,7 @@ void lwip_network_uptime_completion(void *arg)
         Events_Set(SYSTEM_EVENT_FLAG_SOCKET);
         Events_Set(SYSTEM_EVENT_FLAG_NETWORK);
 
-        LwipNetworkStatus = status;
+        LWIP_STATUS_setorclear( LWIP_STATUS_LinkUp, status );
     }
 
     LwipUpTimeCompletion.EnqueueDelta64( 2000000 );
@@ -170,9 +201,19 @@ int AT91_EMAC_LWIP_Driver::Open(int index)
     }
     memcpy(g_AT91_EMAC_NetIF.hwaddr, iface->macAddressBuffer, len);
 
-    ipaddr.addr = iface->ipaddr;
-    gateway.addr = iface->gateway;
-    subnetmask.addr = iface->subnetmask;
+    if(0 == (iface->flags & SOCK_NETWORKCONFIGURATION_FLAGS_DHCP))
+    {
+        ipaddr.addr     = iface->ipaddr;
+        gateway.addr    = iface->gateway;
+        subnetmask.addr = iface->subnetmask;
+    }
+    else
+    {
+        /* Set network address variables - this will be set by either DHCP or when the configuration is applied */
+        IP4_ADDR(&gateway, 0,0,0,0);
+        IP4_ADDR(&ipaddr, 0,0,0,0);
+        IP4_ADDR(&subnetmask, 255,255,255,0);
+    }
 
     // PHY Power Up
     CPU_GPIO_EnableOutputPin(g_AT91_EMAC_LWIP_Config.PHY_PD_GPIO_Pin, FALSE);
@@ -180,20 +221,22 @@ int AT91_EMAC_LWIP_Driver::Open(int index)
     // Enable Interrupt
     CPU_INTC_ActivateInterrupt(AT91C_ID_EMAC, (HAL_CALLBACK_FPN)AT91_EMAC_LWIP_interrupt, &g_AT91_EMAC_NetIF);
 
-    /* Initialize the continuation routine for the driver interrupt and receive */    
-    InitContinuations( pNetIF );
-
     g_AT91_EMAC_NetIF.flags = NETIF_FLAG_IGMP | NETIF_FLAG_BROADCAST;
 
     pNetIF = netif_add( &g_AT91_EMAC_NetIF, &ipaddr, &subnetmask, &gateway, NULL, AT91_EMAC_ethhw_init, ethernet_input );
 
     netif_set_default( pNetIF );
 
-    LwipNetworkStatus = dm9161_lwip_GetLinkStatus( );
-    if (LwipNetworkStatus)
+    LWIP_STATUS_setorclear( LWIP_STATUS_LinkUp, 0 != dm9161_lwip_GetLinkStatus( ) );
+
+    if (LWIP_STATUS_isset(LWIP_STATUS_LinkUp))
     {
-        netif_set_up( pNetIF );
+        netif_set_link_up( pNetIF );
+        netif_set_up     ( pNetIF );
+
+        Network_PostEvent( NETWORK_EVENT_TYPE__AVAILABILITY_CHANGED, NETWORK_EVENT_FLAGS_IS_AVAILABLE );
     }
+
     /* Initialize the continuation routine for the driver interrupt and receive */    
     InitContinuations( pNetIF );
 
@@ -211,6 +254,7 @@ BOOL AT91_EMAC_LWIP_Driver::Close(void)
     InterruptTaskContinuation.Abort();
 
     LwipNetworkStatus = 0;
+    LwipLastIpAddress = 0;
 
     netif_set_down( &g_AT91_EMAC_NetIF );
     netif_remove( &g_AT91_EMAC_NetIF );
