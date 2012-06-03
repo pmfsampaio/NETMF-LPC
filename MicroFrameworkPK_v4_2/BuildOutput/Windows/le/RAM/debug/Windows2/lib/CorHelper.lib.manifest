@@ -1,0 +1,37 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>CorHelper</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <Directory>CLR\Tools\CorHelper</Directory>
+    <TinyCLR_Platform>Server</TinyCLR_Platform>
+    <MFSettingsFile>$(SPOCLIENT)\Solutions\Windows2\Windows2.settings</MFSettingsFile>
+    <AssemblyName>CorHelper</AssemblyName>
+    <OutputType>Library</OutputType>
+    <VCProjName>CorHelper</VCProjName>
+    <ProjectGuid>079E1BC1-3B21-46E8-B1BA-AEDB68CCDC11</ProjectGuid>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\RAM\debug\Windows2\obj\CLR\Tools\CorHelper\corhlpr.obj" />
+</ItemGroup>
+
+</Project>

@@ -1,0 +1,49 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>HeapPersistence</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>HeapPersistence</AssemblyName>
+    <ProjectGuid>D0915948-32E9-4643-8CE4-FBA2E398B355</ProjectGuid>
+    <Description>Extended weak references data storage </Description>
+    <Level>CLR</Level>
+    <LibraryFile>HeapPersistence.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\CLR\core\HeapPersistence\dotNetMF.proj</ProjectPath>
+    <ManifestFile>HeapPersistence.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Storage</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="HeapPersistence_CLR" Guid="{D6BC8826-87C6-4213-9B02-EA60E6CC693E}" ProjectPath="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency></MFComponent></LibraryCategory>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>CLR\Core\HeapPersistence</Directory>
+    <OutputType>Library</OutputType>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\HeapPersistence\Heap_Persistence.obj" />
+</ItemGroup>
+
+</Project>

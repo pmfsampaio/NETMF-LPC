@@ -1,0 +1,8 @@
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.Hardware.dll
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\dll\Microsoft.SPOT.Hardware.pdb
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.Hardware\__COMMON\Microsoft.SPOT.Hardware.dll
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\obj\Microsoft.SPOT.Hardware\__COMMON\Microsoft.SPOT.Hardware.pdb
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Hardware.strings
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Hardware.pe
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\pe\be\Microsoft.SPOT.Hardware.pdbx
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Client\dumps\Microsoft.SPOT.Hardware.dump

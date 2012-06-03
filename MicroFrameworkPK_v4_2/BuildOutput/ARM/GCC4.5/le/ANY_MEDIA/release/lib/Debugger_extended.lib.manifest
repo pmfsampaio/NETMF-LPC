@@ -1,0 +1,49 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>Debugger_extended</Name>
+    <ProjectFile>dotNetMF_extended.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>YAAB</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>LPC22XX</Processor>
+    <TargetPlatform>YAAB</TargetPlatform>
+    <Codebase>LPC22XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>Debugger_extended</AssemblyName>
+    <ProjectGuid>1B8F4EA1-4304-4425-8999-407B6AC2F0F7</ProjectGuid>
+    <Description>Extended debug API methods (no Visual Studio debugging)</Description>
+    <Level>CLR</Level>
+    <LibraryFile>Debugger_extended.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\CLR\Debugger\dotnetmf_extended.proj</ProjectPath>
+    <ManifestFile>Debugger_extended.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Debugger</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Debugger_flavor_CLR" Guid="{ED92B589-EA11-419F-96AC-821F49566DB1}" ProjectPath="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency></MFComponent></LibraryCategory>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>CLR\Debugger</Directory>
+    <OutputType>Library</OutputType>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\ARM\GCC4.5\le\ANY_MEDIA\release\obj\CLR\Debugger\Debugger_extended.obj" />
+</ItemGroup>
+
+</Project>

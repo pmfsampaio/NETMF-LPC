@@ -1,0 +1,134 @@
+The .NET Micro Framework Solution Wizard will create the 'anc_LPC1788' solution in the directory:
+
+	C:\MicroFrameworkPK_v4_2\\Solutions\anc_LPC1788
+
+The following is a description of the components of this solution.  Each solution consists of a set of projects which in turn have a set of features and libraries.
+
+    Solution:                          	 anc_LPC1788
+    Author:                            	 Pedro Sampaio
+    Description:                       	 anc_LPC1788 board solution
+    Processor:                         	 LPC178X
+    Debugger Port:                     	 COM1
+
+
+Project tinyclr
+    Description:                       	 
+    Path:                              	 Solutions\anc_LPC1788\TinyCLR
+
+Features:
+    Core:                              	 Core functionality (required)
+    Hardware:                          	 Core hardware component
+    NativeEventDispatcher:             	 Native event dispatching for interop
+    BlockStorage:                      	 Block storage support
+    Debugger:                          	 Visual Studio debugger support
+    Serial:                            	 Serial transport
+    SerialPort:                        	 Serial port component
+    InterruptHandler:                  	 Support for interrupt handling
+    DataStorage:                       	 Data storage (extended weak reference storage)
+    Diagnostics:                       	 Diagnostic utilities
+    Graphics:                          	 Core graphics functionality
+    TinyCore:                          	 TinyCore graphics subsystem
+    Backlight:                         	 Touch screen support
+    Stream:                            	 Stream component
+    FileSystem:                        	 File system
+    I2C:                               	 I2C Support
+    TouchPanel:                        	 Touch panel support
+
+Libraries:
+    CLRStartup:                        	 Common CLR initialization library
+    Core:                              	 CLR core library
+    CorLib:                            	 Subset of mscorlib
+    Hardware:                          	 Core hardware functionality
+    SPOT:                              	 Common interop library
+    SPOT_Hardware_SerialPort:          	 SerialPort interop library
+    HeapPersistence:                   	 Extended weak references data storage 
+    Debugger:                          	 Visual Studio debugging support
+    Messaging:                         	 Core communication component
+    InterruptHandler:                  	 Interrupt handler library
+    CRC:                               	 CRC library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    LargeBuffer_hal_stubs:             	 LargeBuffer stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    cpu_usb_stubs:                     	 USB stub library
+    usb_pal_stubs:                     	 USB stub driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    cpu_analog_stubs:                  	 Analog stub library
+    piezo_pal_stubs:                   	 Piezo stub driver
+    system_initialization_hal:         	 System initialization library
+    Debugger_full:                     	 Full Visual Studio debugging support
+    IOPort:                            	 Native event dispatcher (formerly IOPort)
+    SPOT_Hardware:                     	 Hardware interop library
+    TinyHal:                           	 Core HAL library
+    WireProtocol:                      	 Device communication protocol
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    COM_pal:                           	 Communication port director
+    config_pal:                        	 System configuration
+    Crypto:                            	 Cryptography library
+    events_pal:                        	 System event library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    heap_pal:                          	 Managed heap size and location configuration
+    tinycrt_pal:                       	 CRT functionality
+    usart_pal:                         	 USART driver
+    blockstorage_pal:                  	 Block storage library
+    SimpleHeap:                        	 SimpleHeap unmanaged heap
+    SimpleHeap_config:                 	 Simple unmanaged heap
+    Watchdog_pal:                      	 Watchdog set of methods used by Watchdog feature
+    palevent_pal:                      	 palevent set of methods used by Gesture, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    diagnostics_pal:                   	 Diagnostics library
+    Diagnostics:                       	 Diagnostic functionality
+    cpu_performancecounter_stubs:      	 Performance counter stub library
+    Graphics:                          	 Graphics subsystem library
+    SPOT_Graphics:                     	 Graphics interop library
+    Graphics_Bmp:                      	 Bitmap support for graphics subsystem
+    Graphics_Jpeg:                     	 JPEG library for graphics subsystem
+    graphics_pal:                      	 Graphics library
+    Graphics_Gif:                      	 GIF library for graphics subsystem
+    SecurityPkcs11:                    	 PKCS11
+    SPOT_Update:                       	 Common interop library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_pwm_stubs:                     	 PWM stub library
+    RPC_stub:                          	 Remote procedure call stub library
+    Serialization_stub:                	 Binary serialization stub library
+    SPOT_Serialization_stub:           	 Serialization interop stub library
+    MFUpdate_PAL_stub:                 	 MFUpdate PAL stub component
+    openssl_pal_stubs:                 	 OPENSSL PAL layer stub library
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    cpu_spi_stubs:                     	 SPI stub library
+    cpu_watchdog_stubs:                	 Watchdog driver
+    LPC178X_LCDC:                      	 LPC178X LCD Controller driver
+    LPC178X_bootstrap:                 	 LPC178X bootstrap driver
+    LPC178X_Handlers:                  	 LPC178X Base Handlers
+    LPC178X_GPIO:                      	 LPC178X GPIO driver
+    LPC178X_Power:                     	 LPC178X Power library
+    LPC178X_time:                      	 LPC178X time driver
+    LPC178X_USART:                     	 LPC178X USART driver
+    LPC178X_INTC:                      	 LPC178X_INTC library
+    SST39WF_16BL:                      	 SST39WF 16-bit flash block storage driver
+    Buttons_pal_stubs:                 	 Buttons stub library
+    SPOT_Messaging_stub:               	 Messaging interop stub library
+    gpio_backlight:                    	 GPIO backlight library
+    Backlight_GPIO_config_HAL_anc_LPC1788:	 Backlight GPIO anc_LPC1788 configuration library
+    BlockStorageAddDevices_HAL_anc_LPC1788:	 Block storage add device anc_LPC1788 driver
+    BlockStorageConfig_HAL_anc_LPC1788:	 Block storage anc_LPC1788 config
+    LCD_HAL_anc_LPC1788:               	 Stub display driver
+    VirtualKey_HAL_anc_LPC1788:        	 Virtual key anc_LPC1788 library
+    Stream:                            	 Generic stream functionality
+    SPOT_IO:                           	 Stream interop library
+    fs_pal:                            	 File system PAL Driver
+    I2C:                               	 I2C support
+    i2c_pal:                           	 I2C drivers
+    SPOT_Touch:                        	 Touch panel interop library
+    LPC178X_I2C:                       	 LPC178X I2C driver
+    FS_FAT:                            	 FAT file system 
+    TouchPanel_pal:                    	 Touch panel driver
+    FileSystem_Config_PAL_anc_LPC1788: 	 File system config anc_LPC1788
+    TouchPanel_HAL_anc_LPC1788:        	 Touch panel anc_LPC1788 library
+    TouchScreen_Config_HAL_anc_LPC1788:	 TouchPanel touch panel anc_LPC1788 configuration driver
+    Display_Font8x8:                   	 Text Font (8x8 pixels)
+    native_double_pal:                 	 Doubles Native PAL library

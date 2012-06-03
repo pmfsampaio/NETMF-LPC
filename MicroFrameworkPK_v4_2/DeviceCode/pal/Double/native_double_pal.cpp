@@ -20,7 +20,7 @@ inline int __signbitd(double x)
 #define isgreater(param0,param1) (param0 > param1)
 #define isless(param0,param1)    (param0 < param1)
 
-#elif __GNUC__
+#elif __GNUC__ && !defined(GCC_V4_5)
 
 #define isgreater(param0,param1) (param0 > param1)
 #define isless(param0,param1)    (param0 < param1)

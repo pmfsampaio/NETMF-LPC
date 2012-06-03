@@ -1,0 +1,438 @@
+The .NET Micro Framework Solution Wizard will create the 'YAAB' solution in the directory:
+
+	C:\MicroFrameworkPK_v4_2\\Solutions\YAAB
+
+The following is a description of the components of this solution.  Each solution consists of a set of projects which in turn have a set of features and libraries.
+
+    Solution:                          	 YAAB
+    Author:                            	 Pedro Sampaio
+    Description:                       	 Developement board based on NXP LPC2294.
+    Processor:                         	 LPC22XX
+    Debugger Port:                     	 COM1
+
+
+Project NativeSample
+    Description:                       	 
+    Path:                              	 Solutions\YAAB\NativeSample
+
+Libraries:
+    Crypto:                            	 Cryptography library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal:                           	 Core HAL library
+    LPC22XX_PreStackInit:              	 LPC22XX processor pre-stack initialization
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    AT49BV_16_BL:                      	 Block storage library for AM29DL 32-bit flash chip
+    lcd_hal_stubs:                     	 Stub display driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_LCD_stubs:                     	 Display controller stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    cpu_usb_stubs:                     	 USB stub library
+    system_initialization_hal:         	 System initialization library
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Buttons_pal:                       	 Buttons library
+    COM_pal:                           	 Communication port director
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    i2c_pal:                           	 I2C drivers
+    LPC22XX_I2C:                       	 LPC22XX I2C driver
+    usart_pal:                         	 USART driver
+    usb_pal_stubs:                     	 USB stub driver
+    config_pal:                        	 System configuration
+    events_pal:                        	 System event library
+    heap_pal:                          	 Managed heap size and location configuration
+    piezo_pal_stubs:                   	 Piezo stub driver
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    tinycrt_pal:                       	 CRT functionality
+    LPC22XX_Bootstrap:                 	 LPC22XX bootstrap driver
+    LPC22XX_GPIO:                      	 LPC22XX GPIO driver
+    LPC22XX_Power:                     	 LPC22XX power driver
+    LPC22XX_SPI:                       	 LPC22XX SPI driver
+    LPC22XX_TIME:                      	 LPC22XX time driver
+    LPC22XX_USART:                     	 LPC22XX USART driver
+    LPC22XX_VIC:                       	 LPC22XX interrupt controller driver
+    LPC22XX_WATCHDOG:                  	 LPC22XX watchdog driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    Native:                            	 
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    diagnostics_pal:                   	 Diagnostics library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_analog_stubs:                  	 Analog stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    AT49BV642DT_16_BS_Config_YAAB:     	 AM29LV800BT 32-bit flash block storage configuration library for YAAB
+    Bootstrap_YAAB:                    	 Bootstrap library for YAAB solution
+    BlockStorage_AddDevices_YAAB:      	 Block storage add device driver for YAAB
+    native_double_pal:                 	 Doubles Native PAL library
+
+
+Project PortBooter
+    Description:                       	 
+    Path:                              	 Solutions\YAAB\PortBooter
+
+Libraries:
+    Crypto:                            	 Cryptography library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    AT49BV_16_BL:                      	 Block storage library for AM29DL 32-bit flash chip
+    lcd_hal_stubs:                     	 Stub display driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_LCD_stubs:                     	 Display controller stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    cpu_usb_stubs:                     	 USB stub library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Buttons_pal:                       	 Buttons library
+    COM_pal:                           	 Communication port director
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    i2c_pal:                           	 I2C drivers
+    LPC22XX_I2C:                       	 LPC22XX I2C driver
+    usart_pal:                         	 USART driver
+    usb_pal_stubs:                     	 USB stub driver
+    config_pal_loader:                 	 System configuration boot loader library
+    events_pal:                        	 System event library
+    heap_pal:                          	 Managed heap size and location configuration
+    piezo_pal_stubs:                   	 Piezo stub driver
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC22XX_Bootstrap:                 	 LPC22XX bootstrap driver
+    LPC22XX_GPIO:                      	 LPC22XX GPIO driver
+    LPC22XX_Power:                     	 LPC22XX power driver
+    LPC22XX_PreStackInit:              	 LPC22XX processor pre-stack initialization
+    LPC22XX_SPI:                       	 LPC22XX SPI driver
+    LPC22XX_TIME:                      	 LPC22XX time driver
+    LPC22XX_USART:                     	 LPC22XX USART driver
+    LPC22XX_VIC:                       	 LPC22XX interrupt controller driver
+    LPC22XX_WATCHDOG:                  	 LPC22XX watchdog driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    diagnostics_pal:                   	 Diagnostics library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_analog_stubs:                  	 Analog stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    AT49BV642DT_16_BS_Config_YAAB:     	 AM29LV800BT 32-bit flash block storage configuration library for YAAB
+    Bootstrap_YAAB:                    	 Bootstrap library for YAAB solution
+    BlockStorage_AddDevices_YAAB:      	 Block storage add device driver for YAAB
+    native_double_pal:                 	 Doubles Native PAL library
+
+
+Project PortBooterLoader
+    Description:                       	 
+    Path:                              	 Solutions\YAAB\PortBooter
+
+Libraries:
+    Crypto:                            	 Cryptography library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    AT49BV_16_BL:                      	 Block storage library for AM29DL 32-bit flash chip
+    lcd_hal_stubs:                     	 Stub display driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_LCD_stubs:                     	 Display controller stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Buttons_pal_stubs:                 	 Buttons stub library
+    COM_pal_stubs:                     	 Communication port directory stub
+    i2c_pal:                           	 I2C drivers
+    LPC22XX_I2C:                       	 LPC22XX I2C driver
+    usart_pal:                         	 USART driver
+    usb_pal_stubs:                     	 USB stub driver
+    config_pal_loader:                 	 System configuration boot loader library
+    events_pal:                        	 System event library
+    heap_pal:                          	 Managed heap size and location configuration
+    piezo_pal_stubs:                   	 Piezo stub driver
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC22XX_Bootstrap:                 	 LPC22XX bootstrap driver
+    LPC22XX_GPIO:                      	 LPC22XX GPIO driver
+    LPC22XX_Power:                     	 LPC22XX power driver
+    LPC22XX_PreStackInit:              	 LPC22XX processor pre-stack initialization
+    LPC22XX_SPI:                       	 LPC22XX SPI driver
+    LPC22XX_TIME:                      	 LPC22XX time driver
+    LPC22XX_USART:                     	 LPC22XX USART driver
+    LPC22XX_VIC:                       	 LPC22XX interrupt controller driver
+    LPC22XX_WATCHDOG:                  	 LPC22XX watchdog driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    diagnostics_pal:                   	 Diagnostics library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_analog_stubs:                  	 Analog stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    AT49BV642DT_16_BS_Config_YAAB:     	 AM29LV800BT 32-bit flash block storage configuration library for YAAB
+    Bootstrap_YAAB:                    	 Bootstrap library for YAAB solution
+    BlockStorage_AddDevices_YAAB:      	 Block storage add device driver for YAAB
+    native_double_pal:                 	 Doubles Native PAL library
+
+
+Project Tinybooter
+    Description:                       	 
+    Path:                              	 Solutions\YAAB\TinyBooter
+
+Libraries:
+    TinybooterLib:                     	 TinyBooter core library
+    Crypto:                            	 Cryptography library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    AT49BV_16_BL:                      	 Block storage library for AM29DL 32-bit flash chip
+    lcd_hal_stubs:                     	 Stub display driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_LCD_stubs:                     	 Display controller stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    cpu_usb_stubs:                     	 USB stub library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Buttons_pal:                       	 Buttons library
+    COM_pal:                           	 Communication port director
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    i2c_pal:                           	 I2C drivers
+    LPC22XX_I2C:                       	 LPC22XX I2C driver
+    usart_pal:                         	 USART driver
+    usb_pal_stubs:                     	 USB stub driver
+    config_pal_loader:                 	 System configuration boot loader library
+    events_pal:                        	 System event library
+    heap_pal:                          	 Managed heap size and location configuration
+    piezo_pal_stubs:                   	 Piezo stub driver
+    SimpleHeap:                        	 SimpleHeap unmanaged heap
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC22XX_Bootstrap:                 	 LPC22XX bootstrap driver
+    LPC22XX_GPIO:                      	 LPC22XX GPIO driver
+    LPC22XX_Power:                     	 LPC22XX power driver
+    LPC22XX_PreStackInit:              	 LPC22XX processor pre-stack initialization
+    LPC22XX_SPI:                       	 LPC22XX SPI driver
+    LPC22XX_TIME:                      	 LPC22XX time driver
+    LPC22XX_USART:                     	 LPC22XX USART driver
+    LPC22XX_VIC:                       	 LPC22XX interrupt controller driver
+    LPC22XX_WATCHDOG:                  	 LPC22XX watchdog driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    diagnostics_pal:                   	 Diagnostics library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_analog_stubs:                  	 Analog stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    AT49BV642DT_16_BS_Config_YAAB:     	 AM29LV800BT 32-bit flash block storage configuration library for YAAB
+    Bootstrap_YAAB:                    	 Bootstrap library for YAAB solution
+    BlockStorage_AddDevices_YAAB:      	 Block storage add device driver for YAAB
+    native_double_pal:                 	 Doubles Native PAL library
+
+
+Project TinyBooterDecompressor
+    Description:                       	 
+    Path:                              	 Solutions\YAAB\TinyBooter
+
+Libraries:
+    TinyBooterDecompressorLib:         	 TinyBooter decompressor library
+    TinybooterLib:                     	 TinyBooter core library
+    Crypto:                            	 Cryptography library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal_loader:                    	 Core HAL library (for boot loaders)
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    AT49BV_16_BL:                      	 Block storage library for AM29DL 32-bit flash chip
+    lcd_hal_stubs:                     	 Stub display driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_LCD_stubs:                     	 Display controller stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    system_initialization_hal_loader:  	 System initialization (for boot loaders)
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    Watchdog_pal_stubs:                	 Watchdog stub
+    Buttons_pal_stubs:                 	 Buttons stub library
+    COM_pal_stubs:                     	 Communication port directory stub
+    i2c_pal:                           	 I2C drivers
+    LPC22XX_I2C:                       	 LPC22XX I2C driver
+    usart_pal:                         	 USART driver
+    usb_pal_stubs:                     	 USB stub driver
+    config_pal_loader:                 	 System configuration boot loader library
+    events_pal:                        	 System event library
+    heap_pal:                          	 Managed heap size and location configuration
+    piezo_pal_stubs:                   	 Piezo stub driver
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    tinycrt_pal_loader:                	 CRT functionality (for boot loaders)
+    LPC22XX_Bootstrap:                 	 LPC22XX bootstrap driver
+    LPC22XX_GPIO:                      	 LPC22XX GPIO driver
+    LPC22XX_Power:                     	 LPC22XX power driver
+    LPC22XX_PreStackInit:              	 LPC22XX processor pre-stack initialization
+    LPC22XX_SPI:                       	 LPC22XX SPI driver
+    LPC22XX_TIME:                      	 LPC22XX time driver
+    LPC22XX_USART:                     	 LPC22XX USART driver
+    LPC22XX_VIC:                       	 LPC22XX interrupt controller driver
+    LPC22XX_WATCHDOG:                  	 LPC22XX watchdog driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    diagnostics_pal:                   	 Diagnostics library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_analog_stubs:                  	 Analog stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    AT49BV642DT_16_BS_Config_YAAB:     	 AM29LV800BT 32-bit flash block storage configuration library for YAAB
+    Bootstrap_YAAB:                    	 Bootstrap library for YAAB solution
+    BlockStorage_AddDevices_YAAB:      	 Block storage add device driver for YAAB
+    native_double_pal:                 	 Doubles Native PAL library
+
+
+Project tinyclr
+    Description:                       	 
+    Path:                              	 Solutions\YAAB\TinyCLR
+
+Features:
+    Core:                              	 Core functionality (required)
+    Hardware:                          	 Core hardware component
+    NativeEventDispatcher:             	 Native event dispatching for interop
+    BlockStorage:                      	 Block storage support
+    SPI:                               	 SPI support
+    Serial:                            	 Serial transport
+    Diagnostics:                       	 Diagnostic utilities
+    I2C:                               	 I2C Support
+    SerialPort:                        	 Serial port component
+    DataStorage:                       	 Data storage (extended weak reference storage)
+    Debugger:                          	 Visual Studio debugger support
+    InterruptHandler:                  	 Support for interrupt handling
+
+Libraries:
+    MFUpdate_PAL_stub:                 	 MFUpdate PAL stub component
+    ssl_pal_stubs:                     	 SSL PAL layer stub library
+    LargeBuffer_hal_stubs:             	 LargeBuffer stub library
+    Core:                              	 CLR core library
+    Hardware:                          	 Core hardware functionality
+    InterruptHandler:                  	 Interrupt handler library
+    HeapPersistence:                   	 Extended weak references data storage 
+    I2C:                               	 I2C support
+    IOPort:                            	 Native event dispatcher (formerly IOPort)
+    RPC_stub:                          	 Remote procedure call stub library
+    Debugger:                          	 Visual Studio debugging support
+    Debugger_full:                     	 Full Visual Studio debugging support
+    Debugger_minimal:                  	 Minimal debug API methods
+    Diagnostics:                       	 Diagnostic functionality
+    Diagnostics_stub:                  	 Diagnostics stub library
+    Graphics_stub:                     	 Graphics stub library
+    CorLib:                            	 Subset of mscorlib
+    SPOT:                              	 Common interop library
+    SPOT_Hardware:                     	 Hardware interop library
+    virtualkey_hal_stubs:              	 Virtual key stub library
+    SPOT_Hardware_SerialPort:          	 SerialPort interop library
+    Messaging:                         	 Core communication component
+    CLRStartup:                        	 Common CLR initialization library
+    Crypto_stub:                       	 Crypto stub library
+    GlobalLock_hal:                    	 Global lock (native threading control)
+    TinyHal:                           	 Core HAL library
+    LPC22XX_PreStackInit:              	 LPC22XX processor pre-stack initialization
+    backlight_hal_stubs:               	 Backlight HAL stub library
+    batterycharger_hal_stubs:          	 Battery charger stub library
+    batterymeasurement_hal_stubs:      	 Battery measurement stub library
+    AT49BV_16_BL:                      	 Block storage library for AM29DL 32-bit flash chip
+    lcd_hal_stubs:                     	 Stub display driver
+    cpu_cache_stubs:                   	 Cache stub library
+    cpu_ebiu_stubs:                    	 EBIU stub library
+    cpu_LCD_stubs:                     	 Display controller stub library
+    cpu_mmu_stubs:                     	 Memory management unit stub library
+    cpu_usb_stubs:                     	 USB stub library
+    system_initialization_hal:         	 System initialization library
+    asyncproccall_pal:                 	 Asynchronous procedure call library
+    blockstorage_pal:                  	 Block storage library
+    Buttons_pal_stubs:                 	 Buttons stub library
+    Watchdog_pal:                      	 Watchdog set of methods used by Watchdog feature
+    COM_pal:                           	 Communication port director
+    DebuggerPort_SSL_Config_stubs:     	 DebuggerPort SSL Config stub
+    i2c_pal:                           	 I2C drivers
+    LPC22XX_I2C:                       	 LPC22XX I2C driver
+    usart_pal:                         	 USART driver
+    usb_pal_stubs:                     	 USB stub driver
+    config_pal:                        	 System configuration
+    events_pal:                        	 System event library
+    heap_pal:                          	 Managed heap size and location configuration
+    piezo_pal_stubs:                   	 Piezo stub driver
+    SimpleHeap_stubs:                  	 SimpleHeap unmanaged heap stub library
+    SimpleHeap_config_stubs:           	 SimpleHeap configuration stub library
+    tinycrt_pal:                       	 CRT functionality
+    LPC22XX_Bootstrap:                 	 LPC22XX bootstrap driver
+    LPC22XX_GPIO:                      	 LPC22XX GPIO driver
+    LPC22XX_Power:                     	 LPC22XX power driver
+    LPC22XX_SPI:                       	 LPC22XX SPI driver
+    LPC22XX_TIME:                      	 LPC22XX time driver
+    LPC22XX_USART:                     	 LPC22XX USART driver
+    LPC22XX_VIC:                       	 LPC22XX interrupt controller driver
+    LPC22XX_WATCHDOG:                  	 LPC22XX watchdog driver
+    CRC:                               	 CRC library
+    WireProtocol:                      	 Device communication protocol
+    fs_pal_stubs:                      	 File System stub library
+    FS_Config_stubs:                   	 File system config stub
+    Ink_pal_stubs:                     	 Ink set of methods used by Ink, Ink
+    Gesture_pal_stubs:                 	 Gesture set of methods used by Gesture, Ink
+    palevent_pal_stubs:                	 palevent set of methods used by Gesture, Ink
+    Time_pal:                          	 Time set of methods used by Time, Time
+    TimeService_pal_stubs:             	 TimeService set of methods used by TimeService, TimeService
+    diagnostics_pal:                   	 Diagnostics library
+    SPOT_Messaging_stub:               	 Messaging interop stub library
+    Serialization_stub:                	 Binary serialization stub library
+    SPOT_Serialization_stub:           	 Serialization interop stub library
+    sockets_pal_stubs:                 	 Network socket stub driver
+    cpu_performancecounter_stubs:      	 Performance counter stub library
+    cpu_pwm_stubs:                     	 PWM stub library
+    cpu_analog_stubs:                  	 Analog stub library
+    SecurityPkcs11:                    	 PKCS11
+    SPOT_Update:                       	 Common interop library
+    AT49BV642DT_16_BS_Config_YAAB:     	 AM29LV800BT 32-bit flash block storage configuration library for YAAB
+    Bootstrap_YAAB:                    	 Bootstrap library for YAAB solution
+    BlockStorage_AddDevices_YAAB:      	 Block storage add device driver for YAAB
+    native_double_pal:                 	 Doubles Native PAL library

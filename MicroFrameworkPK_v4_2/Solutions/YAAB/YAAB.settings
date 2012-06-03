@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Author>Pedro Sampaio</Author>
+    <Description>Developement board based on NXP LPC2294.</Description>
+    <Documentation />
+    <PlatformGuid>{8067f544-b9f8-4e1a-8e61-7bde480955a7}</PlatformGuid>
+    <TARGETPLATFORM>YAAB</TARGETPLATFORM>
+    <PLATFORM>YAAB</PLATFORM>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <ENDIANNESS>le</ENDIANNESS>
+  </PropertyGroup>
+  <ItemGroup>
+    <IncludePaths Include="Solutions\YAAB" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\devicecode\Targets\Native\LPC22XX\LPC22XX.settings" />
+</Project>

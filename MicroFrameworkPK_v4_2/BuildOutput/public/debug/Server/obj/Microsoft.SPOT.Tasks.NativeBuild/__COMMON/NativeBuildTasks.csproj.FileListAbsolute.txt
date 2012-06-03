@@ -1,0 +1,5 @@
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\dll\Microsoft.SPOT.Tasks.NativeBuild.dll
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\dll\Microsoft.SPOT.Tasks.NativeBuild.pdb
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks.NativeBuild\__COMMON\ResolveAssemblyReference.cache
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks.NativeBuild\__COMMON\Microsoft.SPOT.Tasks.NativeBuild.dll
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks.NativeBuild\__COMMON\Microsoft.SPOT.Tasks.NativeBuild.pdb

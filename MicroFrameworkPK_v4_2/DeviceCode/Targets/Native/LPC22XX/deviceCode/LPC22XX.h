@@ -314,8 +314,8 @@ struct LPC22XX_GPIO
 //  Reserved    static const UINT32 c_P1_13 =  45;
 //  Reserved    static const UINT32 c_P1_14 =  46;
 //  Reserved    static const UINT32 c_P1_15 =  47;
-// TODO Add support for these pins later
-/*    static const UINT32 c_P1_16 =  48;
+// PS +
+    static const UINT32 c_P1_16 =  48;
     static const UINT32 c_P1_17 =  49;
     static const UINT32 c_P1_18 =  50;
     static const UINT32 c_P1_19 =  51;
@@ -324,6 +324,9 @@ struct LPC22XX_GPIO
     static const UINT32 c_P1_22 =  54;
     static const UINT32 c_P1_23 =  55;
     static const UINT32 c_P1_24 =  56;
+// PS -
+// TODO Add support for these pins later
+/*
     static const UINT32 c_P1_25 =  57;
     static const UINT32 c_P1_26 =  58;
     static const UINT32 c_P1_27 =  59;
@@ -431,7 +434,7 @@ struct LPC22XX_USART
     static const UINT32 c_SER2_RTS = LPC22XX_GPIO::c_P0_10;
     static const UINT32 c_SER2_CTS = LPC22XX_GPIO::c_P0_11;
 
-    static const UINT32 c_ClockRate     =   15000000;        
+    static const UINT32 c_ClockRate     =   LPC22XX_UART_PCLK;
 
     static const UINT32 c_MAX_BAUDRATE = c_ClockRate/16; 
     static const UINT32 c_MIN_BAUDRATE = 0;
@@ -583,7 +586,15 @@ struct LPC22XX_PCB
 //
 struct LPC22XX_SYSCON
 {
-    static const UINT32 c_SYSCON_Base = 0xE01FC040;
+    static const UINT32 c_SYSCON_Base = 0xE01FC000;  // PS 0xE01FC040;
+
+    // + PS
+    // MAM Registers
+    /****/ volatile UINT32 MAMCR;         // MAM Control register
+    /****/ volatile UINT32 MAMTIM;        // MAM Timing register
+
+    /****/ volatile UINT32 dummyx[14];    // Filler to align next register address
+    // - PS
     
     // Memory Mapping Control
     /****/ volatile UINT32 MEMMAP;        // Memory map control register
@@ -599,19 +610,19 @@ struct LPC22XX_SYSCON
 
     /****/ volatile UINT32 PLLFEED;       // PLL Feed Register
 
-    /****/ volatile UINT32 dummy1[13];    // Filler to align next register address
+    /****/ volatile UINT32 dummy1[12];    //PS 13 // Filler to align next register address
 
     // Power Control
     /****/ volatile UINT32 PCON;          // Power Control Register
     
     /****/ volatile UINT32 PCONP;         // Power Control for Peripherals
 
-    /****/ volatile UINT32 dummy2[15];    // Filler to align next register address
+    /****/ volatile UINT32 dummy2[14];    // PS 15 // Filler to align next register address
 
     // VPB Divider
     /****/ volatile UINT32 VPBDIV;        // VPB Divider Control
 
-    /****/ volatile UINT32 dummy3[16];    // Filler to align next register address
+    /****/ volatile UINT32 dummy3[15];    // PS 16 //Filler to align next register address
 
     // External Interrupts
     /****/ volatile UINT32 EXTINT;        // External Interrupt Flag Register
@@ -1081,8 +1092,8 @@ struct LPC22XX_GPIO_Driver
 
     //--//
 
-    static const UINT32 c_MaxPins           =  31;
-    static const UINT32 c_MaxPorts          =   1;
+    static const UINT32 c_MaxPins           =  57; // PS 31;
+    static const UINT32 c_MaxPorts          =   2; // PS 1;
     static const UINT32 c_PinsPerPort       =  32;
     static const UINT32 c_PinsPerPCBReg     =  16;
 

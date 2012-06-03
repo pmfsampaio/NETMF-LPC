@@ -54,8 +54,8 @@
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\FirstEntry.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\IDelayLoop.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\Sampling_Profiler_RAM.s" />
-    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsHandlers.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsTrampolines.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\ProtectionArea.s" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Diagnostics\Aborts.cpp" />

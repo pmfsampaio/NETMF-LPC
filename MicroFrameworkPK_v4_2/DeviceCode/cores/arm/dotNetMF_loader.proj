@@ -58,11 +58,11 @@
     <Compile Include="Diagnostics\FIQAssembly\$(AS_SUBDIR)\FiqSubhandler_MC9328.s" />
   </ItemGroup>
   <ItemGroup Condition="'$(OS_PLATFORM)'!='true' and '$(INSTRUCTION_SET)'=='thumb2'">
-    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsHandlers.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\IDelayLoop.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\Sampling_Profiler_RAM.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\VectorsTrampolines.s" />
     <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\FirstEntry.s" />
+    <Compile Include="AssemblyCode\thumb2\$(AS_SUBDIR)\ProtectionArea.s" />    
   </ItemGroup>
   <ItemGroup Condition="'$(OS_PLATFORM)'!='true'">
     <LIB_FIRSTENTRY_OBJ Include="$(OBJ_DIR)\FirstEntry.$(OBJ_EXT)" />

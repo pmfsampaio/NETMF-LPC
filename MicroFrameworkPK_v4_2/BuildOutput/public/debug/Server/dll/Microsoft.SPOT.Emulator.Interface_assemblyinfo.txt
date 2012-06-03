@@ -1,0 +1,18 @@
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Microsoft Corporation.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+[assembly: AssemblyTitle("Microsoft.SPOT.Emulator.Interface")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("debug")]
+[assembly: AssemblyCompany("Microsoft Corporation")]
+[assembly: AssemblyProduct("Microsoft .NET Micro Framework")]
+[assembly: AssemblyCopyright("Copyright (C) Microsoft Corporation.  All rights reserved.")]
+[assembly: AssemblyTrademark(".NET is a trademark of Microsoft Corporation.")]
+[assembly: AssemblyFileVersion("4.2.0.0")]
+[assembly: AssemblyVersion("4.2.0.0")]
+[assembly: AssemblyInformationalVersion("4.2.0.0")]

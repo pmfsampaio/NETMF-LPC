@@ -1,0 +1,33 @@
+ARM GAS  GNU_S\TinyBooter_dat.s 			page 1
+
+
+   1              	
+   2              	    .section    .text, "xa", %progbits
+   3              	
+   4              	    .extern     EntryPoint
+   5              	
+   6              	    .global     TinyBooterCompressed_Dat
+   7              	
+   8              	TinyBooterCompressed_Dat:
+   9 0000 00000081 	    .incbin     "TinyBooter_Compressed.dat"
+   9      D8CE0000 
+   9      14630100 
+   9      FF0A0000 
+   9      EA14F09F 
+  10              	TinyBooterCompressed_Dat_End:
+  11              	
+  12              	    .end
+ARM GAS  GNU_S\TinyBooter_dat.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 BUILD_RTM
+                            *ABS*:00000001 TARGETLOCATION_RAM
+                            *ABS*:00000001 HAL_REDUCESIZE
+                            *ABS*:00000001 PLATFORM_ARM_YAAB
+                            *ABS*:00000001 PLATFORM_ARM_LPC22XX
+                            *ABS*:00000001 COMPILE_ARM
+GNU_S\TinyBooter_dat.s:8      .text:00000000 TinyBooterCompressed_Dat
+GNU_S\TinyBooter_dat.s:10     .text:0000cee4 TinyBooterCompressed_Dat_End
+
+NO UNDEFINED SYMBOLS

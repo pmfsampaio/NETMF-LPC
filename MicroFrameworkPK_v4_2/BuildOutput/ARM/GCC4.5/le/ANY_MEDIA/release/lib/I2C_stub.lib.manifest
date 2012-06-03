@@ -1,0 +1,49 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>I2C_stub</Name>
+    <ProjectFile>dotNetMF_Stub.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>YAAB</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>LPC22XX</Processor>
+    <TargetPlatform>YAAB</TargetPlatform>
+    <Codebase>LPC22XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>I2C_stub</AssemblyName>
+    <ProjectGuid>679AAE44-707E-4ff8-8DD9-AC12C2B9AE77</ProjectGuid>
+    <Description>I2C stub library</Description>
+    <Level>CLR</Level>
+    <LibraryFile>I2C_stub.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\CLR\core\I2C\dotNetMF_Stub.proj</ProjectPath>
+    <ManifestFile>I2C_stub.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Hardware</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="I2C_CLR" Guid="{CE347E4C-378A-4F8B-9749-BD5C4732EDA2}" ProjectPath="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency></MFComponent></LibraryCategory>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>True</IsStub>
+    <Directory>CLR\Core\I2C</Directory>
+    <OutputType>Library</OutputType>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\ARM\GCC4.5\le\ANY_MEDIA\release\obj\CLR\Core\I2C\i2c_stub.obj" />
+</ItemGroup>
+
+</Project>

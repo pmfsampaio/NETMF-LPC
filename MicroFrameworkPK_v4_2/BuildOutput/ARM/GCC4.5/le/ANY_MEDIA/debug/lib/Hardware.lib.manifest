@@ -1,0 +1,49 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>Hardware</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>YAAB</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>LPC22XX</Processor>
+    <TargetPlatform>YAAB</TargetPlatform>
+    <Codebase>LPC22XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>Hardware</AssemblyName>
+    <ProjectGuid>5837EE16-0D61-4fe3-AA93-5965E539BFE2</ProjectGuid>
+    <Description>Core hardware functionality</Description>
+    <Level>CLR</Level>
+    <LibraryFile>Hardware.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\CLR\core\Hardware\dotNetMF.proj</ProjectPath>
+    <ManifestFile>Hardware.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Hardware</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Hardware_CLR" Guid="{B04A82F3-C442-4edf-91F1-DA3471F2DDDD}" ProjectPath="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency></MFComponent></LibraryCategory>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>CLR\Core\Hardware</Directory>
+    <OutputType>Library</OutputType>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\ARM\GCC4.5\le\ANY_MEDIA\debug\obj\CLR\Core\Hardware\Hardware.obj" />
+</ItemGroup>
+
+</Project>

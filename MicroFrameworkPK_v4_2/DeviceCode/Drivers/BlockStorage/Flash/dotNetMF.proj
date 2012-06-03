@@ -10,6 +10,7 @@
     <SubDirectories Include="I28F_16"/>
     <SubDirectories Include="AM29DL_32"/>
     <SubDirectories Include="SST39WF_16"/>
+    <SubDirectories Include="AT49BV_16"/>
   </ItemGroup>
 
 

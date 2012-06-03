@@ -1,0 +1,94 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>Core</Name>
+    <ProjectFile>dotnetmf.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>Windows2</Platform>
+    <PlatformFamily>x86</PlatformFamily>
+    <InstructionSet>x86</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>x86</Processor>
+    <TargetPlatform>Windows2</TargetPlatform>
+    <Codebase>WINDOWS</Codebase>
+    <CodebaseType>OS</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>debug</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>Core</AssemblyName>
+    <ProjectGuid>1AEE6923-2376-48A5-A30B-0FC8A3DE703E</ProjectGuid>
+    <Description>CLR core library</Description>
+    <Level>CLR</Level>
+    <LibraryFile>Core.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\CLR\Core\dotNetMF.proj</ProjectPath>
+    <ManifestFile>Core.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Core</Groups>
+    <PlatformIndependent>True</PlatformIndependent>
+    <Required>true</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>CLR\Core</Directory>
+    <OutputType>Library</OutputType>
+    <HasAuxTargets>true</HasAuxTargets>
+    <NoOptForParserTarget>Release</NoOptForParserTarget>
+    <PlatformIndependentBuild>true</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\AVLTree.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Cache.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Checks.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_DblLinkedList.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Array.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_ArrayList.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_BinaryBlob.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Delegate.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Delegate_List.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Finalizer.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Lock.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_LockRequest.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Node.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Queue.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Stack.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_String.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_Timer.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapBlock_WaitForObject.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_HeapCluster.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_Interop.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_Memory.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_MemoryRange.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_ObjectToEvent_Destination.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_ObjectToEvent_Source.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_StackFrame.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_SystemAssembliesTable.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\CLR_RT_UnicodeHelper.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\core.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Execution.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\GarbageCollector.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\GarbageCollector_Compaction.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\GarbageCollector_ComputeReachabilityGraph.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\GarbageCollector_Info.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Interpreter.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Random.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Streams.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\StringTable.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Thread.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\TypeSystem.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\TypeSystemLookup.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Various.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\Cache_Win32.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\FileStore_Win32.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\ParseOptions_Win32.obj" />
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\Windows\le\ANY_MEDIA\debug\obj\CLR\Core\XmlUtil.obj" />
+</ItemGroup>
+
+<Import Project="$(SPOCLIENT)\Framework\Features\Debugger_CLR.libcatproj"/>
+</Project>

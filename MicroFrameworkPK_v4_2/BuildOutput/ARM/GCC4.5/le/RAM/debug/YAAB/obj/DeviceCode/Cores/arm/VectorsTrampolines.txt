@@ -1,0 +1,121 @@
+ARM GAS  C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s 			page 1
+
+
+   1              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   2              	@ Copyright (c) Microsoft Corporation.  All rights reserved.
+   3              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   4              	
+   5              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+   6              	
+   7              	    .extern  UNDEF_SubHandler
+   8              	    .extern  ABORTP_SubHandler
+   9              	    .extern  ABORTD_SubHandler
+  10              	
+  11              	    .global  ARM_Vectors
+  12              	
+  13              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  14              	
+  15              	   .section VectorsTrampolines, "xa", %progbits
+  16              	   
+  17              		 .arm
+  18              	
+  19              	ARM_Vectors:
+  20              	
+  21              	    @ RESET
+  22              	RESET_VECTOR:
+  23 0000 FFFFFFEA 	    b       UNDEF_VECTOR
+  24              	
+  25              	    @ UNDEF INSTR
+  26              	UNDEF_VECTOR:
+  27 0004 10F09FE5 	    ldr     pc, UNDEF_SubHandler_Trampoline
+  28              	
+  29              	    @ SWI
+  30              	SWI_VECTOR:
+  31 0008 0DF0ADBA 	    .word   0xbaadf00d
+  32              	
+  33              	    @ PREFETCH ABORT
+  34              	PREFETCH_VECTOR:
+  35 000c 0CF09FE5 	    ldr     pc, ABORTP_SubHandler_Trampoline
+  36              	
+  37              	    @ DATA ABORT
+  38              	DATA_VECTOR:
+  39 0010 0CF09FE5 	    ldr     pc, ABORTD_SubHandler_Trampoline
+  40              	
+  41              	    @ unused
+  42              	USED_VECTOR:
+  43 0014 0DF0ADBA 	    .word   0xbaadf00d
+  44              	
+  45              	    @ IRQ
+  46              	IRQ_VECTOR:
+  47 0018 08F09FE5 	    ldr     pc, IRQ_SubHandler_Trampoline
+  48              	
+  49              	    @ FIQ
+  50              	    @ we place the FIQ handler where it was designed to go, immediately at the end of the vector ta
+  51              	    @ this saves an additional 3+ clock cycle branch to the handler
+  52              	FIQ_Handler:
+  53              	    .ifdef FIQ_SAMPLING_PROFILER
+  54              	    ldr     pc,FIQ_SubHandler_Trampoline    
+  55              	
+  56              	FIQ_SubHandler_Trampoline:
+  57              	    .word   FIQ_SubHandler
+ARM GAS  C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s 			page 2
+
+
+  58              	    .endif
+  59              	
+  60              	UNDEF_SubHandler_Trampoline:
+  61 001c 00000000 	    .word   UNDEF_SubHandler
+  62              	
+  63              	ABORTP_SubHandler_Trampoline:
+  64 0020 00000000 	    .word   ABORTP_SubHandler
+  65              	
+  66              	ABORTD_SubHandler_Trampoline:
+  67 0024 00000000 	    .word   ABORTD_SubHandler
+  68              	
+  69              	
+  70              	        @ route the normal interupt handler to the proper lowest level driver
+  71              	IRQ_SubHandler_Trampoline: 
+  72 0028 00000000 	    .word  	IRQ_Handler
+  73              	
+  74              	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  75              	
+  76              	    .ifdef COMPILE_THUMB
+  77              		  .thumb
+  78              	    .endif
+  79              	
+  80              	    .end
+ARM GAS  C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 BUILD_RTM
+                            *ABS*:00000001 TARGETLOCATION_RAM
+                            *ABS*:00000001 PLATFORM_ARM_YAAB
+                            *ABS*:00000001 PLATFORM_ARM_LPC22XX
+                            *ABS*:00000001 COMPILE_ARM
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:19     VectorsTrampolines:00000000 ARM_Vectors
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:22     VectorsTrampolines:00000000 RESET_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:26     VectorsTrampolines:00000004 UNDEF_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:23     VectorsTrampolines:00000000 $a
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:60     VectorsTrampolines:0000001c UNDEF_SubHandler_Trampoline
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:30     VectorsTrampolines:00000008 SWI_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:31     VectorsTrampolines:00000008 $d
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:34     VectorsTrampolines:0000000c PREFETCH_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:63     VectorsTrampolines:00000020 ABORTP_SubHandler_Trampoline
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:35     VectorsTrampolines:0000000c $a
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:38     VectorsTrampolines:00000010 DATA_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:66     VectorsTrampolines:00000024 ABORTD_SubHandler_Trampoline
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:42     VectorsTrampolines:00000014 USED_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:43     VectorsTrampolines:00000014 $d
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:46     VectorsTrampolines:00000018 IRQ_VECTOR
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:71     VectorsTrampolines:00000028 IRQ_SubHandler_Trampoline
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:47     VectorsTrampolines:00000018 $a
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:52     VectorsTrampolines:0000001c FIQ_Handler
+C:\MicroFrameworkPK_v4_2\DeviceCode\cores\arm\AssemblyCode\arm\GNU_S\VectorsTrampolines.s:61     VectorsTrampolines:0000001c $d
+                   .debug_aranges:0000000c $d
+
+UNDEFINED SYMBOLS
+UNDEF_SubHandler
+ABORTP_SubHandler
+ABORTD_SubHandler
+IRQ_Handler

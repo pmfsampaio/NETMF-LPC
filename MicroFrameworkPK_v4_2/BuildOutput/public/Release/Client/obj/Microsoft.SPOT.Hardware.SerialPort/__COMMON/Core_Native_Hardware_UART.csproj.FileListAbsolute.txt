@@ -1,0 +1,12 @@
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\dll\Microsoft.SPOT.Hardware.SerialPort.dll
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\dll\Microsoft.SPOT.Hardware.SerialPort.pdb
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Hardware.SerialPort\__COMMON\Microsoft.SPOT.Hardware.SerialPort.dll
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\obj\Microsoft.SPOT.Hardware.SerialPort\__COMMON\Microsoft.SPOT.Hardware.SerialPort.pdb
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Hardware.SerialPort.strings
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Hardware.SerialPort.pe
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\pe\le\Microsoft.SPOT.Hardware.SerialPort.pdbx
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Hardware.SerialPort.strings
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Hardware.SerialPort.pe
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\pe\be\Microsoft.SPOT.Hardware.SerialPort.pdbx
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\txt\Microsoft.SPOT.Hardware.SerialPort_exports2.txt
+C:\MicroFrameworkPK_v4_2\BuildOutput\public\Release\Client\dumps\Microsoft.SPOT.Hardware.SerialPort.dump

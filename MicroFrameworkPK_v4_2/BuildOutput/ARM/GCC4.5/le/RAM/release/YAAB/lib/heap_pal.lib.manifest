@@ -1,0 +1,47 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>heap_pal</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>YAAB</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>LPC22XX</Processor>
+    <TargetPlatform>YAAB</TargetPlatform>
+    <Codebase>LPC22XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>heap_pal</AssemblyName>
+    <ProjectGuid>{6142f91d-5876-4d99-91f3-3bb40201366c}</ProjectGuid>
+    <Description>Managed heap size and location configuration</Description>
+    <Level>PAL</Level>
+    <LibraryFile>heap_pal.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\PAL\Heap\dotNetMF.proj</ProjectPath>
+    <ManifestFile>heap_pal.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>System</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Heap_PAL" Guid="{EC718439-8D24-47C7-9555-9C4D314D1C9C}" ProjectPath="" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency></MFComponent></LibraryCategory>
+    <PlatformIndependent>False</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <Directory>DeviceCode\pal\heap</Directory>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\ARM\GCC4.5\le\RAM\release\YAAB\obj\DeviceCode\pal\heap\heap.obj" />
+</ItemGroup>
+
+</Project>

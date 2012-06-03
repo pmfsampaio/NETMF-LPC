@@ -1,0 +1,47 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+<PropertyGroup>
+    <Name>COM_pal_stubs</Name>
+    <ProjectFile>dotNetMF.proj</ProjectFile>
+    <Version>4.2.0.0</Version>
+    <Platform>YAAB</Platform>
+    <PlatformFamily>ARM</PlatformFamily>
+    <InstructionSet>ARM</InstructionSet>
+    <Compiler>GCC</Compiler>
+    <CompilerVersion>GCC4.5</CompilerVersion>
+    <TargetLocation>RAM</TargetLocation>
+    <MemoryFlavor>ram</MemoryFlavor>
+    <Processor>LPC22XX</Processor>
+    <TargetPlatform>YAAB</TargetPlatform>
+    <Codebase>LPC22XX</Codebase>
+    <CodebaseType>Native</CodebaseType>
+    <Company>Microsoft Corporation</Company>
+    <Copyright>Copyright (C) Microsoft Corporation.  All rights reserved.</Copyright>
+    <FileVersion>4.2.0.0</FileVersion>
+    <Configuration>release</Configuration>
+    <Product>Microsoft .NET Micro Framework</Product>
+    <Trademark>.NET is a trademark of Microsoft Corporation.</Trademark>
+    <AssemblyName>COM_pal_stubs</AssemblyName>
+    <ProjectGuid>{86c4568e-4807-4f11-9ce2-bf00b32171aa}</ProjectGuid>
+    <Description>Communication port directory stub</Description>
+    <Level>PAL</Level>
+    <LibraryFile>COM_pal_stubs.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\PAL\COM\stubs\dotNetMF.proj</ProjectPath>
+    <ManifestFile>COM_pal_stubs.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Communication</Groups>
+    <LibraryCategory><MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="COM_PAL" Guid="{C951E04C-4A79-47CF-82A4-1DA8E2F3E073}" ProjectPath="" Conditional="" xmlns=""><VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd"><Major>4</Major><Minor>0</Minor><Revision>0</Revision><Build>0</Build><Extra /><Date>2009-04-30</Date></VersionDependency><ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType></MFComponent></LibraryCategory>
+    <PlatformIndependent>False</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>True</IsStub>
+    <Directory>DeviceCode\pal\COM\stubs</Directory>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+</PropertyGroup>
+
+<ItemGroup>
+    <ObjectFile Include="C:\MicroFrameworkPK_v4_2\BuildOutput\ARM\GCC4.5\le\RAM\release\YAAB\obj\DeviceCode\pal\COM\stubs\ComDirector_stubs.obj" />
+</ItemGroup>
+
+</Project>

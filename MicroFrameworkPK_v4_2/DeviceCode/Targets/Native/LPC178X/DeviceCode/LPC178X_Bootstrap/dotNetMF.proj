@@ -1,0 +1,48 @@
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AssemblyName>LPC178X_bootstrap</AssemblyName>
+    <ProjectGuid>{C599A16C-84AB-4ABC-AAB1-9A06E7953C22}</ProjectGuid>
+    <Size>
+    </Size>
+    <Description>LPC178X bootstrap driver</Description>
+    <Level>HAL</Level>
+    <LibraryFile>LPC178X_bootstrap.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\Targets\Native\LPC178X\DeviceCode\LPC178X_Bootstrap\dotNetMF.proj</ProjectPath>
+    <ManifestFile>LPC178X_bootstrap.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Processor\LPC178X</Groups>
+    <Documentation>
+    </Documentation>
+    <PlatformIndependent>False</PlatformIndependent>
+    <CustomFilter>
+    </CustomFilter>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <LibraryCategory>
+      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Bootstrap_HAL" Guid="{15AB3FEB-4D7A-40AD-B1A0-4BF663A6EF93}" ProjectPath="" xmlns="">
+        <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
+          <Major>4</Major>
+          <Minor>0</Minor>
+          <Revision>0</Revision>
+          <Build>0</Build>
+          <Extra />
+          <Date>2009-04-30</Date>
+          <Author>Pedro Sampaio</Author>
+        </VersionDependency>
+        <ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType>
+      </MFComponent>
+    </LibraryCategory>
+    <Directory>DeviceCode\Targets\Native\LPC178X\DeviceCode\LPC178X_Bootstrap</Directory>
+    <OutputType>Library</OutputType>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+    <ARMBUILD_ONLY>true</ARMBUILD_ONLY>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />   
+ <PropertyGroup />
+  <ItemGroup>
+    <HFiles Include="..\LPC1788_Devices.h" />
+    <Compile Include="LPC178X_bootstrap.cpp" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

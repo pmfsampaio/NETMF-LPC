@@ -383,7 +383,7 @@ int hal_snprintf( char* buffer, size_t len, const char* format, ... )
     return chars;
 }
 
-#if defined(__GNUC__)
+#if defined(__GNUC__) && !defined(GCC_V4_5)
 
 // RealView and GCC signatures for hal_vsnprintf() are different.
 // This routine matches the RealView call, which defines va_list as int**
