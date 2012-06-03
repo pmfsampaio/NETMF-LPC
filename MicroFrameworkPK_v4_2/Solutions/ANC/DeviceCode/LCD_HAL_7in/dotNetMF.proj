@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>BlockStorageConfig_HAL_anc_LPC1788</AssemblyName>
+    <AssemblyName>LCD_HAL_ANC</AssemblyName>
+    <ProjectGuid>{ba146d41-7607-4214-9d5d-9658c1bb4288}</ProjectGuid>
     <Size>
     </Size>
-    <ProjectGuid>{DB4A125E-13C9-4854-86C1-5F8A5992480D}</ProjectGuid>
-    <Description>Block storage anc_LPC1788 config</Description>
+    <Description>Stub display driver</Description>
     <Level>HAL</Level>
-    <LibraryFile>BlockStorageConfig_HAL_anc_LPC1788.$(LIB_EXT)</LibraryFile>
-    <ProjectPath>$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\BlockStorageConfig_HAL\dotNetMF.proj</ProjectPath>
-    <Groups>BlockStorage</Groups>
+    <LibraryFile>LCD_HAL_ANC.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\Solutions\ANC\DeviceCode\LCD_HAL_7in\dotNetMF.proj</ProjectPath>
+    <ManifestFile>LCD_HAL_ANC.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Display</Groups>
     <LibraryCategory>
-      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BlockStorageConfig_HAL" Guid="{497F59BB-55D3-404e-B958-A6284806D184}" ProjectPath="" xmlns="">
+      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="LCD_HAL" Guid="{9F6063F2-7ED0-49F7-95A3-2A2D2219EEAB}" ProjectPath="" Conditional="" xmlns="">
         <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
           <Major>4</Major>
           <Minor>0</Minor>
@@ -26,21 +26,26 @@
     <Documentation>
     </Documentation>
     <PlatformIndependent>False</PlatformIndependent>
+    <CustomFilter>
+    </CustomFilter>
     <Required>False</Required>
     <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
     <IsStub>false</IsStub>
-    <ManifestFile>BlockStorageConfig_HAL_anc_LPC1788.$(LIB_EXT).manifest</ManifestFile>
-    <CustomFilter>
-    </CustomFilter>
-    <Directory>Solutions\anc_LPC1788\DeviceCode\BlockStorageConfig_HAL</Directory>
+    <Directory>Solutions\ANC\DeviceCode\LCD_HAL_7in</Directory>
     <OutputType>Library</OutputType>
     <PlatformIndependentBuild>false</PlatformIndependentBuild>
     <Version>4.0.0.0</Version>
   </PropertyGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <Import Project="$(SPOCLIENT)\Framework\Features\Display_Font_HAL.libcatproj" />
   <PropertyGroup />
   <ItemGroup>
-    <Compile Include="blconfig_anc_LPC1788.cpp" />
+    <Compile Include="Display_ANC_config.cpp" />
+    <Compile Include="Display_ANC_functions.cpp" />
+    <Compile Include="UMSH8173MD.cpp" />
+    <HFiles Include="UMSH8173MD.h" />
+    <IncludePaths Include="DeviceCode\Targets\Native\LPC178X\DeviceCode\LPC178X_LCDC\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

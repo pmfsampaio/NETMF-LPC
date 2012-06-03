@@ -1,18 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>TouchScreen_Config_HAL_anc_LPC1788</AssemblyName>
-    <ProjectGuid>{960249FD-A171-492D-996C-E1F58B67AEA4}</ProjectGuid>
+    <AssemblyName>BlockStorageConfig_HAL_ANC</AssemblyName>
     <Size>
     </Size>
-    <Description>TouchPanel touch panel anc_LPC1788 configuration driver</Description>
+    <ProjectGuid>{8fd5641c-df26-4a18-8bdf-f8a4cac2798a}</ProjectGuid>
+    <Description>Block storage ANC config</Description>
     <Level>HAL</Level>
-    <LibraryFile>TouchScreen_Config_HAL_anc_LPC1788.$(LIB_EXT)</LibraryFile>
-    <ProjectPath>$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\TouchScreen_Config_HAL\dotNetMF.proj</ProjectPath>
-    <ManifestFile>TouchScreen_Config_HAL_anc_LPC1788.$(LIB_EXT).manifest</ManifestFile>
-    <Groups>Touch</Groups>
+    <LibraryFile>BlockStorageConfig_HAL_ANC.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\Solutions\ANC\DeviceCode\BlockStorageConfig_HAL\dotNetMF.proj</ProjectPath>
+    <Groups>BlockStorage</Groups>
     <LibraryCategory>
-      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="TouchScreen_Config_HAL" Guid="{757A56B0-8619-4BDB-97FB-C6EFB2338BA8}" ProjectPath="" Conditional="" xmlns="">
+      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BlockStorageConfig_HAL" Guid="{497F59BB-55D3-404e-B958-A6284806D184}" ProjectPath="" xmlns="">
         <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
           <Major>4</Major>
           <Minor>0</Minor>
@@ -20,7 +19,6 @@
           <Build>0</Build>
           <Extra />
           <Date>2009-04-30</Date>
-          <Author>Microsoft</Author>
         </VersionDependency>
         <ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType>
       </MFComponent>
@@ -28,14 +26,13 @@
     <Documentation>
     </Documentation>
     <PlatformIndependent>False</PlatformIndependent>
-    <CustomFilter>
-    </CustomFilter>
     <Required>False</Required>
     <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
     <IsStub>false</IsStub>
-    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
-    <HasLibraryCategory>True</HasLibraryCategory>
-    <Directory>Solutions\anc_LPC1788\DeviceCode\TouchScreen_Config_HAL</Directory>
+    <ManifestFile>BlockStorageConfig_HAL_ANC.$(LIB_EXT).manifest</ManifestFile>
+    <CustomFilter>
+    </CustomFilter>
+    <Directory>Solutions\ANC\DeviceCode\BlockStorageConfig_HAL</Directory>
     <OutputType>Library</OutputType>
     <PlatformIndependentBuild>false</PlatformIndependentBuild>
     <Version>4.0.0.0</Version>
@@ -43,7 +40,7 @@
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <PropertyGroup />
   <ItemGroup>
-    <Compile Include="TouchPanel_config_anc_LPC1788.cpp" />
+    <Compile Include="blconfig_ANC.cpp" />
   </ItemGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

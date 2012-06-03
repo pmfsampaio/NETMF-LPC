@@ -2,15 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <AssemblyName>tinyclr</AssemblyName>
-    <ProjectGuid>{00A00028-0017-0036-92DC-BCF39CA29EA2}</ProjectGuid>
+    <ProjectGuid>{2b620a6e-80ce-4c2b-aa54-1865b48300db}</ProjectGuid>
     <Description />
     <Documentation />
-    <Directory>Solutions\anc_LPC1788\TinyCLR</Directory>
+    <Directory>Solutions\ANC\TinyCLR</Directory>
     <IsClrProject>True</IsClrProject>
     <InteropFeatures />
     <ExtraAssemblies />
-    <ProjectPath>$(SPOCLIENT)\Solutions\anc_LPC1788\TinyCLR\TinyCLR.proj</ProjectPath>
-    <MFSettingsFile>$(SPOCLIENT)\Solutions\anc_LPC1788\anc_LPC1788.settings</MFSettingsFile>
+    <ProjectPath>$(SPOCLIENT)\Solutions\ANC\TinyCLR\TinyCLR.proj</ProjectPath>
+    <MFSettingsFile>$(SPOCLIENT)\Solutions\ANC\ANC.settings</MFSettingsFile>
     <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
   </PropertyGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
@@ -367,26 +367,6 @@
     <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Backlight\GPIO\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
-    <DriverLibs Include="Backlight_GPIO_config_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\Backlight_GPIO_config_HAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="BlockStorageAddDevices_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\BlockStorageAddDevices_HAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="BlockStorageConfig_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\BlockStorageConfig_HAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="LCD_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\LCD_HAL_7in\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="VirtualKey_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\VirtualKey_HAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
     <PlatformIndependentLibs Include="Stream.$(LIB_EXT)" />
     <RequiredProjects Include="$(SPOCLIENT)\CLR\Core\Stream\dotNetMF.proj" />
   </ItemGroup>
@@ -423,32 +403,44 @@
     <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Pal\TouchPanel\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
-    <DriverLibs Include="FileSystem_Config_PAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\FileSystem_Config_PAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="TouchPanel_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\TouchPanel_HAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
-    <DriverLibs Include="TouchScreen_Config_HAL_anc_LPC1788.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\TouchScreen_Config_HAL\dotNetMF.proj" />
-  </ItemGroup>
-  <ItemGroup>
     <DriverLibs Include="Display_Font8x8.$(LIB_EXT)" />
     <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Drivers\Display\TextFonts\Font8x8\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
-    <DriverLibs Include="native_double_pal.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Double\dotNetMF.proj" />
-  </ItemGroup>
-    <ItemGroup>
-    <DriverLibs Include="LPC178X_CMSIS.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Targets\Native\LPC178X\DeviceCode\CMSIS\dotNetMF.proj" />
+    <DriverLibs Include="Backlight_GPIO_config_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\Backlight_GPIO_config_HAL\dotNetMF.proj" />
   </ItemGroup>
   <ItemGroup>
-    <DriverLibs Include="io_pal.$(LIB_EXT)" />
-    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\IO\dotNetMF.proj" />
+    <DriverLibs Include="BlockStorageAddDevices_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\BlockStorageAddDevices_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="BlockStorageConfig_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\BlockStorageConfig_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="LCD_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\LCD_HAL_7in\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="VirtualKey_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\VirtualKey_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="FileSystem_Config_PAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\FileSystem_Config_PAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="TouchPanel_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\TouchPanel_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="TouchScreen_Config_HAL_ANC.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\Solutions\ANC\DeviceCode\TouchScreen_Config_HAL\dotNetMF.proj" />
+  </ItemGroup>
+  <ItemGroup>
+    <DriverLibs Include="native_double_pal.$(LIB_EXT)" />
+    <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\PAL\Double\dotNetMF.proj" />
   </ItemGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

@@ -5,14 +5,14 @@
 //  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 //
 //  Copyright (c) Microsoft Corporation. All rights reserved.
-//  Implementation for anc_LPC1788 board (LPC178X): Copyright (c) Oberon microsystems, Inc.
+//  Implementation for ANC board (LPC178X): Copyright (c) Oberon microsystems, Inc.
 //
-//  anc_LPC1788-specific definitions
+//  ANC-specific definitions
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef _PLATFORM_anc_LPC1788_SELECTOR_H_
-#define _PLATFORM_anc_LPC1788_SELECTOR_H_ 1
+#ifndef _PLATFORM_ANC_SELECTOR_H_
+#define _PLATFORM_ANC_SELECTOR_H_ 1
 
 
 /////////////////////////////////////////////////////////
@@ -20,8 +20,8 @@
 // processor and features
 //
 
-#if defined(PLATFORM_ARM_anc_LPC1788)
-#define HAL_SYSTEM_NAME                     "anc_LPC1788"
+#if defined(PLATFORM_ARM_ANC)
+#define HAL_SYSTEM_NAME                     "ANC"
 
 
 //#define USB_ALLOW_CONFIGURATION_OVERRIDE  1
@@ -39,7 +39,7 @@
 //
 
 #define SYSTEM_CLOCK_HZ                 120000000
-#define SLOW_CLOCKS_PER_SECOND          SYSTEM_CLOCK_HZ
+#define SLOW_CLOCKS_PER_SECOND          120000000
 
 //#define CLOCK_COMMON_FACTOR             200000 // old value:  1000000
 //#define SLOW_CLOCKS_TEN_MHZ_GCD         400000 // old value: 10000000
@@ -54,10 +54,10 @@
 #define SYSTEM_CYCLE_CLOCK_HZ           (SYSTEM_CLOCK_HZ/2)
 #define LPC178X_UART_PCLK				(SYSTEM_CLOCK_HZ/2)
 
-#define FLASH_MEMORY_Base               0x80000000
-#define FLASH_MEMORY_Size               0x00400000
-#define SRAM1_MEMORY_Base               0xA0000000
-#define SRAM1_MEMORY_Size               0x04000000
+#define FLASH_MEMORY_Base   0x80000000
+#define FLASH_MEMORY_Size   0x00400000
+#define SRAM1_MEMORY_Base   0xA0000000
+#define SRAM1_MEMORY_Size   0x04000000
 
 #define TXPROTECTRESISTOR               RESISTOR_DISABLED
 #define RXPROTECTRESISTOR               RESISTOR_DISABLED
@@ -70,10 +70,10 @@
 #define USART_DEFAULT_PORT              COM3
 #define USART_DEFAULT_BAUDRATE          115200
 
-#define DEBUG_TEXT_PORT                 COM3
-#define STDIO                           COM3
-#define DEBUGGER_PORT                   COM3
-#define MESSAGING_PORT                  COM3
+#define DEBUG_TEXT_PORT    COM1
+#define STDIO              COM1
+#define DEBUGGER_PORT      COM1
+#define MESSAGING_PORT     COM1
 
 //#define LPC178X_USB_Attach_Pin_Direct     (16 + 5) // B5
 
@@ -161,9 +161,9 @@
 
 #include <processor_selector.h>
 
-#endif // PLATFORM_ARM_anc_LPC1788
+#endif // PLATFORM_ARM_ANC
 //
 // drivers
 /////////////////////////////////////////////////////////
 
-#endif // _PLATFORM_anc_LPC1788_SELECTOR_H_
+#endif // _PLATFORM_ANC_SELECTOR_H_

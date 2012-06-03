@@ -1,19 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>Backlight_GPIO_config_HAL_anc_LPC1788</AssemblyName>
-    <Directory>Solutions\anc_LPC1788\DeviceCode\Backlight_GPIO_config_HAL</Directory>
+    <AssemblyName>VirtualKey_HAL_ANC</AssemblyName>
+    <ProjectGuid>{61be0008-6f9b-4438-a448-58341f5f8682}</ProjectGuid>
     <Size>
     </Size>
-    <ProjectGuid>{3953A3B9-8161-432A-A54D-D725C38F2B57}</ProjectGuid>
-    <Description>Backlight GPIO anc_LPC1788 configuration library</Description>
+    <Description>Virtual key ANC library</Description>
     <Level>HAL</Level>
-    <LibraryFile>Backlight_GPIO_config_HAL_anc_LPC1788.$(LIB_EXT)</LibraryFile>
-    <ProjectPath>$(SPOCLIENT)\Solutions\anc_LPC1788\DeviceCode\Backlight_GPIO_config_HAL\dotNetMF.proj</ProjectPath>
-    <ManifestFile>Backlight_GPIO_config_HAL_anc_LPC1788.$(LIB_EXT).manifest</ManifestFile>
-    <Groups>Backlight</Groups>
+    <LibraryFile>VirtualKey_HAL_ANC.$(LIB_EXT)</LibraryFile>
+    <ProjectPath>$(SPOCLIENT)\Solutions\ANC\DeviceCode\VirtualKey_HAL\dotNetMF.proj</ProjectPath>
+    <ManifestFile>VirtualKey_HAL_ANC.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>VirtualKey</Groups>
     <LibraryCategory>
-      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Backlight_GPIO_config_HAL" Guid="{C7F4D6E8-A4E2-4B1C-9133-F8AD8B54581E}" ProjectPath="" Conditional="" xmlns="">
+      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="VirtualKey_HAL" Guid="{38306596-D3F6-49D2-95AD-C9D0C47C92D5}" ProjectPath="" Conditional="" xmlns="">
         <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
           <Major>4</Major>
           <Minor>0</Minor>
@@ -33,6 +32,7 @@
     <Required>False</Required>
     <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
     <IsStub>false</IsStub>
+    <Directory>Solutions\ANC\DeviceCode\VirtualKey_HAL</Directory>
     <OutputType>Library</OutputType>
     <PlatformIndependentBuild>false</PlatformIndependentBuild>
     <Version>4.0.0.0</Version>
@@ -40,10 +40,8 @@
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <PropertyGroup />
   <ItemGroup>
-    <Compile Include="GPIO_backlight_Config_anc_LPC1788.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <HFiles Include="$(SPOCLIENT)\devicecode\drivers\backlight\gpio\gpio_backlight.h" />
+    <Compile Include="virtualkey_ANC.cpp" />
+    <IncludePaths Include="DeviceCode\include" />
   </ItemGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

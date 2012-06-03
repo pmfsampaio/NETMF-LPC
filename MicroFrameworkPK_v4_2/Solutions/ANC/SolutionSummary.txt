@@ -1,19 +1,19 @@
-The .NET Micro Framework Solution Wizard will create the 'anc_LPC1788' solution in the directory:
+The .NET Micro Framework Solution Wizard will create the 'ANC' solution in the directory:
 
-	C:\MicroFrameworkPK_v4_2\\Solutions\anc_LPC1788
+	C:\MicroFrameworkPK_v4_2\\Solutions\ANC
 
 The following is a description of the components of this solution.  Each solution consists of a set of projects which in turn have a set of features and libraries.
 
-    Solution:                          	 anc_LPC1788
+    Solution:                          	 ANC
     Author:                            	 Pedro Sampaio
-    Description:                       	 anc_LPC1788 board solution
+    Description:                       	 LPC1788 Cortex M3 from NXP
     Processor:                         	 LPC178X
     Debugger Port:                     	 COM1
 
 
 Project tinyclr
     Description:                       	 
-    Path:                              	 Solutions\anc_LPC1788\TinyCLR
+    Path:                              	 Solutions\ANC\TinyCLR
 
 Features:
     Core:                              	 Core functionality (required)
@@ -113,11 +113,6 @@ Libraries:
     Buttons_pal_stubs:                 	 Buttons stub library
     SPOT_Messaging_stub:               	 Messaging interop stub library
     gpio_backlight:                    	 GPIO backlight library
-    Backlight_GPIO_config_HAL_anc_LPC1788:	 Backlight GPIO anc_LPC1788 configuration library
-    BlockStorageAddDevices_HAL_anc_LPC1788:	 Block storage add device anc_LPC1788 driver
-    BlockStorageConfig_HAL_anc_LPC1788:	 Block storage anc_LPC1788 config
-    LCD_HAL_anc_LPC1788:               	 Stub display driver
-    VirtualKey_HAL_anc_LPC1788:        	 Virtual key anc_LPC1788 library
     Stream:                            	 Generic stream functionality
     SPOT_IO:                           	 Stream interop library
     fs_pal:                            	 File system PAL Driver
@@ -127,8 +122,13 @@ Libraries:
     LPC178X_I2C:                       	 LPC178X I2C driver
     FS_FAT:                            	 FAT file system 
     TouchPanel_pal:                    	 Touch panel driver
-    FileSystem_Config_PAL_anc_LPC1788: 	 File system config anc_LPC1788
-    TouchPanel_HAL_anc_LPC1788:        	 Touch panel anc_LPC1788 library
-    TouchScreen_Config_HAL_anc_LPC1788:	 TouchPanel touch panel anc_LPC1788 configuration driver
     Display_Font8x8:                   	 Text Font (8x8 pixels)
+    Backlight_GPIO_config_HAL_ANC:     	 Backlight GPIO ANC configuration library
+    BlockStorageAddDevices_HAL_ANC:    	 Block storage add device ANC driver
+    BlockStorageConfig_HAL_ANC:        	 Block storage ANC config
+    LCD_HAL_ANC:                       	 Stub display driver
+    VirtualKey_HAL_ANC:                	 Virtual key ANC library
+    FileSystem_Config_PAL_ANC:         	 File system config ANC
+    TouchPanel_HAL_ANC:                	 Touch panel ANC library
+    TouchScreen_Config_HAL_ANC:        	 TouchPanel touch panel ANC configuration driver
     native_double_pal:                 	 Doubles Native PAL library

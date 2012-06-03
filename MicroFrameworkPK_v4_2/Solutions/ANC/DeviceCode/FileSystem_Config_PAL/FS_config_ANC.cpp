@@ -12,11 +12,11 @@ extern FILESYSTEM_DRIVER_INTERFACE g_FAT32_FILE_SYSTEM_DriverInterface;
 extern STREAM_DRIVER_INTERFACE     g_FAT32_STREAM_DriverInterface;
 extern BlockStorageDevice g_SST39VF640_16_BS;
 
-FileSystemVolume g_anc_LPC1788_FS;
+FileSystemVolume g_ANC_FS;
 
 void FS_AddVolumes()
 {
-    FileSystemVolumeList::AddVolume( &g_anc_LPC1788_FS, "ROOT", 0, 0, &g_FAT32_STREAM_DriverInterface, &g_FAT32_FILE_SYSTEM_DriverInterface, &g_SST39VF640_16_BS, 0, FALSE );
+    FileSystemVolumeList::AddVolume( &g_ANC_FS, "ROOT", 0, 0, &g_FAT32_STREAM_DriverInterface, &g_FAT32_FILE_SYSTEM_DriverInterface, &g_SST39VF640_16_BS, 0, FALSE );
 
 }
 

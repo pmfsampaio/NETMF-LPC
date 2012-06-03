@@ -96,7 +96,7 @@
 				<FileMapping Name="*" Options="(SectionForConfig)" />
 			</IfNotDefined>
 
-			<Include File="%SPOCLIENT%\Solutions\anc_LPC1788\scatterfile_gcc_missing_symbols.xml"/>
+			<Include File="%SPOCLIENT%\Solutions\ANC\scatterfile_gcc_missing_symbols.xml"/>
 
 		</ExecRegion>
 
