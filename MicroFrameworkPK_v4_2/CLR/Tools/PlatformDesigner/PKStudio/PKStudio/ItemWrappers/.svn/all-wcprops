@@ -1,0 +1,239 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/13466/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers
+END
+ISAWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ISAWrapper.cs
+END
+BuildToolParametersWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildToolParametersWrapper.cs
+END
+EnvVarsWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/EnvVarsWrapper.cs
+END
+VersionWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/VersionWrapper.cs
+END
+ToolOptionsWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ToolOptionsWrapper.cs
+END
+BuildToolRefWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildToolRefWrapper.cs
+END
+LibraryLevelWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/LibraryLevelWrapper.cs
+END
+BuildToolWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildToolWrapper.cs
+END
+MemorySymbolWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/MemorySymbolWrapper.cs
+END
+BuildFileWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/13466/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildFileWrapper.cs
+END
+EnvVarWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/EnvVarWrapper.cs
+END
+ComponentWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/13466/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ComponentWrapper.cs
+END
+MemoryMapWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/MemoryMapWrapper.cs
+END
+ToolFlagWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ToolFlagWrapper.cs
+END
+BuildToolDefineWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildToolDefineWrapper.cs
+END
+MiscBuildToolWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/MiscBuildToolWrapper.cs
+END
+BaseWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/13437/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BaseWrapper.cs
+END
+WeakCache.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/WeakCache.cs
+END
+MemoryRegionWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/MemoryRegionWrapper.cs
+END
+SolutionWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/SolutionWrapper.cs
+END
+ProcessorWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ProcessorWrapper.cs
+END
+AssemblyWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/AssemblyWrapper.cs
+END
+PropertyWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/PropertyWrapper.cs
+END
+BuildScriptWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildScriptWrapper.cs
+END
+ProjectTargetElementWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ProjectTargetElementWrapper.cs
+END
+FeatureWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/13437/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/FeatureWrapper.cs
+END
+CollectionWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/CollectionWrapper.cs
+END
+ToolChainOptionsWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ToolChainOptionsWrapper.cs
+END
+MemorySectionWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/MemorySectionWrapper.cs
+END
+InventoryWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/InventoryWrapper.cs
+END
+InventoryHelperWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/InventoryHelperWrapper.cs
+END
+BuildParameterWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/BuildParameterWrapper.cs
+END
+ComponentDescriptorWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ComponentDescriptorWrapper.cs
+END
+LibraryCategoryWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/!svn/ver/13437/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/LibraryCategoryWrapper.cs
+END
+LibraryWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/13437/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/LibraryWrapper.cs
+END
+ComponentTypeWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ComponentTypeWrapper.cs
+END
+ApiTemplateWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ApiTemplateWrapper.cs
+END
+ProjectWrapper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/12050/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ProjectWrapper.cs
+END
+ReferenceInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/12596/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/ItemWrappers/ReferenceInfo.cs
+END

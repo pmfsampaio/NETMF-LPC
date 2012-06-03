@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/12114/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base
+END
+OptionsForm.resx
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsForm.resx
+END
+OptionsForm.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsForm.designer.cs
+END
+OptionsSerialiser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsSerialiser.cs
+END
+OptionsForm.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/12114/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsForm.cs
+END
+OptionsControlBase.resx
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsControlBase.resx
+END
+OptionsBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsBase.cs
+END
+OptionsControlBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Forms/Options/Base/OptionsControlBase.cs
+END

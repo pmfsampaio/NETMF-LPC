@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser
+END
+TypedDictionary.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/TypedDictionary.cs
+END
+ParamCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/ParamCollection.cs
+END
+CmdCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/CmdCollection.cs
+END
+PKArgParserClasses.cd
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/PKArgParserClasses.cd
+END
+PKArgParser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/PKArgParser.cs
+END
+TypedCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/TypedCollection.cs
+END
+ArgCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/PKArgParser/ArgCollection.cs
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller
+END
+LineController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/LineController.cs
+END
+IController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/IController.cs
+END
+ILabelController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/ILabelController.cs
+END
+ConnectorController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/ConnectorController.cs
+END
+IResizeController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/IResizeController.cs
+END
+CommentBoxController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/CommentBoxController.cs
+END
+ControllerHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/ControllerHelper.cs
+END
+IMoveController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/IMoveController.cs
+END
+ElipseController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/ElipseController.cs
+END
+RightAngleLinkController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/RightAngleLinkController.cs
+END
+RectangleController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/RectangleController.cs
+END
+IControllable.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/element/controller/IControllable.cs
+END

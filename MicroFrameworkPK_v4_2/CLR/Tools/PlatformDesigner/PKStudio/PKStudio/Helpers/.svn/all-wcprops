@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/13498/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers
+END
+MSBuildHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/MSBuildHelper.cs
+END
+ListViewItemBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/ListViewItemBase.cs
+END
+MSBuildOutputLogger.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/12116/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/MSBuildOutputLogger.cs
+END
+VerificationHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/VerificationHelper.cs
+END
+EditorsFormsController.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/13498/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/EditorsFormsController.cs
+END
+ErrorsAndWarningsList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/ErrorsAndWarningsList.cs
+END
+ILoggable.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/ILoggable.cs
+END
+OpenedDocumentsList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Helpers/OpenedDocumentsList.cs
+END

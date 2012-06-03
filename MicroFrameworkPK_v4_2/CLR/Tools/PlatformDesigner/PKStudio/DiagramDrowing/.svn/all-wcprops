@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/13774/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing
+END
+Designer.resx
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/Designer.resx
+END
+Document.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/Document.cs
+END
+EditLabelAction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/EditLabelAction.cs
+END
+Diagram.NET.csproj.vspscc
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/Diagram.NET.csproj.vspscc
+END
+Diagram.NET.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/13774/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/Diagram.NET.csproj
+END
+GeneralEnuns.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/GeneralEnuns.cs
+END
+IContainer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/IContainer.cs
+END
+AssemblyInfo.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/11513/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/AssemblyInfo.cs
+END
+DesignerAction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/DesignerAction.cs
+END
+ResizeAction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/ResizeAction.cs
+END
+UndoManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/11513/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/UndoManager.cs
+END
+Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/11513/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/Designer.cs
+END
+DiagramUtil.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/DiagramUtil.cs
+END
+MoveAction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/MoveAction.cs
+END
+ElementCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/ElementCollection.cs
+END
+Dalssoft.DiagramNet license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/11754/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/DiagramDrowing/Dalssoft.DiagramNet%20license.txt
+END

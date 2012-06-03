@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="IDS_ALREADY_EXIST" xml:space="preserve">
+    <value>already exist.</value>
+  </data>
+  <data name="IDS_ANALYSE_LINKS" xml:space="preserve">
+    <value>Analyse links...</value>
+  </data>
+  <data name="IDS_ANALYSE_LYBRARIES_LINKS" xml:space="preserve">
+    <value>Analyse libraries links...</value>
+  </data>
+  <data name="IDS_ANALYSE_OBJECTS_LINKS" xml:space="preserve">
+    <value>Analyse objects links...</value>
+  </data>
+  <data name="IDS_BUILDING" xml:space="preserve">
+    <value>Building...</value>
+  </data>
+  <data name="IDS_BUILD_ERROR" xml:space="preserve">
+    <value>Can't build project</value>
+  </data>
+  <data name="IDS_CHECK_LINKS" xml:space="preserve">
+    <value>Check links...</value>
+  </data>
+  <data name="IDS_CONVERTED" xml:space="preserve">
+    <value>converted</value>
+  </data>
+  <data name="IDS_CONVERTING_PROJECT" xml:space="preserve">
+    <value>Converting project</value>
+  </data>
+  <data name="IDS_CONVERTING_STARTED" xml:space="preserve">
+    <value>Convert started</value>
+  </data>
+  <data name="IDS_CONVERTION_COMPLITED" xml:space="preserve">
+    <value>Convert completed</value>
+  </data>
+  <data name="IDS_CONVERT_COLPETED" xml:space="preserve">
+    <value>Convert comleted</value>
+  </data>
+  <data name="IDS_CONVERT_FAILED" xml:space="preserve">
+    <value>Convert failed</value>
+  </data>
+  <data name="IDS_CREATING_FILE_LIST" xml:space="preserve">
+    <value>Creating file list...</value>
+  </data>
+  <data name="IDS_CREATING_PROJECT_TREE" xml:space="preserve">
+    <value>Creating project tree...</value>
+  </data>
+  <data name="IDS_CREATING_TARGETS" xml:space="preserve">
+    <value>Creating targets...</value>
+  </data>
+  <data name="IDS_DESCRIPTION_FIELD_EMPTY" xml:space="preserve">
+    <value>Description field is empty.</value>
+  </data>
+  <data name="IDS_DONE" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="IDS_ERROR" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="IDS_ERROR_CANT_FIND_COMPILE_FILE_OPTIONS" xml:space="preserve">
+    <value>Can't find compile file options.</value>
+  </data>
+  <data name="IDS_ERROR_CANT_FIND_LIBRARY_FILE_OPTIONS" xml:space="preserve">
+    <value>Can't find library file options.</value>
+  </data>
+  <data name="IDS_ERROR_CANT_FIND_PROPERTY" xml:space="preserve">
+    <value>Can't find property</value>
+  </data>
+  <data name="IDS_ERROR_CANT_PASRSE_LINK" xml:space="preserve">
+    <value>Link parsing error</value>
+  </data>
+  <data name="IDS_ERROR_CANT_READ_FILE" xml:space="preserve">
+    <value>Can't read file.</value>
+  </data>
+  <data name="IDS_ERROR_FAIL_LINK_ANALYSE" xml:space="preserve">
+    <value>Link analyse failed</value>
+  </data>
+  <data name="IDS_ERROR_INTERNAL" xml:space="preserve">
+    <value>Internal error.</value>
+  </data>
+  <data name="IDS_ERROR_INVALID_PATH" xml:space="preserve">
+    <value>Invalid path.</value>
+  </data>
+  <data name="IDS_ERROR_SELECT_PROCESSOR" xml:space="preserve">
+    <value>Select processor.</value>
+  </data>
+  <data name="IDS_ERROR_SELECT_PROJECT" xml:space="preserve">
+    <value>Select one or more projects.</value>
+  </data>
+  <data name="IDS_ERROR_WRONG_FILE_FORMAT" xml:space="preserve">
+    <value>Wrong file format.</value>
+  </data>
+  <data name="IDS_EXIT" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="IDS_FILE" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="IDS_FILES" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="IDS_MISSING" xml:space="preserve">
+    <value>missing.</value>
+  </data>
+  <data name="IDS_NAME_FIELD_EMPTY" xml:space="preserve">
+    <value>Name field is empty.</value>
+  </data>
+  <data name="IDS_NOT_SUPPORTED_TOOL" xml:space="preserve">
+    <value>Tool is not supported</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_CONVERTING" xml:space="preserve">
+    <value>Converting project...</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_INTRO" xml:space="preserve">
+    <value>Intro bla bla bla.</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_RESULTS" xml:space="preserve">
+    <value>Results of convertation.</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_SELECT_DIRECTORY" xml:space="preserve">
+    <value>Select directory for solution.</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_SELECT_PROCESSOR" xml:space="preserve">
+    <value>Select processor settings for uVision project.</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_SELECT_PROJECT" xml:space="preserve">
+    <value>Select Projects and their configuration to add in uVision solution.</value>
+  </data>
+  <data name="IDS_PAGE_DESCRIPTION_SUMMARY" xml:space="preserve">
+    <value>Summary information about convertation.</value>
+  </data>
+  <data name="IDS_PAGE_NAME_CONVERTING" xml:space="preserve">
+    <value>Converting</value>
+  </data>
+  <data name="IDS_PAGE_NAME_INTRO" xml:space="preserve">
+    <value>Intro</value>
+  </data>
+  <data name="IDS_PAGE_NAME_RESULTS" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="IDS_PAGE_NAME_SELECT_DIRECTORY" xml:space="preserve">
+    <value>Select directory</value>
+  </data>
+  <data name="IDS_PAGE_NAME_SELECT_PROCESSOR" xml:space="preserve">
+    <value>Processor settings</value>
+  </data>
+  <data name="IDS_PAGE_NAME_SELECT_PROJECT" xml:space="preserve">
+    <value>Select projects and configurations</value>
+  </data>
+  <data name="IDS_PAGE_NAME_SUMMARY" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="IDS_PROJECT" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="IDS_SELECT_DIRECTORY" xml:space="preserve">
+    <value>Select directory for solution.</value>
+  </data>
+  <data name="IDS_TARGETS" xml:space="preserve">
+    <value>Targets</value>
+  </data>
+  <data name="IDS_WRITING_FILES" xml:space="preserve">
+    <value>Writing files...</value>
+  </data>
+  <data name="IDS_WRONG_FILE_FORMAT" xml:space="preserve">
+    <value>Wrong file format</value>
+  </data>
+</root>

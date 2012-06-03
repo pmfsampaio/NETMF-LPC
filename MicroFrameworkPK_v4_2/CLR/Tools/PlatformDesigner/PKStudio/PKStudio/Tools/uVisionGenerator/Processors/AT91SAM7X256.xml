@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TargetOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>AT91SAM7X256</Name>
+  <Description>Default settings</Description>
+  <ToolType>ARM_ADS</ToolType>
+  <Device>AT91SAM7X256</Device>
+  <Vendor>Atmel</Vendor>
+  <Cpu>IRAM(0x200000-0x20FFFF) IROM(0x100000-0x13FFFF) CLOCK(18432000) CPUTYPE(ARM7TDMI)</Cpu>
+  <FlashUt />
+  <StupF>"STARTUP\Atmel\SAM7.s" ("Atmel AT91SAM7 Startup Code")</StupF>
+  <FlashDR>UL2ARM(-U56240812 -O15 -S0 -C0 -FO7 -FD200000 -FC800 -FN1 -FF0AT91SAM7_256 -FS0100000 -FL040000)</FlashDR>
+  <DevID>4081</DevID>
+  <Rgf>AT91SAM7X256.H</Rgf>
+  <Mem />
+  <C />
+  <A />
+  <RL />
+  <OH />
+  <DBC_IFX />
+  <DBC_CMS />
+  <DBC_AMS />
+  <DBC_LMS />
+  <UseEnv>0</UseEnv>
+  <EnvBin />
+  <EnvInc />
+  <EnvLib />
+  <EnvReg>Atmel\SAM7X\</EnvReg>
+  <OrgReg>Atmel\SAM7X\</OrgReg>
+  <TgStat>16</TgStat>
+  <OutDir>.\</OutDir>
+  <OutName>AT91SAM7X256</OutName>
+  <GenApp>ENABLED</GenApp>
+  <GenLib>DISABLED</GenLib>
+  <GenHex>0</GenHex>
+  <Debug>1</Debug>
+  <Browse>1</Browse>
+  <LstDir>.\</LstDir>
+  <HexSel>1</HexSel>
+  <MG32K>0</MG32K>
+  <TGMORE>0</TGMORE>
+  <RunUsr_0>
+    <Run>DISABLED</Run>
+    <Command />
+  </RunUsr_0>
+  <RunUsr_1>
+    <Run>DISABLED</Run>
+    <Command />
+  </RunUsr_1>
+  <BrunUsr_0>
+    <Run>DISABLED</Run>
+    <Command />
+  </BrunUsr_0>
+  <BrunUsr_1>
+    <Run>DISABLED</Run>
+    <Command />
+  </BrunUsr_1>
+  <CrunUsr_0>
+    <Run>DISABLED</Run>
+    <Command />
+  </CrunUsr_0>
+  <CrunUsr_1>
+    <Run>DISABLED</Run>
+    <Command />
+  </CrunUsr_1>
+  <SVCSID />
+  <GLFLAGS>1790</GLFLAGS>
+  <ADSFLGA>243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ADSFLGA>
+  <ACPUTYP>ARM7TDMI</ACPUTYP>
+  <RVDEV />
+  <ADSTFLGA>0,12,0,2,99,0,64,66,0,0,0,0,0,0,0,0,0,0,0,0</ADSTFLGA>
+  <OCMADSOCM>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</OCMADSOCM>
+  <OCMADSIRAM>0,0,0,32,0,0,0,1,0</OCMADSIRAM>
+  <OCMADSIROM>1,0,0,16,0,0,0,4,0</OCMADSIROM>
+  <OCMADSXRAM>0,0,0,0,0,0,0,0,0</OCMADSXRAM>
+  <OCR_RVCT>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,16,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,0,0,1,0,0,0,0,0,0,0,0,0,0</OCR_RVCT>
+  <RV_STAVEC />
+  <ADSCCFLG>
+    <ARM_Thumb_Interworking>ENABLED</ARM_Thumb_Interworking>
+    <Optimisation>Level0</Optimisation>
+    <Optimize_for_time>DISABLED</Optimize_for_time>
+    <Split_Load_and_Store_Multiple>DISABLED</Split_Load_and_Store_Multiple>
+    <One_EFL_Section_per_Function>DISABLED</One_EFL_Section_per_Function>
+    <Strict_ANSI_C>DISABLED</Strict_ANSI_C>
+    <Enum_Container_always_int>DISABLED</Enum_Container_always_int>
+    <Plain_Char_is_Signed>DISABLED</Plain_Char_is_Signed>
+    <ReadOnly_Position_Independent>DISABLED</ReadOnly_Position_Independent>
+    <ReadWrite_Position_Independent>DEFAULT</ReadWrite_Position_Independent>
+    <Warnings>Unspecified</Warnings>
+    <Thumb_Mode>DISABLED</Thumb_Mode>
+  </ADSCCFLG>
+  <ADSCMISC />
+  <ADSCDEFN />
+  <ADSCUDEF />
+  <ADSCINCD />
+  <ADSASFLG>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ADSASFLG>
+  <ADSAMISC />
+  <ADSADEFN />
+  <ADSAUDEF />
+  <ADSAINCD />
+  <PropFld>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</PropFld>
+  <IncBld>ENABLED</IncBld>
+  <AlwaysBuild>DISABLED</AlwaysBuild>
+  <GenAsm>DISABLED</GenAsm>
+  <AsmAsm>DISABLED</AsmAsm>
+  <PublicsOnly>DISABLED</PublicsOnly>
+  <StopCode>ExitCode_GE_3</StopCode>
+  <CustArgs />
+  <LibMods />
+  <ADSLDFG>17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</ADSLDFG>
+  <ADSLDTA>0x00100000</ADSLDTA>
+  <ADSLDDA>0x00200000</ADSLDDA>
+  <ADSLDSC />
+  <ADSLDIB />
+  <ADSLDIC />
+  <ADSLDMC />
+  <ADSLDIF />
+  <ADSLDDW />
+  <OPTDL>(SARM.DLL)(-cAT91SAM7X)(DARMATS.DLL)(-p91SAM7X256)(SARM.DLL)()(TARMATS.DLL)(-p91SAM7X256)</OPTDL>
+  <OPTDBG>48125,0,()()()()()()()()()() ()()()()</OPTDBG>
+  <FLASH1>9,0,0,0,0,0,0,0,255,255,255,255,0,0,0,0,0,0,0,0</FLASH1>
+  <FLASH2>BIN\UL2ARM.DLL</FLASH2>
+  <FLASH3 />
+  <FLASH4 />
+</TargetOptions>

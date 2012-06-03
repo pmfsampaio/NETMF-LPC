@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PKParser.Arg.CmdCollection">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PKArgParser\CmdCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKParser.Arg.PKArgParser">
+    <Position X="7.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="PKParser.Arg.PKArgParser.StringParser">
+        <TypeIdentifier>
+          <NewMemberFileName>PKArgParser\PKArgParser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="PKParser.Arg.PKArgParser.ArmasmStringParser">
+        <TypeIdentifier>
+          <NewMemberFileName>PKArgParser\PKArgParser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="PKParser.Arg.PKArgParser.LinkerStringParser">
+        <TypeIdentifier>
+          <NewMemberFileName>PKArgParser\PKArgParser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="PKParser.Arg.PKArgParser.ArchiverStringParser">
+        <TypeIdentifier>
+          <NewMemberFileName>PKArgParser\PKArgParser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="PKParser.Arg.PKArgParser.ArmccStringParser">
+        <TypeIdentifier>
+          <NewMemberFileName>PKArgParser\PKArgParser.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAEAAAAAAAAAAAAAgAAQAAEAAAAACgAAAAABAAIA=</HashCode>
+      <FileName>PKArgParser\PKArgParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKParser.Arg.ParamCollection">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>PKArgParser\ParamCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKParser.Arg.ArgCollection">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PKArgParser\ArgCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKParser.Arg.TypedCollection&lt;T&gt;">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAAAAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>PKArgParser\TypedCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKParser.Arg.TypedDictionary&lt;K, T&gt;">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAAAAAAAAAAAACAAAAAQAAAAAAAAAAAAgAAAQAAA=</HashCode>
+      <FileName>PKArgParser\TypedDictionary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

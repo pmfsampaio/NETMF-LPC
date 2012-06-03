@@ -1,0 +1,52 @@
+Connecting to COM9...Connected
+.NetMF v4.2.0.0
+plak1a_LPC2478, Build Date:
+	Dec 30 2011 17:10:50
+GNU Compiler version 4
+
+TinyCLR (Build 4.2.0.0)
+
+Starting...
+Created EE.
+Started Hardware.
+Found debugger!
+Create TS.
+ Loading start at a007a760, end a009a624
+Attaching file.
+Attaching file.
+Attaching file.
+Attaching file.
+Attaching file.
+Attaching file.
+Attaching file.
+Loading Deployment Assemblies.
+Attaching deployed file.
+Resolving.
+GC: 2msec 14052 bytes used, 1034448 bytes available
+Type 0F (STRING              ):     24 bytes
+Type 15 (FREEBLOCK           ): 1034448 bytes
+Type 17 (ASSEMBLY            ):  13956 bytes
+Type 34 (APPDOMAIN_HEAD      ):     72 bytes
+GC: performing heap compaction...
+Ready.
+Hello World!
+Done.
+Waiting for debug commands...
+DeviceInfo:
+  HAL build info: 4.2.0.0, Microsoft Copyright (C) Microsoft Corporation.  All rig
+  OEM Product codes (vendor, model, SKU): 255, 0, 65535
+  Serial Numbers (module, system):
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+  Solution Build Info: 4.2.0.0, Microsoft Copyright (C) Microsoft Corporation.  All rig
+  AppDomains:
+    default, id=1
+  Assemblies:
+    mscorlib,4.2.0.0
+    Microsoft.SPOT.Native,4.2.0.0
+    Microsoft.SPOT.Hardware,4.2.0.0
+    Microsoft.SPOT.Hardware.SerialPort,4.2.0.0
+    Microsoft.SPOT.Graphics,4.2.0.0
+    Microsoft.SPOT.TinyCore,4.2.0.0
+    Microsoft.SPOT.Touch,4.2.0.0
+    MFConsoleApplication1,1.0.0.0

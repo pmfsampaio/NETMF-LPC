@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="FeatureList" xml:space="preserve">
+    <value>FeatureList</value>
+  </data>
+  <data name="InvalidPkDirectory" xml:space="preserve">
+    <value>InvalidPkDirectory</value>
+  </data>
+  <data name="LoadingSolutions" xml:space="preserve">
+    <value>LoadingSolutions</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ProjectPath" xml:space="preserve">
+    <value>ProjectPath</value>
+  </data>
+  <data name="SelectToViewDescr" xml:space="preserve">
+    <value>SelectToViewDescr</value>
+  </data>
+  <data name="SolutionList" xml:space="preserve">
+    <value>SolutionList</value>
+  </data>
+  <data name="Solutions" xml:space="preserve">
+    <value>Solutions</value>
+  </data>
+  <data name="SolutionWizard" xml:space="preserve">
+    <value>SolutionWizard</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="DeleteFeatureAssociation" xml:space="preserve">
+    <value>Delete Feature Association</value>
+  </data>
+  <data name="SaveLibraryCategory" xml:space="preserve">
+    <value>Save Library Category</value>
+  </data>
+  <data name="Unsaved" xml:space="preserve">
+    <value>You have unsaved changes in</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="DeleteDependency" xml:space="preserve">
+    <value>Delete Dependency</value>
+  </data>
+  <data name="CloneLibraryCategory" xml:space="preserve">
+    <value>Clone Library category</value>
+  </data>
+  <data name="NewLibraryCategory" xml:space="preserve">
+    <value>New Library category</value>
+  </data>
+  <data name="Flags" xml:space="preserve">
+    <value>Flags</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="StubLibrary" xml:space="preserve">
+    <value>Stub library</value>
+  </data>
+  <data name="AlreadyExist" xml:space="preserve">
+    <value>already exist</value>
+  </data>
+  <data name="FeatureAssociations" xml:space="preserve">
+    <value>Feature associations</value>
+  </data>
+  <data name="Library" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="LibraryProjCache" xml:space="preserve">
+    <value>Library Proj Cache</value>
+  </data>
+  <data name="Templates" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="DeleteLibrary" xml:space="preserve">
+    <value>Delete Library</value>
+  </data>
+  <data name="DeleteLibraryCategory" xml:space="preserve">
+    <value>Delete Library Category</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="LibraryCategory" xml:space="preserve">
+    <value>Library category</value>
+  </data>
+  <data name="VoidDirectoryField" xml:space="preserve">
+    <value>Directory is void</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Dependencies" xml:space="preserve">
+    <value>Dependencies</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Feature" xml:space="preserve">
+    <value>Feature</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ISA" xml:space="preserve">
+    <value>ISA</value>
+  </data>
+  <data name="ISASpecific" xml:space="preserve">
+    <value>ISA Specific</value>
+  </data>
+  <data name="Processor" xml:space="preserve">
+    <value>Processor</value>
+  </data>
+  <data name="ProcessorSpecific" xml:space="preserve">
+    <value>Processor Specific</value>
+  </data>
+  <data name="ComponentDependencies" xml:space="preserve">
+    <value>Component dependencies</value>
+  </data>
+  <data name="FeatureDependencies" xml:space="preserve">
+    <value>Feature dependencies</value>
+  </data>
+  <data name="AnaliseFinished" xml:space="preserve">
+    <value>Analise finished</value>
+  </data>
+  <data name="AnaliseStarted" xml:space="preserve">
+    <value>Analise started</value>
+  </data>
+  <data name="MFProject" xml:space="preserve">
+    <value>MFProject</value>
+  </data>
+  <data name="ALL" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="FindAll" xml:space="preserve">
+    <value>Find all</value>
+  </data>
+  <data name="IN" xml:space="preserve">
+    <value>in</value>
+  </data>
+  <data name="MatchingComponents" xml:space="preserve">
+    <value>Matching Components</value>
+  </data>
+  <data name="OF" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="SearchInFeatures" xml:space="preserve">
+    <value>Search in Features</value>
+  </data>
+  <data name="SearchInLibraries" xml:space="preserve">
+    <value>Search in Libraries</value>
+  </data>
+  <data name="SearchInLibraryCategories" xml:space="preserve">
+    <value>Search in LibraryCategories</value>
+  </data>
+  <data name="TotalComponentsSearched" xml:space="preserve">
+    <value>Total Components searched</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="AutoHide" xml:space="preserve">
+    <value>Auto Hide</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CloseAllButThis" xml:space="preserve">
+    <value>Close All But This</value>
+  </data>
+  <data name="Dock" xml:space="preserve">
+    <value>Dock</value>
+  </data>
+  <data name="DockAsTabbed" xml:space="preserve">
+    <value>Dock as Tabbed Document</value>
+  </data>
+  <data name="Float" xml:space="preserve">
+    <value>Float</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="OpenContainingFolder" xml:space="preserve">
+    <value>Open Containing Folder</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="Started" xml:space="preserve">
+    <value>Started</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="BuildProgress" xml:space="preserve">
+    <value>Build Progress</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="IDS_NOT_IMPLEMENTED" xml:space="preserve">
+    <value>Not implemented</value>
+  </data>
+  <data name="IDS_SET_ENV_ERROR_VS10_MISSING" xml:space="preserve">
+    <value>WARNING: VISUAL C++ 10.0 is not installed on this machine</value>
+  </data>
+  <data name="IDS_SET_ENV_ERROR_VS9_MISSING" xml:space="preserve">
+    <value>WARNING: VISUAL C++ 9.0 is not installed on this machine</value>
+  </data>
+  <data name="ConsoleError" xml:space="preserve">
+    <value>Console Error</value>
+  </data>
+  <data name="ENVIRONMENT" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="ERROR_CANT_LOAD_OPTIONS" xml:space="preserve">
+    <value>Can't load options</value>
+  </data>
+  <data name="ERROR_CANT_SAVE_OPTIONS" xml:space="preserve">
+    <value>Can't save options</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="PK_VERSION_OPTION" xml:space="preserve">
+    <value>Porting Kit version</value>
+  </data>
+</root>

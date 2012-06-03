@@ -1,0 +1,18 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Author>
+    </Author>
+    <Description>Freescale K60</Description>
+    <Documentation>
+    </Documentation>
+    <PlatformGuid>{c83de4e7-8f58-4edb-9a04-0216f6437e39}</PlatformGuid>
+    <TARGETPLATFORM>K60</TARGETPLATFORM>
+    <PLATFORM>K60</PLATFORM>
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <ENDIANNESS>le</ENDIANNESS>
+  </PropertyGroup>
+  <ItemGroup>
+    <IncludePaths Include="Solutions\K60" />
+  </ItemGroup>
+  <Import Project="$(SPOCLIENT)\devicecode\Targets\Native\K60\K60.settings" />
+</Project>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/12076/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses
+END
+Options.cs
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/12076/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses/Options.cs
+END
+Group.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses/Group.cs
+END
+uVisionMultiProjectWorkspace.cs
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses/uVisionMultiProjectWorkspace.cs
+END
+File.cs
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses/File.cs
+END
+uVisionProject.cs
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses/uVisionProject.cs
+END
+Target.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/11553/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Classes/uvProjectClasses/Target.cs
+END

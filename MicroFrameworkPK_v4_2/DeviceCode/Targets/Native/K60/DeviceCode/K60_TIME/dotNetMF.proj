@@ -1,0 +1,51 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{D8D40DC4-9207-11E0-BE19-AB1E4924019B}</ProjectGuid>
+    <AssemblyName>K60_TIME</AssemblyName>
+    <ProjectPath>$(SPOCLIENT)\DeviceCode\Targets\Native\K60\DeviceCode\K60_TIME\dotNetMF.proj</ProjectPath>
+    <Size>
+    </Size>
+    <Description>K60 time driver</Description>
+    <Level>HAL</Level>
+    <LibraryFile>K60_TIME.$(LIB_EXT)</LibraryFile>
+    <ManifestFile>K60_TIME.$(LIB_EXT).manifest</ManifestFile>
+    <Groups>Processor\K60</Groups>
+    <LibraryCategory>
+      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Time_HAL" Guid="{07F2DCA4-8F81-11E0-8391-D5D64824019B}" ProjectPath="" Conditional="" xmlns="">
+        <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
+          <Major>4</Major>
+          <Minor>0</Minor>
+          <Revision>0</Revision>
+          <Build>0</Build>
+          <Extra />
+          <Date>2009-04-30</Date>
+          <Author>Microsoft</Author>
+        </VersionDependency>
+        <ComponentType xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">LibraryCategory</ComponentType>
+      </MFComponent>
+    </LibraryCategory>
+    <Documentation>
+    </Documentation>
+    <PlatformIndependent>False</PlatformIndependent>
+    <Required>False</Required>
+    <IgnoreDefaultLibPath>False</IgnoreDefaultLibPath>
+    <IsStub>False</IsStub>
+    <HasLibraryCategory>True</HasLibraryCategory>    
+    <IsSolutionWizardVisible>True</IsSolutionWizardVisible>
+    <Directory>DeviceCode\Targets\Native\K60\DeviceCode\K60_TIME</Directory>
+    <PlatformIndependentBuild>false</PlatformIndependentBuild>
+    <Version>4.0.0.0</Version>
+  </PropertyGroup>
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <PropertyGroup>
+    <OutputType >Library</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <HFiles Include="..\K60.h" />    
+    <Compile Include="K60_TIME.cpp" />
+   </ItemGroup>
+  <PropertyGroup>
+    <ARMBUILD_ONLY>true</ARMBUILD_ONLY>
+  </PropertyGroup> 
+  <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
+</Project>

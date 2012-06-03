@@ -92,7 +92,7 @@
     <AS_FLAGS Condition="'$(INSTRUCTION_SET)'=='arm'"     >$(AS_FLAGS) --defsym COMPILE_ARM=1</AS_FLAGS>
     <AS_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb' and '$(COMPILER_TOOL_VERSION)'=='GCCOP4.2'">$(AS_FLAGS) --defsym COMPILE_THUMB=1 -mthumb</AS_FLAGS>
     <AS_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb' and '$(COMPILER_TOOL_VERSION)'!='GCCOP4.2'">$(AS_FLAGS) --defsym COMPILE_THUMB=1 -mthumb-interwork</AS_FLAGS>
-    <AS_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb2'"  >$(AS_FLAGS) --defsym COMPILE_THUMB2=1</AS_FLAGS>
+    <AS_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb2'"  >$(AS_FLAGS)  -D__thumb2__=1 -mthumb --defsym COMPILE_THUMB2=1</AS_FLAGS>
 
     <!-- Assembler flags -->
     <!-- TODO: There are no string macros in the GDD assembler, so this must be done another way
@@ -134,7 +134,7 @@
     <CC_CPP_COMMON_FLAGS Condition="'$(INSTRUCTION_SET)'=='arm'"     >$(CC_CPP_COMMON_FLAGS) -DCOMPILE_ARM </CC_CPP_COMMON_FLAGS>
     <CC_CPP_COMMON_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb' and '$(COMPILER_TOOL_VERSION)'=='GCCOP4.2'"   >$(CC_CPP_COMMON_FLAGS) -DCOMPILE_THUMB </CC_CPP_COMMON_FLAGS>
     <CC_CPP_COMMON_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb' and '$(COMPILER_TOOL_VERSION)'!='GCCOP4.2'"   >$(CC_CPP_COMMON_FLAGS) -mthumb-interwork -DCOMPILE_THUMB </CC_CPP_COMMON_FLAGS>
-    <CC_CPP_COMMON_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb2'"  >$(CC_CPP_COMMON_FLAGS) -DCOMPILE_THUMB2 </CC_CPP_COMMON_FLAGS>
+    <CC_CPP_COMMON_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb2'"  >$(CC_CPP_COMMON_FLAGS) -mthumb -march=armv7-m -DCOMPILE_THUMB2 </CC_CPP_COMMON_FLAGS>
     <CC_CPP_COMMON_FLAGS Condition="'$(INSTRUCTION_SET)'=='thumb' and '$(ARMBUILD_ONLY)'!='true' "   >$(CC_CPP_COMMON_FLAGS) -mthumb </CC_CPP_COMMON_FLAGS>    
 
     <CC_CPP_COMMON_FLAGS Condition="'$(FLAVOR)'=='Instrumented' and '$(NATIVE_PROFILE_CLR)'!=''">$(CC_CPP_COMMON_FLAGS) -DNATIVE_PROFILE_CLR=$(NATIVE_PROFILE_CLR)</CC_CPP_COMMON_FLAGS>

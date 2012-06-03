@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/13774/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls
+END
+GifDecoder.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/GifDecoder.cs
+END
+BitmapHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/BitmapHelper.cs
+END
+key.snk
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/key.snk
+END
+TimeCounter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/TimeCounter.cs
+END
+NumericTextBox.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/NumericTextBox.cs
+END
+TextHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/TextHelper.cs
+END
+Aga.Controls.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/13774/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/Aga.Controls.csproj
+END
+Aga.Controls.csproj.vspscc
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/Aga.Controls.csproj.vspscc
+END
+Aga.Controls license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/11754/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/Aga.Controls%20license.txt
+END
+Migrated rules for Aga.Controls.ruleset
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/Migrated%20rules%20for%20Aga.Controls.ruleset
+END
+PerformanceAnalyzer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/PerformanceAnalyzer.cs
+END
+ResourceHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/ResourceHelper.cs
+END
+StringCollectionEditor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/Aga.Controls/StringCollectionEditor.cs
+END

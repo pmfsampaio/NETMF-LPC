@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/12078/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages
+END
+ProcessorPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/!svn/ver/12078/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ProcessorPage.Designer.cs
+END
+ProcessorPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/12076/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ProcessorPage.cs
+END
+SelectProjectPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SelectProjectPage.resx
+END
+BasePage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/BasePage.resx
+END
+ErrorPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ErrorPage.Designer.cs
+END
+ErrorPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ErrorPage.cs
+END
+ResultPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ResultPage.resx
+END
+SelectPathPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SelectPathPage.Designer.cs
+END
+SummaryPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SummaryPage.Designer.cs
+END
+SummaryPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SummaryPage.cs
+END
+SettingsPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SettingsPage.Designer.cs
+END
+RichTextBoxEx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/RichTextBoxEx.cs
+END
+ProjectsAndConfigurationsPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ProjectsAndConfigurationsPage.resx
+END
+SelectProjectPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SelectProjectPage.cs
+END
+IntroPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/IntroPage.resx
+END
+SelectPathPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SelectPathPage.resx
+END
+BasePage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/BasePage.cs
+END
+ResultPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ResultPage.cs
+END
+ProjectsAndConfigurationsPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ProjectsAndConfigurationsPage.Designer.cs
+END
+ConvertationPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ConvertationPage.resx
+END
+ProjectsAndConfigurationsPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ProjectsAndConfigurationsPage.cs
+END
+IntroPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/IntroPage.Designer.cs
+END
+IntroPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/IntroPage.cs
+END
+ProcessorPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/!svn/ver/12078/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ProcessorPage.resx
+END
+SelectPathPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SelectPathPage.cs
+END
+SettingsPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SettingsPage.cs
+END
+SelectProjectPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SelectProjectPage.Designer.cs
+END
+SummaryPage.resx
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/SummaryPage.resx
+END
+BasePage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/BasePage.Designer.cs
+END
+ConvertationPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ConvertationPage.Designer.cs
+END
+ConvertationPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ConvertationPage.cs
+END
+ResultPage.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/!svn/ver/11427/client_v4_2_comm/CLR/Tools/PlatformDesigner/PKStudio/PKStudio/Tools/uVisionGenerator/Wizard/Pages/ResultPage.Designer.cs
+END

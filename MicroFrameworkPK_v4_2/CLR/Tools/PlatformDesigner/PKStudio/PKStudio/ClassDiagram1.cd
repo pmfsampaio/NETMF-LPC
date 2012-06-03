@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PKStudio.Forms.Explorers.SolutionExplorer">
+    <Position X="0.5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAf0oACAIAwCBAACAiAACgMAMiIgAAgEAgEGAAAA=</HashCode>
+      <FileName>Forms\Explorers\SolutionExplorer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.BaseForms.BasePKInventoryForm">
+    <Position X="4.75" Y="5.25" Width="3" />
+    <NestedTypes>
+      <Enum Name="PKStudio.Forms.BaseForms.BasePKInventoryForm.GenerateTypes" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\BaseForms\BasePKInventoryForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Delegate Name="PKStudio.Forms.BaseForms.BasePKInventoryForm.ShowPropertiesEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\BaseForms\BasePKInventoryForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PKStudio.Forms.BaseForms.BasePKInventoryForm.ShowReferencesDiagramEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\BaseForms\BasePKInventoryForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PKStudio.Forms.BaseForms.BasePKInventoryForm.EditEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\BaseForms\BasePKInventoryForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PKStudio.Forms.BaseForms.BasePKInventoryForm.GenerateEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\BaseForms\BasePKInventoryForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PKStudio.Forms.BaseForms.BasePKInventoryForm.SelectionChangeEventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Forms\BaseForms\BasePKInventoryForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAAAAQAAACAAAAAgAICAAAACAAAAAAAAIAAhgAAKAAA=</HashCode>
+      <FileName>Forms\BaseForms\BasePKInventoryForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.BaseForms.ExplorerBaseForm">
+    <Position X="2" Y="10.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AgJAgAAAICAAAAAAAAGBAAACAYIAAIAARAkAEAEACAA=</HashCode>
+      <FileName>Forms\BaseForms\ExplorerBaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.Explorers.FeaturesExplorer">
+    <Position X="3" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIkgACAAAAACAACDAAACAIAECAAAAAAAgAEQAAA=</HashCode>
+      <FileName>Forms\Explorers\FeaturesExplorer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.Explorers.LibrariesExplorer">
+    <Position X="5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAIAAA0gECgAEgCDAACAAAACAIAAgAAAQgEAgAGYAAA=</HashCode>
+      <FileName>Forms\Explorers\LibrariesExplorer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.Explorers.LibraryCategoriesExplorer">
+    <Position X="7.25" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABQAC0gACAAAwCAAACACAACAIAAAKAAAAEAwMGQAAA=</HashCode>
+      <FileName>Forms\Explorers\LibraryCategoriesExplorer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.BaseForms.Editor.EditorBaseForm">
+    <Position X="8.25" Y="10.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAYIQECBgEQCgAAGAAACCAAAAABBAAAAAAQAAACA=</HashCode>
+      <FileName>Forms\BaseForms\Editor\EditorBaseForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeifenLuo.WinFormsUI.Docking.DockContent" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PKStudio.Forms.Editors.SourceFileEditor">
+    <Position X="12.5" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAgQAQAGhAEAAQAAGAgAACBAAAAEBAgAAAAAQAACg=</HashCode>
+      <FileName>Forms\Editors\SourceFileEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.Editors.FeatureEditor" Collapsed="true">
+    <Position X="10.5" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAACAAAAAAAACAAAECACAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Forms\Editors\FeatureEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.Editors.LibraryCategoryEditor" Collapsed="true">
+    <Position X="12.25" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAIAAAKAAAAAAAACAAAECAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Forms\Editors\LibraryCategoryEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.Editors.LibraryEditor" Collapsed="true">
+    <Position X="14" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACEAAAACIACAAAECAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Editors\LibraryEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Forms.BaseForms.PKStudioBaseDockingForm">
+    <Position X="6.75" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\BaseForms\PKStudioBaseDockingForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PKStudio.Helpers.OpenedDocumentsList">
+    <Position X="1.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIIAIAAABAAAAAAAAAAAAAAAAAAAAEIA=</HashCode>
+      <FileName>Helpers\OpenedDocumentsList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
