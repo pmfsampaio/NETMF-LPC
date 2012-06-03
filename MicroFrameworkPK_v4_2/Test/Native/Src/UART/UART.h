@@ -13,7 +13,7 @@
 
 //--//
 
-#define BUFFER_SIZE    600
+#define BUFFER_SIZE    8
 #define FlowCtrlNone   USART_FLOW_NONE
 #define FlowCtrlSW     USART_FLOW_SW_IN_EN | USART_FLOW_SW_OUT_EN
 #define FlowCtrlHW     USART_FLOW_HW_IN_EN | USART_FLOW_HW_OUT_EN
@@ -37,7 +37,6 @@ public:
 
             UART                  ( int com, int baud, int parity, int stop, int data, int flow );
     BOOL    Execute               ( LOG_STREAM Stream );
-    BOOL    Echo               ( LOG_STREAM Stream );
     void    InitializeXmitBuffer  ( );
     BOOL    Validate              ( );       
 };

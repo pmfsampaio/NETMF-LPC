@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-#include "..\..\..\..\DeviceCode\Targets\Native\STM32\DeviceCode\LPC1788_Devices.h"
+#include "..\..\..\..\DeviceCode\Targets\Native\STM32\DeviceCode\stm32f10x.h"
 
 
 /* Pin Configuration Register Values
@@ -37,7 +37,6 @@
 
 void __section(SectionForBootstrapOperations) BootstrapCode_GPIO() {
 
-#if 0
     /* Enable GPIOA, GPIOB, and GPIOC clocks */  
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN;
 
@@ -45,5 +44,5 @@ void __section(SectionForBootstrapOperations) BootstrapCode_GPIO() {
     GPIOA->CRH = 0x44444444; GPIOA->CRL = 0x44444444;
     GPIOB->CRH = 0x44444444; GPIOB->CRL = 0x44444444;
     GPIOC->CRH = 0x44444444; GPIOC->CRL = 0x44444444;
-#endif
+
 }

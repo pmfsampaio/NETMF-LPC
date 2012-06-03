@@ -11,7 +11,7 @@
     <ManifestFile>BlockStorage_AddDevices_STM32Stamp.$(LIB_EXT).manifest</ManifestFile>
     <Groups>Solutions\STM32Stamp</Groups>
     <LibraryCategory>
-      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BlockStorageAddDevices_HAL" Guid="{D1C1D946-18A1-4f12-807A-A182C4059D86}" ProjectPath="">
+      <MFComponent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BlockStorageAddDevices_HAL" Guid="{D1C1D946-18A1-4f12-807A-A182C4059D86}" ProjectPath="" xmlns="">
         <VersionDependency xmlns="http://schemas.microsoft.com/netmf/InventoryFormat.xsd">
           <Major>4</Major>
           <Minor>0</Minor>
@@ -36,8 +36,10 @@
     <Version>4.0.0.0</Version>
   </PropertyGroup>
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
+  <PropertyGroup />
   <ItemGroup>
     <Compile Include="Bl_AddDevices.cpp" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />
 </Project>

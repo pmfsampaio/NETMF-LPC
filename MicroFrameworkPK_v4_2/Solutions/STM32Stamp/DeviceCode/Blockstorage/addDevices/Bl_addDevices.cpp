@@ -1,34 +1,26 @@
-//-----------------------------------------------------------------------------
-// Software that is described herein is for illustrative purposes only  
-// which provides customers with programming information regarding the  
-// products. This software is supplied "AS IS" without any warranties.  
-// NXP Semiconductors assumes no responsibility or liability for the 
-// use of the software, conveys no license or title under any patent, 
-// copyright, or mask work right to the product. NXP Semiconductors 
-// reserves the right to make changes in the software without 
-// notification. NXP Semiconductors also make no representation or 
-// warranty that such application will be suitable for the specified 
-// use without further testing or modification. 
-//-----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Copyright (c) Microsoft Corporation. All rights reserved.
+//  Implementation for STM32Stamp board (STM32): Copyright (c) Oberon microsystems, Inc.
+//
+//  *** Block Storage AddDevice Configuration ***
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-//--//
 
 
-GPIO_PIN VirtualKey_GetPins( UINT32 virtualKey)
+extern struct BlockStorageDevice  g_STM32_BS;
+extern struct IBlockStorageDevice g_STM32_Flash_DeviceTable;
+extern struct BLOCK_CONFIG        g_STM32_BS_Config;
+
+
+void BlockStorage_AddDevices()
 {
-}
-
-
-extern struct BlockStorageDevice  g_SST39VF640_16_BS;
-extern struct IBlockStorageDevice g_SST39WF_16_BS_DeviceTable;
-extern struct BLOCK_CONFIG        g_SST39VF640_16_BS_Config;
-
-
-//--//
-
-void BlockStorage_AddDevices() //tinyhal.cpp calls this
-{
-   BlockStorageList::AddDevice( &g_SST39VF640_16_BS, &g_SST39WF_16_BS_DeviceTable, &g_SST39VF640_16_BS_Config, FALSE );
+    BlockStorageList::AddDevice( &g_STM32_BS, &g_STM32_Flash_DeviceTable, &g_STM32_BS_Config, FALSE );
 }
 
