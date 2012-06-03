@@ -62,7 +62,7 @@
  * allocation and deallocation.
  */
 #ifndef SYS_LIGHTWEIGHT_PROT
-#define SYS_LIGHTWEIGHT_PROT            0
+#define SYS_LIGHTWEIGHT_PROT            1
 #endif
 
 /** 

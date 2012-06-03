@@ -54,8 +54,8 @@
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <PropertyGroup />
   <ItemGroup>
-    <HFiles Include="..\LPC1788_Devices.h" />
-    <Compile Include="LPC178X__USART.cpp" />
+    <HFiles Include="..\stm32f10x.h" />
+    <Compile Include="STM32_Usart_functions.cpp" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Targets" />

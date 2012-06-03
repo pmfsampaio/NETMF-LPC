@@ -59,9 +59,8 @@
   <Import Project="$(SPOCLIENT)\tools\targets\Microsoft.SPOT.System.Settings" />
   <PropertyGroup />
   <ItemGroup>
-    <HFiles Include="..\LPC177x_8x.h" />
+    <HFiles Include="..\stm32f10x.h" />
     <Compile Include="STM32_bootstrap.cpp" />
-    <Compile Include="LPC178X__Handlers.c" />
     
     <RequiredProjects Include="$(SPOCLIENT)\DeviceCode\Cores\arm\Processors\ARM9\Bootstrap\dotnetmf.proj" />
   </ItemGroup>

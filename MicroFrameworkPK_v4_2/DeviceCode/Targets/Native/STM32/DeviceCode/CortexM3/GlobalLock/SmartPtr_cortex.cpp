@@ -13,78 +13,8 @@
 
 #include <tinyhal.h>
 
- SmartPtr_IRQ::SmartPtr_IRQ(void* context)
-{
-}
-
-/*
- *  WAS_DISABLED -> disable
- *  WAS_ENABLED  -> enable
- *  RELEASED     -> enable
- */
- SmartPtr_IRQ::~SmartPtr_IRQ()
-{
-}
-
-BOOL SmartPtr_IRQ::WasDisabled()
-{
-}
-
-/*
- *  WAS_DISABLED -> WAS_DISABLED
- *  WAS_ENABLED  -> RELEASED
- *  RELEASED     -> RELEASED
- */
-void SmartPtr_IRQ::Release()
-{
-}
-
-/*
- *  WAS_DISABLED -> WAS_DISABLED
- *  WAS_ENABLED  -> WAS_ENABLED
- *  RELEASED     -> WAS_ENABLED
- */
-void SmartPtr_IRQ::Acquire()
-{
-}
-
-/*
- *  WAS_DISABLED -> WAS_DISABLED
- *  WAS_ENABLED  -> enabled -> WAS_ENABLED
- *  RELEASED     -> RELEASED
- */
-void SmartPtr_IRQ::Probe()
-{
-}
-
-
-// static members
-
-BOOL SmartPtr_IRQ::GetState(void* context)
-{
-}
-
-BOOL SmartPtr_IRQ::ForceDisabled(void* context)
-{
-}
-
- BOOL SmartPtr_IRQ::ForceEnabled(void* context)
-{
-}
-
-
-// private members (not used)
-
- void SmartPtr_IRQ::Disable()
-{
-}
-
- void SmartPtr_IRQ::Restore()
-{
-}
-
-
 #ifndef __GNUC__
+
 #pragma arm section code = "SectionForFlashOperations"
 
 
@@ -103,7 +33,7 @@ BOOL SmartPtr_IRQ::ForceDisabled(void* context)
  *  disabled -> WAS_DISABLED
  *  enabled  -> WAS_ENABLED
  */
- SmartPtr_IRQ::SmartPtr_IRQ(void* context)
+__asm SmartPtr_IRQ::SmartPtr_IRQ(void* context)
 { 
 /*
     m_context = context; // never used
@@ -121,7 +51,7 @@ BOOL SmartPtr_IRQ::ForceDisabled(void* context)
  *  WAS_ENABLED  -> enable
  *  RELEASED     -> enable
  */
- SmartPtr_IRQ::~SmartPtr_IRQ()
+__asm SmartPtr_IRQ::~SmartPtr_IRQ() 
 { 
 /*
     Restore(); 
@@ -131,7 +61,7 @@ BOOL SmartPtr_IRQ::ForceDisabled(void* context)
     BX       lr
 }
 
- BOOL SmartPtr_IRQ::WasDisabled()
+__asm BOOL SmartPtr_IRQ::WasDisabled()
 {
 // Also check for interrupt state != 0
 /*
@@ -149,7 +79,7 @@ L1  BX       lr
  *  WAS_ENABLED  -> RELEASED
  *  RELEASED     -> RELEASED
  */
- void SmartPtr_IRQ::Release()
+__asm void SmartPtr_IRQ::Release()
 {
 /*
     Restore(); 
@@ -164,7 +94,7 @@ L1  BX       lr
  *  WAS_ENABLED  -> WAS_ENABLED
  *  RELEASED     -> WAS_ENABLED
  */
- void SmartPtr_IRQ::Acquire()
+__asm void SmartPtr_IRQ::Acquire()
 {
 /*
     __disable_irq();
@@ -178,10 +108,10 @@ L1  BX       lr
  *  WAS_ENABLED  -> enabled -> WAS_ENABLED
  *  RELEASED     -> RELEASED
  */
- void SmartPtr_IRQ::Probe()
+__asm void SmartPtr_IRQ::Probe()
 {
 /*
-    register UINT32 Primask ("primask");
+    register UINT32 Primask __asm("primask");
     UINT32 m = Primask;
     Primask = m_state;
     Primask = m;
@@ -196,12 +126,12 @@ L1  BX       lr
 
 // static members
 
- BOOL SmartPtr_IRQ::GetState(void* context)
+__asm BOOL SmartPtr_IRQ::GetState(void* context)
 {
 // Also check for interrupt state == 0
 /*
-    register UINT32 Primask ("primask");
-    register UINT32 IPSR ("ipsr");
+    register UINT32 Primask __asm("primask");
+    register UINT32 IPSR __asm("ipsr");
     return !Primask && IPSR == 0; 
 */
     MRS      r0,PRIMASK
@@ -212,10 +142,10 @@ L1  BX       lr
 L2  BX       lr
 }
 
- BOOL SmartPtr_IRQ::ForceDisabled(void* context)
+__asm BOOL SmartPtr_IRQ::ForceDisabled(void* context)
 {
 /*
-    register UINT32 Primask ("primask");
+    register UINT32 Primask __asm("primask");
     UINT32 m = Primask;
     __disable_irq();
     return m ^ 1;
@@ -226,10 +156,10 @@ L2  BX       lr
     BX       lr
 }
 
- BOOL SmartPtr_IRQ::ForceEnabled(void* context)
+__asm BOOL SmartPtr_IRQ::ForceEnabled(void* context)
 {
 /*
-    register UINT32 Primask ("primask");
+    register UINT32 Primask __asm("primask");
     UINT32 m = Primask;
     __enable_irq();
     return m ^ 1;
@@ -243,10 +173,10 @@ L2  BX       lr
 
 // private members (not used)
 
- void SmartPtr_IRQ::Disable()
+__asm void SmartPtr_IRQ::Disable()
 {
 /*
-    register UINT32 Primask ("primask");
+    register UINT32 Primask __asm("primask");
     m_state = Primask;
     __disable_irq();
 */
@@ -256,10 +186,10 @@ L2  BX       lr
     BX       lr
 }
 
- void SmartPtr_IRQ::Restore()
+__asm void SmartPtr_IRQ::Restore()
 {
 /*
-    register UINT32 Primask ("primask");
+    register UINT32 Primask __asm("primask");
     Primask = m_state;
 */
     LDR      r1,[r0,#__cpp(offsetof(SmartPtr_IRQ, m_state))]

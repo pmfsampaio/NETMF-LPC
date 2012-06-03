@@ -87,7 +87,7 @@ void LPC24XX_DAC_Driver::Initialize( UINT32 SampleFrequencyHz )
     
     //Set Sample output lenght
     UINT32 SampleTimeInUsecs = 1000000/SampleFrequencyHz;
-    UINT32 CycleTimeInNanosecs = 1000000000/SYSTEM_CLOCK_HZ;
+    UINT32 CycleTimeInNanosecs = 1000000000/LPC24XX_DAC_PCLK;
     g_LPC24XX_DAC_Driver.SampleTimeInCycles = SampleTimeInUsecs * 1000 / CycleTimeInNanosecs;
     
     /*

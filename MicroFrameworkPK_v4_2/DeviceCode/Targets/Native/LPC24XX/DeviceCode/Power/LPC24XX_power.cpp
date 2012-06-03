@@ -149,7 +149,7 @@ void LPC24XX_Driver::Sleep()
 {
     //LPC22XX::SYSCON().INTWAKE = 
     //LPC22XX::SYSCON().PCON = 0x81;
-   // while(LPC24XX_VIC::c_MaxInterruptIndex == LPC24XX::VIC().NormalInterruptPending());
+    while(LPC24XX_VIC::c_MaxInterruptIndex == LPC24XX::VIC().NormalInterruptPending());
 }
 
 void LPC24XX_Driver::Halt()

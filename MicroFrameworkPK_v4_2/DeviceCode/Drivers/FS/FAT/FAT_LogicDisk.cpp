@@ -279,8 +279,16 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
 
     //------//
 
-    BYTE buffer[512];
-    memset( buffer, 0, 512 );
+    ByteAddress beginBlock;
+
+    UINT32 regionIndex, rangeIndex;
+
+    const BlockRegionInfo *pBlockRegionInfo;
+
+    const BlockDeviceInfo *tmpBlockDeviceInfo = m_blockStorageDevice->GetDeviceInfo();
+
+    BYTE buffer[DEFAULT_SECTOR_SIZE];
+    memset( buffer, 0, DEFAULT_SECTOR_SIZE );
 
 
     FAT_DBR* dbr = (FAT_DBR*)&(buffer[0]);
@@ -463,6 +471,33 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
 
     //--//
 
+    //find sector address for first BLOCKTYPE_FILESYSTEM  block 
+    if(m_blockStorageDevice->FindForBlockUsage(BlockUsage::FILESYSTEM, beginBlock, regionIndex, rangeIndex))
+    {
+        //in next regions to find the end of BLOCKTYPE_FILESYSTEM blocks
+        pBlockRegionInfo = &tmpBlockDeviceInfo->Regions[regionIndex];
+
+        //in begin region to find the end of BLOCKTYPE_FILESYSTEM blocks
+        for(int j = rangeIndex; j < pBlockRegionInfo->NumBlockRanges; j++)
+        {
+            const BlockRange* pRange = &pBlockRegionInfo->BlockRanges[j];
+
+            if(pRange->IsFileSystem())
+            {
+                UINT32 blkAddr = pBlockRegionInfo->BlockAddress(pRange->StartBlock);
+                int cnt = pRange->EndBlock - pRange->StartBlock + 1;
+
+                while(cnt--)
+                {
+                    m_blockStorageDevice->EraseBlock( blkAddr );
+
+                    blkAddr += pBlockRegionInfo->BytesPerBlock;
+                }
+            }
+        }
+    }
+
+
     // Zero out all sectors first
     UINT32 sectorsNeeded = dbr->Get_BPB_RsvdSecCnt() + (2 * fatSz) + rootDirSectors; //BPB_RsvdSecCnt BPB_NumFATs * FATSz + RootDirSectors
     if(!useFAT16) sectorsNeeded += dbr->BPB_SecPerClus; // for the FAT32 root directory
@@ -474,7 +509,7 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
 
 
     // Write the first DBR
-    if(!m_blockStorageDevice->Write( m_baseAddress, 512, buffer, TRUE ))
+    if(!m_blockStorageDevice->Write( m_baseAddress, DEFAULT_SECTOR_SIZE, buffer, TRUE ))
     {
         return CLR_E_FILE_IO;
     }
@@ -483,7 +518,7 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
     if(!useFAT16)
     {
 
-        if(!m_blockStorageDevice->Write( m_baseAddress + 6 * DEFAULT_SECTOR_SIZE, 512, buffer, TRUE ))
+        if(!m_blockStorageDevice->Write( m_baseAddress + 6 * DEFAULT_SECTOR_SIZE, DEFAULT_SECTOR_SIZE, buffer, TRUE ))
         {
         
             return CLR_E_FILE_IO;
@@ -493,8 +528,8 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
         
         fsInfo->Initialize( m_totalClusterCount - 1, 3 );
 
-        if(!m_blockStorageDevice->Write( m_baseAddress + 1 * DEFAULT_SECTOR_SIZE, 512, buffer, TRUE ) ||
-           !m_blockStorageDevice->Write( m_baseAddress + 7 * DEFAULT_SECTOR_SIZE, 512, buffer, TRUE ))
+        if(!m_blockStorageDevice->Write( m_baseAddress + 1 * DEFAULT_SECTOR_SIZE, DEFAULT_SECTOR_SIZE, buffer, TRUE ) ||
+           !m_blockStorageDevice->Write( m_baseAddress + 7 * DEFAULT_SECTOR_SIZE, DEFAULT_SECTOR_SIZE, buffer, TRUE ))
         {
 
             return CLR_E_FILE_IO;
@@ -502,7 +537,7 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
     }
     
     // Write the first entries of the FAT table
-    memset( buffer, 0, 512 );
+    memset( buffer, 0, DEFAULT_SECTOR_SIZE );
 
     if(useFAT16)
     {
@@ -538,8 +573,8 @@ HRESULT FAT_LogicDisk::FormatHelper( LPCSTR volumeLabel, UINT32 parameters )
     }
 
 
-    if(!m_blockStorageDevice->Write( m_baseAddress + m_FATBaseSector[0] * DEFAULT_SECTOR_SIZE, 512, buffer, TRUE ) ||
-       !m_blockStorageDevice->Write( m_baseAddress + m_FATBaseSector[1] * DEFAULT_SECTOR_SIZE, 512, buffer, TRUE ))
+    if(!m_blockStorageDevice->Write( m_baseAddress + m_FATBaseSector[0] * DEFAULT_SECTOR_SIZE, DEFAULT_SECTOR_SIZE, buffer, TRUE ) ||
+       !m_blockStorageDevice->Write( m_baseAddress + m_FATBaseSector[1] * DEFAULT_SECTOR_SIZE, DEFAULT_SECTOR_SIZE, buffer, TRUE ))
     {
     
         return CLR_E_FILE_IO;
@@ -1126,6 +1161,8 @@ BOOL FAT_LogicDisk::PopulateDiskSize()
     const BlockRegionInfo *pBlockRegionInfo;
 
     const BlockDeviceInfo *tmpBlockDeviceInfo = m_blockStorageDevice->GetDeviceInfo();
+
+    m_diskSize = 0;
 
     
     //find sector address for first BLOCKTYPE_FILESYSTEM  block 

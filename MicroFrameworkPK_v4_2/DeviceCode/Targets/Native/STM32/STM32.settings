@@ -25,10 +25,7 @@
     <DEVICE_TYPE Condition="'$(DEVICE_TYPE)' == ''">DLM</DEVICE_TYPE>
     <BUILD_TOOL_GUID>{CD24C1A5-2641-4460-AC5A-093B1C6D3D8B}</BUILD_TOOL_GUID>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(COMPILER_TOOL)'=='GCC'">
-    <DEVICE_TYPE Condition="'$(DEVICE_TYPE)' == ''">cortex-m3</DEVICE_TYPE>
-    <BUILD_TOOL_GUID>{722B0D5D-1243-4557-913F-61FAB04E9209}</BUILD_TOOL_GUID>
-  </PropertyGroup>
+
   <ItemGroup>
     <IncludePaths Include="devicecode\Targets\Native\STM32" />
   </ItemGroup>

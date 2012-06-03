@@ -244,9 +244,6 @@ struct Settings
         {
             CLR_RT_Assembly* assm;
 
-#if !defined(BUILD_RTM)
-            CLR_Debug::Printf( "Attaching file.\r\n" );
-#endif
             // Creates instance of assembly, sets pointer to native functions, links to g_CLR_RT_TypeSystem 
             TINYCLR_CHECK_HRESULT(LoadAssembly( header, assm ));
             

@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -25,7 +25,6 @@
 
 BOOL AD_Initialize( ANALOG_CHANNEL channel, INT32 precisionInBits )
 {
-#if 0
     if (!(RCC->APB2ENR & RCC_APB2ENR_ADC1EN)) { // not yet initialized
         RCC->APB2ENR |= RCC_APB2ENR_ADC1EN; // enable AD clock
         ADC1->SQR1 = 0; // 1 conversion
@@ -36,20 +35,16 @@ BOOL AD_Initialize( ANALOG_CHANNEL channel, INT32 precisionInBits )
     }
     // set pin as analog input
     CPU_GPIO_DisablePin(STM32_AD_FIRST_PIN + channel, RESISTOR_DISABLED, 0, GPIO_ALT_MODE_1);
-#endif
     return TRUE;
 }
 
 INT32 AD_Read( ANALOG_CHANNEL channel )
 {
-#if 0
     int x = ADC1->DR; // clear EOC flag
     ADC1->SQR3 = STM32_AD_FIRST_CHANNEL + channel; // select channel
     ADC1->CR2 |= ADC_CR2_ADON; // start AD
     while (!(ADC1->SR & ADC_SR_EOC)); // wait for completion
     return ADC1->DR; // read result
-#endif
-    return 0;
 }
 
 UINT32 AD_ADChannels()

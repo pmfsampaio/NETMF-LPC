@@ -313,11 +313,21 @@ u32_t sys_now(void)
 #if SYS_LIGHTWEIGHT_PROT
 sys_prot_t sys_arch_protect(void)
 {
+    if(INTERRUPTS_ENABLED_STATE())
+    {
+        DISABLE_INTERRUPTS();
+        return 1;
+    }
+
     return 0;
 }
 
 void sys_arch_unprotect(sys_prot_t pval)
 {
+    if(pval == 1)
+    {
+        ENABLE_INTERRUPTS();
+    }
 }
 #endif
 

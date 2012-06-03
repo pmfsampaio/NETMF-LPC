@@ -10,6 +10,7 @@
     <NoWarn>$(NoWarn),0169</NoWarn>
     <ComponentGuid>{5CA83B49-4E5C-4989-AC45-855A5A28EED5}</ComponentGuid>
     <AssemblyBothEndian>true</AssemblyBothEndian>
+    <RevisionNumber>1</RevisionNumber>
   </PropertyGroup>
   <Import Project="$(SPOCLIENT)\tools\Targets\Microsoft.SPOT.CSharp.Targets" />
 

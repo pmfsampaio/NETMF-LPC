@@ -730,7 +730,6 @@ void LPC24XX_GPIO_Driver::PIN_ISR_DESCRIPTOR::Fire( void* arg )
 {
     PIN_ISR_DESCRIPTOR* desc = (PIN_ISR_DESCRIPTOR*)arg;
     
-
     //debug_printf("Servicing GPIO. m_pin=%u, m_status=%u\r\n",desc->m_pin,desc->m_status);
     desc->m_isr( desc->m_pin, desc->m_status, desc->m_param );
 

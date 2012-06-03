@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <tinyhal.h>
-#include "..\LPC1788_Devices.h"
+#include "..\stm32f10x.h"
 
 extern UINT32 ARM_Vectors[84];  // the interrupt vector table
 extern UINT32 FAULT_SubHandler; // the standard fault handler
@@ -46,17 +46,14 @@ void CPU_INTC_Initialize()
     ARM_Vectors[15] = (UINT32)&FAULT_SubHandler; // Systick
     
     __DMB(); // ensure table is written
-    SCB->VTOR = 0x10000000 & 0x3FFFFF80;
-
-#if 0
+        
     SCB->AIRCR = (0x5FA << SCB_AIRCR_VECTKEY_Pos) // unlock key
                | (7 << SCB_AIRCR_PRIGROUP_Pos);   // no priority group bits
     SCB->VTOR = (UINT32)ARM_Vectors; // vector table base
-
     SCB->SHCSR |= SCB_SHCSR_USGFAULTENA  // enable faults
                 | SCB_SHCSR_BUSFAULTENA
                 | SCB_SHCSR_MEMFAULTENA;
-#endif
+    
 }
 
 BOOL CPU_INTC_ActivateInterrupt( UINT32 Irq_Index, HAL_CALLBACK_FPN ISR, void* ISR_Param )
@@ -96,6 +93,6 @@ BOOL CPU_INTC_InterruptEnableState( UINT32 Irq_Index )
 
 BOOL CPU_INTC_InterruptState( UINT32 Irq_Index )
 {
-	// return pending bit
+    // return pending bit
     return (NVIC->ISPR[Irq_Index >> 5] >> (Irq_Index & 0x1F)) & 1;
 }

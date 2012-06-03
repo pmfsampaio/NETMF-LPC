@@ -332,7 +332,7 @@ int rtp_net_init (void)
 #endif
    
     bget_init();
-    rtp_memset(MemoryPool, 0, NETWORK_MEMORY_POOL__SIZE*sizeof (unsigned char ));
+    if(NULL == rtp_memset(MemoryPool, 0, NETWORK_MEMORY_POOL__SIZE*sizeof (unsigned char ))) return RTP_NET_EBADIFACE;
     bpool(&MemoryPool[0], NETWORK_MEMORY_POOL__SIZE);
 
     rtp_kern_init();

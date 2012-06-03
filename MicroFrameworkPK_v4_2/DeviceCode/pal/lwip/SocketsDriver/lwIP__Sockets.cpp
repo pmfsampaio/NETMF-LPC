@@ -994,11 +994,11 @@ int LWIP_SOCKETS_Driver::GetNativeError ( int error )
         case EALREADY:
             ret = SOCK_EALREADY;
             break;
-/* PS
+
         case ENOTSOCK:
             ret = SOCK_ENOTSOCK;
             break;
-*/
+
         case EDESTADDRREQ:
             ret = SOCK_EDESTADDRREQ;
             break;
@@ -1072,11 +1072,10 @@ int LWIP_SOCKETS_Driver::GetNativeError ( int error )
             ret = SOCK_EISCONN;
             break;
 
-/* PS
         case ESHUTDOWN:
             ret = SOCK_ESHUTDOWN;
             break;
-*/
+
         case ETIMEDOUT:
             ret = SOCK_ETIMEDOUT;
             break;
