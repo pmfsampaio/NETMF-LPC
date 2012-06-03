@@ -1,5 +1,0 @@
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Server\dll\Microsoft.SPOT.Emulator.Interface.dll
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Server\dll\Microsoft.SPOT.Emulator.Interface.pdb
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Emulator.Interface\__COMMON\ResolveAssemblyReference.cache
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Emulator.Interface\__COMMON\Microsoft.SPOT.Emulator.Interface.dll
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Emulator.Interface\__COMMON\Microsoft.SPOT.Emulator.Interface.pdb

@@ -1,5 +1,0 @@
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\dll\Microsoft.SPOT.Tasks.NativeBuild.dll
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\dll\Microsoft.SPOT.Tasks.NativeBuild.pdb
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\obj\Microsoft.SPOT.Tasks.NativeBuild\__COMMON\ResolveAssemblyReference.cache
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\obj\Microsoft.SPOT.Tasks.NativeBuild\__COMMON\Microsoft.SPOT.Tasks.NativeBuild.dll
-Z:\home\Develop\software\NETMF-LPC\MicroFrameworkPK_v4_1\BuildOutput\public\Release\Server\obj\Microsoft.SPOT.Tasks.NativeBuild\__COMMON\Microsoft.SPOT.Tasks.NativeBuild.pdb

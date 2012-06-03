@@ -1,3 +1,26 @@
-Micro .NET Framework
+NETMF-LPC 
+Micro .NET Framework for NXP microprocessors.
 
+This project as the goal to port the Micro .NET Framework, version 4.1 and 4.2,
+to development boards based on NXP microprocessors.
+
+List of microprocessors, at the moment, supported:
+ARM7TDMI - LPC2294 @ 60MHz
+ARM7TDMI - LPC2478 @ 72MHz
+Cortex M3 - LPC1788 @ 120MHz
+
+List of solutions, at the moment, supported:
+YAAB – Development board based on LPC2294
+plak1a  – Development board based on LPC2294
++plak1a – Development board based on LPC2478
+ANC  – Development board based on LPC1788
+
+Toolchains:
+All projects use the GCC toolchain.
+Add support to the GCC4.5 toolchain from CodeSourcery.
+
+
+--
 Pedro Sampaio
+03 Jun 2012
+
