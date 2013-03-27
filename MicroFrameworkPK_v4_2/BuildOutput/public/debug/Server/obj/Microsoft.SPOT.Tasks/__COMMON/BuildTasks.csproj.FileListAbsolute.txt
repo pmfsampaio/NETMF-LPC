@@ -1,8 +1,0 @@
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\dll\Microsoft.SPOT.Tasks.dll
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\dll\Microsoft.SPOT.Tasks.pdb
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks\__COMMON\ResolveAssemblyReference.cache
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks\__COMMON\Microsoft.SPOT.Tasks.BuildTaskResources.resources
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks\__COMMON\GenerateResource.read.1.tlog
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks\__COMMON\GenerateResource.write.1.tlog
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks\__COMMON\Microsoft.SPOT.Tasks.dll
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\Microsoft.SPOT.Tasks\__COMMON\Microsoft.SPOT.Tasks.pdb

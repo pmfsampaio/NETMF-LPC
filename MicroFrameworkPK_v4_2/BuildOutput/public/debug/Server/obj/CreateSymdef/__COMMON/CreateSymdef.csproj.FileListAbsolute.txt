@@ -1,5 +1,0 @@
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\dll\CreateSymdef.exe
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\dll\CreateSymdef.pdb
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\CreateSymdef\__COMMON\ResolveAssemblyReference.cache
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\CreateSymdef\__COMMON\CreateSymdef.exe
-C:\MicroFrameworkPK_v4_2\BuildOutput\public\debug\Server\obj\CreateSymdef\__COMMON\CreateSymdef.pdb
